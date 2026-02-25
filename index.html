@@ -17,6 +17,10 @@
     --cream: #E8D5B7;
     --warm-white: #F5F0EB;
     --forest-sage: #1B4332;
+    --fire-amber: rgba(255,140,50,0.4);
+    --fire-deep: rgba(255,80,20,0.3);
+    --cool-light: rgba(200,220,255,0.15);
+    --warm-haze: rgba(212,165,116,0.04);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -419,50 +423,203 @@
     text-transform: uppercase; writing-mode: vertical-rl; transform: rotate(180deg);
   }
 
-  /* --- TRAINING FLOOR --- */
+  /* --- TRAINING FLOOR (PHOTOREALISTIC) --- */
   .training-floor {
-    background: linear-gradient(180deg, #0a0a0a 0%, #121210 40%, #151512 100%);
+    background: linear-gradient(180deg, #060606 0%, #0a0a08 30%, #0e0e0c 100%);
     overflow: hidden;
   }
-  .ceiling-beam { position: absolute; top: 0; height: 8%; background: #1a1a1a; border-bottom: 1px solid #222; }
-  .gym-floor {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 35%;
-    background: linear-gradient(180deg, #252320, #1a1815);
+  /* Ceiling structure */
+  .tf-ceiling {
+    position: absolute; top: 0; left: 0; right: 0; height: 14%;
+    background:
+      repeating-linear-gradient(90deg, rgba(12,12,10,0.8) 0px, rgba(12,12,10,0.8) 18px, rgba(16,16,14,0.6) 18px, rgba(16,16,14,0.6) 20px),
+      linear-gradient(180deg, #080808, #0c0c0a);
+    z-index: 0;
   }
-  .gym-floor::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: repeating-linear-gradient(90deg, transparent 0px, transparent 40px,
-      rgba(50,50,50,0.3) 40px, rgba(50,50,50,0.3) 41px);
+  /* I-beams converging in perspective */
+  .tf-beam {
+    position: absolute; top: 0; background: linear-gradient(180deg, #161616, #101010);
+    border-bottom: 2px solid rgba(40,40,40,0.6); z-index: 1;
   }
-  .rack-silhouette {
-    position: absolute; background: linear-gradient(180deg, #1a1a1a, #0a0a0a);
-    border: 1px solid #2a2a2a;
+  .tf-beam::after {
+    content: ''; position: absolute; bottom: -3px; left: 15%; right: 15%;
+    height: 3px; background: #1a1a1a;
   }
-  .rack-silhouette::before {
-    content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-    width: 80%; height: 5px; background: #333; border-radius: 2px;
+  /* HVAC ductwork */
+  .tf-hvac {
+    position: absolute; top: 4%; height: 2.5%; border-radius: 3px;
+    background: linear-gradient(180deg, #141414, #0e0e0e);
+    border: 1px solid rgba(30,30,30,0.5); z-index: 1;
   }
-  .turf-lane {
-    position: absolute; right: 8%; top: 15%; bottom: 5%; width: 15%;
-    background: linear-gradient(90deg, rgba(27,67,50,0.3), rgba(27,67,50,0.4), rgba(27,67,50,0.3));
-    border-left: 1px solid rgba(27,67,50,0.5); border-right: 1px solid rgba(27,67,50,0.5);
+  /* Back wall - board-formed concrete */
+  .tf-back-wall {
+    position: absolute; top: 10%; left: 18%; right: 18%; height: 32%;
+    background:
+      repeating-linear-gradient(0deg, transparent 0px, transparent 10px, rgba(35,33,30,0.25) 10px, rgba(35,33,30,0.25) 11px),
+      linear-gradient(180deg, #18160f 0%, #13110c 100%);
+    z-index: 0;
   }
-  .pendant-light { position: absolute; top: 0; width: 2%; display: flex; flex-direction: column; align-items: center; }
-  .pendant-wire { width: 1px; height: 30px; background: #444; }
-  .pendant-shade {
-    width: 100%; height: 12px; background: var(--copper); border-radius: 0 0 50% 50%;
-    box-shadow: 0 10px 40px rgba(212,165,116,0.2), 0 5px 15px rgba(212,165,116,0.3);
+  /* Feature wall - charred cedar shou sugi ban */
+  .tf-feature-wall {
+    position: absolute; top: 10%; left: 0; width: 18%; height: 48%;
+    background:
+      repeating-linear-gradient(180deg, transparent 0px, transparent 14px, rgba(62,36,24,0.15) 14px, rgba(62,36,24,0.15) 16px),
+      linear-gradient(90deg, #221a12 0%, #181210 100%);
+    z-index: 1;
   }
-  .accent-wall {
-    position: absolute; left: 0; top: 8%; bottom: 35%; width: 3%;
-    background: linear-gradient(180deg, #3a3530, #2a2520);
+  .tf-brand {
+    position: absolute; left: 3.5%; top: 16%; font-size: clamp(9px, 1.8vw, 24px);
+    font-weight: 900; letter-spacing: 6px; color: var(--copper); opacity: 0.8;
+    text-shadow: 0 0 25px rgba(212,165,116,0.4), 0 0 60px rgba(212,165,116,0.15);
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    font-family: 'Inter', sans-serif; text-transform: uppercase; z-index: 2;
   }
-  .wall-text {
-    position: absolute; left: 5%; top: 20%; font-size: clamp(12px, 2.5vw, 32px);
-    font-weight: 900; letter-spacing: 6px; color: var(--copper);
-    text-shadow: 0 0 20px rgba(212,165,116,0.3);
-    writing-mode: vertical-rl; transform: rotate(180deg); opacity: 0.7;
-    font-family: 'Inter', sans-serif;
+  /* Cove lighting at ceiling perimeter */
+  .tf-cove {
+    position: absolute; top: 0; left: 0; right: 0; height: 20%;
+    background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(212,165,116,0.05) 0%, transparent 70%);
+    pointer-events: none; z-index: 1;
+  }
+  /* Floor plane with rubber texture + light pools */
+  .tf-floor {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 44%;
+    background:
+      radial-gradient(ellipse 12% 35% at 28% 15%, rgba(212,165,116,0.07) 0%, transparent 100%),
+      radial-gradient(ellipse 12% 35% at 42% 15%, rgba(212,165,116,0.07) 0%, transparent 100%),
+      radial-gradient(ellipse 12% 35% at 58% 15%, rgba(212,165,116,0.07) 0%, transparent 100%),
+      radial-gradient(ellipse 12% 35% at 72% 15%, rgba(212,165,116,0.07) 0%, transparent 100%),
+      repeating-linear-gradient(86deg, transparent 0px, transparent 28px, rgba(45,42,38,0.15) 28px, rgba(45,42,38,0.15) 29px),
+      linear-gradient(180deg, #1e1c18 0%, #161410 40%, #12100c 100%);
+    z-index: 0;
+  }
+  .tf-floor::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 25%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+  }
+  /* Squat rack structure */
+  .tf-rack {
+    position: absolute; z-index: 3;
+  }
+  .tf-rack::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 18%;
+    background: linear-gradient(90deg, #222, #1a1a1a, #161616);
+    border: 1px solid rgba(45,45,45,0.7);
+  }
+  .tf-rack::after {
+    content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 18%;
+    background: linear-gradient(90deg, #161616, #1a1a1a, #222);
+    border: 1px solid rgba(45,45,45,0.7);
+  }
+  /* Pull-up bar */
+  .tf-pullup {
+    position: absolute; top: 0; left: -8%; right: -8%; height: 4px;
+    background: linear-gradient(90deg, #2a2a2a, #383838, #2a2a2a);
+    border-radius: 2px; z-index: 4;
+  }
+  /* Barbell in j-cups */
+  .tf-barbell {
+    position: absolute; top: 38%; left: -25%; right: -25%; height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #3a3a3a 8%, #505050 15%, #444 48%, #505050 85%, #3a3a3a 92%, transparent 100%);
+    z-index: 4;
+  }
+  .tf-barbell::before {
+    content: ''; position: absolute; left: 6%; top: -7px; width: 5%; height: 17px;
+    background: #c0392b; border-radius: 1px;
+    box-shadow: 5px 0 0 #2980b9, 10px 0 0 #c0392b;
+  }
+  .tf-barbell::after {
+    content: ''; position: absolute; right: 6%; top: -7px; width: 5%; height: 17px;
+    background: #c0392b; border-radius: 1px;
+    box-shadow: -5px 0 0 #2980b9, -10px 0 0 #c0392b;
+  }
+  /* J-cup shelf */
+  .tf-jcup {
+    position: absolute; top: 36%; height: 5px; background: #333; z-index: 3;
+    border-radius: 1px;
+  }
+  .tf-jcup--l { left: 8%; width: 18%; }
+  .tf-jcup--r { right: 8%; width: 18%; }
+  /* Under-rack LED glow */
+  .tf-rack-glow {
+    position: absolute; bottom: -3px; left: -15%; right: -15%; height: 10px;
+    background: radial-gradient(ellipse at center, rgba(200,220,255,0.08) 0%, transparent 70%);
+    filter: blur(3px); z-index: 2;
+  }
+  /* Dumbbell wall */
+  .tf-db-wall {
+    position: absolute; z-index: 2;
+    background:
+      repeating-linear-gradient(90deg, transparent 0px, transparent 8px, rgba(55,55,55,0.35) 8px, rgba(55,55,55,0.35) 12px, transparent 12px, transparent 18px),
+      repeating-linear-gradient(180deg, transparent 0px, transparent 24px, rgba(70,60,50,0.35) 24px, rgba(70,60,50,0.35) 26px),
+      linear-gradient(180deg, #181614, #13110e);
+    border: 1px solid rgba(40,35,30,0.5);
+  }
+  /* Turf lane */
+  .tf-turf {
+    position: absolute; z-index: 2;
+    background:
+      repeating-linear-gradient(88deg, transparent 0px, transparent 3px, rgba(27,67,50,0.12) 3px, rgba(27,67,50,0.12) 4px),
+      linear-gradient(180deg, rgba(27,67,50,0.32), rgba(27,67,50,0.42), rgba(27,67,50,0.28));
+    border-left: 1px solid rgba(27,67,50,0.45); border-right: 1px solid rgba(27,67,50,0.45);
+  }
+  /* Garage door */
+  .tf-garage {
+    position: absolute; z-index: 2;
+    background:
+      repeating-linear-gradient(180deg, transparent 0px, transparent 7px, rgba(55,55,55,0.3) 7px, rgba(55,55,55,0.3) 9px),
+      linear-gradient(180deg, #1e1e1e, #161616);
+    border: 1px solid rgba(60,60,60,0.4);
+  }
+  /* Pendant lights with volumetric cones */
+  .tf-pendant {
+    position: absolute; top: 10%; display: flex; flex-direction: column;
+    align-items: center; z-index: 4;
+  }
+  .tf-pendant-wire { width: 1px; background: rgba(80,80,80,0.6); }
+  .tf-pendant-shade {
+    background: var(--copper); border-radius: 0 0 50% 50%;
+    box-shadow: 0 3px 10px rgba(212,165,116,0.5), 0 10px 40px rgba(212,165,116,0.2);
+  }
+  .tf-pendant::after {
+    content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    width: 350%; height: 600%;
+    background: radial-gradient(ellipse at 50% 0%, rgba(212,165,116,0.1) 0%, rgba(212,165,116,0.03) 45%, transparent 70%);
+    pointer-events: none;
+  }
+  /* Human silhouettes */
+  .tf-figure {
+    position: absolute; z-index: 6;
+    background: linear-gradient(135deg, #0c0c0a, #080808);
+  }
+  .tf-figure--lifter {
+    clip-path: polygon(
+      44% 0%, 56% 0%, 59% 4%, 58% 9%, 55% 11%,
+      62% 13%, 76% 16%, 83% 20%, 83% 24%, 78% 23%, 70% 20%, 63% 17%, 60% 15%,
+      58% 22%, 59% 52%, 62% 54%, 64% 88%, 61% 94%, 57% 98%, 54% 100%,
+      52% 100%, 51% 94%, 49% 94%, 48% 100%, 46% 100%, 43% 98%, 39% 94%,
+      36% 88%, 38% 54%, 41% 52%, 42% 22%, 40% 15%, 37% 17%, 30% 20%,
+      22% 23%, 17% 24%, 17% 20%, 24% 16%, 38% 13%, 45% 11%, 42% 9%, 41% 4%
+    );
+    box-shadow: 2px 0 8px rgba(212,165,116,0.12);
+  }
+  .tf-figure--walker {
+    clip-path: polygon(
+      44% 0%, 56% 0%, 59% 4%, 58% 9%, 55% 11%,
+      60% 13%, 64% 25%, 62% 38%, 58% 30%, 59% 52%,
+      64% 56%, 70% 76%, 66% 86%, 60% 100%, 54% 100%, 54% 86%, 52% 72%, 51% 60%,
+      49% 60%, 48% 72%, 46% 86%, 46% 100%, 40% 100%, 34% 86%, 36% 76%, 42% 56%,
+      41% 52%, 42% 30%, 38% 38%, 36% 25%, 40% 13%, 45% 11%, 42% 9%, 41% 4%
+    );
+    box-shadow: -1px 0 5px rgba(212,165,116,0.08);
+  }
+  /* Atmospheric overlay + vignette */
+  .tf-atmosphere {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 35%, rgba(212,165,116,0.025) 0%, transparent 55%),
+      linear-gradient(180deg, rgba(212,165,116,0.015) 0%, transparent 20%, transparent 85%, rgba(0,0,0,0.08) 100%);
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.45);
+    pointer-events: none; z-index: 7;
   }
 
   /* --- RECOVERY SUITE --- */
@@ -510,33 +667,237 @@
     background: rgba(135,206,235,0.3); box-shadow: 0 0 10px rgba(135,206,235,0.1);
   }
 
-  /* --- CAFE & LOUNGE --- */
+  /* --- CAFE & BAR LOUNGE (PHOTOREALISTIC) --- */
+  @keyframes cl-fire-flicker {
+    0%   { background-position: 0% 50%; filter: brightness(0.92); }
+    25%  { background-position: 35% 50%; filter: brightness(1.06); }
+    50%  { background-position: 65% 50%; filter: brightness(0.98); }
+    75%  { background-position: 20% 50%; filter: brightness(1.08); }
+    100% { background-position: 0% 50%; filter: brightness(0.92); }
+  }
   .cafe-lounge {
-    background: linear-gradient(180deg, #1a1815 0%, #15120f 50%, #1a1815 100%);
+    background: linear-gradient(180deg, #0e0c08 0%, #12100a 40%, #0e0c08 100%);
     overflow: hidden;
   }
-  .bar-counter {
-    position: absolute; background: linear-gradient(90deg, #3a2a1a, #4a3a2a, #3a2a1a);
-    border-top: 3px solid var(--copper); box-shadow: 0 -5px 20px rgba(212,165,116,0.1);
+  /* Back wall behind fireplace */
+  .cl-back-wall {
+    position: absolute; top: 5%; left: 10%; right: 10%; height: 55%;
+    background:
+      linear-gradient(180deg, #14120e 0%, #100e0a 100%);
+    z-index: 0;
   }
-  .back-bar {
-    position: absolute; background: linear-gradient(180deg, #2a2018, #1a1510);
-    border: 1px solid #3a2a1a;
+  /* Bookshelves flanking fireplace */
+  .cl-bookshelf {
+    position: absolute; z-index: 2;
+    background:
+      repeating-linear-gradient(90deg, rgba(90,65,40,0.2) 0px, rgba(90,65,40,0.2) 4px, rgba(60,45,30,0.15) 4px, rgba(60,45,30,0.15) 6px, rgba(120,80,50,0.12) 6px, rgba(120,80,50,0.12) 9px, transparent 9px, transparent 12px),
+      repeating-linear-gradient(180deg, transparent 0px, transparent 18px, rgba(62,36,24,0.3) 18px, rgba(62,36,24,0.3) 20px),
+      linear-gradient(180deg, #1a1612, #14110d);
+    border: 1px solid rgba(62,36,24,0.25);
   }
-  .fireplace-wall { position: absolute; background: linear-gradient(180deg, #2a2520, #1a1510); }
-  .fireplace-glow {
-    position: absolute; width: 80%; height: 15px;
-    background: linear-gradient(90deg, transparent, rgba(255,120,40,0.3), rgba(255,160,60,0.4), rgba(255,120,40,0.3), transparent);
-    bottom: 40%; left: 10%; filter: blur(3px);
+  .cl-bookshelf--l { top: 8%; left: 10%; width: 14%; height: 50%; }
+  .cl-bookshelf--r { top: 8%; right: 10%; width: 14%; height: 50%; }
+  /* Fireplace - hero light source */
+  .cl-fireplace-surround {
+    position: absolute; top: 20%; left: 30%; right: 30%; height: 35%;
+    background: linear-gradient(180deg, #1a1815, #151210);
+    border: 1px solid rgba(60,50,40,0.3); z-index: 2;
   }
-  .chair-icon {
-    width: 18px; height: 18px; background: rgba(62,36,24,0.4);
-    border: 1px solid rgba(62,36,24,0.6); border-radius: 3px;
-    display: inline-block; margin: 2px;
+  .cl-fireplace-surround::before {
+    content: ''; position: absolute; top: 8%; left: 10%; right: 10%; height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(212,165,116,0.2), transparent);
   }
-  .communal-table-icon {
-    background: linear-gradient(90deg, #3a2a1a, #5a3e28, #3a2a1a);
-    border-radius: 4px; border: 1px solid rgba(90,62,40,0.5);
+  .cl-fire {
+    position: absolute; top: 45%; left: 15%; right: 15%; height: 18%;
+    background:
+      linear-gradient(90deg, transparent 0%, rgba(255,80,20,0.5) 15%, rgba(255,140,50,0.7) 30%, rgba(255,180,80,0.8) 50%, rgba(255,140,50,0.7) 70%, rgba(255,80,20,0.5) 85%, transparent 100%);
+    background-size: 200% 100%;
+    animation: cl-fire-flicker 4s ease-in-out infinite;
+    border-radius: 2px; z-index: 3;
+    box-shadow: 0 0 20px rgba(255,120,40,0.3), 0 0 60px rgba(255,100,30,0.15);
+  }
+  /* Fireplace light radiation upward */
+  .cl-fire-glow-up {
+    position: absolute; top: 5%; left: 25%; right: 25%; height: 30%;
+    background: radial-gradient(ellipse at 50% 100%, rgba(255,120,40,0.06) 0%, transparent 70%);
+    pointer-events: none; z-index: 1;
+  }
+  /* Fireplace light radiation downward onto floor */
+  .cl-fire-glow-down {
+    position: absolute; bottom: 0; left: 20%; right: 20%; height: 40%;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,120,40,0.05) 0%, rgba(255,100,30,0.02) 40%, transparent 70%);
+    pointer-events: none; z-index: 1;
+  }
+  /* Floor - polished concrete with reflections */
+  .cl-floor {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 42%;
+    background:
+      radial-gradient(ellipse 30% 50% at 50% 10%, rgba(255,120,40,0.04) 0%, transparent 70%),
+      radial-gradient(ellipse 10% 30% at 35% 30%, rgba(212,165,116,0.04) 0%, transparent 70%),
+      radial-gradient(ellipse 10% 30% at 65% 30%, rgba(212,165,116,0.04) 0%, transparent 70%),
+      linear-gradient(180deg, #161410 0%, #12100c 50%, #0e0c08 100%);
+    z-index: 0;
+  }
+  .cl-floor::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 20%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.012), transparent);
+  }
+  /* Area rug under chairs */
+  .cl-rug {
+    position: absolute; z-index: 1;
+    background:
+      repeating-linear-gradient(45deg, transparent 0px, transparent 6px, rgba(62,36,24,0.06) 6px, rgba(62,36,24,0.06) 8px),
+      linear-gradient(180deg, rgba(40,28,18,0.25), rgba(35,24,16,0.3));
+    border: 1px solid rgba(62,36,24,0.15); border-radius: 2px;
+  }
+  /* Bar counter - live-edge timber with perspective */
+  .cl-bar {
+    position: absolute; z-index: 3;
+    background: linear-gradient(90deg, #3a2a18, #50381f, #4a3520, #3a2a18);
+    border-top: 3px solid var(--copper);
+    clip-path: polygon(0% 0%, 100% 15%, 100% 100%, 0% 85%);
+    box-shadow: 0 -3px 15px rgba(212,165,116,0.1);
+  }
+  .cl-bar::after {
+    content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 3px;
+    background: var(--copper); opacity: 0.3;
+  }
+  /* Back-bar shelving with bottles */
+  .cl-back-bar {
+    position: absolute; z-index: 2;
+    background:
+      repeating-linear-gradient(90deg, rgba(100,60,30,0.2) 0px, rgba(100,60,30,0.2) 3px, rgba(150,100,50,0.1) 3px, rgba(150,100,50,0.1) 5px, rgba(60,120,60,0.12) 5px, rgba(60,120,60,0.12) 7px, rgba(200,180,140,0.08) 7px, rgba(200,180,140,0.08) 9px, transparent 9px, transparent 14px),
+      repeating-linear-gradient(180deg, transparent 0px, transparent 16px, rgba(62,36,24,0.35) 16px, rgba(62,36,24,0.35) 18px),
+      linear-gradient(180deg, #201a12, #181410);
+    border: 1px solid rgba(62,36,24,0.3);
+  }
+  .cl-back-bar::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, transparent, rgba(212,165,116,0.15), transparent);
+  }
+  /* Beer taps */
+  .cl-taps {
+    position: absolute; display: flex; gap: 6px; z-index: 3;
+  }
+  .cl-tap {
+    width: 3px; height: 14px;
+    background: linear-gradient(180deg, var(--copper), #8b6a42);
+    border-radius: 2px 2px 0 0;
+  }
+  .cl-tap::before {
+    content: ''; display: block; width: 5px; height: 4px;
+    background: var(--copper); border-radius: 2px;
+    margin-left: -1px;
+  }
+  /* Counter stools */
+  .cl-stool {
+    position: absolute; z-index: 3;
+  }
+  .cl-stool::before {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 2px; height: 100%; background: #1a1a1a;
+  }
+  .cl-stool::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 45%;
+    background: linear-gradient(135deg, #8b5e3c, #6a4228, #5a3520);
+    border-radius: 3px; border: 1px solid rgba(139,94,60,0.4);
+  }
+  /* Communal table - live-edge timber slab */
+  .cl-table {
+    position: absolute; z-index: 3;
+    background: linear-gradient(90deg, #3a2a18, #50381f, #5a4025, #50381f, #3a2a18);
+    border-radius: 3px;
+    clip-path: polygon(2% 0%, 98% 5%, 100% 95%, 0% 100%);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  }
+  .cl-table::before {
+    content: ''; position: absolute; top: 100%; left: 15%; width: 3px; height: 40px;
+    background: #1a1a1a;
+    box-shadow: 180px 0 0 #1a1a1a;
+  }
+  /* Pendants over communal table */
+  .cl-pendant {
+    position: absolute; display: flex; flex-direction: column;
+    align-items: center; z-index: 4;
+  }
+  .cl-pendant-wire { width: 1px; background: rgba(80,80,80,0.5); }
+  .cl-pendant-shade {
+    background: var(--copper); border-radius: 0 0 50% 50%;
+    box-shadow: 0 3px 8px rgba(212,165,116,0.5), 0 8px 30px rgba(212,165,116,0.2);
+  }
+  .cl-pendant::after {
+    content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    width: 300%; height: 500%;
+    background: radial-gradient(ellipse at 50% 0%, rgba(212,165,116,0.08) 0%, rgba(212,165,116,0.02) 50%, transparent 70%);
+    pointer-events: none;
+  }
+  /* Wingback club chairs */
+  .cl-chair {
+    position: absolute; z-index: 3;
+    background: linear-gradient(135deg, #8b5e3c, #6a4228, #5a3520);
+    clip-path: polygon(
+      10% 0%, 35% 0%, 40% 5%, 60% 5%, 65% 0%, 90% 0%,
+      100% 10%, 100% 85%, 90% 100%, 10% 100%, 0% 85%, 0% 10%
+    );
+    border: 1px solid rgba(139,94,60,0.2);
+  }
+  .cl-chair::after {
+    content: ''; position: absolute; inset: 20% 15% 30% 15%;
+    background: rgba(100,70,45,0.3); border-radius: 2px;
+  }
+  /* Staircase framing element */
+  .cl-staircase {
+    position: absolute; z-index: 5;
+  }
+  .cl-staircase::before {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px;
+    background: linear-gradient(90deg, #1a1a1a, transparent);
+    transform: rotate(-25deg); transform-origin: bottom left;
+  }
+  .cl-stair-tread {
+    position: absolute; height: 4px;
+    background: linear-gradient(90deg, #3a2a1a, #2a1e12);
+    border-top: 1px solid rgba(62,36,24,0.3);
+  }
+  /* Glass wall to coworking */
+  .cl-glass-wall {
+    position: absolute; right: 0; top: 5%; bottom: 0; width: 6%;
+    background:
+      repeating-linear-gradient(180deg, transparent 0px, transparent 30px, rgba(30,30,30,0.6) 30px, rgba(30,30,30,0.6) 32px),
+      linear-gradient(90deg, rgba(180,200,220,0.03), rgba(180,200,220,0.01));
+    border-left: 2px solid rgba(30,30,30,0.5);
+    z-index: 2;
+  }
+  /* Human silhouettes - cafe */
+  .cl-figure {
+    position: absolute; z-index: 6;
+    background: linear-gradient(135deg, #151210, #0e0c08);
+  }
+  .cl-figure--seated {
+    clip-path: polygon(
+      40% 0%, 60% 0%, 63% 5%, 62% 12%, 58% 16%,
+      65% 20%, 68% 28%, 65% 40%, 60% 35%, 60% 55%,
+      75% 60%, 80% 80%, 78% 90%, 70% 100%, 30% 100%,
+      22% 90%, 20% 80%, 25% 60%, 40% 55%,
+      40% 35%, 35% 40%, 32% 28%, 35% 20%, 42% 16%, 38% 12%, 37% 5%
+    );
+  }
+  .cl-figure--relaxed {
+    clip-path: polygon(
+      38% 0%, 62% 0%, 65% 5%, 64% 14%, 60% 18%,
+      68% 22%, 75% 30%, 72% 45%, 65% 55%,
+      70% 60%, 72% 100%, 28% 100%, 30% 60%,
+      35% 55%, 28% 45%, 25% 30%, 32% 22%, 40% 18%, 36% 14%, 35% 5%
+    );
+  }
+  /* Atmospheric overlay + heavy warm vignette */
+  .cl-atmosphere {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 40%, rgba(255,120,40,0.04) 0%, transparent 55%),
+      linear-gradient(180deg, rgba(0,0,0,0.08) 0%, transparent 15%, transparent 85%, rgba(0,0,0,0.1) 100%);
+    box-shadow: inset 0 0 120px rgba(0,0,0,0.5);
+    pointer-events: none; z-index: 7;
   }
 
   /* --- SITE CONTEXT --- */
@@ -566,6 +927,222 @@
   .site-label {
     position: absolute; font-size: 8px; letter-spacing: 1px;
     color: rgba(255,255,255,0.4); text-transform: uppercase;
+  }
+
+  /* --- OUTDOOR TRAINING SPACE (PHOTOREALISTIC) --- */
+  .outdoor-training {
+    background: linear-gradient(180deg, #0a0a0a 0%, #0e0e0c 100%);
+    overflow: hidden;
+  }
+  /* Memphis twilight sky */
+  .ot-sky {
+    position: absolute; top: 0; left: 0; right: 0; height: 58%;
+    background:
+      linear-gradient(180deg,
+        #0e1520 0%,
+        #1a2a40 18%,
+        #2d3a55 30%,
+        #5a4a5a 42%,
+        #b87050 52%,
+        #d4956a 58%,
+        #e8b880 65%,
+        #f0d0a0 72%,
+        rgba(240,208,160,0) 100%
+      );
+    z-index: 0;
+  }
+  /* Stars */
+  .ot-sky::before {
+    content: ''; position: absolute; top: 5%; left: 15%; width: 2px; height: 2px;
+    background: rgba(255,255,255,0.4); border-radius: 50%;
+    box-shadow:
+      80px 10px 0 rgba(255,255,255,0.3),
+      200px -5px 0 rgba(255,255,255,0.25),
+      350px 15px 0 rgba(255,255,255,0.35),
+      500px 5px 0 rgba(255,255,255,0.2),
+      120px 25px 0 rgba(255,255,255,0.15),
+      420px 20px 0 rgba(255,255,255,0.3);
+  }
+  /* Building facade on left */
+  .ot-building {
+    position: absolute; left: 0; top: 8%; bottom: 0; width: 28%;
+    background:
+      repeating-linear-gradient(0deg, transparent 0px, transparent 14px, rgba(35,30,25,0.2) 14px, rgba(35,30,25,0.2) 15px),
+      linear-gradient(90deg, #181614 0%, #1a1815 80%, #1c1a16 100%);
+    z-index: 2;
+  }
+  /* Upper floor windows (warm glow) */
+  .ot-window {
+    position: absolute; background: rgba(212,165,116,0.15);
+    border: 1px solid rgba(212,165,116,0.1);
+    box-shadow: 0 0 12px rgba(212,165,116,0.08), inset 0 0 8px rgba(212,165,116,0.05);
+  }
+  /* Garage door showing indoor turf */
+  .ot-garage-door {
+    position: absolute; z-index: 3;
+    background:
+      repeating-linear-gradient(180deg, transparent 0px, transparent 10px, rgba(60,60,60,0.2) 10px, rgba(60,60,60,0.2) 12px),
+      linear-gradient(90deg, rgba(27,67,50,0.15), rgba(27,67,50,0.25), rgba(27,67,50,0.1));
+    border: 2px solid rgba(60,60,60,0.4);
+    box-shadow: inset 0 0 20px rgba(27,67,50,0.1);
+  }
+  .ot-garage-door::after {
+    content: 'TURF'; position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+    font-size: 7px; letter-spacing: 2px; color: rgba(27,67,50,0.4);
+    font-family: 'Inter', sans-serif;
+  }
+  /* Ground plane - competition turf */
+  .ot-turf {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 44%;
+    background:
+      radial-gradient(ellipse 15% 30% at 45% 25%, rgba(255,255,255,0.015) 0%, transparent 70%),
+      radial-gradient(ellipse 15% 30% at 70% 25%, rgba(255,255,255,0.015) 0%, transparent 70%),
+      repeating-linear-gradient(88deg, transparent 0px, transparent 4px, rgba(20,80,45,0.1) 4px, rgba(20,80,45,0.1) 5px),
+      linear-gradient(180deg, #1a5a35 0%, #145530 30%, #0f4025 70%, #0a3018 100%);
+    z-index: 1;
+  }
+  /* Light pools on turf from poles */
+  .ot-turf::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 12% 35% at 45% 15%, rgba(220,230,240,0.04) 0%, transparent 70%),
+      radial-gradient(ellipse 12% 35% at 72% 15%, rgba(220,230,240,0.04) 0%, transparent 70%),
+      radial-gradient(ellipse 12% 35% at 88% 15%, rgba(220,230,240,0.04) 0%, transparent 70%);
+  }
+  /* Steel picket fence */
+  .ot-fence {
+    position: absolute; left: 25%; right: 0; z-index: 3;
+    border-top: 2px solid rgba(30,30,30,0.8);
+  }
+  .ot-fence::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(90deg,
+      rgba(25,25,25,0.85) 0px, rgba(25,25,25,0.85) 2px,
+      transparent 2px, transparent 12px
+    );
+  }
+  /* Functional rig */
+  .ot-rig {
+    position: absolute; z-index: 4;
+  }
+  .ot-rig::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, #222, #181818);
+    box-shadow: 35px 0 0 3px rgba(24,24,24,0.9), 70px 0 0 3px rgba(24,24,24,0.9), 105px 0 0 3px rgba(24,24,24,0.9);
+  }
+  .ot-rig::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #222, #2a2a2a, #222);
+    box-shadow: 0 15px 0 1px rgba(30,30,30,0.6);
+  }
+  /* Monkey bars */
+  .ot-monkey-bars {
+    position: absolute; z-index: 4;
+    background: repeating-linear-gradient(90deg,
+      transparent 0px, transparent 8px,
+      rgba(35,35,35,0.8) 8px, rgba(35,35,35,0.8) 10px
+    );
+    border-top: 3px solid rgba(30,30,30,0.9);
+    border-bottom: 3px solid rgba(30,30,30,0.9);
+  }
+  /* Equipment - tires */
+  .ot-tires {
+    position: absolute; z-index: 3;
+  }
+  .ot-tire {
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(circle, #0a0a0a 35%, #1a1a1a 40%, #111 70%, #0a0a0a 100%);
+    border: 2px solid rgba(30,30,30,0.6);
+  }
+  /* Sled / prowler */
+  .ot-sled {
+    position: absolute; z-index: 3;
+    background: linear-gradient(135deg, #1a1a1a, #222, #1a1a1a);
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+    border: 1px solid rgba(40,40,40,0.5);
+  }
+  /* Sled track markers */
+  .ot-track {
+    position: absolute; z-index: 2;
+    border-left: 1px dashed rgba(255,255,255,0.06);
+    border-right: 1px dashed rgba(255,255,255,0.06);
+  }
+  /* Light poles */
+  .ot-pole {
+    position: absolute; z-index: 4;
+  }
+  .ot-pole::before {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 2px; height: 100%; background: linear-gradient(180deg, #333, #222);
+  }
+  .ot-pole::after {
+    content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 10px; height: 5px; background: rgba(220,230,240,0.6);
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(220,230,240,0.3), 0 0 40px rgba(220,230,240,0.1);
+  }
+  /* Native grasses */
+  .ot-grass {
+    position: absolute; z-index: 3;
+  }
+  .ot-grass-blade {
+    display: inline-block; width: 2px; background: linear-gradient(180deg, #2a5a35, #1a4025);
+    border-radius: 50% 50% 0 0; transform-origin: bottom center;
+  }
+  /* Stone pathway */
+  .ot-path {
+    position: absolute; z-index: 2;
+    background: linear-gradient(90deg, rgba(80,70,60,0.15), rgba(90,80,65,0.2), rgba(80,70,60,0.15));
+    border-radius: 1px;
+  }
+  /* Human silhouettes - outdoor */
+  .ot-figure {
+    position: absolute; z-index: 6;
+    background: linear-gradient(135deg, #0c0c0a, #080808);
+  }
+  .ot-figure--pullup {
+    clip-path: polygon(
+      42% 0%, 58% 0%, 60% 2%, 62% 5%,
+      70% 0%, 75% 0%, 72% 5%, 68% 10%,
+      62% 8%, 60% 10%, 58% 15%, 56% 18%,
+      55% 25%, 56% 40%, 58% 42%, 60% 55%,
+      62% 70%, 60% 85%, 58% 95%, 56% 100%,
+      52% 100%, 52% 95%, 50% 80%, 48% 95%, 48% 100%,
+      44% 100%, 42% 95%, 40% 85%, 38% 70%, 40% 55%,
+      42% 42%, 44% 40%, 45% 25%, 42% 18%,
+      40% 15%, 38% 10%, 32% 8%, 28% 10%,
+      25% 5%, 30% 0%, 38% 0%, 40% 5%, 38% 2%
+    );
+    box-shadow: 1px 0 5px rgba(220,180,120,0.08);
+  }
+  .ot-figure--carry {
+    clip-path: polygon(
+      44% 0%, 56% 0%, 59% 4%, 58% 9%, 55% 12%,
+      60% 14%, 64% 20%, 62% 35%, 60% 28%,
+      59% 50%, 62% 55%, 66% 100%, 60% 100%,
+      55% 75%, 52% 60%, 48% 60%, 45% 75%,
+      40% 100%, 34% 100%, 38% 55%, 41% 50%,
+      40% 28%, 38% 35%, 36% 20%, 40% 14%,
+      45% 12%, 42% 9%, 41% 4%
+    );
+  }
+  /* Atmospheric overlay - warm evening */
+  .ot-atmosphere {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(180,100,50,0.03) 0%, rgba(180,100,50,0.05) 35%, transparent 60%, transparent 100%);
+    box-shadow: inset 0 0 80px rgba(0,0,0,0.35);
+    pointer-events: none; z-index: 7;
+  }
+
+  /* --- RESPONSIVE: PHOTOREALISTIC RENDERS --- */
+  @media (max-width: 768px) {
+    .tf-figure--walker,
+    .ot-figure--carry,
+    .cl-figure--relaxed { display: none; }
+    .tf-db-wall { display: none; }
+    .cl-bookshelf { display: none; }
+    .ot-monkey-bars { display: none; }
   }
 </style>
 </head>
@@ -665,30 +1242,99 @@
   </div>
 </section>
 
-<!-- ===== RENDERING: TRAINING FLOOR ===== -->
+<!-- ===== RENDERING: TRAINING FLOOR (PHOTOREALISTIC) ===== -->
 <div class="container">
   <div class="concept-render training-floor">
-    <div class="ceiling-beam" style="left:0; width:3%;"></div>
-    <div class="ceiling-beam" style="left:15%; width:2%;"></div>
-    <div class="ceiling-beam" style="left:30%; width:2%;"></div>
-    <div class="ceiling-beam" style="left:45%; width:2%;"></div>
-    <div class="ceiling-beam" style="left:60%; width:2%;"></div>
-    <div class="ceiling-beam" style="left:75%; width:2%;"></div>
-    <div class="ceiling-beam" style="left:90%; width:2%;"></div>
-    <div class="pendant-light" style="left:20%;"><div class="pendant-wire"></div><div class="pendant-shade"></div></div>
-    <div class="pendant-light" style="left:35%;"><div class="pendant-wire"></div><div class="pendant-shade"></div></div>
-    <div class="pendant-light" style="left:50%;"><div class="pendant-wire"></div><div class="pendant-shade"></div></div>
-    <div class="pendant-light" style="left:65%;"><div class="pendant-wire"></div><div class="pendant-shade"></div></div>
-    <div class="accent-wall"></div>
-    <div class="wall-text">THE EREMOS</div>
-    <div class="rack-silhouette" style="left:10%; bottom:35%; width:6%; height:35%;"></div>
-    <div class="rack-silhouette" style="left:20%; bottom:35%; width:6%; height:35%;"></div>
-    <div class="rack-silhouette" style="left:30%; bottom:35%; width:6%; height:35%;"></div>
-    <div class="rack-silhouette" style="left:40%; bottom:35%; width:6%; height:35%;"></div>
-    <div class="rack-silhouette" style="left:50%; bottom:35%; width:6%; height:35%;"></div>
-    <div class="rack-silhouette" style="left:60%; bottom:35%; width:6%; height:35%;"></div>
-    <div class="turf-lane"></div>
-    <div class="gym-floor"></div>
+    <!-- Ceiling structure -->
+    <div class="tf-ceiling"></div>
+    <div class="tf-cove"></div>
+    <!-- I-beams converging to vanishing point -->
+    <div class="tf-beam" style="left:5%; width:8%; height:12%;"></div>
+    <div class="tf-beam" style="left:22%; width:6%; height:11%;"></div>
+    <div class="tf-beam" style="left:38%; width:5%; height:10.5%;"></div>
+    <div class="tf-beam" style="left:54%; width:5%; height:10.5%;"></div>
+    <div class="tf-beam" style="left:68%; width:6%; height:11%;"></div>
+    <div class="tf-beam" style="left:84%; width:8%; height:12%;"></div>
+    <!-- HVAC ductwork -->
+    <div class="tf-hvac" style="left:25%; right:25%;"></div>
+    <!-- Back wall - board-formed concrete -->
+    <div class="tf-back-wall"></div>
+    <!-- Feature wall - charred cedar shou sugi ban -->
+    <div class="tf-feature-wall"></div>
+    <div class="tf-brand">THE EREMOS</div>
+    <!-- Floor plane -->
+    <div class="tf-floor"></div>
+    <!-- Turf lane with garage door -->
+    <div class="tf-turf" style="right:3%; top:14%; bottom:0; width:12%;"></div>
+    <div class="tf-garage" style="right:3%; top:14%; width:12%; height:28%;"></div>
+    <!-- Dumbbell wall (right side, perspective) -->
+    <div class="tf-db-wall" style="right:16%; top:16%; width:8%; height:26%;"></div>
+    <!-- LEFT ROW of squat racks (foreground to background) -->
+    <div class="tf-rack" style="left:16%; bottom:44%; width:8%; height:38%;">
+      <div class="tf-pullup"></div>
+      <div class="tf-barbell"></div>
+      <div class="tf-jcup tf-jcup--l"></div><div class="tf-jcup tf-jcup--r"></div>
+      <div class="tf-rack-glow"></div>
+    </div>
+    <div class="tf-rack" style="left:22%; bottom:44%; width:6.5%; height:30%;">
+      <div class="tf-pullup"></div>
+      <div class="tf-barbell"></div>
+      <div class="tf-jcup tf-jcup--l"></div><div class="tf-jcup tf-jcup--r"></div>
+      <div class="tf-rack-glow"></div>
+    </div>
+    <div class="tf-rack" style="left:27%; bottom:44%; width:5.2%; height:23%;">
+      <div class="tf-pullup"></div>
+      <div class="tf-barbell"></div>
+      <div class="tf-rack-glow"></div>
+    </div>
+    <div class="tf-rack" style="left:31%; bottom:44%; width:4%; height:17%;">
+      <div class="tf-pullup"></div>
+      <div class="tf-rack-glow"></div>
+    </div>
+    <!-- RIGHT ROW of squat racks (foreground to background) -->
+    <div class="tf-rack" style="right:22%; bottom:44%; width:8%; height:38%;">
+      <div class="tf-pullup"></div>
+      <div class="tf-barbell"></div>
+      <div class="tf-jcup tf-jcup--l"></div><div class="tf-jcup tf-jcup--r"></div>
+      <div class="tf-rack-glow"></div>
+    </div>
+    <div class="tf-rack" style="right:28%; bottom:44%; width:6.5%; height:30%;">
+      <div class="tf-pullup"></div>
+      <div class="tf-barbell"></div>
+      <div class="tf-jcup tf-jcup--l"></div><div class="tf-jcup tf-jcup--r"></div>
+      <div class="tf-rack-glow"></div>
+    </div>
+    <div class="tf-rack" style="right:32.5%; bottom:44%; width:5.2%; height:23%;">
+      <div class="tf-pullup"></div>
+      <div class="tf-barbell"></div>
+      <div class="tf-rack-glow"></div>
+    </div>
+    <div class="tf-rack" style="right:36%; bottom:44%; width:4%; height:17%;">
+      <div class="tf-pullup"></div>
+      <div class="tf-rack-glow"></div>
+    </div>
+    <!-- Pendant lights with volumetric cones -->
+    <div class="tf-pendant" style="left:26%; width:2.5%;">
+      <div class="tf-pendant-wire" style="height:28px;"></div>
+      <div class="tf-pendant-shade" style="width:100%; height:10px;"></div>
+    </div>
+    <div class="tf-pendant" style="left:40%; width:2%;">
+      <div class="tf-pendant-wire" style="height:24px;"></div>
+      <div class="tf-pendant-shade" style="width:100%; height:8px;"></div>
+    </div>
+    <div class="tf-pendant" style="left:54%; width:2%;">
+      <div class="tf-pendant-wire" style="height:24px;"></div>
+      <div class="tf-pendant-shade" style="width:100%; height:8px;"></div>
+    </div>
+    <div class="tf-pendant" style="left:68%; width:2.5%;">
+      <div class="tf-pendant-wire" style="height:28px;"></div>
+      <div class="tf-pendant-shade" style="width:100%; height:10px;"></div>
+    </div>
+    <!-- Human silhouettes -->
+    <div class="tf-figure tf-figure--lifter" style="left:18%; bottom:44%; width:5%; height:32%;"></div>
+    <div class="tf-figure tf-figure--walker" style="left:52%; bottom:44%; width:3%; height:20%;"></div>
+    <!-- Atmospheric overlay -->
+    <div class="tf-atmosphere"></div>
     <div class="render-label">Training Floor &mdash; 10,000 SF</div>
   </div>
 </div>
@@ -771,6 +1417,69 @@
   </div>
 </section>
 
+<!-- ===== RENDERING: OUTDOOR TRAINING SPACE (PHOTOREALISTIC) ===== -->
+<div class="container">
+  <div class="concept-render outdoor-training">
+    <!-- Memphis twilight sky -->
+    <div class="ot-sky"></div>
+    <!-- Building facade (left side) -->
+    <div class="ot-building">
+      <!-- Upper floor windows with warm glow -->
+      <div class="ot-window" style="top:12%; left:20%; width:18%; height:10%;"></div>
+      <div class="ot-window" style="top:12%; left:45%; width:18%; height:10%;"></div>
+      <div class="ot-window" style="top:12%; left:70%; width:18%; height:10%;"></div>
+      <!-- Ground floor windows -->
+      <div class="ot-window" style="top:35%; left:20%; width:22%; height:14%; background:rgba(212,165,116,0.2); box-shadow:0 0 18px rgba(212,165,116,0.12);"></div>
+      <div class="ot-window" style="top:35%; left:50%; width:22%; height:14%; background:rgba(212,165,116,0.2); box-shadow:0 0 18px rgba(212,165,116,0.12);"></div>
+    </div>
+    <!-- Garage door showing indoor turf -->
+    <div class="ot-garage-door" style="left:18%; top:55%; width:10%; height:22%;"></div>
+    <!-- Turf ground plane -->
+    <div class="ot-turf"></div>
+    <!-- Steel picket fence across back -->
+    <div class="ot-fence" style="top:52%; height:12%;"></div>
+    <!-- Functional rig -->
+    <div class="ot-rig" style="left:42%; top:42%; width:16%; height:18%;"></div>
+    <!-- Monkey bars section -->
+    <div class="ot-monkey-bars" style="left:60%; top:42%; width:12%; height:10%;"></div>
+    <!-- Tire stack -->
+    <div class="ot-tires" style="left:78%; top:48%; width:8%; height:12%;">
+      <div class="ot-tire" style="left:0; top:30%; width:22px; height:22px;"></div>
+      <div class="ot-tire" style="left:25%; top:10%; width:20px; height:20px;"></div>
+      <div class="ot-tire" style="left:55%; top:40%; width:24px; height:24px;"></div>
+    </div>
+    <!-- Sled on track -->
+    <div class="ot-track" style="left:35%; bottom:5%; width:6%; height:35%;"></div>
+    <div class="ot-sled" style="left:35.5%; bottom:20%; width:5%; height:4%;"></div>
+    <!-- Stone pathway -->
+    <div class="ot-path" style="left:28%; bottom:0; width:3%; height:44%;"></div>
+    <!-- Light poles -->
+    <div class="ot-pole" style="left:42%; top:35%; width:10px; height:22%;"></div>
+    <div class="ot-pole" style="left:68%; top:35%; width:10px; height:22%;"></div>
+    <div class="ot-pole" style="right:8%; top:35%; width:10px; height:22%;"></div>
+    <!-- Native grasses along fence -->
+    <div class="ot-grass" style="left:32%; top:52%; display:flex; gap:2px; align-items:flex-end;">
+      <div class="ot-grass-blade" style="height:14px; transform:rotate(-8deg);"></div>
+      <div class="ot-grass-blade" style="height:18px; transform:rotate(-3deg);"></div>
+      <div class="ot-grass-blade" style="height:12px; transform:rotate(5deg);"></div>
+      <div class="ot-grass-blade" style="height:16px; transform:rotate(-6deg);"></div>
+      <div class="ot-grass-blade" style="height:10px; transform:rotate(8deg);"></div>
+    </div>
+    <div class="ot-grass" style="left:75%; top:52%; display:flex; gap:2px; align-items:flex-end;">
+      <div class="ot-grass-blade" style="height:12px; transform:rotate(-5deg);"></div>
+      <div class="ot-grass-blade" style="height:16px; transform:rotate(3deg);"></div>
+      <div class="ot-grass-blade" style="height:10px; transform:rotate(-8deg);"></div>
+      <div class="ot-grass-blade" style="height:14px; transform:rotate(6deg);"></div>
+    </div>
+    <!-- Human silhouettes -->
+    <div class="ot-figure ot-figure--pullup" style="left:47%; top:28%; width:4%; height:25%;"></div>
+    <div class="ot-figure ot-figure--carry" style="left:62%; bottom:44%; width:3%; height:16%;"></div>
+    <!-- Atmospheric overlay -->
+    <div class="ot-atmosphere"></div>
+    <div class="render-label">Outdoor Training &mdash; 2,500 SF</div>
+  </div>
+</div>
+
 <!-- ===== RENDERING: RECOVERY SUITE ===== -->
 <div class="container">
   <div class="concept-render recovery-suite">
@@ -795,49 +1504,79 @@
   </div>
 </div>
 
-<!-- ===== RENDERING: CAFE & LOUNGE ===== -->
+<!-- ===== RENDERING: CAFE & BAR LOUNGE (PHOTOREALISTIC) ===== -->
 <div class="container">
   <div class="concept-render cafe-lounge">
-    <div class="bar-counter" style="left:5%; top:15%; width:55%; height:8%;"></div>
-    <div class="back-bar" style="left:5%; top:5%; width:55%; height:10%;">
-      <div style="position:absolute; bottom:3px; left:50%; transform:translateX(-50%); font-size:8px; color:rgba(212,165,116,0.5); letter-spacing:1px;">CRAFT BEER &middot; WINE &middot; COCKTAILS &middot; COFFEE</div>
+    <!-- Back wall -->
+    <div class="cl-back-wall"></div>
+    <!-- Fireplace light radiation -->
+    <div class="cl-fire-glow-up"></div>
+    <div class="cl-fire-glow-down"></div>
+    <!-- Bookshelves flanking fireplace -->
+    <div class="cl-bookshelf cl-bookshelf--l"></div>
+    <div class="cl-bookshelf cl-bookshelf--r"></div>
+    <!-- Fireplace surround + animated fire -->
+    <div class="cl-fireplace-surround">
+      <div class="cl-fire"></div>
     </div>
-    <div style="position:absolute; left:8%; top:24%; display:flex; gap:12px;">
-      <div style="width:14px; height:14px; border-radius:50%; background:rgba(62,36,24,0.3); border:1px solid rgba(62,36,24,0.4);"></div>
-      <div style="width:14px; height:14px; border-radius:50%; background:rgba(62,36,24,0.3); border:1px solid rgba(62,36,24,0.4);"></div>
-      <div style="width:14px; height:14px; border-radius:50%; background:rgba(62,36,24,0.3); border:1px solid rgba(62,36,24,0.4);"></div>
-      <div style="width:14px; height:14px; border-radius:50%; background:rgba(62,36,24,0.3); border:1px solid rgba(62,36,24,0.4);"></div>
-      <div style="width:14px; height:14px; border-radius:50%; background:rgba(62,36,24,0.3); border:1px solid rgba(62,36,24,0.4);"></div>
-      <div style="width:14px; height:14px; border-radius:50%; background:rgba(62,36,24,0.3); border:1px solid rgba(62,36,24,0.4);"></div>
+    <!-- Floor with reflections -->
+    <div class="cl-floor"></div>
+    <!-- Area rug under seating -->
+    <div class="cl-rug" style="left:32%; bottom:8%; width:36%; height:18%;"></div>
+    <!-- Bar counter - left side, perspective receding -->
+    <div class="cl-bar" style="left:2%; top:22%; width:22%; height:10%;"></div>
+    <!-- Back-bar with bottles and LED -->
+    <div class="cl-back-bar" style="left:2%; top:8%; width:22%; height:14%;"></div>
+    <!-- Beer taps -->
+    <div class="cl-taps" style="left:5%; top:14%;">
+      <div class="cl-tap"></div><div class="cl-tap"></div><div class="cl-tap"></div>
+      <div class="cl-tap"></div><div class="cl-tap"></div><div class="cl-tap"></div>
     </div>
-    <div class="communal-table-icon" style="position:absolute; left:15%; top:38%; width:35%; height:12%;"></div>
-    <div style="position:absolute; left:16%; top:51%; font-size:8px; color:rgba(90,62,40,0.6); letter-spacing:1px;">COMMUNAL TABLE &mdash; LIVE-EDGE TIMBER</div>
-    <div class="fireplace-wall" style="left:65%; top:5%; width:30%; height:90%; border-radius:0 0 4px 4px;">
-      <div class="fireplace-glow"></div>
-      <div style="position:absolute; top:10%; left:50%; transform:translateX(-50%); font-size:9px; color:rgba(212,165,116,0.5); letter-spacing:1px; text-transform:uppercase;">Linear Fireplace</div>
+    <!-- Counter stools (perspective scaled) -->
+    <div class="cl-stool" style="left:4%; bottom:44%; width:10px; height:22px;"></div>
+    <div class="cl-stool" style="left:8%; bottom:44%; width:10px; height:22px;"></div>
+    <div class="cl-stool" style="left:12%; bottom:44%; width:9px; height:20px;"></div>
+    <div class="cl-stool" style="left:15.5%; bottom:44%; width:8px; height:18px;"></div>
+    <div class="cl-stool" style="left:18.5%; bottom:44%; width:7px; height:16px;"></div>
+    <div class="cl-stool" style="left:21%; bottom:44%; width:6px; height:14px;"></div>
+    <!-- Communal table - live-edge slab -->
+    <div class="cl-table" style="left:30%; bottom:22%; width:30%; height:8%;"></div>
+    <!-- Pendants over communal table -->
+    <div class="cl-pendant" style="left:35%; top:5%; width:1.8%;">
+      <div class="cl-pendant-wire" style="height:32px;"></div>
+      <div class="cl-pendant-shade" style="width:100%; height:8px;"></div>
     </div>
-    <div style="position:absolute; right:8%; top:55%; display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-      <div class="chair-icon"></div><div class="chair-icon"></div>
-      <div class="chair-icon"></div><div class="chair-icon"></div>
+    <div class="cl-pendant" style="left:44%; top:5%; width:2%;">
+      <div class="cl-pendant-wire" style="height:28px;"></div>
+      <div class="cl-pendant-shade" style="width:100%; height:9px;"></div>
     </div>
-    <div style="position:absolute; right:8%; top:82%; font-size:7px; color:rgba(62,36,24,0.5); letter-spacing:1px;">LEATHER CLUB CHAIRS</div>
-    <div style="position:absolute; left:8%; top:62%; display:flex; gap:20px;">
-      <div style="width:30px; height:30px; background:rgba(62,36,24,0.2); border:1px solid rgba(62,36,24,0.3); border-radius:2px;"></div>
-      <div style="width:30px; height:30px; background:rgba(62,36,24,0.2); border:1px solid rgba(62,36,24,0.3); border-radius:2px;"></div>
-      <div style="width:30px; height:30px; background:rgba(62,36,24,0.2); border:1px solid rgba(62,36,24,0.3); border-radius:2px;"></div>
+    <div class="cl-pendant" style="left:53%; top:5%; width:1.8%;">
+      <div class="cl-pendant-wire" style="height:32px;"></div>
+      <div class="cl-pendant-shade" style="width:100%; height:8px;"></div>
     </div>
-    <div style="position:absolute; top:0; left:15%; width:4px; height:15%; display:flex; flex-direction:column;">
-      <div style="flex:1; width:1px; background:#444; margin:0 auto;"></div>
-      <div style="width:20px; height:8px; background:var(--copper); border-radius:0 0 50% 50%; margin:0 auto; box-shadow:0 5px 20px rgba(212,165,116,0.3);"></div>
+    <!-- Wingback club chairs flanking fireplace -->
+    <div class="cl-chair" style="left:32%; bottom:12%; width:20px; height:28px;"></div>
+    <div class="cl-chair" style="left:38%; bottom:10%; width:18px; height:25px;"></div>
+    <div class="cl-chair" style="right:30%; bottom:12%; width:20px; height:28px;"></div>
+    <div class="cl-chair" style="right:24%; bottom:10%; width:18px; height:25px;"></div>
+    <!-- Staircase framing element (foreground left) -->
+    <div class="cl-staircase" style="left:0; bottom:0; width:12%; height:30%;">
+      <div class="cl-stair-tread" style="bottom:5%; left:0; width:90%;"></div>
+      <div class="cl-stair-tread" style="bottom:18%; left:0; width:70%;"></div>
+      <div class="cl-stair-tread" style="bottom:31%; left:0; width:50%;"></div>
     </div>
-    <div style="position:absolute; top:0; left:35%; width:4px; height:12%; display:flex; flex-direction:column;">
-      <div style="flex:1; width:1px; background:#444; margin:0 auto;"></div>
-      <div style="width:20px; height:8px; background:var(--copper); border-radius:0 0 50% 50%; margin:0 auto; box-shadow:0 5px 20px rgba(212,165,116,0.3);"></div>
-    </div>
-    <div style="position:absolute; top:0; left:50%; width:4px; height:18%; display:flex; flex-direction:column;">
-      <div style="flex:1; width:1px; background:#444; margin:0 auto;"></div>
-      <div style="width:20px; height:8px; background:var(--copper); border-radius:0 0 50% 50%; margin:0 auto; box-shadow:0 5px 20px rgba(212,165,116,0.3);"></div>
-    </div>
+    <!-- Steel stringer diagonal -->
+    <div style="position:absolute; left:0; bottom:0; width:14%; height:35%; background:linear-gradient(to top right, rgba(20,20,20,0.8), transparent); z-index:5;"></div>
+    <!-- Glass wall to coworking (right edge) -->
+    <div class="cl-glass-wall"></div>
+    <!-- Human silhouettes - 2 at bar -->
+    <div class="cl-figure cl-figure--seated" style="left:6%; bottom:42%; width:3.5%; height:22%;"></div>
+    <div class="cl-figure cl-figure--seated" style="left:10%; bottom:42%; width:3.2%; height:20%; transform:scaleX(-1);"></div>
+    <!-- Human silhouettes - 2 in club chairs by fire -->
+    <div class="cl-figure cl-figure--relaxed" style="left:34%; bottom:14%; width:2.5%; height:16%;"></div>
+    <div class="cl-figure cl-figure--relaxed" style="right:28%; bottom:14%; width:2.5%; height:16%; transform:scaleX(-1);"></div>
+    <!-- Atmospheric overlay -->
+    <div class="cl-atmosphere"></div>
     <div class="render-label">Cafe &amp; Social Lounge &mdash; Second Floor</div>
   </div>
 </div>
