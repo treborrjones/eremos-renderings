@@ -273,9 +273,9 @@
     <text x="490" y="534" class="equip-label" style="font-size:5.5px" fill="white">T-BAR</text>
     <text x="350" y="560" class="equip-label">ELITEFIT  |  ROGUE  |  HIP THRUST  |  CALF RAISE</text>
 
-    <!-- SELECTORIZED MACHINES & CABLES -->
+    <!-- SELECTORIZED MACHINES AND CABLES -->
     <text x="650" y="415" class="zone-name">SELECTORIZED</text>
-    <text x="650" y="428" class="zone-name">& CABLES</text>
+    <text x="650" y="428" class="zone-name">&amp; CABLES</text>
     <text x="650" y="442" class="zone-sf">1,000 SF</text>
     <!-- Equipment -->
     <rect x="585" y="455" width="35" height="25" class="equip" rx="2"/>
