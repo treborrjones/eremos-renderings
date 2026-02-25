@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE EREMOS — Architectural Renderings</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --base: #0A0A0A;
+    --rich-black: #1A1A1A;
+    --dark-chocolate: #3E2418;
+    --copper: #D4A574;
+    --cream: #E8D5B7;
+    --warm-white: #F5F0EB;
+    --forest-sage: #1B4332;
+    --concrete: #8A8A8A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--base);
+    color: var(--warm-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Navigation */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(212,165,116,0.2);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: var(--copper);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    opacity: 0.7;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    opacity: 1;
+    background: rgba(212,165,116,0.15);
+    color: var(--copper);
+  }
+
+  /* Sections */
+  section {
+    min-height: 100vh;
+    padding: 100px 60px 60px;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-number {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--copper);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--warm-white);
+    margin-bottom: 8px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+    color: rgba(232,213,183,0.6);
+    font-weight: 400;
+    max-width: 600px;
+  }
+
+  /* Hero */
+  #hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--base) 0%, #0F1A14 50%, var(--rich-black) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(27,67,50,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 30%, rgba(212,165,116,0.08) 0%, transparent 40%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-content h1 {
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: 16px;
+    color: var(--copper);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .hero-tagline {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: var(--cream);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--copper);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(232,213,183,0.5);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* Rendering Canvas */
+  .render-canvas {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    position: relative;
+    border: 1px solid rgba(212,165,116,0.15);
+  }
+
+  /* SVG embed */
+  .svg-embed {
+    width: 100%;
+    background: var(--warm-white);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(212,165,116,0.15);
+  }
+
+  .svg-embed object, .svg-embed img {
+    width: 100%;
+    display: block;
+  }
+
+  /* Architectural Concept Renders (CSS/HTML based) */
+  .concept-render {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(212,165,116,0.15);
+  }
+
+  /* ========== EXTERIOR FACADE ========== */
+  .exterior-facade {
+    background: linear-gradient(180deg, #1a2a3a 0%, #2a3a4a 30%, #3a4a5a 50%, #4a3a2a 70%, #2a1a0a 100%);
+    position: relative;
+  }
+
+  /* Sky */
+  .sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(180deg, #1a2535 0%, #2d3a4a 40%, #c4785a 70%, #e8a86a 85%, #f0c888 100%);
+  }
+
+  /* Building */
+  .building {
+    position: absolute;
+    bottom: 15%;
+    left: 15%;
+    right: 15%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Second floor */
+  .floor-2 {
+    flex: 0.4;
+    background: linear-gradient(180deg, #2a2220 0%, #1a1815 100%);
+    display: flex;
+    position: relative;
+    border-top: 3px solid #333;
+  }
+
+  .floor-2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(90deg,
+      transparent 0%, transparent 12%,
+      rgba(100,80,60,0.2) 12%, rgba(100,80,60,0.2) 12.5%,
+      transparent 12.5%, transparent 25%
+    );
+  }
+
+  .window-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 10% 5%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .window {
+    width: 8%;
+    height: 60%;
+    background: linear-gradient(180deg, rgba(255,200,120,0.4), rgba(255,180,100,0.2));
+    border: 1px solid rgba(212,165,116,0.3);
+    border-radius: 1px;
+    box-shadow: 0 0 15px rgba(255,180,100,0.15);
+  }
+
+  /* First floor */
+  .floor-1 {
+    flex: 0.6;
+    background: linear-gradient(180deg, #1a1815 0%, #151210 100%);
+    display: flex;
+    position: relative;
+    border-top: 2px solid rgba(212,165,116,0.3);
+  }
+
+  .storefront {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    padding: 3%;
+    gap: 2%;
+  }
+
+  .glass-panel {
+    flex: 1;
+    background: linear-gradient(180deg, rgba(40,60,80,0.4), rgba(30,50,70,0.3));
+    border: 1px solid rgba(135,206,235,0.15);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,200,120,0.08) 0%, transparent 50%, rgba(255,200,120,0.05) 100%);
+  }
+
+  .entrance-door {
+    flex: 0 0 15%;
+    background: linear-gradient(180deg, rgba(40,30,20,0.8), rgba(20,15,10,0.9));
+    border: 2px solid var(--copper);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* Signage */
+  .signage {
+    position: absolute;
+    top: -8%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(10px, 2vw, 24px);
+    font-weight: 800;
+    letter-spacing: 8px;
+    color: var(--copper);
+    text-shadow: 0 0 30px rgba(212,165,116,0.5), 0 2px 10px rgba(0,0,0,0.8);
+    white-space: nowrap;
+    z-index: 10;
+  }
+
+  /* Sidewalk */
+  .sidewalk {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 15%;
+    background: linear-gradient(180deg, #3a3530 0%, #4a4540 50%, #555045 100%);
+  }
+
+  .sidewalk::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  /* Trees */
+  .tree {
+    position: absolute;
+    bottom: 12%;
+    width: 4%;
+    z-index: 5;
+  }
+
+  .tree-trunk {
+    width: 20%;
+    height: 30px;
+    background: #3a2a1a;
+    margin: 0 auto;
+  }
+
+  .tree-canopy {
+    width: 100%;
+    aspect-ratio: 1;
+    background: radial-gradient(ellipse, #2a4a2a, #1a3a1a);
+    border-radius: 50%;
+    margin-bottom: -5px;
+  }
+
+  /* Ambient lights */
+  .ambient-light {
+    position: absolute;
+    width: 3px;
+    height: 20px;
+    background: var(--copper);
+    bottom: 15%;
+    box-shadow: 0 -10px 20px rgba(212,165,116,0.3);
+  }
+
+  /* Outdoor area indication */
+  .outdoor-area {
+    position: absolute;
+    right: 0;
+    bottom: 15%;
+    width: 12%;
+    height: 55%;
+    border: 1px dashed rgba(27,67,50,0.4);
+    background: rgba(27,67,50,0.05);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10%;
+  }
+
+  .outdoor-label {
+    font-size: 7px;
+    letter-spacing: 1px;
+    color: var(--forest-sage);
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  /* ========== TRAINING FLOOR ========== */
+  .training-floor {
+    background: linear-gradient(180deg, #0a0a0a 0%, #121210 40%, #151512 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Ceiling beams */
+  .ceiling-beam {
+    position: absolute;
+    top: 0;
+    height: 8%;
+    background: #1a1a1a;
+    border-bottom: 1px solid #222;
+  }
+
+  /* Floor */
+  .gym-floor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35%;
+    background: linear-gradient(180deg, #252320, #1a1815);
+    perspective: 800px;
+  }
+
+  .gym-floor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(90deg,
+      transparent 0px, transparent 40px,
+      rgba(50,50,50,0.3) 40px, rgba(50,50,50,0.3) 41px
+    );
+  }
+
+  /* Equipment silhouettes */
+  .rack-silhouette {
+    position: absolute;
+    background: linear-gradient(180deg, #1a1a1a, #0a0a0a);
+    border: 1px solid #2a2a2a;
+  }
+
+  .rack-silhouette::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 5px;
+    background: #333;
+    border-radius: 2px;
+  }
+
+  /* Turf lane */
+  .turf-lane {
+    position: absolute;
+    right: 8%;
+    top: 15%;
+    bottom: 5%;
+    width: 15%;
+    background: linear-gradient(90deg, rgba(27,67,50,0.3), rgba(27,67,50,0.4), rgba(27,67,50,0.3));
+    border-left: 1px solid rgba(27,67,50,0.5);
+    border-right: 1px solid rgba(27,67,50,0.5);
+  }
+
+  /* Copper lights */
+  .pendant-light {
+    position: absolute;
+    top: 0;
+    width: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pendant-wire {
+    width: 1px;
+    height: 30px;
+    background: #444;
+  }
+
+  .pendant-shade {
+    width: 100%;
+    height: 12px;
+    background: var(--copper);
+    border-radius: 0 0 50% 50%;
+    box-shadow: 0 10px 40px rgba(212,165,116,0.2), 0 5px 15px rgba(212,165,116,0.3);
+  }
+
+  /* Accent wall */
+  .accent-wall {
+    position: absolute;
+    left: 0;
+    top: 8%;
+    bottom: 35%;
+    width: 3%;
+    background: linear-gradient(180deg, #3a3530, #2a2520);
+  }
+
+  .wall-text {
+    position: absolute;
+    left: 5%;
+    top: 20%;
+    font-size: clamp(12px, 2.5vw, 32px);
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: var(--copper);
+    text-shadow: 0 0 20px rgba(212,165,116,0.3);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    opacity: 0.7;
+  }
+
+  /* ========== RECOVERY SUITE ========== */
+  .recovery-suite {
+    background: linear-gradient(135deg, #1a1815 0%, #151210 50%, #1a1815 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .plunge-pool {
+    position: absolute;
+    background: linear-gradient(180deg, rgba(50,100,150,0.3), rgba(30,70,120,0.4));
+    border: 1px solid rgba(100,150,200,0.3);
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(50,120,200,0.1), inset 0 0 20px rgba(50,120,200,0.1);
+  }
+
+  .plunge-label {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    color: rgba(100,180,255,0.7);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .sauna {
+    position: absolute;
+    background: linear-gradient(135deg, rgba(180,120,60,0.2), rgba(140,90,40,0.15));
+    border: 2px solid rgba(180,120,60,0.3);
+    border-radius: 4px;
+    box-shadow: 0 0 40px rgba(255,160,40,0.08);
+    overflow: hidden;
+  }
+
+  .sauna::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(0deg,
+      transparent 0px, transparent 8px,
+      rgba(140,90,40,0.1) 8px, rgba(140,90,40,0.1) 9px
+    );
+  }
+
+  .normatec-station {
+    position: absolute;
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  .normatec-boot {
+    width: 25px;
+    height: 50px;
+    background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
+    border: 1px solid #3a3a3a;
+    border-radius: 4px 4px 2px 2px;
+    position: relative;
+  }
+
+  .normatec-boot::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 3px;
+    background: #4a90d9;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(74,144,217,0.5);
+  }
+
+  .wood-slat-wall {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 5%;
+    background: repeating-linear-gradient(0deg,
+      #3a2a1a 0px, #3a2a1a 6px,
+      #2a1a0a 6px, #2a1a0a 8px
+    );
+    opacity: 0.6;
+  }
+
+  .glass-partition {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: rgba(135,206,235,0.3);
+    box-shadow: 0 0 10px rgba(135,206,235,0.1);
+  }
+
+  /* ========== CAFE & LOUNGE ========== */
+  .cafe-lounge {
+    background: linear-gradient(180deg, #1a1815 0%, #15120f 50%, #1a1815 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bar-counter {
+    position: absolute;
+    background: linear-gradient(90deg, #3a2a1a, #4a3a2a, #3a2a1a);
+    border-top: 3px solid var(--copper);
+    box-shadow: 0 -5px 20px rgba(212,165,116,0.1);
+  }
+
+  .back-bar {
+    position: absolute;
+    background: linear-gradient(180deg, #2a2018, #1a1510);
+    border: 1px solid #3a2a1a;
+  }
+
+  .fireplace-wall {
+    position: absolute;
+    background: linear-gradient(180deg, #2a2520, #1a1510);
+  }
+
+  .fireplace-glow {
+    position: absolute;
+    width: 80%;
+    height: 15px;
+    background: linear-gradient(90deg, transparent, rgba(255,120,40,0.3), rgba(255,160,60,0.4), rgba(255,120,40,0.3), transparent);
+    bottom: 40%;
+    left: 10%;
+    filter: blur(3px);
+  }
+
+  .seating-area {
+    position: absolute;
+  }
+
+  .chair-icon {
+    width: 18px;
+    height: 18px;
+    background: rgba(62,36,24,0.4);
+    border: 1px solid rgba(62,36,24,0.6);
+    border-radius: 3px;
+    display: inline-block;
+    margin: 2px;
+  }
+
+  .communal-table-icon {
+    background: linear-gradient(90deg, #3a2a1a, #5a3e28, #3a2a1a);
+    border-radius: 4px;
+    border: 1px solid rgba(90,62,40,0.5);
+  }
+
+  /* ========== SITE CONTEXT ========== */
+  .site-context {
+    background: linear-gradient(180deg, #1a2535 0%, #2a3540 50%, #1a2530 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .site-building {
+    position: absolute;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    text-align: center;
+    padding: 5px;
+    line-height: 1.3;
+  }
+
+  .site-eremos {
+    background: rgba(212,165,116,0.25);
+    border: 2px solid var(--copper);
+    box-shadow: 0 0 30px rgba(212,165,116,0.3), 0 0 60px rgba(212,165,116,0.1);
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 30px rgba(212,165,116,0.3); }
+    50% { box-shadow: 0 0 50px rgba(212,165,116,0.5), 0 0 80px rgba(212,165,116,0.2); }
+  }
+
+  .site-msec {
+    background: rgba(100,100,150,0.15);
+    border-color: rgba(100,100,150,0.3);
+  }
+
+  .site-hotel {
+    background: rgba(100,150,100,0.12);
+    border-color: rgba(100,150,100,0.3);
+  }
+
+  .site-residential {
+    background: rgba(150,130,100,0.1);
+    border-color: rgba(150,130,100,0.3);
+  }
+
+  .site-stadium {
+    background: rgba(80,80,120,0.1);
+    border-color: rgba(80,80,120,0.25);
+  }
+
+  .site-road {
+    position: absolute;
+    background: rgba(60,60,60,0.4);
+  }
+
+  .site-label {
+    position: absolute;
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+  }
+
+  /* Info cards */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .info-card {
+    background: rgba(26,26,26,0.6);
+    border: 1px solid rgba(212,165,116,0.15);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .info-card h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--copper);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .info-card p {
+    font-size: 12px;
+    color: rgba(232,213,183,0.6);
+    line-height: 1.7;
+  }
+
+  .info-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .info-card li {
+    font-size: 12px;
+    color: rgba(232,213,183,0.6);
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(212,165,116,0.08);
+  }
+
+  .info-card li:last-child { border-bottom: none; }
+
+  .info-card .highlight {
+    color: var(--copper);
+    font-weight: 600;
+  }
+
+  /* Zone table */
+  .zone-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  .zone-table th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--copper);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(212,165,116,0.3);
+  }
+
+  .zone-table td {
+    font-size: 12px;
+    color: rgba(232,213,183,0.7);
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(212,165,116,0.08);
+  }
+
+  .zone-table tr:hover td {
+    background: rgba(212,165,116,0.05);
+  }
+
+  .zone-table .floor-label {
+    font-weight: 600;
+    color: var(--copper);
+  }
+
+  .zone-table .total-row td {
+    font-weight: 700;
+    color: var(--copper);
+    border-top: 2px solid rgba(212,165,116,0.3);
+    font-size: 13px;
+  }
+
+  /* Color Palette */
+  .palette {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .swatch {
+    width: 80px;
+    text-align: center;
+  }
+
+  .swatch-color {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 6px;
+  }
+
+  .swatch-name {
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--cream);
+    letter-spacing: 0.5px;
+  }
+
+  .swatch-hex {
+    font-size: 9px;
+    color: rgba(232,213,183,0.4);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    section { padding: 80px 20px 40px; }
+    .section-title { font-size: 24px; }
+    .hero-content h1 { font-size: 36px; letter-spacing: 8px; }
+    nav { padding: 0 15px; }
+    .nav-links { display: none; }
+  }
+
+  /* Render label */
+  .render-label {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(10,10,10,0.85);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--copper);
+    text-transform: uppercase;
+    z-index: 5;
+  }
+
+  .render-badge {
+    display: inline-block;
+    background: rgba(212,165,116,0.15);
+    border: 1px solid rgba(212,165,116,0.3);
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 9px;
+    color: var(--copper);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: 8px;
+  }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.5;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  .scroll-indicator span {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  .scroll-arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid var(--cream);
+    border-bottom: 2px solid var(--cream);
+    transform: rotate(45deg);
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-brand">THE EREMOS</div>
+  <div class="nav-links">
+    <a href="#hero">Overview</a>
+    <a href="#exterior">Exterior</a>
+    <a href="#floorplan1">Floor 1</a>
+    <a href="#floorplan2">Floor 2</a>
+    <a href="#training">Training</a>
+    <a href="#recovery">Recovery</a>
+    <a href="#locker">Lockers</a>
+    <a href="#cafe">Cafe &amp; Lounge</a>
+    <a href="#cowork">Coworking</a>
+    <a href="#wellness">Wellness</a>
+    <a href="#pickleball">Court</a>
+    <a href="#site">Site Map</a>
+    <a href="#summary">Summary</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="hero">
+  <div class="hero-content">
+    <h1>THE EREMOS</h1>
+    <div class="hero-tagline">Premium Performance &amp; Social Club</div>
+    <p style="font-size:13px; color:rgba(232,213,183,0.5); max-width:500px; margin:0 auto;">Liberty Park District &bull; Memphis, Tennessee<br>Architectural Rendering Package</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-value">25,000</span>
+        <span class="stat-label">Total Square Feet</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">2</span>
+        <span class="stat-label">Floors</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">14</span>
+        <span class="stat-label">Distinct Zones</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">$112.5M</span>
+        <span class="stat-label">District Investment</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll to explore</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- 1. EXTERIOR FACADE -->
+<section id="exterior">
+  <div class="section-header">
+    <div class="section-number">Deliverable 01</div>
+    <div class="section-title">Exterior Facade <span class="render-badge">Concept</span></div>
+    <div class="section-subtitle">Two-story building with modern industrial aesthetic. Dark timber, raw concrete, matte black steel, copper accents. Golden hour rendering.</div>
+  </div>
+
+  <div class="concept-render exterior-facade">
+    <!-- Sky -->
+    <div class="sky"></div>
+
+    <!-- Building -->
+    <div class="building">
+      <div class="signage">THE EREMOS</div>
+
+      <!-- Second Floor -->
+      <div class="floor-2">
+        <div class="window-row">
+          <div class="window"></div>
+          <div class="window"></div>
+          <div class="window"></div>
+          <div class="window"></div>
+          <div class="window"></div>
+          <div class="window"></div>
+          <div class="window"></div>
+          <div class="window"></div>
+        </div>
+      </div>
+
+      <!-- First Floor -->
+      <div class="floor-1">
+        <div class="storefront">
+          <div class="glass-panel"></div>
+          <div class="glass-panel"></div>
+          <div class="entrance-door"></div>
+          <div class="glass-panel"></div>
+          <div class="glass-panel"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outdoor area hint -->
+    <div class="outdoor-area">
+      <span class="outdoor-label">Outdoor Training</span>
+    </div>
+
+    <!-- Trees -->
+    <div class="tree" style="left: 8%;">
+      <div class="tree-canopy"></div>
+      <div class="tree-trunk"></div>
+    </div>
+    <div class="tree" style="left: 88%;">
+      <div class="tree-canopy"></div>
+      <div class="tree-trunk"></div>
+    </div>
+
+    <!-- Ambient lights -->
+    <div class="ambient-light" style="left: 20%;"></div>
+    <div class="ambient-light" style="left: 35%;"></div>
+    <div class="ambient-light" style="left: 55%;"></div>
+    <div class="ambient-light" style="left: 70%;"></div>
+
+    <!-- Sidewalk -->
+    <div class="sidewalk"></div>
+
+    <div class="render-label">Exterior Facade &mdash; Golden Hour</div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>Facade Materials</h3>
+      <ul>
+        <li><span class="highlight">Dark Timber Panels</span> — Charred cedar cladding</li>
+        <li><span class="highlight">Raw Concrete</span> — Board-formed, exposed aggregate</li>
+        <li><span class="highlight">Matte Black Steel</span> — Structural and decorative</li>
+        <li><span class="highlight">Copper Fixtures</span> — Signage, lighting, trim</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>Key Features</h3>
+      <ul>
+        <li>Large glass storefront revealing training floor</li>
+        <li>Copper/bronze "THE EREMOS" signage</li>
+        <li>2,500 SF fenced outdoor training area</li>
+        <li>Warm ambient exterior lighting</li>
+        <li>Boutique hotel-adjacent aesthetic</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 2A. FIRST FLOOR PLAN -->
+<section id="floorplan1">
+  <div class="section-header">
+    <div class="section-number">Deliverable 02A</div>
+    <div class="section-title">First Floor Plan <span class="render-badge">SVG</span></div>
+    <div class="section-subtitle">Ground level — 14,800 SF indoor + 2,500 SF outdoor. Training, recovery, and locker zones.</div>
+  </div>
+
+  <div class="svg-embed">
+    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDAwIDEwMDAiIHdpZHRoPSIzMDAwIiBoZWlnaHQ9IjIxNDMiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICBAaW1wb3J0IHVybCgnaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3MyP2ZhbWlseT1JbnRlcjp3Z2h0QDMwMDs0MDA7NTAwOzYwMDs3MDAmYW1wO2Rpc3BsYXk9c3dhcCcpOwogICAgICB0ZXh0IHsgZm9udC1mYW1pbHk6ICdJbnRlcicsICdIZWx2ZXRpY2EgTmV1ZScsIEFyaWFsLCBzYW5zLXNlcmlmOyB9CiAgICAgIC53YWxsIHsgZmlsbDogbm9uZTsgc3Ryb2tlOiAjMUExQTFBOyBzdHJva2Utd2lkdGg6IDM7IH0KICAgICAgLndhbGwtZmlsbCB7IGZpbGw6ICMxQTFBMUE7IH0KICAgICAgLmludGVyaW9yLXdhbGwgeyBmaWxsOiBub25lOyBzdHJva2U6ICMxQTFBMUE7IHN0cm9rZS13aWR0aDogMjsgfQogICAgICAuZG9vciB7IGZpbGw6IG5vbmU7IHN0cm9rZTogI0Q0QTU3NDsgc3Ryb2tlLXdpZHRoOiAyOyB9CiAgICAgIC53aW5kb3cgeyBmaWxsOiBub25lOyBzdHJva2U6ICM4N0NFRUI7IHN0cm9rZS13aWR0aDogMjsgc3Ryb2tlLWRhc2hhcnJheTogNCwyOyB9CiAgICAgIC56b25lLWxhYmVsIHsgZm9udC1zaXplOiAxM3B4OyBmb250LXdlaWdodDogNjAwOyBmaWxsOiAjMUExQTFBOyB0ZXh0LWFuY2hvcjogbWlkZGxlOyB9CiAgICAgIC56b25lLXN1YmxhYmVsIHsgZm9udC1zaXplOiA5cHg7IGZvbnQtd2VpZ2h0OiA0MDA7IGZpbGw6ICM1NTU7IHRleHQtYW5jaG9yOiBtaWRkbGU7IH0KICAgICAgLnNmLWxhYmVsIHsgZm9udC1zaXplOiAxMHB4OyBmb250LXdlaWdodDogNTAwOyBmaWxsOiAjRDRBNTc0OyB0ZXh0LWFuY2hvcjogbWlkZGxlOyB9CiAgICAgIC5kaW0tbGluZSB7IHN0cm9rZTogIzk5OTsgc3Ryb2tlLXdpZHRoOiAwLjc1OyB9CiAgICAgIC5kaW0tdGV4dCB7IGZvbnQtc2l6ZTogOHB4OyBmaWxsOiAjNzc3OyB0ZXh0LWFuY2hvcjogbWlkZGxlOyB9CiAgICAgIC5hcnJvdyB7IGZpbGw6ICNENEE1NzQ7IHN0cm9rZTogI0Q0QTU3NDsgc3Ryb2tlLXdpZHRoOiAxLjU7IH0KICAgICAgLmFycm93LWxpbmUgeyBmaWxsOiBub25lOyBzdHJva2U6ICNENEE1NzQ7IHN0cm9rZS13aWR0aDogMS41OyBzdHJva2UtZGFzaGFycmF5OiA2LDM7IH0KICAgICAgLnRpdGxlIHsgZm9udC1zaXplOiAyMnB4OyBmb250LXdlaWdodDogNzAwOyBmaWxsOiAjMEEwQTBBOyB9CiAgICAgIC5zdWJ0aXRsZSB7IGZvbnQtc2l6ZTogMTJweDsgZm9udC13ZWlnaHQ6IDQwMDsgZmlsbDogIzY2NjsgfQogICAgICAubGVnZW5kLXRleHQgeyBmb250LXNpemU6IDlweDsgZmlsbDogIzU1NTsgfQogICAgICAuZXF1aXBtZW50IHsgZmlsbDogbm9uZTsgc3Ryb2tlOiAjODg4OyBzdHJva2Utd2lkdGg6IDE7IH0KICAgICAgLmVxdWlwbWVudC1maWxsIHsgZmlsbDogI0U4RThFODsgc3Ryb2tlOiAjODg4OyBzdHJva2Utd2lkdGg6IDE7IH0KICAgICAgLnR1cmYgeyBmaWxsOiAjMkQ1QTNEOyBvcGFjaXR5OiAwLjM7IH0KICAgICAgLnJ1YmJlci1mbG9vciB7IGZpbGw6ICMzQTNBM0E7IG9wYWNpdHk6IDAuMDg7IH0KICAgICAgLnRpbGUtZmxvb3IgeyBmaWxsOiAjQzRCNUEwOyBvcGFjaXR5OiAwLjE1OyB9CiAgICAgIC5zdG9uZS1mbG9vciB7IGZpbGw6ICNBODk4ODg7IG9wYWNpdHk6IDAuMTI7IH0KICAgIDwvc3R5bGU+CiAgICA8bWFya2VyIGlkPSJhcnJvd2hlYWQiIG1hcmtlcldpZHRoPSI4IiBtYXJrZXJIZWlnaHQ9IjYiIHJlZlg9IjgiIHJlZlk9IjMiIG9yaWVudD0iYXV0byI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCAwLCA4IDMsIDAgNiIgZmlsbD0iI0Q0QTU3NCIvPgogICAgPC9tYXJrZXI+CiAgICA8bWFya2VyIGlkPSJhcnJvd2hlYWQtZGFyayIgbWFya2VyV2lkdGg9IjgiIG1hcmtlckhlaWdodD0iNiIgcmVmWD0iOCIgcmVmWT0iMyIgb3JpZW50PSJhdXRvIj4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIwIDAsIDggMywgMCA2IiBmaWxsPSIjOTk5Ii8+CiAgICA8L21hcmtlcj4KICAgIDxwYXR0ZXJuIGlkPSJoYXRjaCIgd2lkdGg9IjYiIGhlaWdodD0iNiIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+CiAgICAgIDxsaW5lIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSI2IiBzdHJva2U9IiNkZGQiIHN0cm9rZS13aWR0aD0iMC41Ii8+CiAgICA8L3BhdHRlcm4+CiAgICA8cGF0dGVybiBpZD0idHVyZi1wYXR0ZXJuIiB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHJlY3Qgd2lkdGg9IjQiIGhlaWdodD0iNCIgZmlsbD0iIzFCNDMzMiIgb3BhY2l0eT0iMC4xNSIvPgogICAgICA8Y2lyY2xlIGN4PSIyIiBjeT0iMiIgcj0iMC41IiBmaWxsPSIjMUI0MzMyIiBvcGFjaXR5PSIwLjI1Ii8+CiAgICA8L3BhdHRlcm4+CiAgPC9kZWZzPgoKICA8IS0tIEJhY2tncm91bmQgLS0+CiAgPHJlY3Qgd2lkdGg9IjE0MDAiIGhlaWdodD0iMTAwMCIgZmlsbD0iI0Y1RjBFQiIvPgoKICA8IS0tIFRpdGxlIEJsb2NrIC0tPgogIDx0ZXh0IHg9IjUwIiB5PSI0NSIgY2xhc3M9InRpdGxlIj5USEUgRVJFTU9TPC90ZXh0PgogIDx0ZXh0IHg9IjUwIiB5PSI2NSIgY2xhc3M9InN1YnRpdGxlIj5GSVJTVCBGTE9PUiBQTEFOICB8ICBHcm91bmQgTGV2ZWwgIHwgIH4xNCw4MDAgU0YgSW5kb29yICsgMiw1MDAgU0YgT3V0ZG9vcjwvdGV4dD4KICA8dGV4dCB4PSI1MCIgeT0iODIiIGNsYXNzPSJzdWJ0aXRsZSIgc3R5bGU9ImZpbGw6Izk5OSI+TGliZXJ0eSBQYXJrIERpc3RyaWN0LCBNZW1waGlzLCBUTiAgfCAgU2NhbGU6IDEvMTYiID0gMSctMCIgKGFwcHJveGltYXRlKTwvdGV4dD4KICA8bGluZSB4MT0iNTAiIHkxPSI5MiIgeDI9IjEzNTAiIHkyPSI5MiIgc3Ryb2tlPSIjRDRBNTc0IiBzdHJva2Utd2lkdGg9IjEuNSIvPgoKICA8IS0tID09PT09PSBNQUlOIEJVSUxESU5HIE9VVExJTkUgPT09PT09IC0tPgogIDwhLS0gQnVpbGRpbmcgZm9vdHByaW50OiByb3VnaGx5IDE0OCcgeCAxMDAnIGZvciBmaXJzdCBmbG9vciAtLT4KICA8IS0tIFNjYWxlOiAxIGZ0ID0gfjcuNXB4IGFwcHJveGltYXRlbHkgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAsIDEyMCkiPgoKICAgIDwhLS0gRXh0ZXJpb3IgV2FsbHMgLSBNYWluIEJ1aWxkaW5nIC0tPgogICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjkwMCIgaGVpZ2h0PSI2MjAiIGNsYXNzPSJ3YWxsIiBzdHJva2Utd2lkdGg9IjQiLz4KCiAgICA8IS0tIEZsb29yIGZpbGwgLS0+CiAgICA8cmVjdCB4PSIyIiB5PSIyIiB3aWR0aD0iODk2IiBoZWlnaHQ9IjYxNiIgY2xhc3M9InJ1YmJlci1mbG9vciIvPgoKICAgIDwhLS0gPT09PT09IEVOVFJBTkNFIC8gUkVDRVBUSU9OICg2MDAgU0YpID09PT09PSAtLT4KICAgIDwhLS0gTG9jYXRlZCBhdCBmcm9udC1jZW50ZXIsIH4zMCcgeCAyMCcgLS0+CiAgICA8cmVjdCB4PSIzNTAiIHk9IjAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRThENUI3IiBvcGFjaXR5PSIwLjIiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICA8IS0tIEdsYXNzIHN0b3JlZnJvbnQgLS0+CiAgICA8bGluZSB4MT0iMzcwIiB5MT0iMCIgeDI9IjUzMCIgeTI9IjAiIHN0cm9rZT0iIzg3Q0VFQiIgc3Ryb2tlLXdpZHRoPSI0IiBvcGFjaXR5PSIwLjciLz4KICAgIDwhLS0gTWFpbiBlbnRyYW5jZSBkb29ycyAtLT4KICAgIDxyZWN0IHg9IjQyMCIgeT0iLTQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI4IiBmaWxsPSIjRDRBNTc0IiByeD0iMiIvPgogICAgPHRleHQgeD0iNDUwIiB5PSItMTIiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iI0Q0QTU3NCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9IjYwMCI+TUFJTiBFTlRSQU5DRTwvdGV4dD4KCiAgICA8IS0tIFJlY2VwdGlvbiBkZXNrIC0tPgogICAgPHJlY3QgeD0iNDEwIiB5PSI0MCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjM0UyNDE4IiBvcGFjaXR5PSIwLjQiIHJ4PSIzIi8+CiAgICA8dGV4dCB4PSI0NTAiIHk9IjU0IiBmb250LXNpemU9IjciIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5SRUNFUFRJT048L3RleHQ+CgogICAgPCEtLSBSZXRhaWwgZGlzcGxheSAtLT4KICAgIDxyZWN0IHg9IjM3MCIgeT0iNzUiIHdpZHRoPSI1MCIgaGVpZ2h0PSIzMCIgY2xhc3M9ImVxdWlwbWVudC1maWxsIiByeD0iMiIvPgogICAgPHRleHQgeD0iMzk1IiB5PSI5NCIgZm9udC1zaXplPSI2IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5SRVRBSUw8L3RleHQ+CgogICAgPCEtLSBQUiBCb2FyZCAtLT4KICAgIDxyZWN0IHg9IjQ4MCIgeT0iNzUiIHdpZHRoPSI1MCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzFBMUExQSIgb3BhY2l0eT0iMC4xNSIgcng9IjIiLz4KICAgIDx0ZXh0IHg9IjUwNSIgeT0iOTQiIGZvbnQtc2l6ZT0iNiIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UFIgQk9BUkQ8L3RleHQ+CgogICAgPCEtLSBab25lIGxhYmVsIC0tPgogICAgPHRleHQgeD0iNDUwIiB5PSIzMCIgY2xhc3M9InpvbmUtbGFiZWwiPkVOVFJBTkNFIC8gUkVDRVBUSU9OPC90ZXh0PgogICAgPHRleHQgeD0iNDUwIiB5PSIxMTUiIGNsYXNzPSJzZi1sYWJlbCI+NjAwIFNGPC90ZXh0PgoKICAgIDwhLS0gPT09PT09IFRSQUlOSU5HIEZMT09SICgxMCwwMDAgU0YpID09PT09PSAtLT4KICAgIDwhLS0gQ2VudHJhbCBhcmVhLCByb3VnaGx5IDEyNScgeCA4MCcgLS0+CiAgICA8cmVjdCB4PSIwIiB5PSIxMjAiIHdpZHRoPSI3MTAiIGhlaWdodD0iNTAwIiBmaWxsPSIjM0EzQTNBIiBvcGFjaXR5PSIwLjA2Ii8+CiAgICA8bGluZSB4MT0iMCIgeTE9IjEyMCIgeDI9IjcxMCIgeTI9IjEyMCIgY2xhc3M9ImludGVyaW9yLXdhbGwiIHN0cm9rZS1kYXNoYXJyYXk9IjgsNCIvPgoKICAgIDwhLS0gWm9uZSBsYWJlbCAtLT4KICAgIDx0ZXh0IHg9IjM1NSIgeT0iMTYwIiBjbGFzcz0iem9uZS1sYWJlbCIgZm9udC1zaXplPSIxNiI+VFJBSU5JTkcgRkxPT1I8L3RleHQ+CiAgICA8dGV4dCB4PSIzNTUiIHk9IjE3OCIgY2xhc3M9InNmLWxhYmVsIiBmb250LXNpemU9IjExIj4xMCwwMDAgU0Y8L3RleHQ+CgogICAgPCEtLSBTcXVhdCBSYWNrcyAtIFJvdyAxICg2IHJhY2tzKSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQwLCAyMDApIj4KICAgICAgPHRleHQgeD0iMTIwIiB5PSItMTAiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+U1FVQVQgUkFDS1MgLyBQTEFURk9STVMgKDEyKTwvdGV4dD4KICAgICAgPCEtLSBSYWNrIDEgLS0+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzNSIgaGVpZ2h0PSI1MCIgY2xhc3M9ImVxdWlwbWVudCIgcng9IjEiLz4KICAgICAgPHJlY3QgeD0iNSIgeT0iNSIgd2lkdGg9IjI1IiBoZWlnaHQ9IjQwIiBmaWxsPSIjRTBFMEUwIiBzdHJva2U9IiNBQUEiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMSIvPgogICAgICA8IS0tIFJhY2sgMiAtLT4KICAgICAgPHJlY3QgeD0iNDUiIHk9IjAiIHdpZHRoPSIzNSIgaGVpZ2h0PSI1MCIgY2xhc3M9ImVxdWlwbWVudCIgcng9IjEiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUiIHdpZHRoPSIyNSIgaGVpZ2h0PSI0MCIgZmlsbD0iI0UwRTBFMCIgc3Ryb2tlPSIjQUFBIiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjEiLz4KICAgICAgPCEtLSBSYWNrIDMgLS0+CiAgICAgIDxyZWN0IHg9IjkwIiB5PSIwIiB3aWR0aD0iMzUiIGhlaWdodD0iNTAiIGNsYXNzPSJlcXVpcG1lbnQiIHJ4PSIxIi8+CiAgICAgIDxyZWN0IHg9Ijk1IiB5PSI1IiB3aWR0aD0iMjUiIGhlaWdodD0iNDAiIGZpbGw9IiNFMEUwRTAiIHN0cm9rZT0iI0FBQSIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIxIi8+CiAgICAgIDwhLS0gUmFjayA0IC0tPgogICAgICA8cmVjdCB4PSIxMzUiIHk9IjAiIHdpZHRoPSIzNSIgaGVpZ2h0PSI1MCIgY2xhc3M9ImVxdWlwbWVudCIgcng9IjEiLz4KICAgICAgPHJlY3QgeD0iMTQwIiB5PSI1IiB3aWR0aD0iMjUiIGhlaWdodD0iNDAiIGZpbGw9IiNFMEUwRTAiIHN0cm9rZT0iI0FBQSIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIxIi8+CiAgICAgIDwhLS0gUmFjayA1IC0tPgogICAgICA8cmVjdCB4PSIxODAiIHk9IjAiIHdpZHRoPSIzNSIgaGVpZ2h0PSI1MCIgY2xhc3M9ImVxdWlwbWVudCIgcng9IjEiLz4KICAgICAgPHJlY3QgeD0iMTg1IiB5PSI1IiB3aWR0aD0iMjUiIGhlaWdodD0iNDAiIGZpbGw9IiNFMEUwRTAiIHN0cm9rZT0iI0FBQSIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIxIi8+CiAgICAgIDwhLS0gUmFjayA2IC0tPgogICAgICA8cmVjdCB4PSIyMjUiIHk9IjAiIHdpZHRoPSIzNSIgaGVpZ2h0PSI1MCIgY2xhc3M9ImVxdWlwbWVudCIgcng9IjEiLz4KICAgICAgPHJlY3QgeD0iMjMwIiB5PSI1IiB3aWR0aD0iMjUiIGhlaWdodD0iNDAiIGZpbGw9IiNFMEUwRTAiIHN0cm9rZT0iI0FBQSIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIxIi8+CiAgICA8L2c+CgogICAgPCEtLSBTcXVhdCBSYWNrcyAtIFJvdyAyICg2IHJhY2tzKSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQwLCAyODApIj4KICAgICAgPCEtLSBSYWNrIDcgLS0+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzNSIgaGVpZ2h0PSI1MCIgY2xhc3M9ImVxdWlwbWVudCIgcng9IjEiLz4KICAgICAgPHJlY3QgeD0iNSIgeT0iNSIgd2lkdGg9IjI1IiBoZWlnaHQ9IjQwIiBmaWxsPSIjRTBFMEUwIiBzdHJva2U9IiNBQUEiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMSIvPgogICAgICA8IS0tIFJhY2sgOCAtLT4KICAgICAgPHJlY3QgeD0iNDUiIHk9IjAiIHdpZHRoPSIzNSIgaGVpZ2h0PSI1MCIgY2xhc3M9ImVxdWlwbWVudCIgcng9IjEiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUiIHdpZHRoPSIyNSIgaGVpZ2h0PSI0MCIgZmlsbD0iI0UwRTBFMCIgc3Ryb2tlPSIjQUFBIiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjEiLz4KICAgICAgPCEtLSBSYWNrIDkgLS0+CiAgICAgIDxyZWN0IHg9IjkwIiB5PSIwIiB3aWR0aD0iMzUiIGhlaWdodD0iNTAiIGNsYXNzPSJlcXVpcG1lbnQiIHJ4PSIxIi8+CiAgICAgIDxyZWN0IHg9Ijk1IiB5PSI1IiB3aWR0aD0iMjUiIGhlaWdodD0iNDAiIGZpbGw9IiNFMEUwRTAiIHN0cm9rZT0iI0FBQSIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIxIi8+CiAgICAgIDwhLS0gUmFjayAxMCAtLT4KICAgICAgPHJlY3QgeD0iMTM1IiB5PSIwIiB3aWR0aD0iMzUiIGhlaWdodD0iNTAiIGNsYXNzPSJlcXVpcG1lbnQiIHJ4PSIxIi8+CiAgICAgIDxyZWN0IHg9IjE0MCIgeT0iNSIgd2lkdGg9IjI1IiBoZWlnaHQ9IjQwIiBmaWxsPSIjRTBFMEUwIiBzdHJva2U9IiNBQUEiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMSIvPgogICAgICA8IS0tIFJhY2sgMTEgLS0+CiAgICAgIDxyZWN0IHg9IjE4MCIgeT0iMCIgd2lkdGg9IjM1IiBoZWlnaHQ9IjUwIiBjbGFzcz0iZXF1aXBtZW50IiByeD0iMSIvPgogICAgICA8cmVjdCB4PSIxODUiIHk9IjUiIHdpZHRoPSIyNSIgaGVpZ2h0PSI0MCIgZmlsbD0iI0UwRTBFMCIgc3Ryb2tlPSIjQUFBIiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjEiLz4KICAgICAgPCEtLSBSYWNrIDEyIC0tPgogICAgICA8cmVjdCB4PSIyMjUiIHk9IjAiIHdpZHRoPSIzNSIgaGVpZ2h0PSI1MCIgY2xhc3M9ImVxdWlwbWVudCIgcng9IjEiLz4KICAgICAgPHJlY3QgeD0iMjMwIiB5PSI1IiB3aWR0aD0iMjUiIGhlaWdodD0iNDAiIGZpbGw9IiNFMEUwRTAiIHN0cm9rZT0iI0FBQSIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIxIi8+CiAgICA8L2c+CgogICAgPCEtLSBPbHltcGljIExpZnRpbmcgUGxhdGZvcm1zIC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDAsIDM3MCkiPgogICAgICA8dGV4dCB4PSI4MCIgeT0iLTgiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+T0xZTVBJQyBQTEFURk9STVMgKDQpPC90ZXh0PgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiM1QTRBM0EiIG9wYWNpdHk9IjAuMTUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIxIiByeD0iMiIvPgogICAgICA8cmVjdCB4PSI3NSIgeT0iMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjNUE0QTNBIiBvcGFjaXR5PSIwLjE1IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMSIgcng9IjIiLz4KICAgICAgPHJlY3QgeD0iMTUwIiB5PSIwIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiM1QTRBM0EiIG9wYWNpdHk9IjAuMTUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIxIiByeD0iMiIvPgogICAgICA8cmVjdCB4PSIyMjUiIHk9IjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzVBNEEzQSIgb3BhY2l0eT0iMC4xNSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjEiIHJ4PSIyIi8+CiAgICA8L2c+CgogICAgPCEtLSBEdW1iYmVsbCBXYWxsIC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDAsIDQ2MCkiPgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjI1IiBmaWxsPSIjMUExQTFBIiBvcGFjaXR5PSIwLjEiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIxIiByeD0iMiIvPgogICAgICA8dGV4dCB4PSIxNDAiIHk9IjE2IiBmb250LXNpemU9IjciIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRVTUJCRUxMIFJBQ0sgKDUtMTUwIExCKTwvdGV4dD4KICAgIDwvZz4KCiAgICA8IS0tIENhYmxlIE1hY2hpbmUgU3RhdGlvbiAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1MCwgMjAwKSI+CiAgICAgIDx0ZXh0IHg9IjYwIiB5PSItOCIgZm9udC1zaXplPSI3IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DQUJMRSBNQUNISU5FUzwvdGV4dD4KICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI4MCIgY2xhc3M9ImVxdWlwbWVudCIgcng9IjIiLz4KICAgICAgPGxpbmUgeDE9IjMwIiB5MT0iMCIgeDI9IjMwIiB5Mj0iODAiIHN0cm9rZT0iI0FBQSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgICAgPGxpbmUgeDE9IjYwIiB5MT0iMCIgeDI9IjYwIiB5Mj0iODAiIHN0cm9rZT0iI0FBQSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgICAgPGxpbmUgeDE9IjkwIiB5MT0iMCIgeDI9IjkwIiB5Mj0iODAiIHN0cm9rZT0iI0FBQSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgIDwvZz4KCiAgICA8IS0tIEZ1bmN0aW9uYWwgVHJhaW5pbmcgUmlnIC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzUwLCAzMTApIj4KICAgICAgPHRleHQgeD0iNjAiIHk9Ii04IiBmb250LXNpemU9IjciIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkZVTkNUSU9OQUwgUklHPC90ZXh0PgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjMUExQTFBIiBvcGFjaXR5PSIwLjA4IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMS41IiByeD0iMiIvPgogICAgICA8IS0tIFJpZyBwb3N0cyAtLT4KICAgICAgPHJlY3QgeD0iNSIgeT0iNSIgd2lkdGg9IjgiIGhlaWdodD0iOCIgZmlsbD0iIzU1NSIvPgogICAgICA8cmVjdCB4PSIxMDciIHk9IjUiIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IiM1NTUiLz4KICAgICAgPHJlY3QgeD0iNSIgeT0iNjciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IiM1NTUiLz4KICAgICAgPHJlY3QgeD0iMTA3IiB5PSI2NyIgd2lkdGg9IjgiIGhlaWdodD0iOCIgZmlsbD0iIzU1NSIvPgogICAgICA8cmVjdCB4PSI1NSIgeT0iNSIgd2lkdGg9IjgiIGhlaWdodD0iOCIgZmlsbD0iIzU1NSIvPgogICAgICA8cmVjdCB4PSI1NSIgeT0iNjciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IiM1NTUiLz4KICAgIDwvZz4KCiAgICA8IS0tIENoYWxrIFN0YXRpb25zIC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzEwLCAyMjApIj4KICAgICAgPGNpcmNsZSBjeD0iMCIgY3k9IjAiIHI9IjUiIGZpbGw9IiNFOEQ1QjciIHN0cm9rZT0iI0Q0QTU3NCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgIDx0ZXh0IHg9IjAiIHk9IjEyIiBmb250LXNpemU9IjUiIGZpbGw9IiNENEE1NzQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNIQUxLPC90ZXh0PgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzEwLCAzMDApIj4KICAgICAgPGNpcmNsZSBjeD0iMCIgY3k9IjAiIHI9IjUiIGZpbGw9IiNFOEQ1QjciIHN0cm9rZT0iI0Q0QTU3NCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgIDx0ZXh0IHg9IjAiIHk9IjEyIiBmb250LXNpemU9IjUiIGZpbGw9IiNENEE1NzQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNIQUxLPC90ZXh0PgogICAgPC9nPgoKICAgIDwhLS0gSW5kb29yIFR1cmYgU3ByaW50IExhbmUgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MDAsIDE0MCkiPgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjQ3MCIgZmlsbD0idXJsKCN0dXJmLXBhdHRlcm4pIi8+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyMDAiIGhlaWdodD0iNDcwIiBmaWxsPSJub25lIiBzdHJva2U9IiMxQjQzMzIiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtZGFzaGFycmF5PSI4LDQiLz4KICAgICAgPHRleHQgeD0iMTAwIiB5PSIyNDAiIGNsYXNzPSJ6b25lLWxhYmVsIiBmaWxsPSIjMUI0MzMyIiB0cmFuc2Zvcm09InJvdGF0ZSg5MCwgMTAwLCAyNDApIiBmb250LXNpemU9IjEyIj5JTkRPT1IgVFVSRiBTUFJJTlQgTEFORSAoNDAgWUQpPC90ZXh0PgogICAgICA8IS0tIExhbmUgbWFya2luZ3MgLS0+CiAgICAgIDxsaW5lIHgxPSIxMDAiIHkxPSIyMCIgeDI9IjEwMCIgeTI9IjQ1MCIgc3Ryb2tlPSIjMUI0MzMyIiBzdHJva2Utd2lkdGg9IjAuNSIgc3Ryb2tlLWRhc2hhcnJheT0iNCw4IiBvcGFjaXR5PSIwLjUiLz4KICAgICAgPCEtLSBTdGFydC9lbmQgbWFya2VycyAtLT4KICAgICAgPGxpbmUgeDE9IjIwIiB5MT0iMzAiIHgyPSIxODAiIHkyPSIzMCIgc3Ryb2tlPSIjMUI0MzMyIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuNSIvPgogICAgICA8bGluZSB4MT0iMjAiIHkxPSI0NDAiIHgyPSIxODAiIHkyPSI0NDAiIHN0cm9rZT0iIzFCNDMzMiIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjUiLz4KICAgICAgPHRleHQgeD0iMTAwIiB5PSIyNSIgZm9udC1zaXplPSI2IiBmaWxsPSIjMUI0MzMyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjciPlNUQVJUPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMDAiIHk9IjQ1NSIgZm9udC1zaXplPSI2IiBmaWxsPSIjMUI0MzMyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjciPkZJTklTSDwvdGV4dD4KICAgIDwvZz4KCiAgICA8IS0tID09PT09PSBSRUNPVkVSWSBTVUlURSAoMSw1MDAgU0YpID09PT09PSAtLT4KICAgIDxyZWN0IHg9IjcxMCIgeT0iMTIwIiB3aWR0aD0iMTkwIiBoZWlnaHQ9IjIzMCIgZmlsbD0iI0E4OTg4OCIgb3BhY2l0eT0iMC4xIiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPCEtLSBHbGFzcyBwYXJ0aXRpb24gb24gd2VzdCB3YWxsIC0tPgogICAgPGxpbmUgeDE9IjcxMCIgeTE9IjEzMCIgeDI9IjcxMCIgeTI9IjM0MCIgc3Ryb2tlPSIjODdDRUVCIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuNiIvPgoKICAgIDx0ZXh0IHg9IjgwNSIgeT0iMTQ1IiBjbGFzcz0iem9uZS1sYWJlbCI+UkVDT1ZFUlkgU1VJVEU8L3RleHQ+CiAgICA8dGV4dCB4PSI4MDUiIHk9IjE2MCIgY2xhc3M9InNmLWxhYmVsIj4xLDUwMCBTRjwvdGV4dD4KCiAgICA8IS0tIENvbGQgUGx1bmdlIDEgLS0+CiAgICA8cmVjdCB4PSI3MzAiIHk9IjE3NSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjNEE5MEQ5IiBvcGFjaXR5PSIwLjIiIHN0cm9rZT0iIzRBOTBEOSIgc3Ryb2tlLXdpZHRoPSIxIiByeD0iNSIvPgogICAgPHRleHQgeD0iNzYwIiB5PSIxOTgiIGZvbnQtc2l6ZT0iNiIgZmlsbD0iIzRBOTBEOSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q09MRCBQTFVOR0UgMTwvdGV4dD4KICAgIDx0ZXh0IHg9Ijc2MCIgeT0iMjA4IiBmb250LXNpemU9IjUiIGZpbGw9IiM0QTkwRDkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjM4LTQywrBGPC90ZXh0PgoKICAgIDwhLS0gQ29sZCBQbHVuZ2UgMiAtLT4KICAgIDxyZWN0IHg9IjczMCIgeT0iMjI1IiB3aWR0aD0iNjAiIGhlaWdodD0iNDAiIGZpbGw9IiM0QTkwRDkiIG9wYWNpdHk9IjAuMiIgc3Ryb2tlPSIjNEE5MEQ5IiBzdHJva2Utd2lkdGg9IjEiIHJ4PSI1Ii8+CiAgICA8dGV4dCB4PSI3NjAiIHk9IjI0OCIgZm9udC1zaXplPSI2IiBmaWxsPSIjNEE5MEQ5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DT0xEIFBMVU5HRSAyPC90ZXh0PgoKICAgIDwhLS0gSW5mcmFyZWQgU2F1bmEgLS0+CiAgICA8cmVjdCB4PSI4MTAiIHk9IjE3NSIgd2lkdGg9IjcwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjRThBMDQwIiBvcGFjaXR5PSIwLjE1IiBzdHJva2U9IiNFOEEwNDAiIHN0cm9rZS13aWR0aD0iMSIgcng9IjMiLz4KICAgIDx0ZXh0IHg9Ijg0NSIgeT0iMjA1IiBmb250LXNpemU9IjYiIGZpbGw9IiNENEE1NzQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPklORlJBUkVEIFNBVU5BPC90ZXh0PgogICAgPHRleHQgeD0iODQ1IiB5PSIyMTUiIGZvbnQtc2l6ZT0iNSIgZmlsbD0iI0Q0QTU3NCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+NC1QRVJTT048L3RleHQ+CgogICAgPCEtLSBOb3JtYXRlYyBCb290cyAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgxMCwgMjUwKSI+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI3MCIgaGVpZ2h0PSI0MCIgZmlsbD0iI0U4RDVCNyIgb3BhY2l0eT0iMC4xNSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjEiIHJ4PSIyIi8+CiAgICAgIDx0ZXh0IHg9IjM1IiB5PSIxOCIgZm9udC1zaXplPSI2IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5OT1JNQVRFQzwvdGV4dD4KICAgICAgPHRleHQgeD0iMzUiIHk9IjI4IiBmb250LXNpemU9IjUiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjQgQk9PVFM8L3RleHQ+CiAgICA8L2c+CgogICAgPCEtLSBQZXJjdXNzaW9uIFN0YXRpb24gLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3MzAsIDMwMCkiPgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNjAiIGhlaWdodD0iMzAiIGZpbGw9IiNFOEQ1QjciIG9wYWNpdHk9IjAuMSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjEiIHJ4PSIyIi8+CiAgICAgIDx0ZXh0IHg9IjMwIiB5PSIxOCIgZm9udC1zaXplPSI2IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5QRVJDVVNTSU9OPC90ZXh0PgogICAgPC9nPgoKICAgIDwhLS0gPT09PT09IExPQ0tFUiBST09NUyAoMiwwMDAgU0YpID09PT09PSAtLT4KICAgIDwhLS0gTWVuJ3MgTG9ja2VyIFJvb20gLS0+CiAgICA8cmVjdCB4PSI3MTAiIHk9IjM1MCIgd2lkdGg9IjE5MCIgaGVpZ2h0PSIxMzAiIGZpbGw9IiNDNEI1QTAiIG9wYWNpdHk9IjAuMSIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDx0ZXh0IHg9IjgwNSIgeT0iMzc1IiBjbGFzcz0iem9uZS1sYWJlbCI+TUVOJ1MgTE9DS0VSIFJPT008L3RleHQ+CiAgICA8dGV4dCB4PSI4MDUiIHk9IjM5MCIgY2xhc3M9InNmLWxhYmVsIj4xLDAwMCBTRjwvdGV4dD4KICAgIDwhLS0gTG9ja2VycyAtLT4KICAgIDxyZWN0IHg9IjcyNSIgeT0iNDAwIiB3aWR0aD0iODAiIGhlaWdodD0iMTAiIGZpbGw9IiMzRTI0MTgiIG9wYWNpdHk9IjAuMiIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPHJlY3QgeD0iNzI1IiB5PSI0MTUiIHdpZHRoPSI4MCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzNFMjQxOCIgb3BhY2l0eT0iMC4yIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41Ii8+CiAgICA8dGV4dCB4PSI3NjUiIHk9IjQ0MCIgZm9udC1zaXplPSI1IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5MT0NLRVJTPC90ZXh0PgogICAgPCEtLSBTaG93ZXJzIC0tPgogICAgPHJlY3QgeD0iODIwIiB5PSIzOTUiIHdpZHRoPSI2NSIgaGVpZ2h0PSI1MCIgZmlsbD0iIzg3Q0VFQiIgb3BhY2l0eT0iMC4wOCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjIiLz4KICAgIDx0ZXh0IHg9Ijg1MiIgeT0iNDIyIiBmb250LXNpemU9IjUiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNIT1dFUlM8L3RleHQ+CiAgICA8IS0tIEdyb29taW5nIC0tPgogICAgPHJlY3QgeD0iNzI1IiB5PSI0NTAiIHdpZHRoPSIxNjAiIGhlaWdodD0iMjAiIGZpbGw9IiNFOEQ1QjciIG9wYWNpdHk9IjAuMSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjEiLz4KICAgIDx0ZXh0IHg9IjgwNSIgeT0iNDY0IiBmb250LXNpemU9IjUiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdST09NSU5HIFNUQVRJT05TPC90ZXh0PgoKICAgIDwhLS0gV29tZW4ncyBMb2NrZXIgUm9vbSAtLT4KICAgIDxyZWN0IHg9IjcxMCIgeT0iNDgwIiB3aWR0aD0iMTkwIiBoZWlnaHQ9IjEzMCIgZmlsbD0iI0M0QjVBMCIgb3BhY2l0eT0iMC4xIiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPHRleHQgeD0iODA1IiB5PSI1MDUiIGNsYXNzPSJ6b25lLWxhYmVsIj5XT01FTidTIExPQ0tFUiBST09NPC90ZXh0PgogICAgPHRleHQgeD0iODA1IiB5PSI1MjAiIGNsYXNzPSJzZi1sYWJlbCI+MSwwMDAgU0Y8L3RleHQ+CiAgICA8IS0tIExvY2tlcnMgLS0+CiAgICA8cmVjdCB4PSI3MjUiIHk9IjUzMCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjM0UyNDE4IiBvcGFjaXR5PSIwLjIiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgIDxyZWN0IHg9IjcyNSIgeT0iNTQ1IiB3aWR0aD0iODAiIGhlaWdodD0iMTAiIGZpbGw9IiMzRTI0MTgiIG9wYWNpdHk9IjAuMiIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgPHRleHQgeD0iNzY1IiB5PSI1NzAiIGZvbnQtc2l6ZT0iNSIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TE9DS0VSUzwvdGV4dD4KICAgIDwhLS0gU2hvd2VycyAtLT4KICAgIDxyZWN0IHg9IjgyMCIgeT0iNTI1IiB3aWR0aD0iNjUiIGhlaWdodD0iNTAiIGZpbGw9IiM4N0NFRUIiIG9wYWNpdHk9IjAuMDgiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIyIi8+CiAgICA8dGV4dCB4PSI4NTIiIHk9IjU1MiIgZm9udC1zaXplPSI1IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TSE9XRVJTPC90ZXh0PgogICAgPCEtLSBHcm9vbWluZyAtLT4KICAgIDxyZWN0IHg9IjcyNSIgeT0iNTgwIiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjRThENUI3IiBvcGFjaXR5PSIwLjEiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIxIi8+CiAgICA8dGV4dCB4PSI4MDUiIHk9IjU5NCIgZm9udC1zaXplPSI1IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5HUk9PTUlORyBTVEFUSU9OUzwvdGV4dD4KCiAgICA8IS0tID09PT09PSBSRVNUUk9PTVMgKDQwMCBTRikgPT09PT09IC0tPgogICAgPHJlY3QgeD0iNzEwIiB5PSIwIiB3aWR0aD0iOTUiIGhlaWdodD0iMTIwIiBmaWxsPSIjRThFOEU4IiBvcGFjaXR5PSIwLjIiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICA8dGV4dCB4PSI3NTciIHk9IjU1IiBjbGFzcz0iem9uZS1sYWJlbCIgZm9udC1zaXplPSIxMCI+UkVTVFJPT01TPC90ZXh0PgogICAgPHRleHQgeD0iNzU3IiB5PSI3MCIgY2xhc3M9InNmLWxhYmVsIiBmb250LXNpemU9IjgiPjQwMCBTRjwvdGV4dD4KICAgIDx0ZXh0IHg9Ijc1NyIgeT0iODIiIGNsYXNzPSJ6b25lLXN1YmxhYmVsIj5BREEgQ09NUExJQU5UPC90ZXh0PgoKICAgIDwhLS0gPT09PT09IE1FQ0hBTklDQUwgLyBTVE9SQUdFICgzMDAgU0YpID09PT09PSAtLT4KICAgIDxyZWN0IHg9IjgwNSIgeT0iMCIgd2lkdGg9Ijk1IiBoZWlnaHQ9IjEyMCIgZmlsbD0iI0RERCIgb3BhY2l0eT0iMC4yIiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPHRleHQgeD0iODUyIiB5PSI1MCIgY2xhc3M9InpvbmUtbGFiZWwiIGZvbnQtc2l6ZT0iMTAiPk1FQ0hBTklDQUw8L3RleHQ+CiAgICA8dGV4dCB4PSI4NTIiIHk9IjYzIiBjbGFzcz0iem9uZS1sYWJlbCIgZm9udC1zaXplPSIxMCI+LyBTVE9SQUdFPC90ZXh0PgogICAgPHRleHQgeD0iODUyIiB5PSI3OCIgY2xhc3M9InNmLWxhYmVsIiBmb250LXNpemU9IjgiPjMwMCBTRjwvdGV4dD4KICAgIDx0ZXh0IHg9Ijg1MiIgeT0iOTAiIGNsYXNzPSJ6b25lLXN1YmxhYmVsIj5IVkFDIC8gRUxFQzwvdGV4dD4KCiAgICA8IS0tID09PT09PSBTVEFJUkNBU0UgJiBFTEVWQVRPUiA9PT09PT0gLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1NTAsIDApIj4KICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjRThENUI3IiBvcGFjaXR5PSIwLjIiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICAgIDwhLS0gU3RhaXIgdHJlYWRzIC0tPgogICAgICA8bGluZSB4MT0iMTAiIHkxPSIxNSIgeDI9IjcwIiB5Mj0iMTUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgICAgPGxpbmUgeDE9IjEwIiB5MT0iMjUiIHgyPSI3MCIgeTI9IjI1IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41Ii8+CiAgICAgIDxsaW5lIHgxPSIxMCIgeTE9IjM1IiB4Mj0iNzAiIHkyPSIzNSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgICA8bGluZSB4MT0iMTAiIHkxPSI0NSIgeDI9IjcwIiB5Mj0iNDUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgICAgPGxpbmUgeDE9IjEwIiB5MT0iNTUiIHgyPSI3MCIgeTI9IjU1IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41Ii8+CiAgICAgIDxsaW5lIHgxPSIxMCIgeTE9IjY1IiB4Mj0iNzAiIHkyPSI2NSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgICA8dGV4dCB4PSI0MCIgeT0iNDIiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+U1RBSVI8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjQwIiB5PSI1MiIgZm9udC1zaXplPSI1IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5VUCBUTyAyTkQ8L3RleHQ+CiAgICA8L2c+CgogICAgPCEtLSBFbGV2YXRvciAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY0MCwgMCkiPgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IiNEREQiIG9wYWNpdHk9IjAuMyIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgICAgPHRleHQgeD0iMjUiIHk9IjI4IiBmb250LXNpemU9IjciIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkVMRVYuPC90ZXh0PgogICAgICA8IS0tIEVsZXZhdG9yIHN5bWJvbCAtLT4KICAgICAgPGxpbmUgeDE9IjE1IiB5MT0iMzUiIHgyPSIyNSIgeTI9IjQyIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICA8bGluZSB4MT0iMjUiIHkxPSI0MiIgeDI9IjM1IiB5Mj0iMzUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L2c+CgogICAgPCEtLSA9PT09PT0gT1VURE9PUiBUUkFJTklORyBBUkVBICgyLDUwMCBTRikgPT09PT09IC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwgNjMwKSI+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI1MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjMUI0MzMyIiBvcGFjaXR5PSIwLjA2IiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iMTAsNSIvPgogICAgICA8IS0tIEZlbmNlIGluZGljYXRpb24gLS0+CiAgICAgIDx0ZXh0IHg9IjI1MCIgeT0iMjUiIGNsYXNzPSJ6b25lLWxhYmVsIiBmb250LXNpemU9IjE0Ij5PVVRET09SIFRSQUlOSU5HIEFSRUE8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjI1MCIgeT0iNDIiIGNsYXNzPSJzZi1sYWJlbCIgZm9udC1zaXplPSIxMCI+Miw1MDAgU0Y8L3RleHQ+CgogICAgICA8IS0tIFNsZWQgVHJhY2sgLS0+CiAgICAgIDxyZWN0IHg9IjIwIiB5PSI2MCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzFCNDMzMiIgb3BhY2l0eT0iMC4xIiBzdHJva2U9IiMxQjQzMzIiIHN0cm9rZS13aWR0aD0iMSIgcng9IjIiLz4KICAgICAgPHRleHQgeD0iMTIwIiB5PSI3OSIgZm9udC1zaXplPSI2IiBmaWxsPSIjMUI0MzMyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TTEVEIFRSQUNLPC90ZXh0PgoKICAgICAgPCEtLSBPdXRkb29yIFJpZyAtLT4KICAgICAgPHJlY3QgeD0iMjQwIiB5PSI1NSIgd2lkdGg9IjgwIiBoZWlnaHQ9IjYwIiBmaWxsPSJub25lIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMS41IiByeD0iMiIvPgogICAgICA8dGV4dCB4PSIyODAiIHk9Ijg4IiBmb250LXNpemU9IjYiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk9VVERPT1IgUklHPC90ZXh0PgoKICAgICAgPCEtLSBGYXJtZXIncyBXYWxrIC0tPgogICAgICA8cmVjdCB4PSIyMCIgeT0iMTA1IiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjI1IiBmaWxsPSIjMUI0MzMyIiBvcGFjaXR5PSIwLjA4IiBzdHJva2U9IiMxQjQzMzIiIHN0cm9rZS13aWR0aD0iMSIgcng9IjIiLz4KICAgICAgPHRleHQgeD0iMTIwIiB5PSIxMjEiIGZvbnQtc2l6ZT0iNiIgZmlsbD0iIzFCNDMzMiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RkFSTUVSJ1MgV0FMSyBMQU5FPC90ZXh0PgoKICAgICAgPCEtLSBUaXJlL1NhbmRiYWcgLS0+CiAgICAgIDxyZWN0IHg9IjM0MCIgeT0iNTUiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzNFMjQxOCIgb3BhY2l0eT0iMC4wOCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjEiIHJ4PSIyIi8+CiAgICAgIDx0ZXh0IHg9IjM4MCIgeT0iOTUiIGZvbnQtc2l6ZT0iNiIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VElSRS9TQU5EQkFHPC90ZXh0PgogICAgICA8dGV4dCB4PSIzODAiIHk9IjEwNSIgZm9udC1zaXplPSI2IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5BUkVBPC90ZXh0PgoKICAgICAgPCEtLSBGZW5jZSBsYWJlbCAtLT4KICAgICAgPHRleHQgeD0iMjUwIiB5PSIxODUiIGZvbnQtc2l6ZT0iNiIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zdHlsZT0iaXRhbGljIj5CTEFDSyBQT1dERVItQ09BVEVEIFNURUVMIEZFTkNFIEVOQ0xPU1VSRTwvdGV4dD4KCiAgICAgIDwhLS0gQ29ubmVjdGlvbiB0byBpbnRlcmlvciAtLT4KICAgICAgPHJlY3QgeD0iMjAwIiB5PSItOCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjE2IiBmaWxsPSIjRDRBNTc0IiBvcGFjaXR5PSIwLjMiIHN0cm9rZT0iI0Q0QTU3NCIgc3Ryb2tlLXdpZHRoPSIxIiByeD0iMiIvPgogICAgICA8dGV4dCB4PSIyNDAiIHk9IjQiIGZvbnQtc2l6ZT0iNiIgZmlsbD0iI0Q0QTU3NCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Uk9MTC1VUCBHQVJBR0UgRE9PUjwvdGV4dD4KICAgIDwvZz4KCiAgICA8IS0tID09PT09PSBHTEFTUyBTVE9SRUZST05UIFdJTkRPV1MgPT09PT09IC0tPgogICAgPCEtLSBGcm9udCBmYWNhZGUgLS0+CiAgICA8bGluZSB4MT0iMzAiIHkxPSIwIiB4Mj0iMzQwIiB5Mj0iMCIgc3Ryb2tlPSIjODdDRUVCIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuNSIvPgogICAgPGxpbmUgeDE9IjU2MCIgeTE9IjAiIHgyPSI3MDAiIHkyPSIwIiBzdHJva2U9IiM4N0NFRUIiIHN0cm9rZS13aWR0aD0iMyIgb3BhY2l0eT0iMC41Ii8+CgogICAgPCEtLSA9PT09PT0gRE9PUlMgPT09PT09IC0tPgogICAgPCEtLSBSZWNvdmVyeSBzdWl0ZSBkb29yIC0tPgogICAgPHJlY3QgeD0iNzEwIiB5PSIyNTAiIHdpZHRoPSI0IiBoZWlnaHQ9IjI1IiBmaWxsPSIjRDRBNTc0IiByeD0iMSIvPgogICAgPCEtLSBMb2NrZXIgcm9vbSBkb29ycyAtLT4KICAgIDxyZWN0IHg9IjcxMCIgeT0iNDAwIiB3aWR0aD0iNCIgaGVpZ2h0PSIyNSIgZmlsbD0iI0Q0QTU3NCIgcng9IjEiLz4KICAgIDxyZWN0IHg9IjcxMCIgeT0iNTMwIiB3aWR0aD0iNCIgaGVpZ2h0PSIyNSIgZmlsbD0iI0Q0QTU3NCIgcng9IjEiLz4KICAgIDwhLS0gUmVzdHJvb20gZG9vcnMgLS0+CiAgICA8cmVjdCB4PSI3MzUiIHk9IjEyMCIgd2lkdGg9IjI1IiBoZWlnaHQ9IjQiIGZpbGw9IiNENEE1NzQiIHJ4PSIxIi8+CiAgICA8cmVjdCB4PSI3ODAiIHk9IjEyMCIgd2lkdGg9IjI1IiBoZWlnaHQ9IjQiIGZpbGw9IiNENEE1NzQiIHJ4PSIxIi8+CgogICAgPCEtLSA9PT09PT0gRU1FUkdFTkNZIEVYSVRTID09PT09PSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04LCAzNTApIj4KICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjMwIiBmaWxsPSIjQ0MzMzMzIiBvcGFjaXR5PSIwLjMiIHN0cm9rZT0iI0NDMzMzMyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHJ4PSIxIi8+CiAgICAgIDx0ZXh0IHg9IjYiIHk9IjE4IiBmb250LXNpemU9IjUiIGZpbGw9IiNDQzMzMzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5FWElUPC90ZXh0PgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODk2LCAyNTApIj4KICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjMwIiBmaWxsPSIjQ0MzMzMzIiBvcGFjaXR5PSIwLjMiIHN0cm9rZT0iI0NDMzMzMyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHJ4PSIxIi8+CiAgICAgIDx0ZXh0IHg9IjYiIHk9IjE4IiBmb250LXNpemU9IjUiIGZpbGw9IiNDQzMzMzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5FWElUPC90ZXh0PgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjIwLCA2MTYpIj4KICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjEyIiBmaWxsPSIjQ0MzMzMzIiBvcGFjaXR5PSIwLjMiIHN0cm9rZT0iI0NDMzMzMyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHJ4PSIxIi8+CiAgICAgIDx0ZXh0IHg9IjE1IiB5PSI5IiBmb250LXNpemU9IjUiIGZpbGw9IiNDQzMzMzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5FWElUPC90ZXh0PgogICAgPC9nPgoKICAgIDwhLS0gPT09PT09IENJUkNVTEFUSU9OIEFSUk9XUyA9PT09PT0gLS0+CiAgICA8IS0tIEVudGVyIOKGkiBSZWNlcHRpb24gLS0+CiAgICA8bGluZSB4MT0iNDUwIiB5MT0iLTMwIiB4Mj0iNDUwIiB5Mj0iMjUiIGNsYXNzPSJhcnJvdy1saW5lIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93aGVhZCkiLz4KCiAgICA8IS0tIFJlY2VwdGlvbiDihpIgVHJhaW5pbmcgRmxvb3IgLS0+CiAgICA8bGluZSB4MT0iNDUwIiB5MT0iMTAwIiB4Mj0iMzUwIiB5Mj0iMTgwIiBjbGFzcz0iYXJyb3ctbGluZSIgbWFya2VyLWVuZD0idXJsKCNhcnJvd2hlYWQpIi8+CgogICAgPCEtLSBUcmFpbmluZyDihpIgUmVjb3ZlcnkgLS0+CiAgICA8bGluZSB4MT0iNjgwIiB5MT0iMjUwIiB4Mj0iNzIwIiB5Mj0iMjUwIiBjbGFzcz0iYXJyb3ctbGluZSIgbWFya2VyLWVuZD0idXJsKCNhcnJvd2hlYWQpIi8+CgogICAgPCEtLSBUcmFpbmluZyDihpIgTG9ja2VycyAtLT4KICAgIDxsaW5lIHgxPSI2ODAiIHkxPSI0MjAiIHgyPSI3MjAiIHkyPSI0MjAiIGNsYXNzPSJhcnJvdy1saW5lIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93aGVhZCkiLz4KCiAgICA8IS0tIFRyYWluaW5nIOKGkiBPdXRkb29yIC0tPgogICAgPGxpbmUgeDE9IjI0MCIgeTE9IjYwMCIgeDI9IjI0MCIgeTI9IjY0MCIgY2xhc3M9ImFycm93LWxpbmUiIG1hcmtlci1lbmQ9InVybCgjYXJyb3doZWFkKSIvPgoKICAgIDwhLS0gUmVjZXB0aW9uIOKGkiBTdGFpcnMgKFVwKSAtLT4KICAgIDxsaW5lIHgxPSI1MjAiIHkxPSI2MCIgeDI9IjU4MCIgeTI9IjYwIiBjbGFzcz0iYXJyb3ctbGluZSIgbWFya2VyLWVuZD0idXJsKCNhcnJvd2hlYWQpIi8+CgogICAgPCEtLSA9PT09PT0gRElNRU5TSU9OIExJTkVTID09PT09PSAtLT4KICAgIDwhLS0gQnVpbGRpbmcgd2lkdGggLS0+CiAgICA8bGluZSB4MT0iMCIgeTE9Ii01MCIgeDI9IjkwMCIgeTI9Ii01MCIgY2xhc3M9ImRpbS1saW5lIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93aGVhZC1kYXJrKSIvPgogICAgPGxpbmUgeDE9IjkwMCIgeTE9Ii01MCIgeDI9IjAiIHkyPSItNTAiIGNsYXNzPSJkaW0tbGluZSIgbWFya2VyLWVuZD0idXJsKCNhcnJvd2hlYWQtZGFyaykiLz4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iLTU1IiBjbGFzcz0iZGltLXRleHQiPn4xMjAnLTAiPC90ZXh0PgogICAgPGxpbmUgeDE9IjAiIHkxPSItNDUiIHgyPSIwIiB5Mj0iLTU1IiBjbGFzcz0iZGltLWxpbmUiLz4KICAgIDxsaW5lIHgxPSI5MDAiIHkxPSItNDUiIHgyPSI5MDAiIHkyPSItNTUiIGNsYXNzPSJkaW0tbGluZSIvPgoKICAgIDwhLS0gQnVpbGRpbmcgZGVwdGggLS0+CiAgICA8bGluZSB4MT0iLTQwIiB5MT0iMCIgeDI9Ii00MCIgeTI9IjYyMCIgY2xhc3M9ImRpbS1saW5lIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93aGVhZC1kYXJrKSIvPgogICAgPGxpbmUgeDE9Ii00MCIgeTE9IjYyMCIgeDI9Ii00MCIgeTI9IjAiIGNsYXNzPSJkaW0tbGluZSIgbWFya2VyLWVuZD0idXJsKCNhcnJvd2hlYWQtZGFyaykiLz4KICAgIDx0ZXh0IHg9Ii00NSIgeT0iMzEwIiBjbGFzcz0iZGltLXRleHQiIHRyYW5zZm9ybT0icm90YXRlKC05MCwgLTQ1LCAzMTApIj5+ODMnLTAiPC90ZXh0PgogICAgPGxpbmUgeDE9Ii0zNSIgeTE9IjAiIHgyPSItNDUiIHkyPSIwIiBjbGFzcz0iZGltLWxpbmUiLz4KICAgIDxsaW5lIHgxPSItMzUiIHkxPSI2MjAiIHgyPSItNDUiIHkyPSI2MjAiIGNsYXNzPSJkaW0tbGluZSIvPgoKICA8L2c+CgogIDwhLS0gPT09PT09IExFR0VORCA9PT09PT0gLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTA1MCwgMTMwKSI+CiAgICA8dGV4dCB4PSIwIiB5PSIwIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMUExQTFBIj5MRUdFTkQ8L3RleHQ+CiAgICA8bGluZSB4MT0iMCIgeTE9IjgiIHgyPSIxMjAiIHkyPSI4IiBzdHJva2U9IiNENEE1NzQiIHN0cm9rZS13aWR0aD0iMSIvPgoKICAgIDwhLS0gRXh0ZXJpb3Igd2FsbCAtLT4KICAgIDxsaW5lIHgxPSIwIiB5MT0iMjUiIHgyPSIyNSIgeTI9IjI1IiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMyIvPgogICAgPHRleHQgeD0iMzIiIHk9IjI4IiBjbGFzcz0ibGVnZW5kLXRleHQiPkV4dGVyaW9yIFdhbGw8L3RleHQ+CgogICAgPCEtLSBJbnRlcmlvciB3YWxsIC0tPgogICAgPGxpbmUgeDE9IjAiIHkxPSI0NSIgeDI9IjI1IiB5Mj0iNDUiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtZGFzaGFycmF5PSI4LDQiLz4KICAgIDx0ZXh0IHg9IjMyIiB5PSI0OCIgY2xhc3M9ImxlZ2VuZC10ZXh0Ij5JbnRlcmlvciBQYXJ0aXRpb248L3RleHQ+CgogICAgPCEtLSBHbGFzcyAtLT4KICAgIDxsaW5lIHgxPSIwIiB5MT0iNjUiIHgyPSIyNSIgeTI9IjY1IiBzdHJva2U9IiM4N0NFRUIiIHN0cm9rZS13aWR0aD0iMyIgb3BhY2l0eT0iMC42Ii8+CiAgICA8dGV4dCB4PSIzMiIgeT0iNjgiIGNsYXNzPSJsZWdlbmQtdGV4dCI+R2xhc3MgLyBTdG9yZWZyb250PC90ZXh0PgoKICAgIDwhLS0gRG9vciAtLT4KICAgIDxyZWN0IHg9IjAiIHk9Ijc4IiB3aWR0aD0iMjUiIGhlaWdodD0iNiIgZmlsbD0iI0Q0QTU3NCIgcng9IjEiLz4KICAgIDx0ZXh0IHg9IjMyIiB5PSI4NSIgY2xhc3M9ImxlZ2VuZC10ZXh0Ij5Eb29yIE9wZW5pbmc8L3RleHQ+CgogICAgPCEtLSBFbWVyZ2VuY3kgZXhpdCAtLT4KICAgIDxyZWN0IHg9IjAiIHk9Ijk1IiB3aWR0aD0iMTUiIGhlaWdodD0iMTAiIGZpbGw9IiNDQzMzMzMiIG9wYWNpdHk9IjAuMyIgc3Ryb2tlPSIjQ0MzMzMzIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjMyIiB5PSIxMDQiIGNsYXNzPSJsZWdlbmQtdGV4dCI+RW1lcmdlbmN5IEV4aXQ8L3RleHQ+CgogICAgPCEtLSBUdXJmIC0tPgogICAgPHJlY3QgeD0iMCIgeT0iMTE1IiB3aWR0aD0iMjUiIGhlaWdodD0iMTAiIGZpbGw9IiMxQjQzMzIiIG9wYWNpdHk9IjAuMTUiIHN0cm9rZT0iIzFCNDMzMiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIzMiIgeT0iMTI0IiBjbGFzcz0ibGVnZW5kLXRleHQiPlR1cmYgLyBHcmVlbiBab25lPC90ZXh0PgoKICAgIDwhLS0gUmVjb3ZlcnkgLS0+CiAgICA8cmVjdCB4PSIwIiB5PSIxMzUiIHdpZHRoPSIyNSIgaGVpZ2h0PSIxMCIgZmlsbD0iI0E4OTg4OCIgb3BhY2l0eT0iMC4xNSIgc3Ryb2tlPSIjQTg5ODg4IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjMyIiB5PSIxNDQiIGNsYXNzPSJsZWdlbmQtdGV4dCI+UmVjb3ZlcnkgLyBXZWxsbmVzczwvdGV4dD4KCiAgICA8IS0tIExvY2tlciAtLT4KICAgIDxyZWN0IHg9IjAiIHk9IjE1NSIgd2lkdGg9IjI1IiBoZWlnaHQ9IjEwIiBmaWxsPSIjQzRCNUEwIiBvcGFjaXR5PSIwLjE1IiBzdHJva2U9IiNDNEI1QTAiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPHRleHQgeD0iMzIiIHk9IjE2NCIgY2xhc3M9ImxlZ2VuZC10ZXh0Ij5Mb2NrZXIgLyBXZXQgWm9uZTwvdGV4dD4KCiAgICA8IS0tIEVxdWlwbWVudCAtLT4KICAgIDxyZWN0IHg9IjAiIHk9IjE3NSIgd2lkdGg9IjI1IiBoZWlnaHQ9IjEwIiBmaWxsPSIjRTBFMEUwIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPHRleHQgeD0iMzIiIHk9IjE4NCIgY2xhc3M9ImxlZ2VuZC10ZXh0Ij5FcXVpcG1lbnQ8L3RleHQ+CgogICAgPCEtLSBDaXJjdWxhdGlvbiAtLT4KICAgIDxsaW5lIHgxPSIwIiB5MT0iMTk4IiB4Mj0iMjUiIHkyPSIxOTgiIHN0cm9rZT0iI0Q0QTU3NCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1kYXNoYXJyYXk9IjYsMyIgbWFya2VyLWVuZD0idXJsKCNhcnJvd2hlYWQpIi8+CiAgICA8dGV4dCB4PSIzMiIgeT0iMjAxIiBjbGFzcz0ibGVnZW5kLXRleHQiPk1lbWJlciBDaXJjdWxhdGlvbjwvdGV4dD4KCiAgICA8IS0tIEFEQSAtLT4KICAgIDx0ZXh0IHg9IjAiIHk9IjIyNSIgZm9udC1zaXplPSI5IiBmaWxsPSIjMUExQTFBIiBmb250LXdlaWdodD0iNjAwIj5BREEgQUNDRVNTSUJJTElUWTwvdGV4dD4KICAgIDx0ZXh0IHg9IjAiIHk9IjIzOCIgY2xhc3M9ImxlZ2VuZC10ZXh0Ij5BbGwgem9uZXMgYWNjZXNzaWJsZSB2aWE8L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSIyNTAiIGNsYXNzPSJsZWdlbmQtdGV4dCI+bGV2ZWwgZW50cnkgKyBlbGV2YXRvciB0byAyRjwvdGV4dD4KICAgIDx0ZXh0IHg9IjAiIHk9IjI2MiIgY2xhc3M9ImxlZ2VuZC10ZXh0Ij5BREEgcmVzdHJvb21zIG9uIGJvdGggZmxvb3JzPC90ZXh0PgoKICAgIDwhLS0gQ2lyY3VsYXRpb24gU3VtbWFyeSAtLT4KICAgIDx0ZXh0IHg9IjAiIHk9IjI5MCIgZm9udC1zaXplPSI5IiBmaWxsPSIjMUExQTFBIiBmb250LXdlaWdodD0iNjAwIj5NRU1CRVIgRkxPVzwvdGV4dD4KICAgIDx0ZXh0IHg9IjAiIHk9IjMwNSIgY2xhc3M9ImxlZ2VuZC10ZXh0IiBmaWxsPSIjRDRBNTc0Ij4xLiBFbnRlciDihpIgQ2hlY2staW48L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSIzMTgiIGNsYXNzPSJsZWdlbmQtdGV4dCIgZmlsbD0iI0Q0QTU3NCI+Mi4gVHJhaW4gKGZsb29yL291dGRvb3IpPC90ZXh0PgogICAgPHRleHQgeD0iMCIgeT0iMzMxIiBjbGFzcz0ibGVnZW5kLXRleHQiIGZpbGw9IiNENEE1NzQiPjMuIFJlY292ZXIgKHBsdW5nZS9zYXVuYSk8L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSIzNDQiIGNsYXNzPSJsZWdlbmQtdGV4dCIgZmlsbD0iI0Q0QTU3NCI+NC4gU2hvd2VyIC8gQ2hhbmdlPC90ZXh0PgogICAgPHRleHQgeD0iMCIgeT0iMzU3IiBjbGFzcz0ibGVnZW5kLXRleHQiIGZpbGw9IiNENEE1NzQiPjUuIFVwc3RhaXJzIOKGkiBFYXQvV29yay9Tb2NpYWw8L3RleHQ+CiAgPC9nPgoKICA8IS0tIE5vcnRoIEFycm93IC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExMDAsIDUyMCkiPgogICAgPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICAgIDxwb2x5Z29uIHBvaW50cz0iMjAsNSAxNSwyNSAyMCwyMCAyNSwyNSIgZmlsbD0iIzFBMUExQSIvPgogICAgPHRleHQgeD0iMjAiIHk9IjE1IiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMxQTFBMUEiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk48L3RleHQ+CiAgPC9nPgoKICA8IS0tIFNjYWxlIEJhciAtLT4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDUwLCA1ODApIj4KICAgIDx0ZXh0IHg9IjAiIHk9IjAiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzFBMUExQSIgZm9udC13ZWlnaHQ9IjYwMCI+U0NBTEU8L3RleHQ+CiAgICA8cmVjdCB4PSIwIiB5PSI4IiB3aWR0aD0iNjAiIGhlaWdodD0iNiIgZmlsbD0iIzFBMUExQSIvPgogICAgPHJlY3QgeD0iNjAiIHk9IjgiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2IiBmaWxsPSJub25lIiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPHJlY3QgeD0iMTIwIiB5PSI4IiB3aWR0aD0iNjAiIGhlaWdodD0iNiIgZmlsbD0iIzFBMUExQSIvPgogICAgPHRleHQgeD0iMCIgeT0iMjUiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzg4OCI+MDwvdGV4dD4KICAgIDx0ZXh0IHg9IjYwIiB5PSIyNSIgZm9udC1zaXplPSI3IiBmaWxsPSIjODg4Ij4xMCc8L3RleHQ+CiAgICA8dGV4dCB4PSIxMjAiIHk9IjI1IiBmb250LXNpemU9IjciIGZpbGw9IiM4ODgiPjIwJzwvdGV4dD4KICAgIDx0ZXh0IHg9IjE4MCIgeT0iMjUiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzg4OCI+MzAnPC90ZXh0PgogIDwvZz4KCiAgPCEtLSBGb290ZXIgLS0+CiAgPGxpbmUgeDE9IjUwIiB5MT0iOTYwIiB4Mj0iMTM1MCIgeTI9Ijk2MCIgc3Ryb2tlPSIjRDRBNTc0IiBzdHJva2Utd2lkdGg9IjAuNSIvPgogIDx0ZXh0IHg9IjUwIiB5PSI5NzgiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzk5OSIgZm9udC1mYW1pbHk9IkludGVyLCBzYW5zLXNlcmlmIj5USEUgRVJFTU9TICB8ICBGaXJzdCBGbG9vciBQbGFuICB8ICBMaWJlcnR5IFBhcmsgRGlzdHJpY3QsIE1lbXBoaXMsIFROICB8ICBQUkVMSU1JTkFSWSAtIE5PVCBGT1IgQ09OU1RSVUNUSU9OPC90ZXh0PgogIDx0ZXh0IHg9IjEzNTAiIHk9Ijk3OCIgZm9udC1zaXplPSI4IiBmaWxsPSIjOTk5IiBmb250LWZhbWlseT0iSW50ZXIsIHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJlbmQiPkRyYXdpbmcgMDJBICB8ICBSZXYgMDE8L3RleHQ+Cgo8L3N2Zz4=" alt="First Floor Plan" style="background: #F5F0EB;">
+  </div>
+
+  <div class="info-grid" style="margin-top: 30px;">
+    <div class="info-card">
+      <h3>Training Floor — 10,000 SF</h3>
+      <ul>
+        <li>12-16 squat racks/platforms</li>
+        <li>Olympic lifting platforms</li>
+        <li>Cable machine station</li>
+        <li>Dumbbell wall (5-150 lb)</li>
+        <li>Functional training rig</li>
+        <li>Indoor 40-yard turf sprint lane</li>
+        <li>14+ ft ceilings, chalk stations</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>Recovery Suite — 1,500 SF</h3>
+      <ul>
+        <li>2 cold plunge tubs (38-42°F)</li>
+        <li>1 infrared sauna (4-person)</li>
+        <li>4 Normatec compression boots</li>
+        <li>Percussion therapy station</li>
+        <li>Glass partition — visible, acoustically isolated</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>Locker Rooms — 2,000 SF</h3>
+      <ul>
+        <li>1,000 SF men's + 1,000 SF women's</li>
+        <li>Wood-grain lockers (dark walnut)</li>
+        <li>Individual shower stalls, glass doors</li>
+        <li>Grooming stations</li>
+        <li>Towel service station</li>
+        <li>Heated stone/porcelain flooring</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 2B. SECOND FLOOR PLAN -->
+<section id="floorplan2">
+  <div class="section-header">
+    <div class="section-number">Deliverable 02B</div>
+    <div class="section-title">Second Floor Plan <span class="render-badge">SVG</span></div>
+    <div class="section-subtitle">Upper level — 7,700 SF. Social, work, wellness, and recreation zones.</div>
+  </div>
+
+  <div class="svg-embed">
+    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDAwIDEwMDAiIHdpZHRoPSIzMDAwIiBoZWlnaHQ9IjIxNDMiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICB0ZXh0IHsgZm9udC1mYW1pbHk6ICdJbnRlcicsICdIZWx2ZXRpY2EgTmV1ZScsIEFyaWFsLCBzYW5zLXNlcmlmOyB9CiAgICAgIC53YWxsIHsgZmlsbDogbm9uZTsgc3Ryb2tlOiAjMUExQTFBOyBzdHJva2Utd2lkdGg6IDM7IH0KICAgICAgLmludGVyaW9yLXdhbGwgeyBmaWxsOiBub25lOyBzdHJva2U6ICMxQTFBMUE7IHN0cm9rZS13aWR0aDogMjsgfQogICAgICAuZG9vciB7IGZpbGw6IG5vbmU7IHN0cm9rZTogI0Q0QTU3NDsgc3Ryb2tlLXdpZHRoOiAyOyB9CiAgICAgIC53aW5kb3cgeyBmaWxsOiBub25lOyBzdHJva2U6ICM4N0NFRUI7IHN0cm9rZS13aWR0aDogMjsgc3Ryb2tlLWRhc2hhcnJheTogNCwyOyB9CiAgICAgIC56b25lLWxhYmVsIHsgZm9udC1zaXplOiAxM3B4OyBmb250LXdlaWdodDogNjAwOyBmaWxsOiAjMUExQTFBOyB0ZXh0LWFuY2hvcjogbWlkZGxlOyB9CiAgICAgIC56b25lLXN1YmxhYmVsIHsgZm9udC1zaXplOiA5cHg7IGZvbnQtd2VpZ2h0OiA0MDA7IGZpbGw6ICM1NTU7IHRleHQtYW5jaG9yOiBtaWRkbGU7IH0KICAgICAgLnNmLWxhYmVsIHsgZm9udC1zaXplOiAxMHB4OyBmb250LXdlaWdodDogNTAwOyBmaWxsOiAjRDRBNTc0OyB0ZXh0LWFuY2hvcjogbWlkZGxlOyB9CiAgICAgIC5kaW0tbGluZSB7IHN0cm9rZTogIzk5OTsgc3Ryb2tlLXdpZHRoOiAwLjc1OyB9CiAgICAgIC5kaW0tdGV4dCB7IGZvbnQtc2l6ZTogOHB4OyBmaWxsOiAjNzc3OyB0ZXh0LWFuY2hvcjogbWlkZGxlOyB9CiAgICAgIC50aXRsZSB7IGZvbnQtc2l6ZTogMjJweDsgZm9udC13ZWlnaHQ6IDcwMDsgZmlsbDogIzBBMEEwQTsgfQogICAgICAuc3VidGl0bGUgeyBmb250LXNpemU6IDEycHg7IGZvbnQtd2VpZ2h0OiA0MDA7IGZpbGw6ICM2NjY7IH0KICAgICAgLmxlZ2VuZC10ZXh0IHsgZm9udC1zaXplOiA5cHg7IGZpbGw6ICM1NTU7IH0KICAgICAgLmVxdWlwbWVudCB7IGZpbGw6IG5vbmU7IHN0cm9rZTogIzg4ODsgc3Ryb2tlLXdpZHRoOiAxOyB9CiAgICAgIC5lcXVpcG1lbnQtZmlsbCB7IGZpbGw6ICNFOEU4RTg7IHN0cm9rZTogIzg4ODsgc3Ryb2tlLXdpZHRoOiAxOyB9CiAgICA8L3N0eWxlPgogICAgPG1hcmtlciBpZD0iYXJyb3doZWFkIiBtYXJrZXJXaWR0aD0iOCIgbWFya2VySGVpZ2h0PSI2IiByZWZYPSI4IiByZWZZPSIzIiBvcmllbnQ9ImF1dG8iPgogICAgICA8cG9seWdvbiBwb2ludHM9IjAgMCwgOCAzLCAwIDYiIGZpbGw9IiNENEE1NzQiLz4KICAgIDwvbWFya2VyPgogICAgPG1hcmtlciBpZD0iYXJyb3doZWFkLWRhcmsiIG1hcmtlcldpZHRoPSI4IiBtYXJrZXJIZWlnaHQ9IjYiIHJlZlg9IjgiIHJlZlk9IjMiIG9yaWVudD0iYXV0byI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCAwLCA4IDMsIDAgNiIgZmlsbD0iIzk5OSIvPgogICAgPC9tYXJrZXI+CiAgPC9kZWZzPgoKICA8IS0tIEJhY2tncm91bmQgLS0+CiAgPHJlY3Qgd2lkdGg9IjE0MDAiIGhlaWdodD0iMTAwMCIgZmlsbD0iI0Y1RjBFQiIvPgoKICA8IS0tIFRpdGxlIEJsb2NrIC0tPgogIDx0ZXh0IHg9IjUwIiB5PSI0NSIgY2xhc3M9InRpdGxlIj5USEUgRVJFTU9TPC90ZXh0PgogIDx0ZXh0IHg9IjUwIiB5PSI2NSIgY2xhc3M9InN1YnRpdGxlIj5TRUNPTkQgRkxPT1IgUExBTiAgfCAgVXBwZXIgTGV2ZWwgIHwgIH43LDcwMCBTRjwvdGV4dD4KICA8dGV4dCB4PSI1MCIgeT0iODIiIGNsYXNzPSJzdWJ0aXRsZSIgc3R5bGU9ImZpbGw6Izk5OSI+TGliZXJ0eSBQYXJrIERpc3RyaWN0LCBNZW1waGlzLCBUTiAgfCAgU2NhbGU6IDEvMTYiID0gMSctMCIgKGFwcHJveGltYXRlKTwvdGV4dD4KICA8bGluZSB4MT0iNTAiIHkxPSI5MiIgeDI9IjEzNTAiIHkyPSI5MiIgc3Ryb2tlPSIjRDRBNTc0IiBzdHJva2Utd2lkdGg9IjEuNSIvPgoKICA8IS0tID09PT09PSBNQUlOIEJVSUxESU5HIE9VVExJTkUgPT09PT09IC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgwLCAxMzApIj4KCiAgICA8IS0tIEV4dGVyaW9yIFdhbGxzIC0tPgogICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjkwMCIgaGVpZ2h0PSI2MjAiIGNsYXNzPSJ3YWxsIiBzdHJva2Utd2lkdGg9IjQiLz4KICAgIDxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSI4OTYiIGhlaWdodD0iNjE2IiBmaWxsPSIjRjVGMEVCIiBvcGFjaXR5PSIwLjUiLz4KCiAgICA8IS0tIFdpbmRvd3MgYWxvbmcgZXh0ZXJpb3IgLS0+CiAgICA8bGluZSB4MT0iMzAiIHkxPSIwIiB4Mj0iMjAwIiB5Mj0iMCIgc3Ryb2tlPSIjODdDRUVCIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuNSIvPgogICAgPGxpbmUgeDE9IjIyMCIgeTE9IjAiIHgyPSIzNDAiIHkyPSIwIiBzdHJva2U9IiM4N0NFRUIiIHN0cm9rZS13aWR0aD0iMyIgb3BhY2l0eT0iMC41Ii8+CiAgICA8bGluZSB4MT0iNTYwIiB5MT0iMCIgeDI9IjcwMCIgeTI9IjAiIHN0cm9rZT0iIzg3Q0VFQiIgc3Ryb2tlLXdpZHRoPSIzIiBvcGFjaXR5PSIwLjUiLz4KICAgIDxsaW5lIHgxPSI3NTAiIHkxPSIwIiB4Mj0iODgwIiB5Mj0iMCIgc3Ryb2tlPSIjODdDRUVCIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuNSIvPgoKICAgIDwhLS0gPT09PT09IFNUQUlSQ0FTRSAmIEVMRVZBVE9SID09PT09PSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1MCwgMCkiPgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iODAiIGhlaWdodD0iOTAiIGZpbGw9IiNFOEQ1QjciIG9wYWNpdHk9IjAuMjUiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICAgIDxsaW5lIHgxPSIxMCIgeTE9IjE1IiB4Mj0iNzAiIHkyPSIxNSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgICA8bGluZSB4MT0iMTAiIHkxPSIyNSIgeDI9IjcwIiB5Mj0iMjUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgICAgPGxpbmUgeDE9IjEwIiB5MT0iMzUiIHgyPSI3MCIgeTI9IjM1IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41Ii8+CiAgICAgIDxsaW5lIHgxPSIxMCIgeTE9IjQ1IiB4Mj0iNzAiIHkyPSI0NSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgICA8bGluZSB4MT0iMTAiIHkxPSI1NSIgeDI9IjcwIiB5Mj0iNTUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgICAgPGxpbmUgeDE9IjEwIiB5MT0iNjUiIHgyPSI3MCIgeTI9IjY1IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41Ii8+CiAgICAgIDxsaW5lIHgxPSIxMCIgeTE9Ijc1IiB4Mj0iNzAiIHkyPSI3NSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgICA8dGV4dCB4PSI0MCIgeT0iNTAiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+T1BFTiBTVEFJUjwvdGV4dD4KICAgICAgPHRleHQgeD0iNDAiIHk9IjYwIiBmb250LXNpemU9IjUiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkZST00gMVNUIEZMPC90ZXh0PgogICAgPC9nPgoKICAgIDwhLS0gRWxldmF0b3IgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0NDAsIDApIj4KICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjREREIiBvcGFjaXR5PSIwLjMiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICAgIDx0ZXh0IHg9IjI1IiB5PSIyOCIgZm9udC1zaXplPSI3IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5FTEVWLjwvdGV4dD4KICAgICAgPGxpbmUgeDE9IjE1IiB5MT0iMzUiIHgyPSIyNSIgeTI9IjQyIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICA8bGluZSB4MT0iMjUiIHkxPSI0MiIgeDI9IjM1IiB5Mj0iMzUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8L2c+CgogICAgPCEtLSA9PT09PT0gQ0FGRSAmIEJBUiAoMSw4MDAgU0YpID09PT09PSAtLT4KICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzNTAiIGhlaWdodD0iMzAwIiBmaWxsPSIjM0UyNDE4IiBvcGFjaXR5PSIwLjA2IiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMiIvPgoKICAgIDx0ZXh0IHg9IjE3NSIgeT0iMzAiIGNsYXNzPSJ6b25lLWxhYmVsIiBmb250LXNpemU9IjE1Ij5DQUZFICZhbXA7IEJBUjwvdGV4dD4KICAgIDx0ZXh0IHg9IjE3NSIgeT0iNDgiIGNsYXNzPSJzZi1sYWJlbCIgZm9udC1zaXplPSIxMSI+MSw4MDAgU0Y8L3RleHQ+CgogICAgPCEtLSBTZXJ2aWNlIENvdW50ZXIgLyBCYXIgLS0+CiAgICA8cmVjdCB4PSIzMCIgeT0iNjUiIHdpZHRoPSIyODAiIGhlaWdodD0iMTgiIGZpbGw9IiMzRTI0MTgiIG9wYWNpdHk9IjAuMyIgc3Ryb2tlPSIjM0UyNDE4IiBzdHJva2Utd2lkdGg9IjEiIHJ4PSIzIi8+CiAgICA8dGV4dCB4PSIxNzAiIHk9Ijc4IiBmb250LXNpemU9IjciIGZpbGw9IiNFOEQ1QjciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSI1MDAiPlNFUlZJQ0UgQ09VTlRFUiAvIEJBUjwvdGV4dD4KCiAgICA8IS0tIENvbW1lcmNpYWwgS2l0Y2hlbiAtLT4KICAgIDxyZWN0IHg9IjMwIiB5PSI5MCIgd2lkdGg9IjE0MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0RERCIgb3BhY2l0eT0iMC4xNSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjEuNSIgcng9IjIiLz4KICAgIDx0ZXh0IHg9IjEwMCIgeT0iMTI4IiBmb250LXNpemU9IjgiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNPTU1FUkNJQUw8L3RleHQ+CiAgICA8dGV4dCB4PSIxMDAiIHk9IjE0MCIgZm9udC1zaXplPSI4IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5LSVRDSEVOPC90ZXh0PgogICAgPCEtLSBQYXNzLXRocm91Z2ggLS0+CiAgICA8cmVjdCB4PSI4MCIgeT0iODUiIHdpZHRoPSI1MCIgaGVpZ2h0PSI4IiBmaWxsPSIjRDRBNTc0IiBvcGFjaXR5PSIwLjMiIHJ4PSIxIi8+CiAgICA8dGV4dCB4PSIxMDUiIHk9IjkyIiBmb250LXNpemU9IjUiIGZpbGw9IiNENEE1NzQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlBBU1MtVEhST1VHSDwvdGV4dD4KCiAgICA8IS0tIEJhciBiYWNrIC0tPgogICAgPHJlY3QgeD0iMTg1IiB5PSI5MCIgd2lkdGg9IjEzMCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzNFMjQxOCIgb3BhY2l0eT0iMC4wOCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjEiIHJ4PSIyIi8+CiAgICA8dGV4dCB4PSIyNTAiIHk9IjExNSIgZm9udC1zaXplPSI3IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5CQUNLIEJBUjwvdGV4dD4KICAgIDx0ZXh0IHg9IjI1MCIgeT0iMTI2IiBmb250LXNpemU9IjYiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkJlZXIgVGFwcyAvIFdpbmUgLyBDb2NrdGFpbHM8L3RleHQ+CgogICAgPCEtLSBDb3VudGVyIFN0b29scyAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwLCA1NSkiPgogICAgICA8Y2lyY2xlIGN4PSIxMCIgY3k9IjAiIHI9IjQiIGZpbGw9IiMzRTI0MTgiIG9wYWNpdHk9IjAuMTUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgICAgPGNpcmNsZSBjeD0iMzAiIGN5PSIwIiByPSI0IiBmaWxsPSIjM0UyNDE4IiBvcGFjaXR5PSIwLjE1IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41Ii8+CiAgICAgIDxjaXJjbGUgY3g9IjUwIiBjeT0iMCIgcj0iNCIgZmlsbD0iIzNFMjQxOCIgb3BhY2l0eT0iMC4xNSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgICA8Y2lyY2xlIGN4PSI3MCIgY3k9IjAiIHI9IjQiIGZpbGw9IiMzRTI0MTgiIG9wYWNpdHk9IjAuMTUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgICAgPGNpcmNsZSBjeD0iOTAiIGN5PSIwIiByPSI0IiBmaWxsPSIjM0UyNDE4IiBvcGFjaXR5PSIwLjE1IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41Ii8+CiAgICAgIDxjaXJjbGUgY3g9IjExMCIgY3k9IjAiIHI9IjQiIGZpbGw9IiMzRTI0MTgiIG9wYWNpdHk9IjAuMTUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgICAgPGNpcmNsZSBjeD0iMTMwIiBjeT0iMCIgcj0iNCIgZmlsbD0iIzNFMjQxOCIgb3BhY2l0eT0iMC4xNSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNTAiIGN5PSIwIiByPSI0IiBmaWxsPSIjM0UyNDE4IiBvcGFjaXR5PSIwLjE1IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41Ii8+CiAgICA8L2c+CiAgICA8dGV4dCB4PSIxMDUiIHk9IjUwIiBmb250LXNpemU9IjUiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNPVU5URVIgU1RPT0xTICg4KTwvdGV4dD4KCiAgICA8IS0tIDItdG9wIHRhYmxlcyAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwLCAxODUpIj4KICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjM0UyNDE4IiBvcGFjaXR5PSIwLjEiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIyIi8+CiAgICAgIDxjaXJjbGUgY3g9IjUiIGN5PSIxNSIgcj0iMyIgZmlsbD0iIzg4OCIgb3BhY2l0eT0iMC4yIi8+CiAgICAgIDxjaXJjbGUgY3g9IjI1IiBjeT0iMTUiIHI9IjMiIGZpbGw9IiM4ODgiIG9wYWNpdHk9IjAuMiIvPgoKICAgICAgPHJlY3QgeD0iNTAiIHk9IjAiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzNFMjQxOCIgb3BhY2l0eT0iMC4xIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMiIvPgogICAgICA8Y2lyY2xlIGN4PSI1NSIgY3k9IjE1IiByPSIzIiBmaWxsPSIjODg4IiBvcGFjaXR5PSIwLjIiLz4KICAgICAgPGNpcmNsZSBjeD0iNzUiIGN5PSIxNSIgcj0iMyIgZmlsbD0iIzg4OCIgb3BhY2l0eT0iMC4yIi8+CgogICAgICA8cmVjdCB4PSIxMDAiIHk9IjAiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzNFMjQxOCIgb3BhY2l0eT0iMC4xIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMiIvPgogICAgICA8Y2lyY2xlIGN4PSIxMDUiIGN5PSIxNSIgcj0iMyIgZmlsbD0iIzg4OCIgb3BhY2l0eT0iMC4yIi8+CiAgICAgIDxjaXJjbGUgY3g9IjEyNSIgY3k9IjE1IiByPSIzIiBmaWxsPSIjODg4IiBvcGFjaXR5PSIwLjIiLz4KICAgIDwvZz4KICAgIDx0ZXh0IHg9Ijk1IiB5PSIyMzIiIGZvbnQtc2l6ZT0iNSIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Mi1UT1AgVEFCTEVTICgzKTwvdGV4dD4KCiAgICA8IS0tIENvbW11bmFsIHRhYmxlIC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTU1LCAxODApIj4KICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjE2MCIgaGVpZ2h0PSI0NSIgZmlsbD0iIzVBM0UyOCIgb3BhY2l0eT0iMC4xMiIgc3Ryb2tlPSIjM0UyNDE4IiBzdHJva2Utd2lkdGg9IjEiIHJ4PSIzIi8+CiAgICAgIDx0ZXh0IHg9IjgwIiB5PSIyMiIgZm9udC1zaXplPSI3IiBmaWxsPSIjM0UyNDE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DT01NVU5BTCBUQUJMRTwvdGV4dD4KICAgICAgPHRleHQgeD0iODAiIHk9IjM0IiBmb250LXNpemU9IjUiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkxpdmUtRWRnZSBUaW1iZXIsIFNlYXRzIDgtMTA8L3RleHQ+CiAgICAgIDwhLS0gQ2hhaXJzIGFyb3VuZCAtLT4KICAgICAgPGNpcmNsZSBjeD0iLTUiIGN5PSIxMCIgcj0iMyIgZmlsbD0iIzg4OCIgb3BhY2l0eT0iMC4yIi8+CiAgICAgIDxjaXJjbGUgY3g9Ii01IiBjeT0iMjUiIHI9IjMiIGZpbGw9IiM4ODgiIG9wYWNpdHk9IjAuMiIvPgogICAgICA8Y2lyY2xlIGN4PSItNSIgY3k9IjM4IiByPSIzIiBmaWxsPSIjODg4IiBvcGFjaXR5PSIwLjIiLz4KICAgICAgPGNpcmNsZSBjeD0iMTY1IiBjeT0iMTAiIHI9IjMiIGZpbGw9IiM4ODgiIG9wYWNpdHk9IjAuMiIvPgogICAgICA8Y2lyY2xlIGN4PSIxNjUiIGN5PSIyNSIgcj0iMyIgZmlsbD0iIzg4OCIgb3BhY2l0eT0iMC4yIi8+CiAgICAgIDxjaXJjbGUgY3g9IjE2NSIgY3k9IjM4IiByPSIzIiBmaWxsPSIjODg4IiBvcGFjaXR5PSIwLjIiLz4KICAgICAgPGNpcmNsZSBjeD0iNDAiIGN5PSItNSIgcj0iMyIgZmlsbD0iIzg4OCIgb3BhY2l0eT0iMC4yIi8+CiAgICAgIDxjaXJjbGUgY3g9IjgwIiBjeT0iLTUiIHI9IjMiIGZpbGw9IiM4ODgiIG9wYWNpdHk9IjAuMiIvPgogICAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSItNSIgcj0iMyIgZmlsbD0iIzg4OCIgb3BhY2l0eT0iMC4yIi8+CiAgICA8L2c+CgogICAgPCEtLSBDb2ZmZWUvQmFyaXN0YSBTdGF0aW9uIC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAsIDE0OCkiPgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNjAiIGhlaWdodD0iMjUiIGZpbGw9IiMzRTI0MTgiIG9wYWNpdHk9IjAuMTIiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjc1IiByeD0iMiIvPgogICAgICA8dGV4dCB4PSIzMCIgeT0iMTYiIGZvbnQtc2l6ZT0iNiIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q09GRkVFIEJBUjwvdGV4dD4KICAgIDwvZz4KCiAgICA8IS0tID09PT09PSBTT0NJQUwgTE9VTkdFICgyLDAwMCBTRikgPT09PT09IC0tPgogICAgPHJlY3QgeD0iMCIgeT0iMzAwIiB3aWR0aD0iNDUwIiBoZWlnaHQ9IjMyMCIgZmlsbD0iI0U4RDVCNyIgb3BhY2l0eT0iMC4wOCIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9IjIiLz4KCiAgICA8dGV4dCB4PSIyMjUiIHk9IjMzMCIgY2xhc3M9InpvbmUtbGFiZWwiIGZvbnQtc2l6ZT0iMTUiPlNPQ0lBTCBMT1VOR0U8L3RleHQ+CiAgICA8dGV4dCB4PSIyMjUiIHk9IjM0OCIgY2xhc3M9InNmLWxhYmVsIiBmb250LXNpemU9IjExIj4yLDAwMCBTRjwvdGV4dD4KICAgIDx0ZXh0IHg9IjIyNSIgeT0iMzYzIiBjbGFzcz0iem9uZS1zdWJsYWJlbCI+RXZlbnQgU3BhY2UgLyBCYXIgTG91bmdlIChQb3N0LTRQTSk8L3RleHQ+CgogICAgPCEtLSBGaXJlcGxhY2UgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMCwgMzgwKSI+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSIxNSIgZmlsbD0iIzFBMUExQSIgb3BhY2l0eT0iMC4xNSIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9IjEuNSIgcng9IjIiLz4KICAgICAgPHJlY3QgeD0iMTAiIHk9IjIiIHdpZHRoPSI2MCIgaGVpZ2h0PSIxMSIgZmlsbD0iI0U4QTA0MCIgb3BhY2l0eT0iMC4xNSIgcng9IjEiLz4KICAgICAgPHRleHQgeD0iNDAiIHk9IjExIiBmb250LXNpemU9IjYiIGZpbGw9IiNENEE1NzQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkxJTkVBUiBGSVJFUExBQ0U8L3RleHQ+CiAgICA8L2c+CgogICAgPCEtLSBDbHViIENoYWlycyAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwLCA0MTApIj4KICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjM0UyNDE4IiBvcGFjaXR5PSIwLjE1IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iNSIvPgogICAgICA8cmVjdCB4PSI0NSIgeT0iMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjM0UyNDE4IiBvcGFjaXR5PSIwLjE1IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iNSIvPgogICAgICA8cmVjdCB4PSIwIiB5PSI0NSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjM0UyNDE4IiBvcGFjaXR5PSIwLjE1IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iNSIvPgogICAgICA8cmVjdCB4PSI0NSIgeT0iNDUiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzNFMjQxOCIgb3BhY2l0eT0iMC4xNSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjUiLz4KICAgICAgPCEtLSBDb2ZmZWUgdGFibGUgLS0+CiAgICAgIDxyZWN0IHg9IjEwIiB5PSIzMiIgd2lkdGg9IjU1IiBoZWlnaHQ9IjEyIiBmaWxsPSIjNUEzRTI4IiBvcGFjaXR5PSIwLjEyIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMiIvPgogICAgPC9nPgogICAgPHRleHQgeD0iNjciIHk9IjUwMCIgZm9udC1zaXplPSI1IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5MRUFUSEVSIENMVUIgQ0hBSVJTPC90ZXh0PgoKICAgIDwhLS0gU29mYXMgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNTAsIDQwMCkiPgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iODAiIGhlaWdodD0iMzAiIGZpbGw9IiMzRTI0MTgiIG9wYWNpdHk9IjAuMTIiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjc1IiByeD0iNCIvPgogICAgICA8dGV4dCB4PSI0MCIgeT0iMTkiIGZvbnQtc2l6ZT0iNiIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+U09GQTwvdGV4dD4KICAgICAgPHJlY3QgeD0iMCIgeT0iNTAiIHdpZHRoPSI4MCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzNFMjQxOCIgb3BhY2l0eT0iMC4xMiIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNzUiIHJ4PSI0Ii8+CiAgICAgIDx0ZXh0IHg9IjQwIiB5PSI2OSIgZm9udC1zaXplPSI2IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TT0ZBPC90ZXh0PgogICAgICA8IS0tIENvZmZlZSB0YWJsZSBiZXR3ZWVuIC0tPgogICAgICA8cmVjdCB4PSIxNSIgeT0iMzMiIHdpZHRoPSI1MCIgaGVpZ2h0PSIxNCIgZmlsbD0iIzVBM0UyOCIgb3BhY2l0eT0iMC4xIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMiIvPgogICAgPC9nPgoKICAgIDwhLS0gQ29tbXVuaXR5IEJvYXJkcyAvIERpZ2l0YWwgU2NyZWVucyAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI3MCwgMzkwKSI+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzFBMUExQSIgb3BhY2l0eT0iMC4xIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMSIgcng9IjIiLz4KICAgICAgPHRleHQgeD0iNDAiIHk9IjIyIiBmb250LXNpemU9IjYiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRJR0lUQUwgU0NSRUVOUzwvdGV4dD4KICAgICAgPHRleHQgeD0iNDAiIHk9IjM0IiBmb250LXNpemU9IjUiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkxlYWd1ZSBTdGFuZGluZ3M8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjQwIiB5PSI0NCIgZm9udC1zaXplPSI1IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NZW1iZXIgRXZlbnRzPC90ZXh0PgogICAgPC9nPgoKICAgIDwhLS0gQm9va3NoZWx2ZXMgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNzAsIDQ2MCkiPgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjE1IiBmaWxsPSIjM0UyNDE4IiBvcGFjaXR5PSIwLjEyIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41Ii8+CiAgICAgIDx0ZXh0IHg9IjYwIiB5PSIxMSIgZm9udC1zaXplPSI1IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5CT09LU0hFTFZFUyAvIERJU1BMQVk8L3RleHQ+CiAgICA8L2c+CgogICAgPCEtLSBFdmVudCBTcGFjZSBtYXJrZXIgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDAsIDUyMCkiPgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjYwIiBmaWxsPSJub25lIiBzdHJva2U9IiNENEE1NzQiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWRhc2hhcnJheT0iNiwzIiByeD0iNCIvPgogICAgICA8dGV4dCB4PSIxMjUiIHk9IjI1IiBmb250LXNpemU9IjgiIGZpbGw9IiNENEE1NzQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSI1MDAiPkZMRVhJQkxFIEVWRU5UIFNQQUNFPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMjUiIHk9IjQwIiBmb250LXNpemU9IjYiIGZpbGw9IiNENEE1NzQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk1pbGVzdG9uZSBOaWdodHMgLyBMZWFndWUgQ2VsZWJyYXRpb25zPC90ZXh0PgogICAgICA8dGV4dCB4PSIxMjUiIHk9IjUyIiBmb250LXNpemU9IjYiIGZpbGw9IiNENEE1NzQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlRyYW5zZm9ybXMgdG8gQmFyIExvdW5nZSBQb3N0LTRQTTwvdGV4dD4KICAgIDwvZz4KCiAgICA8IS0tID09PT09PSBDT1dPUktJTkcgV09SS1NQQUNFICgxLDUwMCBTRikgPT09PT09IC0tPgogICAgPHJlY3QgeD0iNTAwIiB5PSIwIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgZmlsbD0iIzg3Q0VFQiIgb3BhY2l0eT0iMC4wNCIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDwhLS0gR2xhc3Mgd2FsbCB0byBsb3VuZ2UgLS0+CiAgICA8bGluZSB4MT0iNTAwIiB5MT0iMTAiIHgyPSI1MDAiIHkyPSIyNDAiIHN0cm9rZT0iIzg3Q0VFQiIgc3Ryb2tlLXdpZHRoPSIzIiBvcGFjaXR5PSIwLjUiLz4KCiAgICA8dGV4dCB4PSI3MDAiIHk9IjMwIiBjbGFzcz0iem9uZS1sYWJlbCIgZm9udC1zaXplPSIxNSI+Q09XT1JLSU5HIFdPUktTUEFDRTwvdGV4dD4KICAgIDx0ZXh0IHg9IjcwMCIgeT0iNDgiIGNsYXNzPSJzZi1sYWJlbCIgZm9udC1zaXplPSIxMSI+MSw1MDAgU0Y8L3RleHQ+CiAgICA8dGV4dCB4PSI3MDAiIHk9IjYyIiBjbGFzcz0iem9uZS1zdWJsYWJlbCI+UXVpZXQgWm9uZSDigJQgQWNvdXN0aWNhbGx5IFNlcGFyYXRlZDwvdGV4dD4KCiAgICA8IS0tIEhvdCBEZXNrcyAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUyMCwgODApIj4KICAgICAgPHRleHQgeD0iOTAiIHk9Ii04IiBmb250LXNpemU9IjciIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkhPVCBERVNLUyAoOCk8L3RleHQ+CiAgICAgIDwhLS0gUm93IDEgLS0+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSIyMiIgZmlsbD0iI0U4RThFOCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjEiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSIyMiIgZmlsbD0iI0U4RThFOCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjEiLz4KICAgICAgPHJlY3QgeD0iMTAwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iMjIiIGZpbGw9IiNFOEU4RTgiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIxIi8+CiAgICAgIDxyZWN0IHg9IjE1MCIgeT0iMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjIyIiBmaWxsPSIjRThFOEU4IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMSIvPgogICAgICA8IS0tIE1vbml0b3JzIC0tPgogICAgICA8cmVjdCB4PSIxMiIgeT0iMyIgd2lkdGg9IjE2IiBoZWlnaHQ9IjIiIGZpbGw9IiMxQTFBMUEiIG9wYWNpdHk9IjAuMyIvPgogICAgICA8cmVjdCB4PSI2MiIgeT0iMyIgd2lkdGg9IjE2IiBoZWlnaHQ9IjIiIGZpbGw9IiMxQTFBMUEiIG9wYWNpdHk9IjAuMyIvPgogICAgICA8cmVjdCB4PSIxMTIiIHk9IjMiIHdpZHRoPSIxNiIgaGVpZ2h0PSIyIiBmaWxsPSIjMUExQTFBIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHJlY3QgeD0iMTYyIiB5PSIzIiB3aWR0aD0iMTYiIGhlaWdodD0iMiIgZmlsbD0iIzFBMUExQSIgb3BhY2l0eT0iMC4zIi8+CiAgICAgIDwhLS0gQ2hhaXJzIC0tPgogICAgICA8Y2lyY2xlIGN4PSIyMCIgY3k9IjMwIiByPSI1IiBmaWxsPSIjODg4IiBvcGFjaXR5PSIwLjEiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgICAgPGNpcmNsZSBjeD0iNzAiIGN5PSIzMCIgcj0iNSIgZmlsbD0iIzg4OCIgb3BhY2l0eT0iMC4xIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41Ii8+CiAgICAgIDxjaXJjbGUgY3g9IjEyMCIgY3k9IjMwIiByPSI1IiBmaWxsPSIjODg4IiBvcGFjaXR5PSIwLjEiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgICAgPGNpcmNsZSBjeD0iMTcwIiBjeT0iMzAiIHI9IjUiIGZpbGw9IiM4ODgiIG9wYWNpdHk9IjAuMSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIvPgoKICAgICAgPCEtLSBSb3cgMiAtLT4KICAgICAgPHJlY3QgeD0iMCIgeT0iNTUiIHdpZHRoPSI0MCIgaGVpZ2h0PSIyMiIgZmlsbD0iI0U4RThFOCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjEiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjU1IiB3aWR0aD0iNDAiIGhlaWdodD0iMjIiIGZpbGw9IiNFOEU4RTgiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIxIi8+CiAgICAgIDxyZWN0IHg9IjEwMCIgeT0iNTUiIHdpZHRoPSI0MCIgaGVpZ2h0PSIyMiIgZmlsbD0iI0U4RThFOCIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjEiLz4KICAgICAgPHJlY3QgeD0iMTUwIiB5PSI1NSIgd2lkdGg9IjQwIiBoZWlnaHQ9IjIyIiBmaWxsPSIjRThFOEU4IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMSIvPgogICAgICA8IS0tIE1vbml0b3JzIC0tPgogICAgICA8cmVjdCB4PSIxMiIgeT0iNTgiIHdpZHRoPSIxNiIgaGVpZ2h0PSIyIiBmaWxsPSIjMUExQTFBIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHJlY3QgeD0iNjIiIHk9IjU4IiB3aWR0aD0iMTYiIGhlaWdodD0iMiIgZmlsbD0iIzFBMUExQSIgb3BhY2l0eT0iMC4zIi8+CiAgICAgIDxyZWN0IHg9IjExMiIgeT0iNTgiIHdpZHRoPSIxNiIgaGVpZ2h0PSIyIiBmaWxsPSIjMUExQTFBIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHJlY3QgeD0iMTYyIiB5PSI1OCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjIiIGZpbGw9IiMxQTFBMUEiIG9wYWNpdHk9IjAuMyIvPgogICAgICA8IS0tIENoYWlycyAtLT4KICAgICAgPGNpcmNsZSBjeD0iMjAiIGN5PSI0NyIgcj0iNSIgZmlsbD0iIzg4OCIgb3BhY2l0eT0iMC4xIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41Ii8+CiAgICAgIDxjaXJjbGUgY3g9IjcwIiBjeT0iNDciIHI9IjUiIGZpbGw9IiM4ODgiIG9wYWNpdHk9IjAuMSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIvPgogICAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSI0NyIgcj0iNSIgZmlsbD0iIzg4OCIgb3BhY2l0eT0iMC4xIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41Ii8+CiAgICAgIDxjaXJjbGUgY3g9IjE3MCIgY3k9IjQ3IiByPSI1IiBmaWxsPSIjODg4IiBvcGFjaXR5PSIwLjEiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgIDwvZz4KCiAgICA8IS0tIFByaXZhdGUgTWVldGluZyBSb29tcyAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc0MCwgODApIj4KICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjcwIiBoZWlnaHQ9IjU1IiBmaWxsPSIjODdDRUVCIiBvcGFjaXR5PSIwLjA2IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMS41IiByeD0iMiIvPgogICAgICA8bGluZSB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iNTUiIHN0cm9rZT0iIzg3Q0VFQiIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIwLjUiLz4KICAgICAgPHRleHQgeD0iMzUiIHk9IjI1IiBmb250LXNpemU9IjYiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk1FRVRJTkcgUk0gMTwvdGV4dD4KICAgICAgPHRleHQgeD0iMzUiIHk9IjM3IiBmb250LXNpemU9IjUiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjQtUGVyc29uPC90ZXh0PgogICAgICA8dGV4dCB4PSIzNSIgeT0iNDciIGZvbnQtc2l6ZT0iNSIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+R2xhc3MtV2FsbGVkPC90ZXh0PgoKICAgICAgPHJlY3QgeD0iMCIgeT0iNzAiIHdpZHRoPSI3MCIgaGVpZ2h0PSI1NSIgZmlsbD0iIzg3Q0VFQiIgb3BhY2l0eT0iMC4wNiIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjEuNSIgcng9IjIiLz4KICAgICAgPGxpbmUgeDE9IjAiIHkxPSI3MCIgeDI9IjAiIHkyPSIxMjUiIHN0cm9rZT0iIzg3Q0VFQiIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIwLjUiLz4KICAgICAgPHRleHQgeD0iMzUiIHk9Ijk1IiBmb250LXNpemU9IjYiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk1FRVRJTkcgUk0gMjwvdGV4dD4KICAgICAgPHRleHQgeD0iMzUiIHk9IjEwNyIgZm9udC1zaXplPSI1IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj40LVBlcnNvbjwvdGV4dD4KICAgICAgPHRleHQgeD0iMzUiIHk9IjExNyIgZm9udC1zaXplPSI1IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5HbGFzcy1XYWxsZWQ8L3RleHQ+CiAgICA8L2c+CgogICAgPCEtLSBQcmludGluZyBTdGF0aW9uIC0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODMwLCA4MCkiPgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNTAiIGhlaWdodD0iMzAiIGZpbGw9IiNEREQiIG9wYWNpdHk9IjAuMiIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjIiLz4KICAgICAgPHRleHQgeD0iMjUiIHk9IjE4IiBmb250LXNpemU9IjUiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlBSSU5UL1NDQU48L3RleHQ+CiAgICA8L2c+CgogICAgPCEtLSBBY291c3RpYyBwYW5lbHMgbm90ZSAtLT4KICAgIDx0ZXh0IHg9IjcwMCIgeT0iMjM1IiBmb250LXNpemU9IjYiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc3R5bGU9Iml0YWxpYyI+QWNvdXN0aWMgUGFuZWxzIG9uIFdhbGxzICZhbXA7IENlaWxpbmc8L3RleHQ+CgogICAgPCEtLSA9PT09PT0gV0VMTE5FU1MgU1BBIC8gUFJPRkVTU0lPTkFMIFNVSVRFUyAoMSw1MDAgU0YpID09PT09PSAtLT4KICAgIDxyZWN0IHg9IjUwMCIgeT0iMjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgZmlsbD0iI0E4OTg4OCIgb3BhY2l0eT0iMC4wNiIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9IjIiLz4KCiAgICA8dGV4dCB4PSI2MjUiIHk9IjI3OCIgY2xhc3M9InpvbmUtbGFiZWwiIGZvbnQtc2l6ZT0iMTMiPldFTExORVNTIFNQQTwvdGV4dD4KICAgIDx0ZXh0IHg9IjYyNSIgeT0iMjkzIiBjbGFzcz0iem9uZS1sYWJlbCIgZm9udC1zaXplPSIxMCI+UFJPRkVTU0lPTkFMIFNVSVRFUzwvdGV4dD4KICAgIDx0ZXh0IHg9IjYyNSIgeT0iMzA4IiBjbGFzcz0ic2YtbGFiZWwiPjEsNTAwIFNGPC90ZXh0PgoKICAgIDwhLS0gU2hhcmVkIFdhaXRpbmcgQXJlYSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUyMCwgMzIwKSI+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI0MCIgZmlsbD0iI0U4RDVCNyIgb3BhY2l0eT0iMC4xIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMiIvPgogICAgICA8dGV4dCB4PSI0MCIgeT0iMTgiIGZvbnQtc2l6ZT0iNiIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+V0FJVElORyBBUkVBPC90ZXh0PgogICAgICA8dGV4dCB4PSI0MCIgeT0iMjgiIGZvbnQtc2l6ZT0iNSIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+NC02IENoYWlyczwvdGV4dD4KICAgICAgPCEtLSBXYXRlciBzdGF0aW9uIC0tPgogICAgICA8cmVjdCB4PSI4NSIgeT0iMTAiIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSIgZmlsbD0iIzg3Q0VFQiIgb3BhY2l0eT0iMC4xIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMSIvPgogICAgICA8dGV4dCB4PSI5MiIgeT0iMzMiIGZvbnQtc2l6ZT0iNCIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SDJPPC90ZXh0PgogICAgPC9nPgoKICAgIDwhLS0gVHJlYXRtZW50IFJvb20gMSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUyMCwgMzc1KSI+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iNTUiIGZpbGw9IiNBODk4ODgiIG9wYWNpdHk9IjAuMDgiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIxIiByeD0iMiIvPgogICAgICA8dGV4dCB4PSI1MCIgeT0iMjAiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VFJFQVRNRU5UIFJNIDE8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjUwIiB5PSIzMiIgZm9udC1zaXplPSI1IiBmaWxsPSIjRDRBNTc0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5MaWNlbnNlZCBNYXNzYWdlPC90ZXh0PgogICAgICA8IS0tIFRhYmxlIGljb24gLS0+CiAgICAgIDxyZWN0IHg9IjI1IiB5PSIzNyIgd2lkdGg9IjUwIiBoZWlnaHQ9IjEyIiBmaWxsPSIjRThENUI3IiBvcGFjaXR5PSIwLjE1IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMyIvPgogICAgPC9nPgoKICAgIDwhLS0gVHJlYXRtZW50IFJvb20gMiAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYzMCwgMzc1KSI+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iNTUiIGZpbGw9IiNBODk4ODgiIG9wYWNpdHk9IjAuMDgiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIxIiByeD0iMiIvPgogICAgICA8dGV4dCB4PSI1MCIgeT0iMjAiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VFJFQVRNRU5UIFJNIDI8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjUwIiB5PSIzMiIgZm9udC1zaXplPSI1IiBmaWxsPSIjRDRBNTc0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TcG9ydHMgQ2hpcm9wcmFjdGljPC90ZXh0PgogICAgICA8cmVjdCB4PSIyNSIgeT0iMzciIHdpZHRoPSI1MCIgaGVpZ2h0PSIxMiIgZmlsbD0iI0U4RDVCNyIgb3BhY2l0eT0iMC4xNSIgc3Ryb2tlPSIjODg4IiBzdHJva2Utd2lkdGg9IjAuNSIgcng9IjMiLz4KICAgIDwvZz4KCiAgICA8IS0tIFRyZWF0bWVudCBSb29tIDMgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MjAsIDQ0MCkiPgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjU1IiBmaWxsPSIjQTg5ODg4IiBvcGFjaXR5PSIwLjA4IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMSIgcng9IjIiLz4KICAgICAgPHRleHQgeD0iNTAiIHk9IjIwIiBmb250LXNpemU9IjciIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlRSRUFUTUVOVCBSTSAzPC90ZXh0PgogICAgICA8dGV4dCB4PSI1MCIgeT0iMzIiIGZvbnQtc2l6ZT0iNSIgZmlsbD0iI0Q0QTU3NCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QWN1cHVuY3R1cmU8L3RleHQ+CiAgICAgIDxyZWN0IHg9IjI1IiB5PSIzNyIgd2lkdGg9IjUwIiBoZWlnaHQ9IjEyIiBmaWxsPSIjRThENUI3IiBvcGFjaXR5PSIwLjE1IiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMC41IiByeD0iMyIvPgogICAgPC9nPgoKICAgIDwhLS0gVHJlYXRtZW50IFJvb20gNCAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYzMCwgNDQwKSI+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iNTUiIGZpbGw9IiNBODk4ODgiIG9wYWNpdHk9IjAuMDgiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIxIiByeD0iMiIvPgogICAgICA8dGV4dCB4PSI1MCIgeT0iMjAiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VFJFQVRNRU5UIFJNIDQ8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjUwIiB5PSIzMiIgZm9udC1zaXplPSI1IiBmaWxsPSIjRDRBNTc0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5OdXRyaXRpb24gQ291bnNlbGluZzwvdGV4dD4KICAgICAgPHJlY3QgeD0iMjUiIHk9IjM3IiB3aWR0aD0iNTAiIGhlaWdodD0iMTIiIGZpbGw9IiNFOEQ1QjciIG9wYWNpdHk9IjAuMTUiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIzIi8+CiAgICA8L2c+CgogICAgPCEtLSA9PT09PT0gUElDS0xFQkFMTCAvIE1VTFRJLVVTRSBDT1VSVCAoODAwIFNGKSA9PT09PT0gLS0+CiAgICA8cmVjdCB4PSI1MDAiIHk9IjUwMCIgd2lkdGg9IjI1MCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiMxQjQzMzIiIG9wYWNpdHk9IjAuMDQiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIyIi8+CgogICAgPHRleHQgeD0iNjI1IiB5PSI1MjUiIGNsYXNzPSJ6b25lLWxhYmVsIiBmb250LXNpemU9IjEyIj5QSUNLTEVCQUxMIC8gTVVMVEktVVNFIENPVVJUPC90ZXh0PgogICAgPHRleHQgeD0iNjI1IiB5PSI1NDAiIGNsYXNzPSJzZi1sYWJlbCI+ODAwIFNGPC90ZXh0PgoKICAgIDwhLS0gQ291cnQgbWFya2luZ3MgLS0+CiAgICA8cmVjdCB4PSI1MjAiIHk9IjU0OCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSI1NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMUI0MzMyIiBzdHJva2Utd2lkdGg9IjEuNSIgcng9IjEiLz4KICAgIDwhLS0gQ2VudGVyIGxpbmUgLS0+CiAgICA8bGluZSB4MT0iNjI1IiB5MT0iNTQ4IiB4Mj0iNjI1IiB5Mj0iNjAzIiBzdHJva2U9IiMxQjQzMzIiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPCEtLSBOZXQgLS0+CiAgICA8bGluZSB4MT0iNjI1IiB5MT0iNTQ1IiB4Mj0iNjI1IiB5Mj0iNjA2IiBzdHJva2U9IiNENEE1NzQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iMywyIi8+CiAgICA8dGV4dCB4PSI2MjUiIHk9IjYxNSIgZm9udC1zaXplPSI1IiBmaWxsPSIjRDRBNTc0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5SRVRSQUNUQUJMRSBORVQ8L3RleHQ+CiAgICA8IS0tIE5vbi12b2xsZXkgem9uZSAtLT4KICAgIDxyZWN0IHg9IjU5MCIgeT0iNTQ4IiB3aWR0aD0iNzAiIGhlaWdodD0iNTUiIGZpbGw9IiMxQjQzMzIiIG9wYWNpdHk9IjAuMDYiLz4KICAgIDwhLS0gQ291cnQgbGFiZWwgLS0+CiAgICA8dGV4dCB4PSI1NTUiIHk9IjU4MCIgZm9udC1zaXplPSI1IiBmaWxsPSIjMUI0MzMyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DT1VSVDwvdGV4dD4KCiAgICA8IS0tID09PT09PSBSRVNUUk9PTVMgKDMwMCBTRikgPT09PT09IC0tPgogICAgPHJlY3QgeD0iNzUwIiB5PSIyNTAiIHdpZHRoPSIxNTAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRThFOEU4IiBvcGFjaXR5PSIwLjE1IiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPHRleHQgeD0iODI1IiB5PSIzMDUiIGNsYXNzPSJ6b25lLWxhYmVsIiBmb250LXNpemU9IjEwIj5SRVNUUk9PTVM8L3RleHQ+CiAgICA8dGV4dCB4PSI4MjUiIHk9IjMyMCIgY2xhc3M9InNmLWxhYmVsIiBmb250LXNpemU9IjgiPjMwMCBTRjwvdGV4dD4KICAgIDx0ZXh0IHg9IjgyNSIgeT0iMzM1IiBjbGFzcz0iem9uZS1zdWJsYWJlbCI+QURBIENPTVBMSUFOVDwvdGV4dD4KCiAgICA8IS0tID09PT09PSBTVEFGRiBPRkZJQ0UgLyBPUEVSQVRJT05TICgzMDAgU0YpID09PT09PSAtLT4KICAgIDxyZWN0IHg9Ijc1MCIgeT0iMzcwIiB3aWR0aD0iMTUwIiBoZWlnaHQ9IjEzMCIgZmlsbD0iI0RERCIgb3BhY2l0eT0iMC4xIiBzdHJva2U9IiMxQTFBMUEiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPHRleHQgeD0iODI1IiB5PSI0MjAiIGNsYXNzPSJ6b25lLWxhYmVsIiBmb250LXNpemU9IjEwIj5TVEFGRiBPRkZJQ0U8L3RleHQ+CiAgICA8dGV4dCB4PSI4MjUiIHk9IjQzNSIgY2xhc3M9InpvbmUtbGFiZWwiIGZvbnQtc2l6ZT0iMTAiPi8gT1BFUkFUSU9OUzwvdGV4dD4KICAgIDx0ZXh0IHg9IjgyNSIgeT0iNDUwIiBjbGFzcz0ic2YtbGFiZWwiIGZvbnQtc2l6ZT0iOCI+MzAwIFNGPC90ZXh0PgoKICAgIDwhLS0gR00gRGVzayAtLT4KICAgIDxyZWN0IHg9Ijc3MCIgeT0iNDYwIiB3aWR0aD0iNDAiIGhlaWdodD0iMjAiIGZpbGw9IiNFOEU4RTgiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIxIi8+CiAgICA8dGV4dCB4PSI3OTAiIHk9IjQ3NCIgZm9udC1zaXplPSI1IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5HTSBERVNLPC90ZXh0PgoKICAgIDwhLS0gU3RhZmYgQnJlYWsgLS0+CiAgICA8cmVjdCB4PSI4MzAiIHk9IjQ2MCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjI1IiBmaWxsPSIjRThENUI3IiBvcGFjaXR5PSIwLjEiIHN0cm9rZT0iIzg4OCIgc3Ryb2tlLXdpZHRoPSIwLjUiIHJ4PSIxIi8+CiAgICA8dGV4dCB4PSI4NTUiIHk9IjQ3NiIgZm9udC1zaXplPSI1IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5CUkVBSyBBUkVBPC90ZXh0PgoKICAgIDwhLS0gPT09PT09IE9QRU4gQVJFQSAvIEdBTExFUlkgT1ZFUkxPT0tJTkcgMVNUIEZMT09SID09PT09PSAtLT4KICAgIDxyZWN0IHg9Ijc1MCIgeT0iNTAwIiB3aWR0aD0iMTUwIiBoZWlnaHQ9IjEyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjYsMyIvPgogICAgPHRleHQgeD0iODI1IiB5PSI1NTUiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzg4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+T1BFTiBUTyBCRUxPVzwvdGV4dD4KICAgIDx0ZXh0IHg9IjgyNSIgeT0iNTY4IiBmb250LXNpemU9IjYiIGZpbGw9IiM4ODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdhbGxlcnkgT3Zlcmxvb2s8L3RleHQ+CiAgICA8dGV4dCB4PSI4MjUiIHk9IjU4MCIgZm9udC1zaXplPSI2IiBmaWxsPSIjODg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj50byBUcmFpbmluZyBGbG9vcjwvdGV4dD4KCiAgICA8IS0tID09PT09PSBDSVJDVUxBVElPTiBBUlJPV1MgPT09PT09IC0tPgogICAgPCEtLSBTdGFpcnMgYXJyaXZlIOKGkiBDYWZlIC0tPgogICAgPGxpbmUgeDE9IjM3MCIgeTE9Ijk1IiB4Mj0iMjgwIiB5Mj0iMTQwIiBzdHJva2U9IiNENEE1NzQiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtZGFzaGFycmF5PSI2LDMiIG1hcmtlci1lbmQ9InVybCgjYXJyb3doZWFkKSIvPgoKICAgIDwhLS0gQ2FmZSDihpIgU29jaWFsIExvdW5nZSAtLT4KICAgIDxsaW5lIHgxPSIyMDAiIHkxPSIyOTAiIHgyPSIyMDAiIHkyPSIzMjAiIHN0cm9rZT0iI0Q0QTU3NCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1kYXNoYXJyYXk9IjYsMyIgbWFya2VyLWVuZD0idXJsKCNhcnJvd2hlYWQpIi8+CgogICAgPCEtLSBTdGFpcnMg4oaSIENvd29ya2luZyAtLT4KICAgIDxsaW5lIHgxPSI0MzAiIHkxPSI2MCIgeDI9IjUyMCIgeTI9IjEwMCIgc3Ryb2tlPSIjRDRBNTc0IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWRhc2hhcnJheT0iNiwzIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93aGVhZCkiLz4KCiAgICA8IS0tIEhhbGwg4oaSIFdlbGxuZXNzIC0tPgogICAgPGxpbmUgeDE9IjQ5MCIgeTE9IjM4MCIgeDI9IjUyMCIgeTI9IjM4MCIgc3Ryb2tlPSIjRDRBNTc0IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWRhc2hhcnJheT0iNiwzIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93aGVhZCkiLz4KCiAgICA8IS0tID09PT09PSBET09SUyA9PT09PT0gLS0+CiAgICA8cmVjdCB4PSI1MDAiIHk9IjMxMCIgd2lkdGg9IjQiIGhlaWdodD0iMjUiIGZpbGw9IiNENEE1NzQiIHJ4PSIxIi8+CiAgICA8cmVjdCB4PSI1MDAiIHk9IjU0MCIgd2lkdGg9IjQiIGhlaWdodD0iMjUiIGZpbGw9IiNENEE1NzQiIHJ4PSIxIi8+CiAgICA8cmVjdCB4PSI3NzAiIHk9IjI1MCIgd2lkdGg9IjI1IiBoZWlnaHQ9IjQiIGZpbGw9IiNENEE1NzQiIHJ4PSIxIi8+CiAgICA8cmVjdCB4PSI3NzAiIHk9IjM3MCIgd2lkdGg9IjI1IiBoZWlnaHQ9IjQiIGZpbGw9IiNENEE1NzQiIHJ4PSIxIi8+CgogICAgPCEtLSA9PT09PT0gRU1FUkdFTkNZIEVYSVRTID09PT09PSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04LCA0NTApIj4KICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjMwIiBmaWxsPSIjQ0MzMzMzIiBvcGFjaXR5PSIwLjMiIHN0cm9rZT0iI0NDMzMzMyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHJ4PSIxIi8+CiAgICAgIDx0ZXh0IHg9IjYiIHk9IjE4IiBmb250LXNpemU9IjUiIGZpbGw9IiNDQzMzMzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5FWElUPC90ZXh0PgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODk2LCAzNTApIj4KICAgICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjMwIiBmaWxsPSIjQ0MzMzMzIiBvcGFjaXR5PSIwLjMiIHN0cm9rZT0iI0NDMzMzMyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHJ4PSIxIi8+CiAgICAgIDx0ZXh0IHg9IjYiIHk9IjE4IiBmb250LXNpemU9IjUiIGZpbGw9IiNDQzMzMzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5FWElUPC90ZXh0PgogICAgPC9nPgoKICAgIDwhLS0gPT09PT09IERJTUVOU0lPTiBMSU5FUyA9PT09PT0gLS0+CiAgICA8bGluZSB4MT0iMCIgeTE9Ii00MCIgeDI9IjkwMCIgeTI9Ii00MCIgY2xhc3M9ImRpbS1saW5lIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93aGVhZC1kYXJrKSIvPgogICAgPGxpbmUgeDE9IjkwMCIgeTE9Ii00MCIgeDI9IjAiIHkyPSItNDAiIGNsYXNzPSJkaW0tbGluZSIgbWFya2VyLWVuZD0idXJsKCNhcnJvd2hlYWQtZGFyaykiLz4KICAgIDx0ZXh0IHg9IjQ1MCIgeT0iLTQ1IiBjbGFzcz0iZGltLXRleHQiPn4xMjAnLTAiPC90ZXh0PgogICAgPGxpbmUgeDE9IjAiIHkxPSItMzUiIHgyPSIwIiB5Mj0iLTQ1IiBjbGFzcz0iZGltLWxpbmUiLz4KICAgIDxsaW5lIHgxPSI5MDAiIHkxPSItMzUiIHgyPSI5MDAiIHkyPSItNDUiIGNsYXNzPSJkaW0tbGluZSIvPgoKICAgIDxsaW5lIHgxPSItNDAiIHkxPSIwIiB4Mj0iLTQwIiB5Mj0iNjIwIiBjbGFzcz0iZGltLWxpbmUiIG1hcmtlci1lbmQ9InVybCgjYXJyb3doZWFkLWRhcmspIi8+CiAgICA8bGluZSB4MT0iLTQwIiB5MT0iNjIwIiB4Mj0iLTQwIiB5Mj0iMCIgY2xhc3M9ImRpbS1saW5lIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93aGVhZC1kYXJrKSIvPgogICAgPHRleHQgeD0iLTQ1IiB5PSIzMTAiIGNsYXNzPSJkaW0tdGV4dCIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwLCAtNDUsIDMxMCkiPn44MyctMCI8L3RleHQ+CiAgICA8bGluZSB4MT0iLTM1IiB5MT0iMCIgeDI9Ii00NSIgeTI9IjAiIGNsYXNzPSJkaW0tbGluZSIvPgogICAgPGxpbmUgeDE9Ii0zNSIgeTE9IjYyMCIgeDI9Ii00NSIgeTI9IjYyMCIgY2xhc3M9ImRpbS1saW5lIi8+CgogIDwvZz4KCiAgPCEtLSA9PT09PT0gTEVHRU5EID09PT09PSAtLT4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDUwLCAxMzApIj4KICAgIDx0ZXh0IHg9IjAiIHk9IjAiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiMxQTFBMUEiPkxFR0VORDwvdGV4dD4KICAgIDxsaW5lIHgxPSIwIiB5MT0iOCIgeDI9IjEyMCIgeTI9IjgiIHN0cm9rZT0iI0Q0QTU3NCIgc3Ryb2tlLXdpZHRoPSIxIi8+CgogICAgPGxpbmUgeDE9IjAiIHkxPSIyNSIgeDI9IjI1IiB5Mj0iMjUiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgICA8dGV4dCB4PSIzMiIgeT0iMjgiIGNsYXNzPSJsZWdlbmQtdGV4dCI+RXh0ZXJpb3IgV2FsbDwvdGV4dD4KCiAgICA8bGluZSB4MT0iMCIgeTE9IjQ1IiB4Mj0iMjUiIHkyPSI0NSIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDx0ZXh0IHg9IjMyIiB5PSI0OCIgY2xhc3M9ImxlZ2VuZC10ZXh0Ij5JbnRlcmlvciBXYWxsPC90ZXh0PgoKICAgIDxsaW5lIHgxPSIwIiB5MT0iNjUiIHgyPSIyNSIgeTI9IjY1IiBzdHJva2U9IiM4N0NFRUIiIHN0cm9rZS13aWR0aD0iMyIgb3BhY2l0eT0iMC42Ii8+CiAgICA8dGV4dCB4PSIzMiIgeT0iNjgiIGNsYXNzPSJsZWdlbmQtdGV4dCI+R2xhc3MgV2FsbCAvIFdpbmRvdzwvdGV4dD4KCiAgICA8cmVjdCB4PSIwIiB5PSI3OCIgd2lkdGg9IjI1IiBoZWlnaHQ9IjYiIGZpbGw9IiNENEE1NzQiIHJ4PSIxIi8+CiAgICA8dGV4dCB4PSIzMiIgeT0iODUiIGNsYXNzPSJsZWdlbmQtdGV4dCI+RG9vciBPcGVuaW5nPC90ZXh0PgoKICAgIDxyZWN0IHg9IjAiIHk9Ijk1IiB3aWR0aD0iMTUiIGhlaWdodD0iMTAiIGZpbGw9IiNDQzMzMzMiIG9wYWNpdHk9IjAuMyIgc3Ryb2tlPSIjQ0MzMzMzIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjMyIiB5PSIxMDQiIGNsYXNzPSJsZWdlbmQtdGV4dCI+RW1lcmdlbmN5IEV4aXQ8L3RleHQ+CgogICAgPHJlY3QgeD0iMCIgeT0iMTE1IiB3aWR0aD0iMjUiIGhlaWdodD0iMTAiIGZpbGw9IiMzRTI0MTgiIG9wYWNpdHk9IjAuMSIgc3Ryb2tlPSIjM0UyNDE4IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjMyIiB5PSIxMjQiIGNsYXNzPSJsZWdlbmQtdGV4dCI+Q2FmZSAvIEJhciBab25lPC90ZXh0PgoKICAgIDxyZWN0IHg9IjAiIHk9IjEzNSIgd2lkdGg9IjI1IiBoZWlnaHQ9IjEwIiBmaWxsPSIjRThENUI3IiBvcGFjaXR5PSIwLjE1IiBzdHJva2U9IiNFOEQ1QjciIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPHRleHQgeD0iMzIiIHk9IjE0NCIgY2xhc3M9ImxlZ2VuZC10ZXh0Ij5Tb2NpYWwgLyBMb3VuZ2U8L3RleHQ+CgogICAgPHJlY3QgeD0iMCIgeT0iMTU1IiB3aWR0aD0iMjUiIGhlaWdodD0iMTAiIGZpbGw9IiM4N0NFRUIiIG9wYWNpdHk9IjAuMSIgc3Ryb2tlPSIjODdDRUVCIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjMyIiB5PSIxNjQiIGNsYXNzPSJsZWdlbmQtdGV4dCI+Q293b3JraW5nIC8gV29yazwvdGV4dD4KCiAgICA8cmVjdCB4PSIwIiB5PSIxNzUiIHdpZHRoPSIyNSIgaGVpZ2h0PSIxMCIgZmlsbD0iI0E4OTg4OCIgb3BhY2l0eT0iMC4xNSIgc3Ryb2tlPSIjQTg5ODg4IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjMyIiB5PSIxODQiIGNsYXNzPSJsZWdlbmQtdGV4dCI+V2VsbG5lc3MgLyBTcGE8L3RleHQ+CgogICAgPHJlY3QgeD0iMCIgeT0iMTk1IiB3aWR0aD0iMjUiIGhlaWdodD0iMTAiIGZpbGw9IiMxQjQzMzIiIG9wYWNpdHk9IjAuMDgiIHN0cm9rZT0iIzFCNDMzMiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8dGV4dCB4PSIzMiIgeT0iMjA0IiBjbGFzcz0ibGVnZW5kLXRleHQiPlNwb3J0IENvdXJ0PC90ZXh0PgoKICAgIDxsaW5lIHgxPSIwIiB5MT0iMjE4IiB4Mj0iMjUiIHkyPSIyMTgiIHN0cm9rZT0iI0Q0QTU3NCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1kYXNoYXJyYXk9IjYsMyIgbWFya2VyLWVuZD0idXJsKCNhcnJvd2hlYWQpIi8+CiAgICA8dGV4dCB4PSIzMiIgeT0iMjIxIiBjbGFzcz0ibGVnZW5kLXRleHQiPk1lbWJlciBDaXJjdWxhdGlvbjwvdGV4dD4KCiAgICA8IS0tIFpvbmUgU3VtbWFyeSAtLT4KICAgIDx0ZXh0IHg9IjAiIHk9IjI1NSIgZm9udC1zaXplPSI5IiBmaWxsPSIjMUExQTFBIiBmb250LXdlaWdodD0iNjAwIj5aT05FIFNVTU1BUlk8L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSIyNzAiIGNsYXNzPSJsZWdlbmQtdGV4dCI+Q2FmZSAmYW1wOyBCYXIgLi4uLi4uLi4uLi4uLiAxLDgwMCBTRjwvdGV4dD4KICAgIDx0ZXh0IHg9IjAiIHk9IjI4MyIgY2xhc3M9ImxlZ2VuZC10ZXh0Ij5Tb2NpYWwgTG91bmdlIC4uLi4uLi4uLiAyLDAwMCBTRjwvdGV4dD4KICAgIDx0ZXh0IHg9IjAiIHk9IjI5NiIgY2xhc3M9ImxlZ2VuZC10ZXh0Ij5Db3dvcmtpbmcgLi4uLi4uLi4uLi4uLi4gMSw1MDAgU0Y8L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSIzMDkiIGNsYXNzPSJsZWdlbmQtdGV4dCI+V2VsbG5lc3MgU3VpdGVzIC4uLi4uLiAxLDUwMCBTRjwvdGV4dD4KICAgIDx0ZXh0IHg9IjAiIHk9IjMyMiIgY2xhc3M9ImxlZ2VuZC10ZXh0Ij5QaWNrbGViYWxsIENvdXJ0IC4uLi4uLi4gODAwIFNGPC90ZXh0PgogICAgPHRleHQgeD0iMCIgeT0iMzM1IiBjbGFzcz0ibGVnZW5kLXRleHQiPlJlc3Ryb29tcyAuLi4uLi4uLi4uLi4uLiAzMDAgU0Y8L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSIzNDgiIGNsYXNzPSJsZWdlbmQtdGV4dCI+U3RhZmYgT2ZmaWNlIC4uLi4uLi4uLi4uLi4gMzAwIFNGPC90ZXh0PgogICAgPGxpbmUgeDE9IjAiIHkxPSIzNTUiIHgyPSIxNTAiIHkyPSIzNTUiIHN0cm9rZT0iI0Q0QTU3NCIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgIDx0ZXh0IHg9IjAiIHk9IjM2OCIgY2xhc3M9ImxlZ2VuZC10ZXh0IiBmb250LXdlaWdodD0iNjAwIj5UT1RBTCAuLi4uLi4uLi4uLi4uLi4uLi4uIDcsNzAwIFNGPC90ZXh0PgoKICAgIDwhLS0gTWVtYmVyIEZsb3cgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSI0MDAiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzFBMUExQSIgZm9udC13ZWlnaHQ9IjYwMCI+U0VDT05EIEZMT09SIEZMT1c8L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSI0MTUiIGNsYXNzPSJsZWdlbmQtdGV4dCIgZmlsbD0iI0Q0QTU3NCI+MS4gQXJyaXZlIHZpYSBzdGFpci9lbGV2YXRvcjwvdGV4dD4KICAgIDx0ZXh0IHg9IjAiIHk9IjQyOCIgY2xhc3M9ImxlZ2VuZC10ZXh0IiBmaWxsPSIjRDRBNTc0Ij4yLiBDYWZlIOKGkiBPcmRlciAvIEVhdDwvdGV4dD4KICAgIDx0ZXh0IHg9IjAiIHk9IjQ0MSIgY2xhc3M9ImxlZ2VuZC10ZXh0IiBmaWxsPSIjRDRBNTc0Ij4zLiBDb3dvcmsg4oaSIFJlbW90ZSBXb3JrPC90ZXh0PgogICAgPHRleHQgeD0iMCIgeT0iNDU0IiBjbGFzcz0ibGVnZW5kLXRleHQiIGZpbGw9IiNENEE1NzQiPjQuIExvdW5nZSDihpIgU29jaWFsaXplPC90ZXh0PgogICAgPHRleHQgeD0iMCIgeT0iNDY3IiBjbGFzcz0ibGVnZW5kLXRleHQiIGZpbGw9IiNENEE1NzQiPjUuIFdlbGxuZXNzIOKGkiBUcmVhdG1lbnQ8L3RleHQ+CiAgICA8dGV4dCB4PSIwIiB5PSI0ODAiIGNsYXNzPSJsZWdlbmQtdGV4dCIgZmlsbD0iI0Q0QTU3NCI+Ni4gQ291cnQg4oaSIFBsYXkgLyBUcmFpbjwvdGV4dD4KICA8L2c+CgogIDwhLS0gTm9ydGggQXJyb3cgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTEwMCwgNTMwKSI+CiAgICA8Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMUExQTFBIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgPHBvbHlnb24gcG9pbnRzPSIyMCw1IDE1LDI1IDIwLDIwIDI1LDI1IiBmaWxsPSIjMUExQTFBIi8+CiAgICA8dGV4dCB4PSIyMCIgeT0iMTUiIGZvbnQtc2l6ZT0iOSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzFBMUExQSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TjwvdGV4dD4KICA8L2c+CgogIDwhLS0gU2NhbGUgQmFyIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwNTAsIDU5MCkiPgogICAgPHRleHQgeD0iMCIgeT0iMCIgZm9udC1zaXplPSI5IiBmaWxsPSIjMUExQTFBIiBmb250LXdlaWdodD0iNjAwIj5TQ0FMRTwvdGV4dD4KICAgIDxyZWN0IHg9IjAiIHk9IjgiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2IiBmaWxsPSIjMUExQTFBIi8+CiAgICA8cmVjdCB4PSI2MCIgeT0iOCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzFBMUExQSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8cmVjdCB4PSIxMjAiIHk9IjgiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2IiBmaWxsPSIjMUExQTFBIi8+CiAgICA8dGV4dCB4PSIwIiB5PSIyNSIgZm9udC1zaXplPSI3IiBmaWxsPSIjODg4Ij4wPC90ZXh0PgogICAgPHRleHQgeD0iNjAiIHk9IjI1IiBmb250LXNpemU9IjciIGZpbGw9IiM4ODgiPjEwJzwvdGV4dD4KICAgIDx0ZXh0IHg9IjEyMCIgeT0iMjUiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzg4OCI+MjAnPC90ZXh0PgogICAgPHRleHQgeD0iMTgwIiB5PSIyNSIgZm9udC1zaXplPSI3IiBmaWxsPSIjODg4Ij4zMCc8L3RleHQ+CiAgPC9nPgoKICA8IS0tIEZvb3RlciAtLT4KICA8bGluZSB4MT0iNTAiIHkxPSI5NjAiIHgyPSIxMzUwIiB5Mj0iOTYwIiBzdHJva2U9IiNENEE1NzQiIHN0cm9rZS13aWR0aD0iMC41Ii8+CiAgPHRleHQgeD0iNTAiIHk9Ijk3OCIgZm9udC1zaXplPSI4IiBmaWxsPSIjOTk5IiBmb250LWZhbWlseT0iSW50ZXIsIHNhbnMtc2VyaWYiPlRIRSBFUkVNT1MgIHwgIFNlY29uZCBGbG9vciBQbGFuICB8ICBMaWJlcnR5IFBhcmsgRGlzdHJpY3QsIE1lbXBoaXMsIFROICB8ICBQUkVMSU1JTkFSWSAtIE5PVCBGT1IgQ09OU1RSVUNUSU9OPC90ZXh0PgogIDx0ZXh0IHg9IjEzNTAiIHk9Ijk3OCIgZm9udC1zaXplPSI4IiBmaWxsPSIjOTk5IiBmb250LWZhbWlseT0iSW50ZXIsIHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJlbmQiPkRyYXdpbmcgMDJCICB8ICBSZXYgMDE8L3RleHQ+Cgo8L3N2Zz4=" alt="Second Floor Plan" style="background: #F5F0EB;">
+  </div>
+
+  <div class="info-grid" style="margin-top: 30px;">
+    <div class="info-card">
+      <h3>Cafe &amp; Bar — 1,800 SF</h3>
+      <ul>
+        <li>Full-service cafe + coffee bar</li>
+        <li>Bar activated post-LBD license</li>
+        <li>Commercial kitchen</li>
+        <li>Counter seats, 2-tops, communal table</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>Social Lounge — 2,000 SF</h3>
+      <ul>
+        <li>Linear fireplace</li>
+        <li>Leather club chairs, deep sofas</li>
+        <li>Event space / milestone nights</li>
+        <li>Post-4PM bar lounge transformation</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>Coworking — 1,500 SF</h3>
+      <ul>
+        <li>8 hot desks with monitors</li>
+        <li>2 glass-walled meeting rooms</li>
+        <li>Acoustically separated quiet zone</li>
+        <li>Printing station, fast Wi-Fi</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>Wellness &amp; Court</h3>
+      <ul>
+        <li><span class="highlight">Wellness Suites (1,500 SF)</span> — 4 rentable treatment rooms</li>
+        <li>Massage, chiropractic, acupuncture, nutrition</li>
+        <li><span class="highlight">Pickleball Court (800 SF)</span> — Multi-use with retractable net</li>
+        <li>Group fitness, league events, social play</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 3. TRAINING FLOOR -->
+<section id="training">
+  <div class="section-header">
+    <div class="section-number">Deliverable 03</div>
+    <div class="section-title">Training Floor Interior <span class="render-badge">Concept</span></div>
+    <div class="section-subtitle">10,000 SF open training floor. Rogue/EliteFTS competition-grade equipment. Dark, intense, sophisticated.</div>
+  </div>
+
+  <div class="concept-render training-floor">
+    <!-- Ceiling beams -->
+    <div class="ceiling-beam" style="left: 0; width: 3%; top: 0;"></div>
+    <div class="ceiling-beam" style="left: 15%; width: 2%;"></div>
+    <div class="ceiling-beam" style="left: 30%; width: 2%;"></div>
+    <div class="ceiling-beam" style="left: 45%; width: 2%;"></div>
+    <div class="ceiling-beam" style="left: 60%; width: 2%;"></div>
+    <div class="ceiling-beam" style="left: 75%; width: 2%;"></div>
+    <div class="ceiling-beam" style="left: 90%; width: 2%;"></div>
+
+    <!-- Pendant lights -->
+    <div class="pendant-light" style="left: 20%;"><div class="pendant-wire"></div><div class="pendant-shade"></div></div>
+    <div class="pendant-light" style="left: 35%;"><div class="pendant-wire"></div><div class="pendant-shade"></div></div>
+    <div class="pendant-light" style="left: 50%;"><div class="pendant-wire"></div><div class="pendant-shade"></div></div>
+    <div class="pendant-light" style="left: 65%;"><div class="pendant-wire"></div><div class="pendant-shade"></div></div>
+
+    <!-- Accent wall -->
+    <div class="accent-wall"></div>
+    <div class="wall-text">THE EREMOS</div>
+
+    <!-- Equipment silhouettes (squat racks) -->
+    <div class="rack-silhouette" style="left: 10%; bottom: 35%; width: 6%; height: 35%;"></div>
+    <div class="rack-silhouette" style="left: 20%; bottom: 35%; width: 6%; height: 35%;"></div>
+    <div class="rack-silhouette" style="left: 30%; bottom: 35%; width: 6%; height: 35%;"></div>
+    <div class="rack-silhouette" style="left: 40%; bottom: 35%; width: 6%; height: 35%;"></div>
+    <div class="rack-silhouette" style="left: 50%; bottom: 35%; width: 6%; height: 35%;"></div>
+    <div class="rack-silhouette" style="left: 60%; bottom: 35%; width: 6%; height: 35%;"></div>
+
+    <!-- Turf lane -->
+    <div class="turf-lane"></div>
+
+    <!-- Floor -->
+    <div class="gym-floor"></div>
+
+    <div class="render-label">Training Floor — 10,000 SF</div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>Equipment Spec</h3>
+      <ul>
+        <li>Rogue/EliteFTS competition-grade</li>
+        <li>Specialty bars (SSB, trap, cambered)</li>
+        <li>Bumper plates, calibrated plates</li>
+        <li>Cable machines with full stack</li>
+        <li>Functional training rig</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>Atmosphere</h3>
+      <ul>
+        <li>14+ ft ceilings, exposed steel beams</li>
+        <li>Matte black ductwork</li>
+        <li>Copper pendant lighting</li>
+        <li>LED strip under-rack accent lighting</li>
+        <li>Rubber flooring, dark charcoal</li>
+        <li>Concrete accent wall with copper branding</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 4. RECOVERY SUITE -->
+<section id="recovery">
+  <div class="section-header">
+    <div class="section-number">Deliverable 04</div>
+    <div class="section-title">Recovery Suite <span class="render-badge">Concept</span></div>
+    <div class="section-subtitle">Spa meets performance recovery. Scandinavian sauna culture meets elite athlete recovery room.</div>
+  </div>
+
+  <div class="concept-render recovery-suite">
+    <!-- Glass partition -->
+    <div class="glass-partition"></div>
+
+    <!-- Cold plunges -->
+    <div class="plunge-pool" style="left: 8%; top: 15%; width: 25%; height: 30%;">
+      <span class="plunge-label">Cold Plunge 1 — 38°F</span>
+    </div>
+    <div class="plunge-pool" style="left: 8%; top: 52%; width: 25%; height: 30%;">
+      <span class="plunge-label">Cold Plunge 2 — 42°F</span>
+    </div>
+
+    <!-- Sauna -->
+    <div class="sauna" style="left: 40%; top: 10%; width: 25%; height: 45%;">
+      <div style="position:absolute; bottom:10px; left:50%; transform:translateX(-50%); font-size:10px; color:rgba(180,120,60,0.7); letter-spacing:1px; text-transform:uppercase; z-index:1;">Infrared Sauna</div>
+    </div>
+
+    <!-- Normatec -->
+    <div class="normatec-station" style="left: 40%; top: 62%; width: 25%;">
+      <div class="normatec-boot"></div>
+      <div class="normatec-boot"></div>
+      <div class="normatec-boot"></div>
+      <div class="normatec-boot"></div>
+      <div style="font-size:8px; color:rgba(74,144,217,0.6); letter-spacing:1px; text-transform:uppercase; position:absolute; bottom:-18px; left:0;">Normatec Compression</div>
+    </div>
+
+    <!-- Wood slat wall -->
+    <div class="wood-slat-wall"></div>
+
+    <!-- Ambient glow -->
+    <div style="position:absolute; bottom:0; left:0; right:0; height:20%; background:linear-gradient(0deg, rgba(212,165,116,0.06), transparent);"></div>
+
+    <div class="render-label">Recovery Suite — 1,500 SF</div>
+  </div>
+</section>
+
+<!-- 5. LOCKER ROOMS -->
+<section id="locker">
+  <div class="section-header">
+    <div class="section-number">Deliverable 05</div>
+    <div class="section-title">Locker Rooms <span class="render-badge">Concept</span></div>
+    <div class="section-subtitle">Boutique hotel bathroom, not gym locker room. Premium finishes throughout.</div>
+  </div>
+
+  <div class="concept-render" style="background: linear-gradient(135deg, #1a1815, #15120f, #1a1815); position: relative;">
+    <!-- Lockers wall -->
+    <div style="position:absolute; left:5%; top:10%; width:30%; height:70%; background:repeating-linear-gradient(90deg, #2a1f18 0px, #2a1f18 38px, #1a1510 38px, #1a1510 40px); border:1px solid rgba(62,36,24,0.4); border-radius:2px;"></div>
+    <div style="position:absolute; left:6%; top:75%; font-size:9px; color:rgba(62,36,24,0.7); letter-spacing:1px;">DARK WALNUT LOCKERS</div>
+
+    <!-- Shower stalls -->
+    <div style="position:absolute; right:5%; top:10%; width:25%; height:55%; display:flex; flex-direction:column; gap:3%;">
+      <div style="flex:1; background:rgba(135,206,235,0.05); border:1px solid rgba(135,206,235,0.15); border-radius:2px; display:flex; align-items:center; justify-content:center;">
+        <span style="font-size:8px; color:rgba(135,206,235,0.4); letter-spacing:1px;">SHOWER 1</span>
+      </div>
+      <div style="flex:1; background:rgba(135,206,235,0.05); border:1px solid rgba(135,206,235,0.15); border-radius:2px; display:flex; align-items:center; justify-content:center;">
+        <span style="font-size:8px; color:rgba(135,206,235,0.4); letter-spacing:1px;">SHOWER 2</span>
+      </div>
+      <div style="flex:1; background:rgba(135,206,235,0.05); border:1px solid rgba(135,206,235,0.15); border-radius:2px; display:flex; align-items:center; justify-content:center;">
+        <span style="font-size:8px; color:rgba(135,206,235,0.4); letter-spacing:1px;">SHOWER 3</span>
+      </div>
+    </div>
+    <div style="position:absolute; right:6%; top:66%; font-size:8px; color:rgba(135,206,235,0.5);">Glass doors, rainfall heads, dark tile</div>
+
+    <!-- Grooming counter -->
+    <div style="position:absolute; left:40%; bottom:12%; width:25%; height:22%; background:linear-gradient(180deg, rgba(62,36,24,0.2), rgba(62,36,24,0.1)); border:1px solid rgba(62,36,24,0.3); border-radius:2px; display:flex; align-items:center; justify-content:center;">
+      <div style="text-align:center;">
+        <div style="font-size:9px; color:var(--copper); letter-spacing:1px;">GROOMING STATION</div>
+        <div style="font-size:7px; color:rgba(232,213,183,0.4); margin-top:4px;">Mirrors, outlets, vanity lighting</div>
+      </div>
+    </div>
+
+    <!-- Towel station -->
+    <div style="position:absolute; left:40%; top:15%; width:20%; height:15%; background:rgba(232,213,183,0.05); border:1px solid rgba(232,213,183,0.15); border-radius:3px; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:8px; color:rgba(232,213,183,0.5); letter-spacing:1px;">TOWEL SERVICE</span>
+    </div>
+
+    <!-- Bench -->
+    <div style="position:absolute; left:40%; top:38%; width:20%; height:5%; background:linear-gradient(90deg, #3a2a1a, #4a3a2a, #3a2a1a); border-radius:2px;"></div>
+    <div style="position:absolute; left:42%; top:44%; font-size:7px; color:rgba(62,36,24,0.5);">Dark timber bench, copper hardware</div>
+
+    <div class="render-label">Locker Room — 1,000 SF Each</div>
+  </div>
+</section>
+
+<!-- 6. CAFE & LOUNGE -->
+<section id="cafe">
+  <div class="section-header">
+    <div class="section-number">Deliverable 06</div>
+    <div class="section-title">Cafe, Bar &amp; Social Lounge <span class="render-badge">Concept</span></div>
+    <div class="section-subtitle">A high-end coffee shop, a craft cocktail bar, and a members-only social club — combined.</div>
+  </div>
+
+  <div class="concept-render cafe-lounge">
+    <!-- Bar counter -->
+    <div class="bar-counter" style="left: 5%; top: 15%; width: 55%; height: 8%;"></div>
+
+    <!-- Back bar -->
+    <div class="back-bar" style="left: 5%; top: 5%; width: 55%; height: 10%;">
+      <div style="position:absolute; bottom:3px; left:50%; transform:translateX(-50%); font-size:8px; color:rgba(212,165,116,0.5); letter-spacing:1px;">CRAFT BEER · WINE · COCKTAILS · COFFEE</div>
+    </div>
+
+    <!-- Counter stools -->
+    <div style="position:absolute; left:8%; top:24%; display:flex; gap:12px;">
+      <div style="width:14px; height:14px; border-radius:50%; background:rgba(62,36,24,0.3); border:1px solid rgba(62,36,24,0.4);"></div>
+      <div style="width:14px; height:14px; border-radius:50%; background:rgba(62,36,24,0.3); border:1px solid rgba(62,36,24,0.4);"></div>
+      <div style="width:14px; height:14px; border-radius:50%; background:rgba(62,36,24,0.3); border:1px solid rgba(62,36,24,0.4);"></div>
+      <div style="width:14px; height:14px; border-radius:50%; background:rgba(62,36,24,0.3); border:1px solid rgba(62,36,24,0.4);"></div>
+      <div style="width:14px; height:14px; border-radius:50%; background:rgba(62,36,24,0.3); border:1px solid rgba(62,36,24,0.4);"></div>
+      <div style="width:14px; height:14px; border-radius:50%; background:rgba(62,36,24,0.3); border:1px solid rgba(62,36,24,0.4);"></div>
+    </div>
+
+    <!-- Communal table -->
+    <div class="communal-table-icon" style="position:absolute; left:15%; top:38%; width:35%; height:12%;"></div>
+    <div style="position:absolute; left:16%; top:51%; font-size:8px; color:rgba(90,62,40,0.6); letter-spacing:1px;">COMMUNAL TABLE — LIVE-EDGE TIMBER</div>
+
+    <!-- Fireplace wall -->
+    <div class="fireplace-wall" style="left: 65%; top: 5%; width: 30%; height: 90%; border-radius: 0 0 4px 4px;">
+      <div class="fireplace-glow"></div>
+      <div style="position:absolute; top:10%; left:50%; transform:translateX(-50%); font-size:9px; color:rgba(212,165,116,0.5); letter-spacing:1px; text-transform:uppercase;">Linear Fireplace</div>
+    </div>
+
+    <!-- Club chairs near fireplace -->
+    <div style="position:absolute; right:8%; top:55%; display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+      <div class="chair-icon"></div>
+      <div class="chair-icon"></div>
+      <div class="chair-icon"></div>
+      <div class="chair-icon"></div>
+    </div>
+    <div style="position:absolute; right:8%; top:82%; font-size:7px; color:rgba(62,36,24,0.5); letter-spacing:1px;">LEATHER CLUB CHAIRS</div>
+
+    <!-- 2-top tables -->
+    <div style="position:absolute; left:8%; top:62%; display:flex; gap:20px;">
+      <div style="width:30px; height:30px; background:rgba(62,36,24,0.2); border:1px solid rgba(62,36,24,0.3); border-radius:2px;"></div>
+      <div style="width:30px; height:30px; background:rgba(62,36,24,0.2); border:1px solid rgba(62,36,24,0.3); border-radius:2px;"></div>
+      <div style="width:30px; height:30px; background:rgba(62,36,24,0.2); border:1px solid rgba(62,36,24,0.3); border-radius:2px;"></div>
+    </div>
+
+    <!-- Copper pendant lights -->
+    <div style="position:absolute; top:0; left:15%; width:4px; height:15%; display:flex; flex-direction:column;">
+      <div style="flex:1; width:1px; background:#444; margin:0 auto;"></div>
+      <div style="width:20px; height:8px; background:var(--copper); border-radius:0 0 50% 50%; margin:0 auto; box-shadow:0 5px 20px rgba(212,165,116,0.3);"></div>
+    </div>
+    <div style="position:absolute; top:0; left:35%; width:4px; height:12%; display:flex; flex-direction:column;">
+      <div style="flex:1; width:1px; background:#444; margin:0 auto;"></div>
+      <div style="width:20px; height:8px; background:var(--copper); border-radius:0 0 50% 50%; margin:0 auto; box-shadow:0 5px 20px rgba(212,165,116,0.3);"></div>
+    </div>
+    <div style="position:absolute; top:0; left:50%; width:4px; height:18%; display:flex; flex-direction:column;">
+      <div style="flex:1; width:1px; background:#444; margin:0 auto;"></div>
+      <div style="width:20px; height:8px; background:var(--copper); border-radius:0 0 50% 50%; margin:0 auto; box-shadow:0 5px 20px rgba(212,165,116,0.3);"></div>
+    </div>
+
+    <div class="render-label">Cafe &amp; Social Lounge — Second Floor</div>
+  </div>
+</section>
+
+<!-- 7. COWORKING -->
+<section id="cowork">
+  <div class="section-header">
+    <div class="section-number">Deliverable 07</div>
+    <div class="section-title">Coworking Workspace <span class="render-badge">Concept</span></div>
+    <div class="section-subtitle">WeWork-quality workspace inside a gym. Deadlift 405, then take a Zoom call 10 minutes later.</div>
+  </div>
+
+  <div class="concept-render" style="background:linear-gradient(135deg, #15120f, #1a1815); position:relative;">
+    <!-- Glass wall to lounge -->
+    <div style="position:absolute; left:0; top:0; bottom:0; width:3px; background:rgba(135,206,235,0.25);"></div>
+
+    <!-- Desks row 1 -->
+    <div style="position:absolute; left:8%; top:25%; width:50%; height:15%; display:flex; gap:3%;">
+      <div style="flex:1; background:rgba(232,213,183,0.05); border:1px solid rgba(232,213,183,0.12); border-radius:2px; position:relative;">
+        <div style="position:absolute; top:5px; left:50%; transform:translateX(-50%); width:40%; height:3px; background:rgba(26,26,26,0.5);"></div>
+      </div>
+      <div style="flex:1; background:rgba(232,213,183,0.05); border:1px solid rgba(232,213,183,0.12); border-radius:2px; position:relative;">
+        <div style="position:absolute; top:5px; left:50%; transform:translateX(-50%); width:40%; height:3px; background:rgba(26,26,26,0.5);"></div>
+      </div>
+      <div style="flex:1; background:rgba(232,213,183,0.05); border:1px solid rgba(232,213,183,0.12); border-radius:2px; position:relative;">
+        <div style="position:absolute; top:5px; left:50%; transform:translateX(-50%); width:40%; height:3px; background:rgba(26,26,26,0.5);"></div>
+      </div>
+      <div style="flex:1; background:rgba(232,213,183,0.05); border:1px solid rgba(232,213,183,0.12); border-radius:2px; position:relative;">
+        <div style="position:absolute; top:5px; left:50%; transform:translateX(-50%); width:40%; height:3px; background:rgba(26,26,26,0.5);"></div>
+      </div>
+    </div>
+    <div style="position:absolute; left:8%; top:41%; font-size:8px; color:rgba(232,213,183,0.4); letter-spacing:1px;">HOT DESKS — MONITORS, POWER, USB</div>
+
+    <!-- Desks row 2 -->
+    <div style="position:absolute; left:8%; top:50%; width:50%; height:15%; display:flex; gap:3%;">
+      <div style="flex:1; background:rgba(232,213,183,0.05); border:1px solid rgba(232,213,183,0.12); border-radius:2px; position:relative;">
+        <div style="position:absolute; top:5px; left:50%; transform:translateX(-50%); width:40%; height:3px; background:rgba(26,26,26,0.5);"></div>
+      </div>
+      <div style="flex:1; background:rgba(232,213,183,0.05); border:1px solid rgba(232,213,183,0.12); border-radius:2px; position:relative;">
+        <div style="position:absolute; top:5px; left:50%; transform:translateX(-50%); width:40%; height:3px; background:rgba(26,26,26,0.5);"></div>
+      </div>
+      <div style="flex:1; background:rgba(232,213,183,0.05); border:1px solid rgba(232,213,183,0.12); border-radius:2px; position:relative;">
+        <div style="position:absolute; top:5px; left:50%; transform:translateX(-50%); width:40%; height:3px; background:rgba(26,26,26,0.5);"></div>
+      </div>
+      <div style="flex:1; background:rgba(232,213,183,0.05); border:1px solid rgba(232,213,183,0.12); border-radius:2px; position:relative;">
+        <div style="position:absolute; top:5px; left:50%; transform:translateX(-50%); width:40%; height:3px; background:rgba(26,26,26,0.5);"></div>
+      </div>
+    </div>
+
+    <!-- Meeting rooms -->
+    <div style="position:absolute; right:5%; top:15%; width:22%; height:30%; background:rgba(135,206,235,0.04); border:1px solid rgba(135,206,235,0.15); border-radius:3px; display:flex; align-items:center; justify-content:center;">
+      <div style="text-align:center;">
+        <div style="font-size:9px; color:rgba(135,206,235,0.5); letter-spacing:1px;">MEETING RM 1</div>
+        <div style="font-size:7px; color:rgba(135,206,235,0.3); margin-top:3px;">Glass-Walled · 4 Person</div>
+      </div>
+    </div>
+    <div style="position:absolute; right:5%; top:50%; width:22%; height:30%; background:rgba(135,206,235,0.04); border:1px solid rgba(135,206,235,0.15); border-radius:3px; display:flex; align-items:center; justify-content:center;">
+      <div style="text-align:center;">
+        <div style="font-size:9px; color:rgba(135,206,235,0.5); letter-spacing:1px;">MEETING RM 2</div>
+        <div style="font-size:7px; color:rgba(135,206,235,0.3); margin-top:3px;">Glass-Walled · 4 Person</div>
+      </div>
+    </div>
+
+    <!-- Acoustic panels -->
+    <div style="position:absolute; top:5%; left:5%; right:5%; height:8%; background:repeating-linear-gradient(90deg, rgba(26,26,26,0.3) 0px, rgba(26,26,26,0.3) 15px, transparent 15px, transparent 18px); border-radius:2px;"></div>
+
+    <!-- Print station -->
+    <div style="position:absolute; right:8%; bottom:12%; width:12%; height:10%; background:rgba(220,220,220,0.05); border:1px solid rgba(220,220,220,0.12); border-radius:2px; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:7px; color:rgba(220,220,220,0.4); letter-spacing:1px;">PRINT/SCAN</span>
+    </div>
+
+    <div class="render-label">Coworking Workspace — 1,500 SF</div>
+  </div>
+</section>
+
+<!-- 8. WELLNESS -->
+<section id="wellness">
+  <div class="section-header">
+    <div class="section-number">Deliverable 08</div>
+    <div class="section-title">Wellness Spa Suites <span class="render-badge">Concept</span></div>
+    <div class="section-subtitle">4 private treatment rooms for licensed wellness professionals. Revenue stream + member value-add.</div>
+  </div>
+
+  <div class="concept-render" style="background:linear-gradient(180deg, #1a1815, #15120f); position:relative;">
+    <!-- Hallway -->
+    <div style="position:absolute; left:5%; top:10%; right:5%; bottom:30%; display:flex; gap:3%;">
+      <!-- Room 1 -->
+      <div style="flex:1; background:rgba(168,152,136,0.06); border:1px solid rgba(168,152,136,0.2); border-radius:3px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px;">
+        <div style="font-size:9px; color:var(--copper); letter-spacing:1px; margin-bottom:4px;">SUITE 1</div>
+        <div style="width:70%; height:20%; background:rgba(232,213,183,0.08); border:1px solid rgba(232,213,183,0.15); border-radius:8px; margin:5px 0;"></div>
+        <div style="font-size:7px; color:rgba(232,213,183,0.4);">Licensed Massage</div>
+      </div>
+      <!-- Room 2 -->
+      <div style="flex:1; background:rgba(168,152,136,0.06); border:1px solid rgba(168,152,136,0.2); border-radius:3px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px;">
+        <div style="font-size:9px; color:var(--copper); letter-spacing:1px; margin-bottom:4px;">SUITE 2</div>
+        <div style="width:70%; height:20%; background:rgba(232,213,183,0.08); border:1px solid rgba(232,213,183,0.15); border-radius:8px; margin:5px 0;"></div>
+        <div style="font-size:7px; color:rgba(232,213,183,0.4);">Sports Chiropractic</div>
+      </div>
+      <!-- Room 3 -->
+      <div style="flex:1; background:rgba(168,152,136,0.06); border:1px solid rgba(168,152,136,0.2); border-radius:3px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px;">
+        <div style="font-size:9px; color:var(--copper); letter-spacing:1px; margin-bottom:4px;">SUITE 3</div>
+        <div style="width:70%; height:20%; background:rgba(232,213,183,0.08); border:1px solid rgba(232,213,183,0.15); border-radius:8px; margin:5px 0;"></div>
+        <div style="font-size:7px; color:rgba(232,213,183,0.4);">Acupuncture</div>
+      </div>
+      <!-- Room 4 -->
+      <div style="flex:1; background:rgba(168,152,136,0.06); border:1px solid rgba(168,152,136,0.2); border-radius:3px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px;">
+        <div style="font-size:9px; color:var(--copper); letter-spacing:1px; margin-bottom:4px;">SUITE 4</div>
+        <div style="width:70%; height:20%; background:rgba(232,213,183,0.08); border:1px solid rgba(232,213,183,0.15); border-radius:8px; margin:5px 0;"></div>
+        <div style="font-size:7px; color:rgba(232,213,183,0.4);">Nutrition Counseling</div>
+      </div>
+    </div>
+
+    <!-- Waiting area -->
+    <div style="position:absolute; left:15%; bottom:8%; width:70%; height:18%; background:rgba(232,213,183,0.03); border:1px solid rgba(232,213,183,0.1); border-radius:4px; display:flex; align-items:center; justify-content:center;">
+      <div style="text-align:center;">
+        <div style="font-size:10px; color:rgba(232,213,183,0.5); letter-spacing:1px;">SHARED WAITING AREA</div>
+        <div style="font-size:7px; color:rgba(232,213,183,0.3); margin-top:3px;">Seating · Side Tables · Water Station · Calming Decor</div>
+      </div>
+    </div>
+
+    <div class="render-label">Wellness Professional Suites — 1,500 SF</div>
+  </div>
+</section>
+
+<!-- 9. PICKLEBALL -->
+<section id="pickleball">
+  <div class="section-header">
+    <div class="section-number">Deliverable 09</div>
+    <div class="section-title">Pickleball / Multi-Use Court <span class="render-badge">Concept</span></div>
+    <div class="section-subtitle">Clean sport court serving triple duty: pickleball, group fitness, and event overflow.</div>
+  </div>
+
+  <div class="concept-render" style="background:linear-gradient(180deg, #0f0f0f, #1a1a1a); position:relative;">
+    <!-- Court surface -->
+    <div style="position:absolute; left:10%; top:15%; right:10%; bottom:15%; background:#1a2a1a; border:2px solid rgba(27,67,50,0.6); border-radius:2px;">
+      <!-- Court lines -->
+      <div style="position:absolute; top:0; left:50%; transform:translateX(-50%); width:2px; height:100%; background:rgba(255,255,255,0.3);"></div>
+      <!-- Non-volley zone -->
+      <div style="position:absolute; top:0; left:35%; width:30%; height:100%; background:rgba(27,67,50,0.2); border-left:1px solid rgba(255,255,255,0.15); border-right:1px solid rgba(255,255,255,0.15);"></div>
+      <!-- Baselines -->
+      <div style="position:absolute; top:0; left:0; right:0; height:2px; background:rgba(255,255,255,0.3);"></div>
+      <div style="position:absolute; bottom:0; left:0; right:0; height:2px; background:rgba(255,255,255,0.3);"></div>
+      <!-- Sidelines -->
+      <div style="position:absolute; top:0; left:0; bottom:0; width:2px; background:rgba(255,255,255,0.3);"></div>
+      <div style="position:absolute; top:0; right:0; bottom:0; width:2px; background:rgba(255,255,255,0.3);"></div>
+      <!-- Net (dashed) -->
+      <div style="position:absolute; top:0; left:50%; width:3px; height:100%; background:repeating-linear-gradient(180deg, var(--copper) 0px, var(--copper) 4px, transparent 4px, transparent 8px); transform:translateX(-50%);"></div>
+      <!-- Net label -->
+      <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:9px; color:var(--copper); letter-spacing:2px; background:rgba(10,10,10,0.7); padding:3px 8px; border-radius:2px;">RETRACTABLE NET</div>
+    </div>
+
+    <!-- LED lights -->
+    <div style="position:absolute; top:3%; left:20%; right:20%; height:4px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);"></div>
+    <div style="position:absolute; top:6%; left:25%; right:25%; height:4px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);"></div>
+
+    <!-- Scoreboard -->
+    <div style="position:absolute; top:5%; right:5%; width:12%; height:8%; background:rgba(26,26,26,0.8); border:1px solid rgba(212,165,116,0.3); border-radius:2px; display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:7px; color:var(--copper); letter-spacing:1px;">SCOREBOARD</span>
+    </div>
+
+    <!-- Storage alcove label -->
+    <div style="position:absolute; bottom:5%; right:5%; font-size:7px; color:rgba(232,213,183,0.3); letter-spacing:1px;">STORAGE: PADDLES · BALLS · FITNESS EQUIPMENT</div>
+
+    <div class="render-label">Pickleball / Multi-Use Court — 800 SF</div>
+  </div>
+</section>
+
+<!-- 10. SITE CONTEXT -->
+<section id="site">
+  <div class="section-header">
+    <div class="section-number">Deliverable 10</div>
+    <div class="section-title">Liberty Park — Site Context <span class="render-badge">Concept</span></div>
+    <div class="section-subtitle">The Eremos within the $112.5M Liberty Park mixed-use district ecosystem.</div>
+  </div>
+
+  <div class="concept-render site-context">
+    <!-- Roads -->
+    <div class="site-road" style="left:0; top:45%; width:100%; height:4%;"></div>
+    <div class="site-road" style="left:35%; top:0; width:3%; height:100%;"></div>
+
+    <!-- MSEC -->
+    <div class="site-building site-msec" style="left:5%; top:5%; width:28%; height:35%;">
+      <div>
+        <div style="font-size:11px; font-weight:600; color:rgba(200,200,255,0.7);">MEMPHIS SPORTS &amp;</div>
+        <div style="font-size:11px; font-weight:600; color:rgba(200,200,255,0.7);">EVENTS CENTER</div>
+        <div style="font-size:9px; color:rgba(200,200,255,0.4); margin-top:4px;">227,000 SF</div>
+      </div>
+    </div>
+
+    <!-- Hampton Inn -->
+    <div class="site-building site-hotel" style="left:40%; top:5%; width:18%; height:20%;">
+      <div>
+        <div style="font-size:10px; font-weight:600; color:rgba(150,200,150,0.7);">HAMPTON INN</div>
+        <div style="font-size:8px; color:rgba(150,200,150,0.4); margin-top:2px;">152 Rooms</div>
+        <div style="font-size:7px; color:rgba(150,200,150,0.3);">Rooftop Bar</div>
+      </div>
+    </div>
+
+    <!-- Residential Buildings -->
+    <div class="site-building site-residential" style="left:62%; top:5%; width:15%; height:35%;">
+      <div>
+        <div style="font-size:9px; font-weight:600; color:rgba(200,180,150,0.7);">RESIDENTIAL</div>
+        <div style="font-size:9px; font-weight:600; color:rgba(200,180,150,0.7);">BUILDING A</div>
+        <div style="font-size:8px; color:rgba(200,180,150,0.4); margin-top:2px;">5-Story · ~108 Units</div>
+      </div>
+    </div>
+
+    <div class="site-building site-residential" style="left:80%; top:5%; width:15%; height:35%;">
+      <div>
+        <div style="font-size:9px; font-weight:600; color:rgba(200,180,150,0.7);">RESIDENTIAL</div>
+        <div style="font-size:9px; font-weight:600; color:rgba(200,180,150,0.7);">BUILDING B</div>
+        <div style="font-size:8px; color:rgba(200,180,150,0.4); margin-top:2px;">5-Story · ~107 Units</div>
+      </div>
+    </div>
+
+    <!-- THE EREMOS (highlighted) -->
+    <div class="site-building site-eremos" style="left:40%; top:52%; width:20%; height:18%;">
+      <div>
+        <div style="font-size:13px; font-weight:800; color:var(--copper); letter-spacing:3px;">THE EREMOS</div>
+        <div style="font-size:9px; color:var(--cream); margin-top:3px;">25,000 SF</div>
+        <div style="font-size:7px; color:var(--copper); margin-top:2px;">Premium Performance Club</div>
+      </div>
+    </div>
+
+    <!-- Retail Corridor -->
+    <div class="site-building" style="left:62%; top:52%; width:33%; height:8%; background:rgba(150,150,150,0.08); border-style:dashed;">
+      <span style="font-size:8px; color:rgba(200,200,200,0.4); letter-spacing:1px;">GROUND-FLOOR RETAIL CORRIDOR</span>
+    </div>
+
+    <!-- Stadium -->
+    <div class="site-building site-stadium" style="left:5%; top:55%; width:28%; height:30%;">
+      <div>
+        <div style="font-size:10px; font-weight:600; color:rgba(150,150,200,0.6);">SIMMONS BANK</div>
+        <div style="font-size:10px; font-weight:600; color:rgba(150,150,200,0.6);">LIBERTY STADIUM</div>
+        <div style="font-size:8px; color:rgba(150,150,200,0.3); margin-top:3px;">10,000 Seats</div>
+      </div>
+    </div>
+
+    <!-- Tiger Lane -->
+    <div class="site-building" style="left:40%; top:75%; width:55%; height:8%; background:rgba(212,165,116,0.05); border-color:rgba(212,165,116,0.2); border-style:dashed;">
+      <span style="font-size:8px; color:rgba(212,165,116,0.4); letter-spacing:2px;">TIGER LANE ENTERTAINMENT CORRIDOR</span>
+    </div>
+
+    <!-- Parking -->
+    <div class="site-building" style="left:62%; top:62%; width:15%; height:10%; background:rgba(100,100,100,0.05); border-style:dotted;">
+      <span style="font-size:7px; color:rgba(200,200,200,0.3);">PARKING</span>
+    </div>
+    <div class="site-building" style="left:80%; top:62%; width:15%; height:10%; background:rgba(100,100,100,0.05); border-style:dotted;">
+      <span style="font-size:7px; color:rgba(200,200,200,0.3);">PARKING</span>
+    </div>
+
+    <!-- Road labels -->
+    <div class="site-label" style="left:5%; top:47%;">MAIN BOULEVARD</div>
+
+    <div class="render-label">Liberty Park District — Bird's Eye Context</div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>Adjacent Assets</h3>
+      <ul>
+        <li><span class="highlight">MSEC</span> — 227,000 SF sports &amp; events</li>
+        <li><span class="highlight">Hampton Inn</span> — 152 rooms + rooftop bar</li>
+        <li><span class="highlight">Residential</span> — 215 apartments (2 buildings)</li>
+        <li><span class="highlight">Stadium</span> — 10,000 seat venue</li>
+        <li><span class="highlight">Tiger Lane</span> — Entertainment corridor</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>Strategic Position</h3>
+      <p>The Eremos is integrated into a $112.5M mixed-use district with built-in foot traffic from 215 residential units, 152 hotel rooms, and 227,000 SF of event space. This is not a standalone gym — it's the social infrastructure of an emerging neighborhood.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section id="summary">
+  <div class="section-header">
+    <div class="section-number">Reference</div>
+    <div class="section-title">Zone Summary &amp; Brand Identity</div>
+  </div>
+
+  <!-- Zone Table -->
+  <div style="overflow-x: auto;">
+    <table class="zone-table">
+      <thead>
+        <tr>
+          <th>Floor</th>
+          <th>Zone</th>
+          <th>SF</th>
+          <th>Key Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="floor-label">1st</td>
+          <td>Entrance / Reception</td>
+          <td>600</td>
+          <td>Check-in, retail, digital PR board</td>
+        </tr>
+        <tr>
+          <td class="floor-label">1st</td>
+          <td>Training Floor</td>
+          <td>10,000</td>
+          <td>Squat racks, platforms, dumbbells, rig, turf lane</td>
+        </tr>
+        <tr>
+          <td class="floor-label">1st</td>
+          <td>Recovery Suite</td>
+          <td>1,500</td>
+          <td>Cold plunges, infrared sauna, Normatec, percussion</td>
+        </tr>
+        <tr>
+          <td class="floor-label">1st</td>
+          <td>Locker Rooms</td>
+          <td>2,000</td>
+          <td>Premium showers, grooming, towel service</td>
+        </tr>
+        <tr>
+          <td class="floor-label">1st</td>
+          <td>Restrooms</td>
+          <td>400</td>
+          <td>ADA-compliant</td>
+        </tr>
+        <tr>
+          <td class="floor-label">1st</td>
+          <td>Mechanical / Storage</td>
+          <td>300</td>
+          <td>HVAC, electrical, equipment</td>
+        </tr>
+        <tr>
+          <td class="floor-label">Ext</td>
+          <td>Outdoor Training</td>
+          <td>2,500</td>
+          <td>Sled track, outdoor rig, farmer's walk</td>
+        </tr>
+        <tr>
+          <td class="floor-label">2nd</td>
+          <td>Cafe &amp; Bar</td>
+          <td>1,800</td>
+          <td>Full cafe, bar (Phase 2), commercial kitchen</td>
+        </tr>
+        <tr>
+          <td class="floor-label">2nd</td>
+          <td>Coworking</td>
+          <td>1,500</td>
+          <td>8 hot desks, 2 meeting rooms, printing</td>
+        </tr>
+        <tr>
+          <td class="floor-label">2nd</td>
+          <td>Social Lounge</td>
+          <td>2,000</td>
+          <td>Fireplace, events, milestone nights</td>
+        </tr>
+        <tr>
+          <td class="floor-label">2nd</td>
+          <td>Wellness Suites</td>
+          <td>1,500</td>
+          <td>4 rentable treatment rooms</td>
+        </tr>
+        <tr>
+          <td class="floor-label">2nd</td>
+          <td>Pickleball Court</td>
+          <td>800</td>
+          <td>Multi-use: pickleball, group fitness, events</td>
+        </tr>
+        <tr>
+          <td class="floor-label">2nd</td>
+          <td>Restrooms (Upper)</td>
+          <td>300</td>
+          <td>ADA-compliant</td>
+        </tr>
+        <tr>
+          <td class="floor-label">2nd</td>
+          <td>Staff Office</td>
+          <td>300</td>
+          <td>GM office, staff area</td>
+        </tr>
+        <tr class="total-row">
+          <td></td>
+          <td>TOTAL</td>
+          <td>25,000</td>
+          <td>22,500 indoor + 2,500 outdoor</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Brand Palette -->
+  <h3 style="font-size:13px; font-weight:600; color:var(--copper); letter-spacing:1px; text-transform:uppercase; margin-top:50px; margin-bottom:10px;">Brand Color Palette</h3>
+  <div class="palette">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#0A0A0A;"></div>
+      <div class="swatch-name">Base</div>
+      <div class="swatch-hex">#0A0A0A</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#1A1A1A;"></div>
+      <div class="swatch-name">Rich Black</div>
+      <div class="swatch-hex">#1A1A1A</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#3E2418;"></div>
+      <div class="swatch-name">Dark Chocolate</div>
+      <div class="swatch-hex">#3E2418</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#D4A574;"></div>
+      <div class="swatch-name">Copper</div>
+      <div class="swatch-hex">#D4A574</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#E8D5B7;"></div>
+      <div class="swatch-name">Cream</div>
+      <div class="swatch-hex">#E8D5B7</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#F5F0EB;"></div>
+      <div class="swatch-name">Warm White</div>
+      <div class="swatch-hex">#F5F0EB</div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#1B4332;"></div>
+      <div class="swatch-name">Forest Sage</div>
+      <div class="swatch-hex">#1B4332</div>
+    </div>
+  </div>
+
+  <!-- Usage Context -->
+  <div class="info-grid" style="margin-top:40px;">
+    <div class="info-card">
+      <h3>Rendering Usage</h3>
+      <ul>
+        <li>Liberty Park lease negotiation pitch deck</li>
+        <li>Investor equity pitch deck</li>
+        <li>Pre-sale marketing (200+ founding members)</li>
+        <li>Website &amp; landing page visuals</li>
+        <li>Social media content</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>Files Included</h3>
+      <ul>
+        <li><span class="highlight">SVG</span> — Detailed floor plans (1st &amp; 2nd floor)</li>
+        <li><span class="highlight">HTML</span> — Interactive concept renderings</li>
+        <li><span class="highlight">Concept Art</span> — All 10 deliverables</li>
+        <li>Commissioning specs for photorealistic 3D renders</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>Brand Position</h3>
+      <p><strong style="color:var(--copper);">Not a gym.</strong> A premium performance and social club. Zoo Culture lane scaled with premium social infrastructure. Gritty, tough, clean, futuristic.</p>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:80px; padding-bottom:40px;">
+    <div style="font-size:11px; letter-spacing:4px; color:var(--copper); text-transform:uppercase; margin-bottom:8px;">Preliminary &mdash; Not for Construction</div>
+    <div style="font-size:10px; color:rgba(232,213,183,0.3);">THE EREMOS &copy; 2026  |  Liberty Park District, Memphis, TN</div>
+  </div>
+</section>
+
+<script>
+// Active nav highlighting
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => link.classList.remove('active'));
+      const activeLink = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+      if (activeLink) activeLink.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+
+sections.forEach(section => observer.observe(section));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+
+</body>
+</html>
