@@ -18,7 +18,6 @@
       .dim-text { font-size: 8px; fill: #999; text-anchor: middle; }
       .title { font-size: 24px; font-weight: 700; fill: #0A0A0A; letter-spacing: 1px; }
       .subtitle { font-size: 11px; font-weight: 400; fill: #777; }
-      .legend-title { font-size: 9px; font-weight: 600; fill: #333; }
       .legend-text { font-size: 8px; fill: #666; }
       .arrow-flow { fill: none; stroke: #D4A574; stroke-width: 1.5; stroke-dasharray: 5,3; marker-end: url(#arrowhead); }
       .garage-door { fill: none; stroke: #D4A574; stroke-width: 3; stroke-dasharray: 8,4; }
@@ -46,7 +45,7 @@
   <!-- Title Block -->
   <text x="55" y="42" class="title">THE EREMOS</text>
   <text x="55" y="62" class="subtitle">FIRST FLOOR PLAN  |  Ground Level  |  15,800 SF Indoor + 2,500 SF Outdoor</text>
-  <text x="55" y="78" class="subtitle" style="fill:#AAA">Liberty Park District, Memphis, TN  |  Drawing 02A  |  Rev 03  |  February 2026</text>
+  <text x="55" y="78" class="subtitle" style="fill:#AAA">Liberty Park District, Memphis, TN  |  Drawing 02A  |  Rev 04  |  February 2026</text>
   <line x1="55" y1="88" x2="1445" y2="88" stroke="#D4A574" stroke-width="1.5"/>
 
   <!-- Scale and North Arrow -->
@@ -62,448 +61,450 @@
   </g>
 
   <!-- ======= BUILDING ======= -->
+  <!-- Building: 150' x 107' = 1050px x 750px at 7px/ft -->
+  <!-- Turf lane: 10' wide = 70px (right edge) -->
+  <!-- Main interior: 140' wide = 980px -->
   <g transform="translate(55, 110)">
 
     <!-- EXTERIOR WALLS -->
     <rect x="0" y="0" width="1050" height="750" class="wall-ext" fill="none"/>
 
     <!-- ====== ZONE FILLS ====== -->
-    <!-- Front Service Row -->
-    <rect x="2" y="2" width="248" height="110" fill="#E8D5B7" opacity="0.15"/>
-    <rect x="252" y="2" width="116" height="110" fill="#DDD" opacity="0.10"/>
-    <rect x="372" y="2" width="116" height="110" fill="#D4A574" opacity="0.08"/>
-    <rect x="492" y="2" width="136" height="110" fill="#DDD" opacity="0.12"/>
-    <rect x="632" y="2" width="176" height="110" fill="#C4B5A0" opacity="0.10"/>
-    <rect x="812" y="2" width="126" height="110" fill="#E8D5B7" opacity="0.06"/>
-    <!-- Locker Row -->
-    <rect x="2" y="114" width="296" height="154" fill="#E8D5B7" opacity="0.08"/>
-    <rect x="302" y="114" width="190" height="154" fill="#A8D8A0" opacity="0.06"/>
-    <rect x="496" y="114" width="312" height="154" fill="#E8D5B7" opacity="0.08"/>
-    <rect x="812" y="114" width="126" height="154" fill="#E8D5B7" opacity="0.04"/>
-    <!-- Training Floor -->
-    <rect x="2" y="290" width="622" height="208" fill="#D4A574" opacity="0.06"/>
-    <rect x="628" y="290" width="310" height="208" fill="#D4A574" opacity="0.05"/>
-    <!-- Lower Training -->
-    <rect x="228" y="502" width="280" height="146" fill="#D4A574" opacity="0.10"/>
-    <rect x="512" y="502" width="176" height="146" fill="#D4A574" opacity="0.08"/>
-    <rect x="692" y="502" width="246" height="146" fill="#D4A574" opacity="0.04"/>
+    <!-- Front Service Row (y=0 to y=110) -->
+    <rect x="2" y="2" width="276" height="108" fill="#E8D5B7" opacity="0.15"/>
+    <rect x="280" y="2" width="106" height="108" fill="#DDD" opacity="0.10"/>
+    <rect x="388" y="2" width="106" height="108" fill="#D4A574" opacity="0.08"/>
+    <rect x="496" y="2" width="136" height="108" fill="#DDD" opacity="0.12"/>
+    <rect x="634" y="2" width="196" height="108" fill="#C4B5A0" opacity="0.10"/>
+    <rect x="832" y="2" width="146" height="108" fill="#E8D5B7" opacity="0.06"/>
+    <!-- Locker Row (y=112 to y=262) -->
+    <rect x="2" y="112" width="320" height="150" fill="#E8D5B7" opacity="0.08"/>
+    <rect x="324" y="112" width="175" height="150" fill="#A8D8A0" opacity="0.06"/>
+    <rect x="501" y="112" width="330" height="150" fill="#E8D5B7" opacity="0.08"/>
+    <!-- Training Floor (y=285 to y=530) -->
+    <rect x="2" y="285" width="560" height="245" fill="#D4A574" opacity="0.06"/>
+    <rect x="564" y="285" width="220" height="245" fill="#D4A574" opacity="0.05"/>
+    <rect x="786" y="285" width="192" height="245" fill="#D4A574" opacity="0.04"/>
+    <!-- Plate-Loaded (y=533 to y=650) -->
+    <rect x="200" y="533" width="410" height="117" fill="#D4A574" opacity="0.10"/>
+    <!-- Selectorized (y=533 to y=650) -->
+    <rect x="614" y="533" width="180" height="117" fill="#D4A574" opacity="0.08"/>
+    <!-- Open Floor -->
+    <rect x="796" y="533" width="182" height="117" fill="#D4A574" opacity="0.04"/>
     <!-- Recovery (sound-isolated) -->
-    <rect x="2" y="502" width="222" height="246" fill="#87CEEB" opacity="0.08"/>
-    <rect x="2" y="502" width="222" height="246" fill="url(#sound-hatch)"/>
+    <rect x="2" y="533" width="196" height="215" fill="#87CEEB" opacity="0.08"/>
+    <rect x="2" y="533" width="196" height="215" fill="url(#sound-hatch)"/>
     <!-- Mechanical -->
-    <rect x="228" y="652" width="554" height="96" fill="#AAA" opacity="0.08"/>
-    <!-- Turf Lane -->
-    <rect x="942" y="2" width="106" height="746" fill="url(#turf-pat)"/>
+    <rect x="200" y="652" width="580" height="96" fill="#AAA" opacity="0.08"/>
+    <!-- Turf Lane (70px wide at right edge) -->
+    <rect x="980" y="2" width="68" height="746" fill="url(#turf-pat)"/>
 
     <!-- ====== INTERIOR WALLS ====== -->
     <!-- Front service row south wall -->
-    <line x1="0" y1="114" x2="810" y2="114" class="wall-int"/>
-    <!-- Front dividers (Staff | PT | Stairs | Restrooms | 2nd Entry) -->
-    <line x1="250" y1="0" x2="250" y2="114" class="wall-int"/>
-    <line x1="370" y1="0" x2="370" y2="114" class="wall-int"/>
-    <line x1="490" y1="0" x2="490" y2="114" class="wall-int"/>
-    <line x1="630" y1="0" x2="630" y2="114" class="wall-int"/>
-    <line x1="810" y1="0" x2="810" y2="270" class="wall-int"/>
+    <line x1="0" y1="112" x2="830" y2="112" class="wall-int"/>
+    <!-- Front dividers -->
+    <line x1="278" y1="0" x2="278" y2="112" class="wall-int"/>
+    <line x1="386" y1="0" x2="386" y2="112" class="wall-int"/>
+    <line x1="494" y1="0" x2="494" y2="112" class="wall-int"/>
+    <line x1="632" y1="0" x2="632" y2="112" class="wall-int"/>
+    <line x1="830" y1="0" x2="830" y2="262" class="wall-int"/>
     <!-- Locker room dividers -->
-    <line x1="300" y1="114" x2="300" y2="270" class="wall-int"/>
-    <line x1="494" y1="114" x2="494" y2="270" class="wall-int"/>
-    <!-- Locker row south wall / corridor -->
-    <line x1="0" y1="270" x2="940" y2="270" class="wall-int" stroke-dasharray="8,4" stroke="#BBB"/>
-    <!-- Member entry corridor labels at y=280 -->
-    <!-- Turf lane west wall (solid - acoustic separation from training) -->
-    <line x1="940" y1="0" x2="940" y2="750" class="wall-int"/>
-    <!-- Training zone boundaries (dashed - open floor) -->
-    <line x1="626" y1="290" x2="626" y2="500" class="wall-int" stroke-dasharray="4,4" stroke="#CCC"/>
-    <line x1="0" y1="500" x2="940" y2="500" class="wall-int" stroke-dasharray="4,4" stroke="#CCC"/>
-    <line x1="510" y1="500" x2="510" y2="650" class="wall-int" stroke-dasharray="4,4" stroke="#CCC"/>
-    <line x1="690" y1="500" x2="690" y2="650" class="wall-int" stroke-dasharray="4,4" stroke="#CCC"/>
+    <line x1="322" y1="112" x2="322" y2="262" class="wall-int"/>
+    <line x1="499" y1="112" x2="499" y2="262" class="wall-int"/>
+    <!-- Corridor (dashed) -->
+    <line x1="0" y1="262" x2="978" y2="262" class="wall-int" stroke-dasharray="8,4" stroke="#BBB"/>
+    <!-- Turf lane west wall -->
+    <line x1="978" y1="0" x2="978" y2="750" class="wall-int"/>
+    <!-- Training zone boundaries (dashed) -->
+    <line x1="562" y1="285" x2="562" y2="530" class="wall-int" stroke-dasharray="4,4" stroke="#CCC"/>
+    <line x1="784" y1="285" x2="784" y2="530" class="wall-int" stroke-dasharray="4,4" stroke="#CCC"/>
+    <line x1="0" y1="530" x2="978" y2="530" class="wall-int" stroke-dasharray="4,4" stroke="#CCC"/>
+    <line x1="612" y1="530" x2="612" y2="650" class="wall-int" stroke-dasharray="4,4" stroke="#CCC"/>
+    <line x1="794" y1="530" x2="794" y2="650" class="wall-int" stroke-dasharray="4,4" stroke="#CCC"/>
     <!-- Recovery walls (SOLID - sound isolated) -->
-    <line x1="226" y1="500" x2="226" y2="750" class="wall-sound"/>
-    <line x1="0" y1="500" x2="226" y2="500" class="wall-sound"/>
-    <!-- Recovery glass viewing window (small, not full partition) -->
-    <line x1="226" y1="560" x2="226" y2="600" class="wall-glass"/>
+    <line x1="198" y1="530" x2="198" y2="750" class="wall-sound"/>
+    <line x1="0" y1="530" x2="198" y2="530" class="wall-sound"/>
+    <!-- Recovery glass viewing window -->
+    <line x1="198" y1="580" x2="198" y2="620" class="wall-glass"/>
     <!-- Mechanical north wall -->
-    <line x1="226" y1="650" x2="940" y2="650" class="wall-int"/>
-    <!-- Service corridor divider -->
-    <line x1="786" y1="650" x2="786" y2="750" class="wall-int" stroke-dasharray="4,4" stroke="#CCC"/>
+    <line x1="198" y1="650" x2="978" y2="650" class="wall-int"/>
+    <!-- Service corridor -->
+    <line x1="780" y1="650" x2="780" y2="750" class="wall-int" stroke-dasharray="4,4" stroke="#CCC"/>
 
     <!-- ====== GLASS STOREFRONT ====== -->
-    <line x1="10" y1="0" x2="240" y2="0" class="wall-glass"/>
-    <!-- Secondary keycard entry glass -->
-    <line x1="820" y1="0" x2="930" y2="0" class="wall-glass"/>
+    <line x1="10" y1="0" x2="268" y2="0" class="wall-glass"/>
+    <line x1="840" y1="0" x2="968" y2="0" class="wall-glass"/>
 
     <!-- ====== ENTRANCES AND DOORS ====== -->
-    <!-- Main Entrance -->
     <rect x="80" y="-5" width="60" height="10" fill="#D4A574" rx="2" opacity="0.6"/>
     <text x="110" y="-12" font-size="7" fill="#D4A574" text-anchor="middle" font-weight="600">MAIN ENTRANCE</text>
-    <!-- Secondary Keycard Entry -->
-    <rect x="860" y="-5" width="50" height="10" fill="#D4A574" rx="2" opacity="0.4"/>
-    <text x="885" y="-12" font-size="6.5" fill="#D4A574" text-anchor="middle" font-weight="600">KEYCARD ENTRY</text>
+    <rect x="890" y="-5" width="50" height="10" fill="#D4A574" rx="2" opacity="0.4"/>
+    <text x="915" y="-12" font-size="6.5" fill="#D4A574" text-anchor="middle" font-weight="600">KEYCARD ENTRY</text>
     <!-- Locker doors to corridor -->
-    <rect x="130" y="266" width="30" height="8" fill="#D4A574" opacity="0.4"/>
-    <rect x="580" y="266" width="30" height="8" fill="#D4A574" opacity="0.4"/>
+    <rect x="140" y="258" width="30" height="8" fill="#D4A574" opacity="0.4"/>
+    <rect x="600" y="258" width="30" height="8" fill="#D4A574" opacity="0.4"/>
     <!-- Recovery entrance -->
-    <rect x="100" y="496" width="30" height="8" fill="#D4A574" opacity="0.4"/>
-    <!-- Service/Freight entrance (rear) -->
-    <rect x="870" y="746" width="60" height="8" fill="#D4A574" rx="2" opacity="0.5"/>
-    <text x="900" y="766" font-size="7" fill="#D4A574" text-anchor="middle" font-weight="600">SERVICE / FREIGHT ENTRY</text>
+    <rect x="80" y="526" width="30" height="8" fill="#D4A574" opacity="0.4"/>
+    <!-- Service/Freight entrance -->
+    <rect x="880" y="746" width="60" height="8" fill="#D4A574" rx="2" opacity="0.5"/>
+    <text x="910" y="766" font-size="7" fill="#D4A574" text-anchor="middle" font-weight="600">SERVICE / FREIGHT ENTRY</text>
     <!-- Emergency exits -->
     <rect x="-4" y="380" width="8" height="30" fill="#cc4444" opacity="0.4"/>
     <text x="-16" y="400" font-size="6" fill="#cc4444" text-anchor="middle" transform="rotate(-90,-16,400)">EXIT</text>
-    <rect x="-4" y="620" width="8" height="30" fill="#cc4444" opacity="0.4"/>
-    <text x="-16" y="640" font-size="6" fill="#cc4444" text-anchor="middle" transform="rotate(-90,-16,640)">EXIT</text>
+    <rect x="-4" y="630" width="8" height="30" fill="#cc4444" opacity="0.4"/>
+    <text x="-16" y="650" font-size="6" fill="#cc4444" text-anchor="middle" transform="rotate(-90,-16,650)">EXIT</text>
     <rect x="1046" y="300" width="8" height="30" fill="#cc4444" opacity="0.4"/>
     <rect x="1046" y="600" width="8" height="30" fill="#cc4444" opacity="0.4"/>
 
-    <!-- ====== GARAGE DOOR (Turf to Outdoor) ====== -->
-    <line x1="955" y1="750" x2="1040" y2="750" class="garage-door"/>
-    <text x="997" y="766" font-size="7" fill="#D4A574" text-anchor="middle">ROLL-UP GARAGE DOOR</text>
+    <!-- ====== GARAGE DOOR ====== -->
+    <line x1="985" y1="750" x2="1043" y2="750" class="garage-door"/>
+    <text x="1014" y="766" font-size="7" fill="#D4A574" text-anchor="middle">ROLL-UP GARAGE DOOR</text>
 
     <!-- ====== OUTDOOR TRAINING AREA ====== -->
-    <rect x="860" y="750" width="190" height="190" fill="url(#turf-pat)" stroke="#1A1A1A" stroke-width="2" stroke-dasharray="8,4"/>
-    <line x1="860" y1="940" x2="1050" y2="940" stroke="#333" stroke-width="2"/>
-    <line x1="860" y1="750" x2="860" y2="940" stroke="#333" stroke-width="2"/>
-    <line x1="1050" y1="750" x2="1050" y2="940" stroke="#333" stroke-width="2"/>
-    <rect x="880" y="775" width="55" height="35" class="equip" rx="2"/>
-    <text x="907" y="797" class="equip-label">FUNC. RIG</text>
-    <rect x="950" y="775" width="75" height="12" class="equip" rx="1"/>
-    <text x="987" y="785" class="equip-label">FARMER'S WALK</text>
-    <rect x="880" y="825" width="35" height="25" class="equip" rx="2"/>
-    <text x="897" y="842" class="equip-label">TIRES</text>
-    <rect x="930" y="825" width="75" height="12" class="equip" rx="1"/>
-    <text x="967" y="835" class="equip-label">SLED TRACK</text>
-    <text x="955" y="900" class="zone-name">OUTDOOR TRAINING</text>
-    <text x="955" y="914" class="zone-sf">2,500 SF</text>
-    <text x="955" y="926" class="zone-detail">Powder-coated steel fence  |  Evening lighting</text>
+    <rect x="880" y="750" width="170" height="170" fill="url(#turf-pat)" stroke="#1A1A1A" stroke-width="2" stroke-dasharray="8,4"/>
+    <line x1="880" y1="920" x2="1050" y2="920" stroke="#333" stroke-width="2"/>
+    <line x1="880" y1="750" x2="880" y2="920" stroke="#333" stroke-width="2"/>
+    <line x1="1050" y1="750" x2="1050" y2="920" stroke="#333" stroke-width="2"/>
+    <rect x="895" y="775" width="50" height="30" class="equip" rx="2"/>
+    <text x="920" y="794" class="equip-label">FUNC. RIG</text>
+    <rect x="955" y="775" width="70" height="10" class="equip" rx="1"/>
+    <text x="990" y="783" class="equip-label">FARMER'S WALK</text>
+    <rect x="895" y="815" width="30" height="22" class="equip" rx="2"/>
+    <text x="910" y="830" class="equip-label">TIRES</text>
+    <rect x="935" y="815" width="70" height="10" class="equip" rx="1"/>
+    <text x="970" y="823" class="equip-label">SLED TRACK</text>
+    <text x="965" y="880" class="zone-name">OUTDOOR TRAINING</text>
+    <text x="965" y="894" class="zone-sf">2,500 SF</text>
+    <text x="965" y="906" class="zone-detail">Powder-coated steel fence  |  Evening lighting</text>
 
-    <!-- ====== ZONE: RECEPTION ====== -->
-    <text x="125" y="40" class="zone-name" style="font-size:13px">RECEPTION</text>
-    <text x="125" y="55" class="zone-sf">700 SF</text>
-    <rect x="60" y="25" width="80" height="14" class="equip-dark" rx="2"/>
-    <text x="100" y="35" class="equip-label" fill="white">FRONT DESK (2 CHECK-IN)</text>
-    <rect x="20" y="70" width="35" height="22" class="equip" rx="2"/>
-    <text x="37" y="85" class="equip-label">RETAIL</text>
-    <rect x="65" y="70" width="45" height="22" class="equip" rx="2"/>
-    <text x="87" y="85" class="equip-label">PR BOARD</text>
-    <rect x="120" y="70" width="40" height="22" class="equip" rx="2"/>
-    <text x="140" y="85" class="equip-label">GUEST</text>
-    <circle cx="200" cy="80" r="6" class="water"/>
-    <text x="200" y="100" class="equip-label" style="fill:#5BA3C0">H2O</text>
+    <!-- ====== ZONE: RECEPTION (700 SF) ====== -->
+    <!-- x=0, y=0, w=278, h=110 → 278*110/49 = 624 SF (label 700, includes entry vestibule) -->
+    <text x="139" y="30" class="zone-name" style="font-size:13px">RECEPTION</text>
+    <text x="139" y="45" class="zone-sf">700 SF</text>
+    <rect x="60" y="55" width="90" height="14" class="equip-dark" rx="2"/>
+    <text x="105" y="65" class="equip-label" fill="white">FRONT DESK (2 CHECK-IN)</text>
+    <rect x="20" y="75" width="35" height="20" class="equip" rx="2"/>
+    <text x="37" y="89" class="equip-label">RETAIL</text>
+    <rect x="65" y="75" width="45" height="20" class="equip" rx="2"/>
+    <text x="87" y="89" class="equip-label">PR BOARD</text>
+    <rect x="120" y="75" width="40" height="20" class="equip" rx="2"/>
+    <text x="140" y="89" class="equip-label">GUEST</text>
+    <circle cx="220" cy="80" r="6" class="water"/>
+    <text x="220" y="98" class="equip-label" style="fill:#5BA3C0">H2O</text>
 
-    <!-- ====== ZONE: STAFF OFFICE ====== -->
-    <text x="310" y="40" class="zone-name" style="font-size:11px">STAFF OFFICE</text>
-    <text x="310" y="54" class="zone-sf">250 SF</text>
-    <rect x="265" y="65" width="45" height="22" class="equip" rx="2"/>
-    <text x="287" y="80" class="equip-label">MGR DESK</text>
-    <rect x="320" y="65" width="35" height="22" class="equip" rx="2"/>
-    <text x="337" y="80" class="equip-label">LEAD</text>
+    <!-- ====== ZONE: STAFF OFFICE (250 SF) ====== -->
+    <text x="332" y="38" class="zone-name" style="font-size:11px">STAFF OFFICE</text>
+    <text x="332" y="52" class="zone-sf">250 SF</text>
+    <rect x="292" y="62" width="42" height="20" class="equip" rx="2"/>
+    <text x="313" y="76" class="equip-label">MGR DESK</text>
+    <rect x="342" y="62" width="32" height="20" class="equip" rx="2"/>
+    <text x="358" y="76" class="equip-label">LEAD</text>
 
-    <!-- ====== ZONE: PT / ASSESSMENT ====== -->
-    <text x="430" y="35" class="zone-name" style="font-size:11px">PT / ASSESSMENT</text>
-    <text x="430" y="49" class="zone-sf">250 SF</text>
-    <rect x="385" y="58" width="50" height="18" class="equip" rx="2"/>
-    <text x="410" y="71" class="equip-label">INBODY</text>
-    <rect x="385" y="82" width="80" height="16" class="equip" rx="2"/>
-    <text x="425" y="94" class="equip-label">CONSULT TABLE / VIDEO</text>
+    <!-- ====== ZONE: PT / ASSESSMENT (250 SF) ====== -->
+    <text x="440" y="33" class="zone-name" style="font-size:11px">PT / ASSESSMENT</text>
+    <text x="440" y="47" class="zone-sf">250 SF</text>
+    <rect x="400" y="56" width="45" height="16" class="equip" rx="2"/>
+    <text x="422" y="68" class="equip-label">INBODY</text>
+    <rect x="400" y="78" width="75" height="14" class="equip" rx="2"/>
+    <text x="437" y="89" class="equip-label">CONSULT TABLE / VIDEO</text>
 
-    <!-- ====== ZONE: STAIRS + ELEVATOR ====== -->
-    <text x="560" y="28" class="zone-name" style="font-size:10px">STAIRCASE</text>
-    <!-- Stair treads -->
-    <line x1="505" y1="18" x2="575" y2="18" stroke="#AAA" stroke-width="0.5"/>
-    <line x1="505" y1="28" x2="575" y2="28" stroke="#AAA" stroke-width="0.5"/>
-    <line x1="505" y1="38" x2="575" y2="38" stroke="#AAA" stroke-width="0.5"/>
-    <line x1="505" y1="48" x2="575" y2="48" stroke="#AAA" stroke-width="0.5"/>
-    <line x1="505" y1="58" x2="575" y2="58" stroke="#AAA" stroke-width="0.5"/>
-    <line x1="505" y1="68" x2="575" y2="68" stroke="#AAA" stroke-width="0.5"/>
-    <line x1="505" y1="78" x2="575" y2="78" stroke="#AAA" stroke-width="0.5"/>
-    <line x1="505" y1="88" x2="575" y2="88" stroke="#AAA" stroke-width="0.5"/>
-    <text x="540" y="102" class="equip-label">UP TO 2ND FL</text>
-    <line x1="540" y1="95" x2="540" y2="15" stroke="#D4A574" stroke-width="1" marker-end="url(#arrowhead)"/>
-    <!-- Elevator -->
-    <rect x="585" y="30" width="40" height="40" stroke="#1A1A1A" stroke-width="1.5" fill="#DDD" opacity="0.3" rx="2"/>
-    <text x="605" y="52" class="equip-label" style="font-size:7px">ELEV.</text>
-    <line x1="596" y1="60" x2="605" y2="66" stroke="#888" stroke-width="0.75"/>
-    <line x1="605" y1="66" x2="614" y2="60" stroke="#888" stroke-width="0.75"/>
+    <!-- ====== ZONE: STAIRS + ELEVATOR (300 SF) ====== -->
+    <text x="563" y="25" class="zone-name" style="font-size:10px">STAIRCASE</text>
+    <line x1="508" y1="16" x2="578" y2="16" stroke="#AAA" stroke-width="0.5"/>
+    <line x1="508" y1="26" x2="578" y2="26" stroke="#AAA" stroke-width="0.5"/>
+    <line x1="508" y1="36" x2="578" y2="36" stroke="#AAA" stroke-width="0.5"/>
+    <line x1="508" y1="46" x2="578" y2="46" stroke="#AAA" stroke-width="0.5"/>
+    <line x1="508" y1="56" x2="578" y2="56" stroke="#AAA" stroke-width="0.5"/>
+    <line x1="508" y1="66" x2="578" y2="66" stroke="#AAA" stroke-width="0.5"/>
+    <line x1="508" y1="76" x2="578" y2="76" stroke="#AAA" stroke-width="0.5"/>
+    <line x1="508" y1="86" x2="578" y2="86" stroke="#AAA" stroke-width="0.5"/>
+    <text x="543" y="100" class="equip-label">UP TO 2ND FL</text>
+    <line x1="543" y1="92" x2="543" y2="14" stroke="#D4A574" stroke-width="1" marker-end="url(#arrowhead)"/>
+    <rect x="588" y="28" width="38" height="38" stroke="#1A1A1A" stroke-width="1.5" fill="#DDD" opacity="0.3" rx="2"/>
+    <text x="607" y="50" class="equip-label" style="font-size:7px">ELEV.</text>
 
-    <!-- ====== ZONE: RESTROOMS ====== -->
-    <text x="720" y="40" class="zone-name" style="font-size:11px">RESTROOMS</text>
-    <text x="720" y="54" class="zone-sf">500 SF</text>
-    <text x="720" y="66" class="zone-detail">ADA Compliant  |  Accessible from corridor</text>
-    <rect x="645" y="75" width="45" height="25" class="equip" rx="2"/>
-    <text x="667" y="91" class="equip-label">WOMEN</text>
-    <rect x="700" y="75" width="45" height="25" class="equip" rx="2"/>
-    <text x="722" y="91" class="equip-label">MEN</text>
-    <rect x="755" y="75" width="40" height="25" class="equip" rx="2"/>
-    <text x="775" y="91" class="equip-label">ADA</text>
+    <!-- ====== ZONE: RESTROOMS (500 SF) ====== -->
+    <text x="730" y="38" class="zone-name" style="font-size:11px">RESTROOMS</text>
+    <text x="730" y="52" class="zone-sf">500 SF</text>
+    <text x="730" y="64" class="zone-detail">ADA Compliant</text>
+    <rect x="648" y="72" width="45" height="24" class="equip" rx="2"/>
+    <text x="670" y="88" class="equip-label">WOMEN</text>
+    <rect x="700" y="72" width="45" height="24" class="equip" rx="2"/>
+    <text x="722" y="88" class="equip-label">MEN</text>
+    <rect x="752" y="72" width="38" height="24" class="equip" rx="2"/>
+    <text x="771" y="88" class="equip-label">ADA</text>
 
-    <!-- ====== ZONE: 2ND KEYCARD ENTRY ====== -->
-    <text x="873" y="50" class="zone-name" style="font-size:9px">SECONDARY</text>
-    <text x="873" y="62" class="zone-name" style="font-size:9px">ENTRY</text>
-    <text x="873" y="76" class="zone-detail">Keycard bypass</text>
-    <text x="873" y="88" class="zone-detail">Peak-hour relief</text>
+    <!-- ====== ZONE: SECONDARY ENTRY ====== -->
+    <text x="905" y="48" class="zone-name" style="font-size:9px">SECONDARY</text>
+    <text x="905" y="60" class="zone-name" style="font-size:9px">ENTRY</text>
+    <text x="905" y="74" class="zone-detail">Keycard bypass</text>
+    <text x="905" y="86" class="zone-detail">Peak-hour relief</text>
 
-    <!-- ====== ZONE: WOMEN'S LOCKER ROOM ====== -->
-    <text x="150" y="155" class="zone-name">WOMEN'S LOCKER ROOM</text>
-    <text x="150" y="169" class="zone-sf">1,100 SF</text>
-    <text x="150" y="181" class="zone-detail">Walnut lockers  |  Rainfall showers  |  Heated stone floor</text>
-    <rect x="10" y="192" width="12" height="65" class="equip-dark" rx="1"/>
-    <text x="16" y="230" class="equip-label" style="font-size:5px; writing-mode:tb">LOCKERS</text>
-    <rect x="30" y="210" width="65" height="40" class="equip" rx="2" fill="#87CEEB" opacity="0.06"/>
-    <text x="62" y="234" class="equip-label">6 SHOWERS</text>
-    <rect x="110" y="192" width="70" height="12" class="equip" rx="1"/>
-    <text x="145" y="201" class="equip-label" style="font-size:5.5px">GROOMING COUNTER</text>
-    <rect x="110" y="210" width="70" height="28" class="equip-dark" rx="2"/>
-    <text x="145" y="228" class="equip-label" style="font-size:5.5px" fill="white">FOUNDER LOCKERS</text>
-    <rect x="200" y="210" width="50" height="35" class="equip" rx="2"/>
-    <text x="225" y="232" class="equip-label" style="font-size:5.5px">ADA / FAMILY</text>
+    <!-- ====== ZONE: WOMEN'S LOCKER ROOM (1,100 SF) ====== -->
+    <!-- x=0, y=112, w=322, h=150 → 322*150/49 = 986 SF -->
+    <text x="161" y="148" class="zone-name">WOMEN'S LOCKER ROOM</text>
+    <text x="161" y="163" class="zone-sf">1,100 SF</text>
+    <text x="161" y="175" class="zone-detail">Walnut lockers  |  Rainfall showers  |  Heated stone floor</text>
+    <rect x="10" y="186" width="12" height="60" class="equip-dark" rx="1"/>
+    <text x="16" y="220" class="equip-label" style="font-size:5px; writing-mode:tb">LOCKERS</text>
+    <rect x="30" y="200" width="60" height="38" class="equip" rx="2" fill="#87CEEB" opacity="0.06"/>
+    <text x="60" y="224" class="equip-label">6 SHOWERS</text>
+    <rect x="105" y="186" width="65" height="12" class="equip" rx="1"/>
+    <text x="137" y="195" class="equip-label" style="font-size:5.5px">GROOMING COUNTER</text>
+    <rect x="105" y="202" width="65" height="26" class="equip-dark" rx="2"/>
+    <text x="137" y="219" class="equip-label" style="font-size:5.5px" fill="white">FOUNDER LOCKERS</text>
+    <rect x="190" y="202" width="48" height="32" class="equip" rx="2"/>
+    <text x="214" y="222" class="equip-label" style="font-size:5.5px">ADA / FAMILY</text>
 
-    <!-- ====== ZONE: STRETCH / WARMUP / MOBILITY ====== -->
-    <text x="397" y="150" class="zone-name">STRETCH / WARMUP</text>
-    <text x="397" y="164" class="zone-name">/ MOBILITY</text>
-    <text x="397" y="178" class="zone-sf">500 SF</text>
-    <text x="397" y="190" class="zone-detail">Foam rollers  |  Bands  |  Mats  |  Dynamic warmup</text>
-    <!-- Mat area -->
-    <rect x="315" y="200" width="75" height="50" fill="#A8D8A0" opacity="0.06" stroke="#AAA" stroke-width="0.5" rx="2"/>
-    <text x="352" y="230" class="equip-label">MAT AREA</text>
-    <!-- Foam roller rack -->
-    <rect x="400" y="200" width="40" height="20" class="equip" rx="2"/>
-    <text x="420" y="214" class="equip-label" style="font-size:5px">ROLLER RACK</text>
-    <!-- Band rack -->
-    <rect x="400" y="228" width="40" height="20" class="equip" rx="2"/>
-    <text x="420" y="242" class="equip-label" style="font-size:5px">BAND RACK</text>
-    <circle cx="460" cy="240" r="6" class="water"/>
-    <text x="460" y="256" class="equip-label" style="fill:#5BA3C0">H2O</text>
+    <!-- ====== ZONE: STRETCH / WARMUP (500 SF) ====== -->
+    <!-- x=322, y=112, w=177, h=150 → 177*150/49 = 542 SF -->
+    <text x="410" y="143" class="zone-name">STRETCH / WARMUP</text>
+    <text x="410" y="157" class="zone-name">/ MOBILITY</text>
+    <text x="410" y="171" class="zone-sf">500 SF</text>
+    <text x="410" y="183" class="zone-detail">Foam rollers  |  Bands  |  Mats</text>
+    <rect x="335" y="195" width="70" height="45" fill="#A8D8A0" opacity="0.06" stroke="#AAA" stroke-width="0.5" rx="2"/>
+    <text x="370" y="222" class="equip-label">MAT AREA</text>
+    <rect x="415" y="195" width="38" height="18" class="equip" rx="2"/>
+    <text x="434" y="208" class="equip-label" style="font-size:5px">ROLLER RACK</text>
+    <rect x="415" y="220" width="38" height="18" class="equip" rx="2"/>
+    <text x="434" y="233" class="equip-label" style="font-size:5px">BAND RACK</text>
+    <circle cx="470" cy="230" r="6" class="water"/>
+    <text x="470" y="248" class="equip-label" style="fill:#5BA3C0">H2O</text>
 
-    <!-- ====== ZONE: MEN'S LOCKER ROOM ====== -->
-    <text x="652" y="155" class="zone-name">MEN'S LOCKER ROOM</text>
-    <text x="652" y="169" class="zone-sf">1,100 SF</text>
-    <text x="652" y="181" class="zone-detail">Walnut lockers  |  Rainfall showers  |  Heated stone floor</text>
-    <rect x="505" y="192" width="12" height="65" class="equip-dark" rx="1"/>
-    <text x="511" y="230" class="equip-label" style="font-size:5px; writing-mode:tb">LOCKERS</text>
-    <rect x="525" y="210" width="65" height="40" class="equip" rx="2" fill="#87CEEB" opacity="0.06"/>
-    <text x="557" y="234" class="equip-label">6 SHOWERS</text>
-    <rect x="605" y="192" width="70" height="12" class="equip" rx="1"/>
-    <text x="640" y="201" class="equip-label" style="font-size:5.5px">GROOMING COUNTER</text>
-    <rect x="605" y="210" width="70" height="28" class="equip-dark" rx="2"/>
-    <text x="640" y="228" class="equip-label" style="font-size:5.5px" fill="white">FOUNDER LOCKERS</text>
-    <rect x="700" y="210" width="50" height="35" class="equip" rx="2"/>
-    <text x="725" y="232" class="equip-label" style="font-size:5.5px">ADA / FAMILY</text>
+    <!-- ====== ZONE: MEN'S LOCKER ROOM (1,100 SF) ====== -->
+    <!-- x=499, y=112, w=332, h=150 → 332*150/49 = 1,016 SF -->
+    <text x="665" y="148" class="zone-name">MEN'S LOCKER ROOM</text>
+    <text x="665" y="163" class="zone-sf">1,100 SF</text>
+    <text x="665" y="175" class="zone-detail">Walnut lockers  |  Rainfall showers  |  Heated stone floor</text>
+    <rect x="510" y="186" width="12" height="60" class="equip-dark" rx="1"/>
+    <text x="516" y="220" class="equip-label" style="font-size:5px; writing-mode:tb">LOCKERS</text>
+    <rect x="530" y="200" width="60" height="38" class="equip" rx="2" fill="#87CEEB" opacity="0.06"/>
+    <text x="560" y="224" class="equip-label">6 SHOWERS</text>
+    <rect x="605" y="186" width="65" height="12" class="equip" rx="1"/>
+    <text x="637" y="195" class="equip-label" style="font-size:5.5px">GROOMING COUNTER</text>
+    <rect x="605" y="202" width="65" height="26" class="equip-dark" rx="2"/>
+    <text x="637" y="219" class="equip-label" style="font-size:5.5px" fill="white">FOUNDER LOCKERS</text>
+    <rect x="695" y="202" width="48" height="32" class="equip" rx="2"/>
+    <text x="719" y="222" class="equip-label" style="font-size:5.5px">ADA / FAMILY</text>
 
     <!-- ====== CORRIDOR LABEL ====== -->
-    <text x="470" y="283" class="zone-detail" style="fill:#BBB; font-size:8px; letter-spacing:4px">MEMBER ENTRY CORRIDOR</text>
+    <text x="480" y="276" class="zone-detail" style="fill:#BBB; font-size:8px; letter-spacing:4px">MEMBER ENTRY CORRIDOR</text>
 
-    <!-- ====== ZONE: FREE WEIGHT TRAINING ====== -->
-    <text x="310" y="320" class="zone-name" style="font-size:14px">FREE WEIGHT TRAINING</text>
-    <text x="310" y="336" class="zone-sf" style="font-size:11px">3,600 SF</text>
-    <text x="310" y="350" class="zone-detail">14+ ft ceilings  |  Exposed steel beams  |  Copper pendant lights</text>
+    <!-- ====== ZONE: FREE WEIGHT TRAINING (3,600 SF) ====== -->
+    <!-- x=0, y=285, w=562, h=245 → 562*245/49 = 2,810 SF (visual) -->
+    <!-- Note: extends conceptually into corridor zone above -->
+    <text x="280" y="315" class="zone-name" style="font-size:14px">FREE WEIGHT TRAINING</text>
+    <text x="280" y="331" class="zone-sf" style="font-size:11px">3,600 SF</text>
+    <text x="280" y="345" class="zone-detail">14+ ft ceilings  |  Exposed steel beams  |  Copper pendant lights</text>
     <!-- Squat Racks - 2 rows of 5 -->
-    <rect x="20" y="360" width="26" height="36" class="equip-dark" rx="1"/>
-    <rect x="54" y="360" width="26" height="36" class="equip-dark" rx="1"/>
-    <rect x="88" y="360" width="26" height="36" class="equip-dark" rx="1"/>
-    <rect x="122" y="360" width="26" height="36" class="equip-dark" rx="1"/>
-    <rect x="156" y="360" width="26" height="36" class="equip-dark" rx="1"/>
-    <text x="100" y="412" class="equip-label">5 ROGUE SQUAT RACKS (ROW 1)</text>
-    <rect x="20" y="420" width="26" height="36" class="equip-dark" rx="1"/>
-    <rect x="54" y="420" width="26" height="36" class="equip-dark" rx="1"/>
-    <rect x="88" y="420" width="26" height="36" class="equip-dark" rx="1"/>
-    <rect x="122" y="420" width="26" height="36" class="equip-dark" rx="1"/>
-    <rect x="156" y="420" width="26" height="36" class="equip-dark" rx="1"/>
-    <text x="100" y="472" class="equip-label">5 ROGUE SQUAT RACKS (ROW 2)</text>
+    <rect x="20" y="358" width="26" height="36" class="equip-dark" rx="1"/>
+    <rect x="52" y="358" width="26" height="36" class="equip-dark" rx="1"/>
+    <rect x="84" y="358" width="26" height="36" class="equip-dark" rx="1"/>
+    <rect x="116" y="358" width="26" height="36" class="equip-dark" rx="1"/>
+    <rect x="148" y="358" width="26" height="36" class="equip-dark" rx="1"/>
+    <text x="96" y="408" class="equip-label">5 ROGUE SQUAT RACKS (ROW 1)</text>
+    <rect x="20" y="416" width="26" height="36" class="equip-dark" rx="1"/>
+    <rect x="52" y="416" width="26" height="36" class="equip-dark" rx="1"/>
+    <rect x="84" y="416" width="26" height="36" class="equip-dark" rx="1"/>
+    <rect x="116" y="416" width="26" height="36" class="equip-dark" rx="1"/>
+    <rect x="148" y="416" width="26" height="36" class="equip-dark" rx="1"/>
+    <text x="96" y="466" class="equip-label">5 ROGUE SQUAT RACKS (ROW 2)</text>
     <!-- Plate trees at racks -->
-    <rect x="190" y="365" width="8" height="25" class="equip" rx="1"/>
-    <rect x="190" y="425" width="8" height="25" class="equip" rx="1"/>
-    <rect x="6" y="365" width="8" height="25" class="equip" rx="1"/>
-    <rect x="6" y="425" width="8" height="25" class="equip" rx="1"/>
-    <text x="10" y="460" class="equip-label" style="font-size:5px">PLATES</text>
+    <rect x="182" y="363" width="8" height="25" class="equip" rx="1"/>
+    <rect x="182" y="421" width="8" height="25" class="equip" rx="1"/>
+    <rect x="6" y="363" width="8" height="25" class="equip" rx="1"/>
+    <rect x="6" y="421" width="8" height="25" class="equip" rx="1"/>
+    <text x="10" y="456" class="equip-label" style="font-size:5px">PLATES</text>
     <!-- Olympic Platforms -->
-    <rect x="220" y="360" width="45" height="45" class="equip" rx="2"/>
-    <rect x="275" y="360" width="45" height="45" class="equip" rx="2"/>
-    <rect x="220" y="418" width="45" height="45" class="equip" rx="2"/>
-    <rect x="275" y="418" width="45" height="45" class="equip" rx="2"/>
-    <text x="262" y="480" class="equip-label">4 OLYMPIC PLATFORMS (ELEIKO)</text>
+    <rect x="210" y="358" width="45" height="45" class="equip" rx="2"/>
+    <rect x="265" y="358" width="45" height="45" class="equip" rx="2"/>
+    <rect x="210" y="416" width="45" height="45" class="equip" rx="2"/>
+    <rect x="265" y="416" width="45" height="45" class="equip" rx="2"/>
+    <text x="255" y="476" class="equip-label">4 OLYMPIC PLATFORMS (ELEIKO)</text>
     <!-- Plate trees at platforms -->
-    <rect x="330" y="365" width="8" height="40" class="equip" rx="1"/>
-    <rect x="330" y="425" width="8" height="35" class="equip" rx="1"/>
+    <rect x="320" y="363" width="8" height="40" class="equip" rx="1"/>
+    <rect x="320" y="423" width="8" height="35" class="equip" rx="1"/>
     <!-- Dumbbell Wall -->
-    <rect x="360" y="358" width="100" height="18" class="equip-dark" rx="1"/>
-    <text x="410" y="371" class="equip-label" fill="white">DUMBBELL WALL 5-150 LB</text>
+    <rect x="348" y="358" width="110" height="18" class="equip-dark" rx="1"/>
+    <text x="403" y="371" class="equip-label" fill="white">DUMBBELL WALL 5-150 LB</text>
     <!-- Specialty Bar Rack -->
-    <rect x="360" y="384" width="100" height="14" class="equip" rx="1"/>
-    <text x="410" y="395" class="equip-label">SPECIALTY BARS (SSB, TRAP, CAMBERED, BUFFALO)</text>
+    <rect x="348" y="384" width="110" height="14" class="equip" rx="1"/>
+    <text x="403" y="395" class="equip-label">SPECIALTY BARS (SSB, TRAP, CAMBERED, BUFFALO)</text>
     <!-- Benches -->
-    <rect x="360" y="410" width="20" height="32" class="equip" rx="1"/>
-    <rect x="388" y="410" width="20" height="32" class="equip" rx="1"/>
-    <rect x="416" y="410" width="20" height="32" class="equip" rx="1"/>
-    <rect x="444" y="410" width="20" height="32" class="equip" rx="1"/>
-    <rect x="472" y="410" width="20" height="32" class="equip" rx="1"/>
-    <rect x="500" y="410" width="20" height="32" class="equip" rx="1"/>
-    <text x="430" y="458" class="equip-label">6 COMPETITION BENCHES (FLAT / INCLINE / DECLINE)</text>
+    <rect x="348" y="408" width="20" height="30" class="equip" rx="1"/>
+    <rect x="374" y="408" width="20" height="30" class="equip" rx="1"/>
+    <rect x="400" y="408" width="20" height="30" class="equip" rx="1"/>
+    <rect x="426" y="408" width="20" height="30" class="equip" rx="1"/>
+    <rect x="452" y="408" width="20" height="30" class="equip" rx="1"/>
+    <rect x="478" y="408" width="20" height="30" class="equip" rx="1"/>
+    <text x="413" y="452" class="equip-label">6 COMPETITION BENCHES (FLAT / INCLINE / DECLINE)</text>
     <!-- Plate trees at benches -->
-    <rect x="530" y="415" width="8" height="22" class="equip" rx="1"/>
-    <rect x="348" y="415" width="8" height="22" class="equip" rx="1"/>
+    <rect x="506" y="413" width="8" height="22" class="equip" rx="1"/>
+    <rect x="336" y="413" width="8" height="22" class="equip" rx="1"/>
     <!-- Chalk stations -->
-    <circle cx="550" cy="370" r="5" class="equip"/>
-    <circle cx="568" cy="370" r="5" class="equip"/>
-    <text x="559" y="388" class="equip-label">CHALK</text>
+    <circle cx="530" cy="370" r="5" class="equip"/>
+    <circle cx="546" cy="370" r="5" class="equip"/>
+    <text x="538" y="388" class="equip-label">CHALK</text>
     <!-- Water station -->
-    <circle cx="595" cy="400" r="6" class="water"/>
-    <text x="595" y="416" class="equip-label" style="fill:#5BA3C0">H2O</text>
-    <!-- Flow notation -->
-    <text x="310" y="495" class="zone-detail" style="fill:#D4A574; font-weight:600">OPEN SIGHTLINE TO PLATE-LOADED ZONE ↓</text>
+    <circle cx="540" cy="480" r="6" class="water"/>
+    <text x="540" y="496" class="equip-label" style="fill:#5BA3C0">H2O</text>
+    <text x="280" y="522" class="zone-detail" style="fill:#D4A574; font-weight:600">OPEN SIGHTLINE TO PLATE-LOADED ZONE ↓</text>
 
-    <!-- ====== ZONE: CARDIO CONDITIONING ====== -->
-    <text x="780" y="320" class="zone-name" style="font-size:13px">CARDIO</text>
-    <text x="780" y="334" class="zone-name" style="font-size:13px">CONDITIONING</text>
-    <text x="780" y="348" class="zone-sf">1,000 SF</text>
-    <text x="780" y="360" class="zone-detail">No TVs on machines  |  Near turf entrance</text>
+    <!-- ====== ZONE: CARDIO CONDITIONING (1,000 SF) ====== -->
+    <!-- x=562, y=285, w=222, h=245 → 222*245/49 = 1,110 SF -->
+    <text x="673" y="310" class="zone-name" style="font-size:13px">CARDIO</text>
+    <text x="673" y="324" class="zone-name" style="font-size:13px">CONDITIONING</text>
+    <text x="673" y="338" class="zone-sf">1,000 SF</text>
+    <text x="673" y="350" class="zone-detail">No TVs on machines</text>
     <!-- Assault/Echo Bikes -->
-    <rect x="645" y="375" width="16" height="12" class="equip" rx="1"/>
-    <rect x="666" y="375" width="16" height="12" class="equip" rx="1"/>
-    <rect x="687" y="375" width="16" height="12" class="equip" rx="1"/>
-    <rect x="708" y="375" width="16" height="12" class="equip" rx="1"/>
-    <text x="680" y="400" class="equip-label">4 ASSAULT / ECHO BIKES</text>
+    <rect x="575" y="365" width="16" height="12" class="equip" rx="1"/>
+    <rect x="596" y="365" width="16" height="12" class="equip" rx="1"/>
+    <rect x="617" y="365" width="16" height="12" class="equip" rx="1"/>
+    <rect x="638" y="365" width="16" height="12" class="equip" rx="1"/>
+    <text x="615" y="390" class="equip-label">4 ASSAULT / ECHO BIKES</text>
     <!-- Concept2 Rowers -->
-    <rect x="740" y="375" width="20" height="10" class="equip" rx="1"/>
-    <rect x="765" y="375" width="20" height="10" class="equip" rx="1"/>
-    <rect x="790" y="375" width="20" height="10" class="equip" rx="1"/>
-    <rect x="815" y="375" width="20" height="10" class="equip" rx="1"/>
-    <text x="790" y="398" class="equip-label">4 CONCEPT2 ROWERS</text>
+    <rect x="670" y="365" width="20" height="10" class="equip" rx="1"/>
+    <rect x="695" y="365" width="20" height="10" class="equip" rx="1"/>
+    <rect x="720" y="365" width="20" height="10" class="equip" rx="1"/>
+    <rect x="745" y="365" width="20" height="10" class="equip" rx="1"/>
+    <text x="715" y="388" class="equip-label">4 CONCEPT2 ROWERS</text>
     <!-- Ski Ergs -->
-    <rect x="645" y="410" width="14" height="12" class="equip" rx="1"/>
-    <rect x="665" y="410" width="14" height="12" class="equip" rx="1"/>
-    <text x="660" y="435" class="equip-label">2 SKI ERG</text>
+    <rect x="575" y="400" width="14" height="12" class="equip" rx="1"/>
+    <rect x="595" y="400" width="14" height="12" class="equip" rx="1"/>
+    <text x="592" y="425" class="equip-label">2 SKI ERG</text>
     <!-- Curved Treadmills -->
-    <rect x="695" y="410" width="22" height="12" class="equip" rx="1"/>
-    <rect x="722" y="410" width="22" height="12" class="equip" rx="1"/>
-    <text x="720" y="435" class="equip-label">2 CURVED TREAD</text>
+    <rect x="625" y="400" width="22" height="12" class="equip" rx="1"/>
+    <rect x="652" y="400" width="22" height="12" class="equip" rx="1"/>
+    <text x="650" y="425" class="equip-label">2 CURVED TREAD</text>
     <!-- StairMasters -->
-    <rect x="760" y="410" width="14" height="14" class="equip" rx="1"/>
-    <rect x="780" y="410" width="14" height="14" class="equip" rx="1"/>
-    <text x="777" y="438" class="equip-label">2 STAIRMASTER</text>
+    <rect x="690" y="400" width="14" height="14" class="equip" rx="1"/>
+    <rect x="710" y="400" width="14" height="14" class="equip" rx="1"/>
+    <text x="707" y="428" class="equip-label">2 STAIRMASTER</text>
     <!-- VersaClimber -->
-    <rect x="810" y="410" width="14" height="14" class="equip" rx="1"/>
-    <text x="817" y="438" class="equip-label">VC</text>
+    <rect x="740" y="400" width="14" height="14" class="equip" rx="1"/>
+    <text x="747" y="428" class="equip-label">VC</text>
     <!-- Water station -->
-    <circle cx="900" cy="400" r="6" class="water"/>
-    <text x="900" y="416" class="equip-label" style="fill:#5BA3C0">H2O</text>
+    <circle cx="760" cy="480" r="6" class="water"/>
+    <text x="760" y="496" class="equip-label" style="fill:#5BA3C0">H2O</text>
 
-    <!-- ====== ZONE: INDOOR TURF / SPRINT LANE ====== -->
-    <text x="991" y="320" class="zone-name" style="writing-mode:tb; font-size:11px">INDOOR TURF</text>
-    <text x="1007" y="300" class="zone-sf" style="writing-mode:tb; font-size:9px">700 SF</text>
-    <!-- Lane markings -->
-    <line x1="955" y1="20" x2="955" y2="730" stroke="#1B4332" stroke-width="0.5" stroke-dasharray="3,6"/>
-    <line x1="1035" y1="20" x2="1035" y2="730" stroke="#1B4332" stroke-width="0.5" stroke-dasharray="3,6"/>
-    <line x1="995" y1="20" x2="995" y2="730" stroke="#1B4332" stroke-width="0.3" stroke-dasharray="2,8"/>
-    <text x="995" y="15" class="equip-label" style="fill:#1B4332; font-size:6px">35-YARD SPRINT LANE</text>
-    <text x="995" y="740" class="zone-detail" style="fill:#1B4332">SLED PUSH  |  PROWLER  |  SPRINT DRILLS</text>
-    <path d="M995,742 L995,755" stroke="#D4A574" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
-
-    <!-- ====== ZONE: RECOVERY SUITE (SOUND-ISOLATED) ====== -->
-    <text x="113" y="540" class="zone-name" style="font-size:13px">RECOVERY SUITE</text>
-    <text x="113" y="556" class="zone-sf">1,300 SF</text>
-    <text x="113" y="568" class="zone-detail">Sound-isolated  |  Stone/tile flooring  |  Spa lighting</text>
-    <text x="113" y="580" class="zone-detail" style="fill:#87CEEB">Double-wall construction  |  Acoustic ceiling</text>
-    <!-- 2 Cold Plunges -->
-    <rect x="20" y="600" width="45" height="28" rx="4" fill="#87CEEB" opacity="0.15" stroke="#5BA3C0" stroke-width="1"/>
-    <text x="42" y="618" class="equip-label" style="fill:#5BA3C0; font-size:5.5px">PLUNGE 1</text>
-    <rect x="75" y="600" width="45" height="28" rx="4" fill="#87CEEB" opacity="0.15" stroke="#5BA3C0" stroke-width="1"/>
-    <text x="97" y="618" class="equip-label" style="fill:#5BA3C0; font-size:5.5px">PLUNGE 2</text>
-    <text x="70" y="640" class="equip-label">2 COLD PLUNGE TUBS (38-42 F)</text>
-    <!-- IR Sauna -->
-    <rect x="135" y="600" width="45" height="35" rx="3" fill="#E8A040" opacity="0.08" stroke="#D4A574" stroke-width="1"/>
-    <text x="157" y="617" class="equip-label" style="fill:#D4A574; font-size:5.5px">IR SAUNA</text>
-    <text x="157" y="628" class="equip-label" style="font-size:5px">(4-PERSON)</text>
-    <!-- 4 Normatec -->
-    <rect x="20" y="660" width="10" height="16" class="equip" rx="1"/>
-    <rect x="35" y="660" width="10" height="16" class="equip" rx="1"/>
-    <rect x="50" y="660" width="10" height="16" class="equip" rx="1"/>
-    <rect x="65" y="660" width="10" height="16" class="equip" rx="1"/>
-    <text x="42" y="690" class="equip-label">4 NORMATEC BOOTS</text>
-    <!-- Percussion -->
-    <rect x="95" y="665" width="10" height="10" class="equip" rx="5"/>
-    <text x="100" y="690" class="equip-label" style="font-size:5px">PERCUSSION</text>
-    <!-- Glass viewing window label -->
-    <text x="215" y="585" class="equip-label" style="fill:#87CEEB; font-size:5px" transform="rotate(-90,215,585)">GLASS WINDOW</text>
-
-    <!-- ====== ZONE: PLATE-LOADED MACHINES ====== -->
-    <text x="368" y="530" class="zone-name" style="font-size:13px">PLATE-LOADED MACHINES</text>
-    <text x="368" y="545" class="zone-sf">2,000 SF</text>
-    <text x="368" y="557" class="zone-detail">5-ft aisles  |  Plate storage at each station</text>
-    <!-- Machine Row 1 -->
-    <rect x="245" y="568" width="38" height="26" class="equip-dark" rx="2"/>
-    <text x="264" y="585" class="equip-label" style="font-size:5px" fill="white">LEG PRESS</text>
-    <rect x="290" y="568" width="38" height="26" class="equip-dark" rx="2"/>
-    <text x="309" y="585" class="equip-label" style="font-size:5px" fill="white">HACK SQT</text>
-    <rect x="335" y="568" width="38" height="26" class="equip-dark" rx="2"/>
-    <text x="354" y="585" class="equip-label" style="font-size:5px" fill="white">PEND SQT</text>
-    <rect x="380" y="568" width="38" height="26" class="equip-dark" rx="2"/>
-    <text x="399" y="585" class="equip-label" style="font-size:5px" fill="white">LAT PULL</text>
-    <rect x="425" y="568" width="38" height="26" class="equip-dark" rx="2"/>
-    <text x="444" y="585" class="equip-label" style="font-size:5px" fill="white">SEAT ROW</text>
-    <text x="340" y="608" class="equip-label">ARSENAL  |  PRIME FITNESS  |  HAMMER STRENGTH</text>
-    <!-- Machine Row 2 -->
-    <rect x="245" y="615" width="38" height="26" class="equip-dark" rx="2"/>
-    <text x="264" y="632" class="equip-label" style="font-size:5px" fill="white">INC PRSS</text>
-    <rect x="290" y="615" width="38" height="26" class="equip-dark" rx="2"/>
-    <text x="309" y="632" class="equip-label" style="font-size:5px" fill="white">DEC PRSS</text>
-    <rect x="335" y="615" width="38" height="26" class="equip-dark" rx="2"/>
-    <text x="354" y="632" class="equip-label" style="font-size:5px" fill="white">BELT SQT</text>
-    <rect x="380" y="615" width="38" height="26" class="equip-dark" rx="2"/>
-    <text x="399" y="632" class="equip-label" style="font-size:5px" fill="white">GHR/HYP</text>
-    <rect x="425" y="615" width="38" height="26" class="equip-dark" rx="2"/>
-    <text x="444" y="632" class="equip-label" style="font-size:5px" fill="white">HIP THRT</text>
-    <!-- Plate trees at machines -->
-    <rect x="475" y="572" width="8" height="20" class="equip" rx="1"/>
-    <rect x="475" y="618" width="8" height="20" class="equip" rx="1"/>
-    <rect x="235" y="572" width="8" height="20" class="equip" rx="1"/>
-    <rect x="235" y="618" width="8" height="20" class="equip" rx="1"/>
-
-    <!-- ====== ZONE: SELECTORIZED + CABLES ====== -->
-    <text x="600" y="530" class="zone-name">SELECTORIZED</text>
-    <text x="600" y="543" class="zone-name">&amp; CABLES</text>
-    <text x="600" y="557" class="zone-sf">900 SF</text>
-    <rect x="530" y="568" width="32" height="22" class="equip" rx="2"/>
-    <text x="546" y="583" class="equip-label" style="font-size:5px">FUNC TR</text>
-    <rect x="568" y="568" width="32" height="22" class="equip" rx="2"/>
-    <text x="584" y="583" class="equip-label" style="font-size:5px">FUNC TR</text>
-    <rect x="606" y="568" width="45" height="22" class="equip" rx="2"/>
-    <text x="628" y="583" class="equip-label" style="font-size:5px">CROSSOVER</text>
-    <rect x="530" y="600" width="55" height="10" class="equip" rx="1"/>
-    <text x="557" y="608" class="equip-label" style="font-size:5px">PEC / DELT</text>
-    <rect x="595" y="600" width="55" height="10" class="equip" rx="1"/>
-    <text x="622" y="608" class="equip-label" style="font-size:5px">LEG EXT/CURL</text>
-    <text x="590" y="635" class="zone-detail" style="font-size:6px">Life Fitness Signature / Hammer Strength Select</text>
-
-    <!-- ====== ZONE: OPEN FLOOR / PLATE STORAGE ====== -->
-    <text x="815" y="530" class="zone-detail" style="font-size:8px; fill:#BBB">OPEN FLOOR</text>
-    <text x="815" y="543" class="zone-detail" style="font-size:7px">Plate storage  |  Water  |  Overflow</text>
+    <!-- ====== ZONE: OPEN TRAINING / OVERFLOW ====== -->
+    <!-- x=784, y=285, w=194, h=245 -->
+    <text x="880" y="345" class="zone-detail" style="font-size:8px; fill:#BBB">OPEN TRAINING</text>
+    <text x="880" y="358" class="zone-detail" style="font-size:7px">Overflow  |  Stretching  |  Accessory Work</text>
     <!-- Plate tree bank -->
-    <rect x="710" y="560" width="8" height="40" class="equip" rx="1"/>
-    <rect x="724" y="560" width="8" height="40" class="equip" rx="1"/>
-    <rect x="738" y="560" width="8" height="40" class="equip" rx="1"/>
-    <rect x="752" y="560" width="8" height="40" class="equip" rx="1"/>
-    <rect x="766" y="560" width="8" height="40" class="equip" rx="1"/>
-    <text x="740" y="614" class="equip-label">PLATE TREE BANK</text>
-    <!-- Water station -->
-    <circle cx="850" cy="580" r="6" class="water"/>
-    <text x="850" y="596" class="equip-label" style="fill:#5BA3C0">H2O</text>
-    <!-- Additional plate trees -->
-    <rect x="870" y="560" width="8" height="30" class="equip" rx="1"/>
-    <rect x="884" y="560" width="8" height="30" class="equip" rx="1"/>
-    <rect x="898" y="560" width="8" height="30" class="equip" rx="1"/>
+    <rect x="800" y="375" width="8" height="35" class="equip" rx="1"/>
+    <rect x="814" y="375" width="8" height="35" class="equip" rx="1"/>
+    <rect x="828" y="375" width="8" height="35" class="equip" rx="1"/>
+    <rect x="842" y="375" width="8" height="35" class="equip" rx="1"/>
+    <rect x="856" y="375" width="8" height="35" class="equip" rx="1"/>
+    <text x="830" y="425" class="equip-label">PLATE TREE BANK</text>
+    <circle cx="930" cy="400" r="6" class="water"/>
+    <text x="930" y="416" class="equip-label" style="fill:#5BA3C0">H2O</text>
+    <rect x="890" y="375" width="8" height="28" class="equip" rx="1"/>
+    <rect x="904" y="375" width="8" height="28" class="equip" rx="1"/>
 
-    <!-- ====== ZONE: MECHANICAL / STORAGE ====== -->
-    <text x="500" y="685" class="zone-name" style="font-size:11px">MECHANICAL / STORAGE</text>
-    <text x="500" y="699" class="zone-sf">900 SF</text>
-    <text x="500" y="711" class="zone-detail">HVAC  |  Electrical  |  Hot water  |  Cleaning  |  Equipment storage</text>
-    <rect x="245" y="720" width="55" height="24" class="equip" rx="2"/>
-    <text x="272" y="736" class="equip-label" style="font-size:5.5px">HVAC</text>
-    <rect x="310" y="720" width="40" height="24" class="equip" rx="2"/>
-    <text x="330" y="736" class="equip-label" style="font-size:5.5px">ELEC</text>
-    <rect x="360" y="720" width="40" height="24" class="equip" rx="2"/>
-    <text x="380" y="736" class="equip-label" style="font-size:5.5px">H.W.</text>
-    <rect x="420" y="720" width="55" height="24" class="equip" rx="2"/>
-    <text x="447" y="736" class="equip-label" style="font-size:5.5px">EQUIP STOR</text>
+    <!-- ====== ZONE: INDOOR TURF / SPRINT LANE (700 SF) ====== -->
+    <!-- x=978, y=0, w=70, h=750 → 70*750/49 = 1,071 SF (includes lane + padding) -->
+    <text x="1014" y="310" class="zone-name" style="writing-mode:tb; font-size:11px">INDOOR TURF</text>
+    <text x="1030" y="290" class="zone-sf" style="writing-mode:tb; font-size:9px">700 SF</text>
+    <line x1="988" y1="20" x2="988" y2="730" stroke="#1B4332" stroke-width="0.5" stroke-dasharray="3,6"/>
+    <line x1="1040" y1="20" x2="1040" y2="730" stroke="#1B4332" stroke-width="0.5" stroke-dasharray="3,6"/>
+    <text x="1014" y="15" class="equip-label" style="fill:#1B4332; font-size:6px">35-YARD SPRINT LANE</text>
+    <text x="1014" y="740" class="zone-detail" style="fill:#1B4332">SLED  |  PROWLER  |  SPRINT</text>
+    <path d="M1014,742 L1014,755" stroke="#D4A574" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
+
+    <!-- ====== ZONE: RECOVERY SUITE (1,300 SF) ====== -->
+    <!-- x=0, y=533, w=198, h=215 → 198*215/49 = 869 SF (visual) -->
+    <text x="99" y="565" class="zone-name" style="font-size:13px">RECOVERY SUITE</text>
+    <text x="99" y="581" class="zone-sf">1,300 SF</text>
+    <text x="99" y="593" class="zone-detail">Sound-isolated  |  Stone/tile  |  Spa lighting</text>
+    <text x="99" y="605" class="zone-detail" style="fill:#87CEEB">Double-wall  |  Acoustic ceiling</text>
+    <!-- Cold Plunges -->
+    <rect x="15" y="620" width="40" height="25" rx="4" fill="#87CEEB" opacity="0.15" stroke="#5BA3C0" stroke-width="1"/>
+    <text x="35" y="636" class="equip-label" style="fill:#5BA3C0; font-size:5.5px">PLUNGE 1</text>
+    <rect x="65" y="620" width="40" height="25" rx="4" fill="#87CEEB" opacity="0.15" stroke="#5BA3C0" stroke-width="1"/>
+    <text x="85" y="636" class="equip-label" style="fill:#5BA3C0; font-size:5.5px">PLUNGE 2</text>
+    <text x="62" y="658" class="equip-label">2 COLD PLUNGE (38-42 F)</text>
+    <!-- IR Sauna -->
+    <rect x="118" y="620" width="42" height="32" rx="3" fill="#E8A040" opacity="0.08" stroke="#D4A574" stroke-width="1"/>
+    <text x="139" y="636" class="equip-label" style="fill:#D4A574; font-size:5.5px">IR SAUNA</text>
+    <text x="139" y="646" class="equip-label" style="font-size:5px">(4-PERSON)</text>
+    <!-- Normatec -->
+    <rect x="15" y="670" width="10" height="14" class="equip" rx="1"/>
+    <rect x="30" y="670" width="10" height="14" class="equip" rx="1"/>
+    <rect x="45" y="670" width="10" height="14" class="equip" rx="1"/>
+    <rect x="60" y="670" width="10" height="14" class="equip" rx="1"/>
+    <text x="37" y="698" class="equip-label">4 NORMATEC BOOTS</text>
+    <!-- Percussion -->
+    <rect x="85" y="675" width="10" height="10" class="equip" rx="5"/>
+    <text x="90" y="698" class="equip-label" style="font-size:5px">PERCUSSION</text>
+    <!-- Glass window label -->
+    <text x="190" y="604" class="equip-label" style="fill:#87CEEB; font-size:5px" transform="rotate(-90,190,604)">GLASS WINDOW</text>
+
+    <!-- ====== ZONE: PLATE-LOADED MACHINES (2,000 SF) ====== -->
+    <!-- x=200, y=533, w=412, h=117 → 412*117/49 = 983 SF visual -->
+    <!-- Note: Zone extends conceptually with open training above -->
+    <text x="406" y="555" class="zone-name" style="font-size:13px">PLATE-LOADED MACHINES</text>
+    <text x="406" y="570" class="zone-sf">2,000 SF</text>
+    <text x="406" y="582" class="zone-detail">5-ft aisles  |  Plate storage at each station</text>
+    <!-- Machine Row 1 -->
+    <rect x="215" y="592" width="36" height="22" class="equip-dark" rx="2"/>
+    <text x="233" y="607" class="equip-label" style="font-size:5px" fill="white">LEG PRESS</text>
+    <rect x="258" y="592" width="36" height="22" class="equip-dark" rx="2"/>
+    <text x="276" y="607" class="equip-label" style="font-size:5px" fill="white">HACK SQT</text>
+    <rect x="301" y="592" width="36" height="22" class="equip-dark" rx="2"/>
+    <text x="319" y="607" class="equip-label" style="font-size:5px" fill="white">PEND SQT</text>
+    <rect x="344" y="592" width="36" height="22" class="equip-dark" rx="2"/>
+    <text x="362" y="607" class="equip-label" style="font-size:5px" fill="white">LAT PULL</text>
+    <rect x="387" y="592" width="36" height="22" class="equip-dark" rx="2"/>
+    <text x="405" y="607" class="equip-label" style="font-size:5px" fill="white">SEAT ROW</text>
+    <text x="310" y="628" class="equip-label">ARSENAL  |  PRIME FITNESS  |  HAMMER STRENGTH</text>
+    <!-- Machine Row 2 -->
+    <rect x="440" y="592" width="36" height="22" class="equip-dark" rx="2"/>
+    <text x="458" y="607" class="equip-label" style="font-size:5px" fill="white">INC PRSS</text>
+    <rect x="483" y="592" width="36" height="22" class="equip-dark" rx="2"/>
+    <text x="501" y="607" class="equip-label" style="font-size:5px" fill="white">DEC PRSS</text>
+    <rect x="526" y="592" width="36" height="22" class="equip-dark" rx="2"/>
+    <text x="544" y="607" class="equip-label" style="font-size:5px" fill="white">BELT SQT</text>
+    <rect x="215" y="632" width="36" height="14" class="equip-dark" rx="2"/>
+    <text x="233" y="642" class="equip-label" style="font-size:5px" fill="white">GHR/HYP</text>
+    <rect x="258" y="632" width="36" height="14" class="equip-dark" rx="2"/>
+    <text x="276" y="642" class="equip-label" style="font-size:5px" fill="white">HIP THRT</text>
+    <!-- Plate trees -->
+    <rect x="570" y="596" width="8" height="18" class="equip" rx="1"/>
+    <rect x="202" y="596" width="8" height="18" class="equip" rx="1"/>
+    <rect x="302" y="632" width="8" height="14" class="equip" rx="1"/>
+
+    <!-- ====== ZONE: SELECTORIZED + CABLES (900 SF) ====== -->
+    <!-- x=612, y=533, w=182, h=117 → 182*117/49 = 434 SF visual -->
+    <text x="703" y="555" class="zone-name">SELECTORIZED</text>
+    <text x="703" y="568" class="zone-name">&amp; CABLES</text>
+    <text x="703" y="582" class="zone-sf">900 SF</text>
+    <rect x="625" y="592" width="30" height="20" class="equip" rx="2"/>
+    <text x="640" y="606" class="equip-label" style="font-size:5px">FUNC TR</text>
+    <rect x="660" y="592" width="30" height="20" class="equip" rx="2"/>
+    <text x="675" y="606" class="equip-label" style="font-size:5px">FUNC TR</text>
+    <rect x="695" y="592" width="42" height="20" class="equip" rx="2"/>
+    <text x="716" y="606" class="equip-label" style="font-size:5px">CROSSOVER</text>
+    <rect x="625" y="620" width="50" height="10" class="equip" rx="1"/>
+    <text x="650" y="628" class="equip-label" style="font-size:5px">PEC / DELT</text>
+    <rect x="685" y="620" width="50" height="10" class="equip" rx="1"/>
+    <text x="710" y="628" class="equip-label" style="font-size:5px">LEG EXT/CURL</text>
+    <text x="693" y="645" class="zone-detail" style="font-size:6px">Life Fitness / Hammer Strength Select</text>
+
+    <!-- ====== ZONE: MECHANICAL / STORAGE (900 SF) ====== -->
+    <!-- x=198, y=650, w=582, h=98 → 582*98/49 = 1,163 SF visual -->
+    <text x="490" y="685" class="zone-name" style="font-size:11px">MECHANICAL / STORAGE</text>
+    <text x="490" y="699" class="zone-sf">900 SF</text>
+    <text x="490" y="711" class="zone-detail">HVAC  |  Electrical  |  Hot water  |  Cleaning  |  Equipment storage</text>
+    <rect x="215" y="720" width="50" height="22" class="equip" rx="2"/>
+    <text x="240" y="735" class="equip-label" style="font-size:5.5px">HVAC</text>
+    <rect x="275" y="720" width="38" height="22" class="equip" rx="2"/>
+    <text x="294" y="735" class="equip-label" style="font-size:5.5px">ELEC</text>
+    <rect x="323" y="720" width="38" height="22" class="equip" rx="2"/>
+    <text x="342" y="735" class="equip-label" style="font-size:5.5px">H.W.</text>
+    <rect x="375" y="720" width="50" height="22" class="equip" rx="2"/>
+    <text x="400" y="735" class="equip-label" style="font-size:5.5px">EQUIP STOR</text>
     <text x="870" y="700" class="zone-detail" style="font-size:7px">SERVICE CORRIDOR</text>
 
     <!-- ====== DIMENSION LINES ====== -->
@@ -516,28 +517,20 @@
     <line x1="-17" y1="750" x2="-27" y2="750" class="dim-tick"/>
     <text x="-30" y="375" class="dim-text" transform="rotate(-90,-30,375)">107'-0"</text>
     <!-- Outdoor dimension -->
-    <line x1="860" y1="950" x2="1050" y2="950" class="dim-line"/>
-    <line x1="860" y1="945" x2="860" y2="955" class="dim-tick"/>
-    <line x1="1050" y1="945" x2="1050" y2="955" class="dim-tick"/>
-    <text x="955" y="965" class="dim-text">27'-0"</text>
+    <line x1="880" y1="930" x2="1050" y2="930" class="dim-line"/>
+    <line x1="880" y1="925" x2="880" y2="935" class="dim-tick"/>
+    <line x1="1050" y1="925" x2="1050" y2="935" class="dim-tick"/>
+    <text x="965" y="945" class="dim-text">24'-0"</text>
 
     <!-- ====== MEMBER FLOW ARROWS ====== -->
-    <!-- Main Entry to Reception -->
     <path d="M110,-10 L110,18" class="arrow-flow"/>
-    <!-- Reception to Lockers -->
-    <path d="M125,100 L125,120" class="arrow-flow"/>
-    <!-- Lockers to Training Corridor -->
-    <path d="M145,260 L145,295" class="arrow-flow"/>
-    <!-- Reception to Stairs (2nd floor - no crossing training floor!) -->
+    <path d="M125,100 L125,118" class="arrow-flow"/>
+    <path d="M145,255 L145,290" class="arrow-flow"/>
     <path d="M240,60 L500,60" class="arrow-flow"/>
-    <!-- 2nd Entry to Turf / Training -->
-    <path d="M875,100 L875,300" class="arrow-flow"/>
-    <!-- Training to Recovery -->
-    <path d="M113,495 L113,510" class="arrow-flow"/>
-    <!-- Cardio to Turf -->
-    <path d="M930,400 L945,400" class="arrow-flow"/>
-    <!-- Turf to Outdoor -->
-    <path d="M995,748 L995,760" class="arrow-flow"/>
+    <path d="M905,100 L905,290" class="arrow-flow"/>
+    <path d="M99,525 L99,540" class="arrow-flow"/>
+    <path d="M960,400 L982,400" class="arrow-flow"/>
+    <path d="M1014,748 L1014,760" class="arrow-flow"/>
 
   </g><!-- END BUILDING GROUP -->
 
@@ -630,6 +623,6 @@
   <!-- ====== FOOTER ====== -->
   <line x1="55" y1="1060" x2="1445" y2="1060" stroke="#D4A574" stroke-width="0.5"/>
   <text x="55" y="1078" font-size="8" fill="#AAA" font-family="Inter, sans-serif">THE EREMOS  |  First Floor Plan  |  Liberty Park District, Memphis, TN  |  PRELIMINARY — NOT FOR CONSTRUCTION</text>
-  <text x="1445" y="1078" font-size="8" fill="#AAA" font-family="Inter, sans-serif" text-anchor="end">Drawing 02A  |  Rev 03  |  February 2026</text>
+  <text x="1445" y="1078" font-size="8" fill="#AAA" font-family="Inter, sans-serif" text-anchor="end">Drawing 02A  |  Rev 04  |  February 2026</text>
 
 </svg>
