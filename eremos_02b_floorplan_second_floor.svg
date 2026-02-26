@@ -24,6 +24,9 @@
     <marker id="arrowhead-dark" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0 0, 8 3, 0 6" fill="#999"/>
     </marker>
+    <pattern id="walkway-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#D4A574" stroke-width="0.6" opacity="0.25"/>
+    </pattern>
   </defs>
 
   <!-- Background -->
@@ -32,7 +35,7 @@
   <!-- Title Block -->
   <text x="50" y="45" class="title">THE EREMOS</text>
   <text x="50" y="65" class="subtitle">SECOND FLOOR PLAN  |  Upper Level  |  7,100 SF Programmed  |  ~9,000 SF Total (incl. Terrace)</text>
-  <text x="50" y="82" class="subtitle" style="fill:#999">Liberty Park District, Memphis, TN  |  Scale: 1/16" = 1'-0" (approximate)  |  Rev 06  |  February 2026</text>
+  <text x="50" y="82" class="subtitle" style="fill:#999">Liberty Park District, Memphis, TN  |  Scale: 1/16" = 1'-0" (approximate)  |  Rev 07  |  February 2026</text>
   <line x1="50" y1="92" x2="1350" y2="92" stroke="#D4A574" stroke-width="1.5"/>
 
   <!-- ====== BUILDING ====== -->
@@ -75,6 +78,48 @@
     <text x="593" y="416" font-size="4.5" fill="#888">STC-50</text>
     <!-- Gallery top edge -->
     <line x1="350" y1="410" x2="908" y2="410" class="interior-wall" stroke-dasharray="6,3" stroke="#AAA"/>
+
+    <!-- ====== DESIGNATED WALKWAYS ====== -->
+
+    <!-- WALKWAY: Stair Landing / Distribution Corridor -->
+    <!-- From stair/elevator to cafe (west) and coworking (east) -->
+    <rect x="350" y="2" width="90" height="218" fill="url(#walkway-hatch)"/>
+    <rect x="350" y="2" width="90" height="218" fill="#D4A574" opacity="0.03"/>
+    <text x="395" y="165" font-size="5" fill="#D4A574" text-anchor="middle" transform="rotate(-90,395,165)" font-weight="500" letter-spacing="1">STAIR LANDING CORRIDOR</text>
+    <text x="415" y="165" font-size="4.5" fill="#D4A574" text-anchor="middle" transform="rotate(-90,415,165)">5'-0" MIN CLEAR</text>
+    <!-- ADA marker at landing -->
+    <g transform="translate(360, 145)">
+      <rect x="0" y="0" width="28" height="8" fill="#2E7D32" opacity="0.12" rx="2"/>
+      <text x="14" y="6" font-size="4" fill="#2E7D32" text-anchor="middle" font-weight="700">ADA</text>
+    </g>
+
+    <!-- WALKWAY: E-W Main Corridor (between top and bottom rows) -->
+    <rect x="2" y="212" width="906" height="10" fill="url(#walkway-hatch)"/>
+    <rect x="2" y="212" width="906" height="10" fill="#D4A574" opacity="0.03"/>
+    <line x1="0" y1="212" x2="910" y2="212" stroke="#D4A574" stroke-width="0.5" stroke-dasharray="3,2" opacity="0.4"/>
+    <text x="190" y="220" font-size="5" fill="#D4A574" text-anchor="middle" font-weight="500" letter-spacing="1">MAIN E-W CORRIDOR  —  5'-0" MIN CLEAR</text>
+    <!-- ADA marker -->
+    <g transform="translate(30, 213)">
+      <rect x="0" y="0" width="28" height="8" fill="#2E7D32" opacity="0.12" rx="2"/>
+      <text x="14" y="6" font-size="4" fill="#2E7D32" text-anchor="middle" font-weight="700">ADA</text>
+    </g>
+
+    <!-- WALKWAY: Cafe Service Aisle (between counter and seating) -->
+    <rect x="25" y="76" width="300" height="6" fill="url(#walkway-hatch)" opacity="0.6"/>
+    <text x="250" y="83" font-size="4" fill="#D4A574" text-anchor="start">4'-0" SERVICE AISLE</text>
+
+    <!-- WALKWAY: Wellness Access Corridor -->
+    <rect x="592" y="286" width="18" height="120" fill="url(#walkway-hatch)" opacity="0.5"/>
+    <text x="601" y="355" font-size="4.5" fill="#D4A574" text-anchor="middle" transform="rotate(-90,601,355)" font-weight="500">WELLNESS CORRIDOR  |  4'-0" CLR</text>
+
+    <!-- WALKWAY: Gallery Promenade -->
+    <rect x="352" y="400" width="556" height="10" fill="url(#walkway-hatch)" opacity="0.4"/>
+    <text x="480" y="408" font-size="4.5" fill="#D4A574" text-anchor="middle" font-weight="500" letter-spacing="0.5">GALLERY PROMENADE  —  5'-0" CLEAR</text>
+
+    <!-- WALKWAY: Lounge to Terrace Path -->
+    <rect x="100" y="408" width="60" height="50" fill="url(#walkway-hatch)" opacity="0.4"/>
+    <text x="130" y="440" font-size="4.5" fill="#D4A574" text-anchor="middle" font-weight="500">TERRACE</text>
+    <text x="130" y="448" font-size="4.5" fill="#D4A574" text-anchor="middle" font-weight="500">ACCESS</text>
 
     <!-- Windows along north exterior -->
     <line x1="30" y1="0" x2="180" y2="0" stroke="#87CEEB" stroke-width="3" opacity="0.5"/>
@@ -462,6 +507,13 @@
     <!-- Views label -->
     <text x="174" y="555" font-size="6" fill="#D4A574" text-anchor="middle" font-weight="500">VIEWS TO LIBERTY PARK DISTRICT  |  EVENING LIGHTING</text>
 
+    <!-- ====== CEILING HEIGHT ANNOTATIONS ====== -->
+    <text x="175" y="212" font-size="5" fill="#999" text-anchor="middle">CLG: 10'-0" (FINISHED)</text>
+    <text x="565" y="18" font-size="4.5" fill="#999" text-anchor="middle">CLG: 10'-0" (ACOUSTIC TILE)</text>
+    <text x="800" y="78" font-size="4.5" fill="#999" text-anchor="middle">CLG: 9'-6"</text>
+    <text x="237" y="404" font-size="4.5" fill="#999" text-anchor="middle">CLG: 10'-0"</text>
+    <text x="630" y="438" font-size="5" fill="#999" text-anchor="middle">14'-0" DOUBLE-HEIGHT TO TRAINING FLOOR BELOW</text>
+
     <!-- ====== DIMENSION LINES ====== -->
     <line x1="0" y1="-35" x2="910" y2="-35" class="dim-line" marker-end="url(#arrowhead-dark)"/>
     <line x1="910" y1="-35" x2="0" y2="-35" class="dim-line" marker-end="url(#arrowhead-dark)"/>
@@ -511,54 +563,67 @@
     <text x="32" y="249" class="legend-text">Mechanical / Storage</text>
     <line x1="0" y1="263" x2="25" y2="263" stroke="#D4A574" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
     <text x="32" y="266" class="legend-text">Member Circulation</text>
+    <rect x="0" y="274" width="25" height="8" fill="url(#walkway-hatch)"/>
+    <rect x="0" y="274" width="25" height="8" fill="#D4A574" opacity="0.04" stroke="#D4A574" stroke-width="0.5" stroke-dasharray="2,1"/>
+    <text x="32" y="281" class="legend-text">Designated Walkway</text>
+    <rect x="0" y="288" width="25" height="8" fill="#2E7D32" opacity="0.12" rx="2"/>
+    <text x="10" y="295" font-size="3.5" fill="#2E7D32" text-anchor="middle" font-weight="700">ADA</text>
+    <text x="32" y="295" class="legend-text">ADA Accessible Route</text>
 
     <!-- Zone Summary -->
-    <text x="0" y="292" font-size="9" fill="#1A1A1A" font-weight="600">ZONE SUMMARY</text>
-    <text x="0" y="306" class="legend-text">Cafe &amp; Bar ............... 1,600 SF</text>
-    <text x="0" y="319" class="legend-text">Social Lounge ........... 1,800 SF</text>
-    <text x="0" y="332" class="legend-text">Private Event Room ...... 400 SF</text>
-    <text x="0" y="345" class="legend-text">Coworking ................ 1,200 SF</text>
-    <text x="0" y="358" class="legend-text">Wellness Suites ........ 1,200 SF</text>
-    <text x="0" y="371" class="legend-text">Restrooms .................. 400 SF</text>
-    <text x="0" y="384" class="legend-text">Staff Office ................. 200 SF</text>
-    <text x="0" y="397" class="legend-text">Event Storage .............. 100 SF</text>
-    <text x="0" y="410" class="legend-text">Mechanical / Utility ..... 200 SF</text>
-    <line x1="0" y1="417" x2="190" y2="417" stroke="#D4A574" stroke-width="0.5"/>
-    <text x="0" y="430" class="legend-text" font-weight="600">INDOOR PROGRAMMED .. 7,100 SF</text>
-    <text x="0" y="443" class="legend-text">Gallery Overlook ......... ~500 SF</text>
-    <text x="0" y="456" class="legend-text">Circulation ................... ~900 SF</text>
-    <line x1="0" y1="463" x2="190" y2="463" stroke="#D4A574" stroke-width="1"/>
-    <text x="0" y="476" class="legend-text" font-weight="600">INDOOR FOOTPRINT .. ~8,500 SF</text>
-    <text x="0" y="489" class="legend-text">Outdoor Terrace .......... ~500 SF</text>
-    <line x1="0" y1="496" x2="190" y2="496" stroke="#D4A574" stroke-width="1.5"/>
-    <text x="0" y="509" class="legend-text" font-weight="700" style="font-size:10px; fill:#D4A574">GRAND TOTAL ......... ~9,000 SF</text>
+    <text x="0" y="315" font-size="9" fill="#1A1A1A" font-weight="600">ZONE SUMMARY</text>
+    <text x="0" y="329" class="legend-text">Cafe &amp; Bar ............... 1,600 SF</text>
+    <text x="0" y="342" class="legend-text">Social Lounge ........... 1,800 SF</text>
+    <text x="0" y="355" class="legend-text">Private Event Room ...... 400 SF</text>
+    <text x="0" y="368" class="legend-text">Coworking ................ 1,200 SF</text>
+    <text x="0" y="381" class="legend-text">Wellness Suites ........ 1,200 SF</text>
+    <text x="0" y="394" class="legend-text">Restrooms .................. 400 SF</text>
+    <text x="0" y="407" class="legend-text">Staff Office ................. 200 SF</text>
+    <text x="0" y="420" class="legend-text">Event Storage .............. 100 SF</text>
+    <text x="0" y="433" class="legend-text">Mechanical / Utility ..... 200 SF</text>
+    <line x1="0" y1="440" x2="190" y2="440" stroke="#D4A574" stroke-width="0.5"/>
+    <text x="0" y="453" class="legend-text" font-weight="600">INDOOR PROGRAMMED .. 7,100 SF</text>
+    <text x="0" y="466" class="legend-text">Gallery Overlook ......... ~500 SF</text>
+    <text x="0" y="479" class="legend-text">Circulation / Walkways .. ~900 SF</text>
+    <line x1="0" y1="486" x2="190" y2="486" stroke="#D4A574" stroke-width="1"/>
+    <text x="0" y="499" class="legend-text" font-weight="600">INDOOR FOOTPRINT .. ~8,500 SF</text>
+    <text x="0" y="512" class="legend-text">Outdoor Terrace .......... ~500 SF</text>
+    <line x1="0" y1="519" x2="190" y2="519" stroke="#D4A574" stroke-width="1.5"/>
+    <text x="0" y="532" class="legend-text" font-weight="700" style="font-size:10px; fill:#D4A574">GRAND TOTAL ......... ~9,000 SF</text>
 
     <!-- Floor Flow -->
-    <text x="0" y="535" font-size="9" fill="#1A1A1A" font-weight="600">SECOND FLOOR FLOW</text>
-    <text x="0" y="549" class="legend-text" fill="#D4A574">1. Arrive via stair/elevator (key card)</text>
-    <text x="0" y="561" class="legend-text" fill="#D4A574">   (adjacent to reception, no gym crossing)</text>
-    <text x="0" y="575" class="legend-text" fill="#D4A574">2. Cafe → Order / Eat / Smoothies / Bar</text>
-    <text x="0" y="589" class="legend-text" fill="#D4A574">3. Cowork → Remote Work (6 desks + conf)</text>
-    <text x="0" y="603" class="legend-text" fill="#D4A574">4. Lounge → Socialize / Yoga / Events</text>
-    <text x="0" y="617" class="legend-text" fill="#D4A574">5. Event Room → Corporate / Private</text>
-    <text x="0" y="631" class="legend-text" fill="#D4A574">6. Wellness → Treatment / Body Comp</text>
-    <text x="0" y="645" class="legend-text" fill="#D4A574">7. Terrace → Outdoor Lounge / Views</text>
-    <text x="0" y="659" class="legend-text" fill="#D4A574">8. Gallery → Overlook training floor</text>
+    <text x="0" y="558" font-size="9" fill="#1A1A1A" font-weight="600">SECOND FLOOR FLOW</text>
+    <text x="0" y="572" class="legend-text" fill="#D4A574">1. Arrive via stair/elevator (key card)</text>
+    <text x="0" y="584" class="legend-text" fill="#D4A574">   (adjacent to reception, no gym crossing)</text>
+    <text x="0" y="598" class="legend-text" fill="#D4A574">2. Cafe → Order / Eat / Smoothies / Bar</text>
+    <text x="0" y="612" class="legend-text" fill="#D4A574">3. Cowork → Remote Work (6 desks + conf)</text>
+    <text x="0" y="626" class="legend-text" fill="#D4A574">4. Lounge → Socialize / Yoga / Events</text>
+    <text x="0" y="640" class="legend-text" fill="#D4A574">5. Event Room → Corporate / Private</text>
+    <text x="0" y="654" class="legend-text" fill="#D4A574">6. Wellness → Treatment / Body Comp</text>
+    <text x="0" y="668" class="legend-text" fill="#D4A574">7. Terrace → Outdoor Lounge / Views</text>
+    <text x="0" y="682" class="legend-text" fill="#D4A574">8. Gallery → Overlook training floor</text>
+
+    <!-- Occupancy + Egress -->
+    <text x="0" y="708" font-size="9" fill="#1A1A1A" font-weight="600">OCCUPANCY / EGRESS (IBC 2021)</text>
+    <text x="0" y="722" class="legend-text">Cafe/Bar (assembly) ..... 1,600/15 = 107 occ</text>
+    <text x="0" y="735" class="legend-text">Lounge (assembly) ....... 1,800/15 = 120 occ</text>
+    <text x="0" y="748" class="legend-text">Cowork (business) ........ 1,200/100 = 12 occ</text>
+    <text x="0" y="761" class="legend-text">Wellness (business) ..... 1,200/100 = 12 occ</text>
+    <text x="0" y="774" class="legend-text">Other ....................................... = 15 occ</text>
+    <line x1="0" y1="780" x2="200" y2="780" stroke="#D4A574" stroke-width="0.5"/>
+    <text x="0" y="793" class="legend-text" font-weight="700">TOTAL OCCUPANCY ............... 266 occ</text>
+    <text x="0" y="806" class="legend-text">Required exits: 3 (based on 266 occ)</text>
+    <text x="0" y="819" class="legend-text">Provided exits: 2 + staircase + elevator</text>
+    <text x="0" y="832" class="legend-text">Max travel distance: 250' (sprinklered)</text>
+    <text x="0" y="845" class="legend-text">ADA: All corridors 5' min, 36" doors</text>
 
     <!-- Notes -->
-    <text x="0" y="685" font-size="9" fill="#1A1A1A" font-weight="600">REV 06 DESIGN NOTES</text>
-    <text x="0" y="699" class="legend-text">• Yoga studio removed — classes in lounge</text>
-    <text x="0" y="712" class="legend-text">• Lounge expanded 1,400→1,800 SF</text>
-    <text x="0" y="725" class="legend-text">• Private event room added (400 SF)</text>
-    <text x="0" y="738" class="legend-text">• Outdoor terrace with NanaWall doors</text>
-    <text x="0" y="751" class="legend-text">• Body Comp Lab replaces Nutrition room</text>
-    <text x="0" y="764" class="legend-text">• Conference room expanded (6-8 person)</text>
-    <text x="0" y="777" class="legend-text">• Event storage carved from staff office</text>
-    <text x="0" y="790" class="legend-text">• STC-50 walls between social zones</text>
-    <text x="0" y="803" class="legend-text">• Key card access at stair + coworking</text>
-    <text x="0" y="816" class="legend-text">• Power/USB at all seating positions</text>
-    <text x="0" y="829" class="legend-text">• IBC guardrails on gallery overlook</text>
-    <text x="0" y="842" class="legend-text">• 42" glass railing on terrace</text>
+    <text x="0" y="865" font-size="9" fill="#1A1A1A" font-weight="600">REV 07 DESIGN NOTES</text>
+    <text x="0" y="879" class="legend-text">• Designated walkways with widths added</text>
+    <text x="0" y="892" class="legend-text">• ADA accessible routes marked</text>
+    <text x="0" y="905" class="legend-text">• Ceiling heights annotated per zone</text>
+    <text x="0" y="918" class="legend-text">• Occupancy load table added (IBC 2021)</text>
+    <text x="0" y="931" class="legend-text">• Egress requirements documented</text>
   </g>
 
   <!-- North Arrow -->
@@ -583,6 +648,6 @@
   <!-- Footer -->
   <line x1="50" y1="960" x2="1350" y2="960" stroke="#D4A574" stroke-width="0.5"/>
   <text x="50" y="978" font-size="8" fill="#999" font-family="Inter, sans-serif">THE EREMOS  |  Second Floor Plan  |  Liberty Park District, Memphis, TN  |  PRELIMINARY — NOT FOR CONSTRUCTION</text>
-  <text x="1350" y="978" font-size="8" fill="#999" font-family="Inter, sans-serif" text-anchor="end">Drawing 02B  |  Rev 06  |  February 2026</text>
+  <text x="1350" y="978" font-size="8" fill="#999" font-family="Inter, sans-serif" text-anchor="end">Drawing 02B  |  Rev 07  |  February 2026</text>
 
 </svg>
