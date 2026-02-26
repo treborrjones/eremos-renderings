@@ -31,8 +31,8 @@
 
   <!-- Title Block -->
   <text x="50" y="45" class="title">THE EREMOS</text>
-  <text x="50" y="65" class="subtitle">SECOND FLOOR PLAN  |  Upper Level  |  7,200 SF Programmed  |  ~8,500 SF Footprint</text>
-  <text x="50" y="82" class="subtitle" style="fill:#999">Liberty Park District, Memphis, TN  |  Scale: 1/16" = 1'-0" (approximate)  |  Rev 05  |  February 2026</text>
+  <text x="50" y="65" class="subtitle">SECOND FLOOR PLAN  |  Upper Level  |  7,100 SF Programmed  |  ~9,000 SF Total (incl. Terrace)</text>
+  <text x="50" y="82" class="subtitle" style="fill:#999">Liberty Park District, Memphis, TN  |  Scale: 1/16" = 1'-0" (approximate)  |  Rev 06  |  February 2026</text>
   <line x1="50" y1="92" x2="1350" y2="92" stroke="#D4A574" stroke-width="1.5"/>
 
   <!-- ====== BUILDING ====== -->
@@ -49,8 +49,8 @@
     <rect x="690" y="87" width="218" height="68" fill="#DDD" opacity="0.1"/>
     <rect x="690" y="157" width="128" height="63" fill="#AAA" opacity="0.08"/>
     <!-- BOTTOM ROW -->
-    <rect x="2" y="222" width="348" height="188" fill="#E8D5B7" opacity="0.08"/>
-    <rect x="352" y="222" width="238" height="188" fill="#D4A574" opacity="0.06"/>
+    <rect x="2" y="222" width="473" height="188" fill="#E8D5B7" opacity="0.08"/>
+    <rect x="477" y="222" width="113" height="188" fill="#C4A882" opacity="0.08"/>
     <rect x="592" y="222" width="316" height="188" fill="#A89888" opacity="0.06"/>
     <!-- GALLERY -->
     <rect x="352" y="412" width="556" height="41" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-dasharray="6,3"/>
@@ -69,8 +69,10 @@
     <!-- Staff / Mech divider -->
     <line x1="690" y1="155" x2="818" y2="155" class="interior-wall"/>
     <!-- Bottom row dividers -->
-    <line x1="350" y1="220" x2="350" y2="410" class="interior-wall"/>
-    <line x1="590" y1="220" x2="590" y2="410" class="interior-wall"/>
+    <line x1="475" y1="220" x2="475" y2="410" class="interior-wall" stroke-width="3" stroke-dasharray="2,1"/>
+    <text x="478" y="416" font-size="4.5" fill="#888">STC-50</text>
+    <line x1="590" y1="220" x2="590" y2="410" class="interior-wall" stroke-width="3" stroke-dasharray="2,1"/>
+    <text x="593" y="416" font-size="4.5" fill="#888">STC-50</text>
     <!-- Gallery top edge -->
     <line x1="350" y1="410" x2="908" y2="410" class="interior-wall" stroke-dasharray="6,3" stroke="#AAA"/>
 
@@ -120,7 +122,8 @@
       <circle cx="170" cy="0" r="4" fill="#3E2418" opacity="0.15" stroke="#888" stroke-width="0.5"/>
       <circle cx="200" cy="0" r="4" fill="#3E2418" opacity="0.15" stroke="#888" stroke-width="0.5"/>
     </g>
-    <text x="130" y="46" font-size="5" fill="#888" text-anchor="middle">COUNTER STOOLS (8)</text>
+    <text x="100" y="46" font-size="5" fill="#888" text-anchor="middle">COUNTER STOOLS (8)</text>
+    <text x="235" y="46" font-size="4.5" fill="#87CEEB" text-anchor="middle" font-style="italic">POWER RAIL BELOW COUNTER</text>
     <!-- Commercial Kitchen -->
     <rect x="25" y="82" width="130" height="65" fill="#DDD" opacity="0.15" stroke="#888" stroke-width="1.5" rx="2"/>
     <text x="90" y="112" font-size="8" fill="#888" text-anchor="middle">COMMERCIAL</text>
@@ -139,31 +142,38 @@
     <rect x="25" y="155" width="35" height="25" fill="#DDD" opacity="0.2" stroke="#888" stroke-width="0.75" rx="2"/>
     <text x="42" y="170" font-size="4.5" fill="#888" text-anchor="middle">DUMBWAITER</text>
     <text x="42" y="178" font-size="4" fill="#888" text-anchor="middle">TO 1ST FL</text>
-    <!-- 2-top tables -->
-    <g transform="translate(25, 185)">
-      <rect x="0" y="0" width="25" height="25" fill="#3E2418" opacity="0.1" stroke="#888" stroke-width="0.5" rx="2"/>
-      <circle cx="5" cy="12" r="3" fill="#888" opacity="0.2"/>
-      <circle cx="20" cy="12" r="3" fill="#888" opacity="0.2"/>
-      <rect x="38" y="0" width="25" height="25" fill="#3E2418" opacity="0.1" stroke="#888" stroke-width="0.5" rx="2"/>
-      <circle cx="43" cy="12" r="3" fill="#888" opacity="0.2"/>
-      <circle cx="58" cy="12" r="3" fill="#888" opacity="0.2"/>
-      <rect x="76" y="0" width="25" height="25" fill="#3E2418" opacity="0.1" stroke="#888" stroke-width="0.5" rx="2"/>
-      <circle cx="81" cy="12" r="3" fill="#888" opacity="0.2"/>
-      <circle cx="96" cy="12" r="3" fill="#888" opacity="0.2"/>
+    <!-- 2-top tables (5 total, was 3) -->
+    <g transform="translate(25, 180)">
+      <rect x="0" y="0" width="22" height="22" fill="#3E2418" opacity="0.1" stroke="#888" stroke-width="0.5" rx="2"/>
+      <circle cx="4" cy="11" r="3" fill="#888" opacity="0.2"/>
+      <circle cx="18" cy="11" r="3" fill="#888" opacity="0.2"/>
+      <rect x="30" y="0" width="22" height="22" fill="#3E2418" opacity="0.1" stroke="#888" stroke-width="0.5" rx="2"/>
+      <circle cx="34" cy="11" r="3" fill="#888" opacity="0.2"/>
+      <circle cx="48" cy="11" r="3" fill="#888" opacity="0.2"/>
+      <rect x="60" y="0" width="22" height="22" fill="#3E2418" opacity="0.1" stroke="#888" stroke-width="0.5" rx="2"/>
+      <circle cx="64" cy="11" r="3" fill="#888" opacity="0.2"/>
+      <circle cx="78" cy="11" r="3" fill="#888" opacity="0.2"/>
+      <rect x="90" y="0" width="22" height="22" fill="#3E2418" opacity="0.1" stroke="#888" stroke-width="0.5" rx="2"/>
+      <circle cx="94" cy="11" r="3" fill="#888" opacity="0.2"/>
+      <circle cx="108" cy="11" r="3" fill="#888" opacity="0.2"/>
+      <rect x="120" y="0" width="22" height="22" fill="#3E2418" opacity="0.1" stroke="#888" stroke-width="0.5" rx="2"/>
+      <circle cx="124" cy="11" r="3" fill="#888" opacity="0.2"/>
+      <circle cx="138" cy="11" r="3" fill="#888" opacity="0.2"/>
     </g>
-    <text x="76" y="214" font-size="5" fill="#888" text-anchor="middle">2-TOP TABLES (3)</text>
-    <!-- Communal Table -->
-    <g transform="translate(135, 163)">
-      <rect x="0" y="0" width="170" height="38" fill="#5A3E28" opacity="0.12" stroke="#3E2418" stroke-width="1" rx="3"/>
-      <text x="85" y="18" font-size="7" fill="#3E2418" text-anchor="middle">COMMUNAL TABLE</text>
-      <text x="85" y="30" font-size="5" fill="#888" text-anchor="middle">Live-Edge Timber, Seats 8-10</text>
+    <text x="96" y="207" font-size="5" fill="#888" text-anchor="middle">2-TOP TABLES (5)</text>
+    <!-- Communal Table (seats 6-8, was 8-10) -->
+    <g transform="translate(170, 155)">
+      <rect x="0" y="0" width="140" height="35" fill="#5A3E28" opacity="0.12" stroke="#3E2418" stroke-width="1" rx="3"/>
+      <text x="70" y="16" font-size="7" fill="#3E2418" text-anchor="middle">COMMUNAL TABLE</text>
+      <text x="70" y="28" font-size="5" fill="#888" text-anchor="middle">Live-Edge Timber, Seats 6-8</text>
       <circle cx="-5" cy="10" r="3" fill="#888" opacity="0.2"/>
-      <circle cx="-5" cy="28" r="3" fill="#888" opacity="0.2"/>
-      <circle cx="175" cy="10" r="3" fill="#888" opacity="0.2"/>
-      <circle cx="175" cy="28" r="3" fill="#888" opacity="0.2"/>
-      <circle cx="40" cy="-5" r="3" fill="#888" opacity="0.2"/>
-      <circle cx="85" cy="-5" r="3" fill="#888" opacity="0.2"/>
-      <circle cx="130" cy="-5" r="3" fill="#888" opacity="0.2"/>
+      <circle cx="-5" cy="25" r="3" fill="#888" opacity="0.2"/>
+      <circle cx="145" cy="10" r="3" fill="#888" opacity="0.2"/>
+      <circle cx="145" cy="25" r="3" fill="#888" opacity="0.2"/>
+      <circle cx="35" cy="-5" r="3" fill="#888" opacity="0.2"/>
+      <circle cx="70" cy="-5" r="3" fill="#888" opacity="0.2"/>
+      <circle cx="105" cy="-5" r="3" fill="#888" opacity="0.2"/>
+      <text x="70" y="45" font-size="4.5" fill="#87CEEB" text-anchor="middle" font-style="italic">POWER + USB UNDER TABLE</text>
     </g>
 
     <!-- ====== COWORKING WORKSPACE (1,200 SF) ====== -->
@@ -191,23 +201,31 @@
       <circle cx="67" cy="38" r="5" fill="#888" opacity="0.1" stroke="#888" stroke-width="0.5"/>
       <circle cx="115" cy="38" r="5" fill="#888" opacity="0.1" stroke="#888" stroke-width="0.5"/>
     </g>
-    <!-- Meeting Rooms -->
+    <!-- Meeting Room 1 (4-person) -->
     <g transform="translate(600, 75)">
-      <rect x="0" y="0" width="65" height="48" fill="#87CEEB" opacity="0.06" stroke="#888" stroke-width="1.5" rx="2"/>
-      <line x1="0" y1="0" x2="0" y2="48" stroke="#87CEEB" stroke-width="2" opacity="0.5"/>
-      <text x="32" y="20" font-size="6" fill="#888" text-anchor="middle">MEETING RM 1</text>
-      <text x="32" y="32" font-size="5" fill="#888" text-anchor="middle">4-Person Glass</text>
-      <rect x="0" y="60" width="65" height="48" fill="#87CEEB" opacity="0.06" stroke="#888" stroke-width="1.5" rx="2"/>
-      <line x1="0" y1="60" x2="0" y2="108" stroke="#87CEEB" stroke-width="2" opacity="0.5"/>
-      <text x="32" y="82" font-size="6" fill="#888" text-anchor="middle">MEETING RM 2</text>
-      <text x="32" y="94" font-size="5" fill="#888" text-anchor="middle">4-Person Glass</text>
+      <rect x="0" y="0" width="65" height="42" fill="#87CEEB" opacity="0.06" stroke="#888" stroke-width="1.5" rx="2"/>
+      <line x1="0" y1="0" x2="0" y2="42" stroke="#87CEEB" stroke-width="2" opacity="0.5"/>
+      <text x="32" y="18" font-size="6" fill="#888" text-anchor="middle">MEETING RM</text>
+      <text x="32" y="30" font-size="5" fill="#888" text-anchor="middle">4-Person Glass</text>
     </g>
-    <!-- Print Station -->
-    <g transform="translate(600, 195)">
-      <rect x="0" y="0" width="65" height="18" fill="#DDD" opacity="0.2" stroke="#888" stroke-width="0.5" rx="2"/>
-      <text x="32" y="12" font-size="5" fill="#888" text-anchor="middle">PRINT / SCAN</text>
+    <!-- Print Station (compact, beside meeting room) -->
+    <g transform="translate(600, 121)">
+      <rect x="0" y="0" width="65" height="14" fill="#DDD" opacity="0.2" stroke="#888" stroke-width="0.5" rx="2"/>
+      <text x="32" y="10" font-size="4.5" fill="#888" text-anchor="middle">PRINT / SCAN</text>
     </g>
-    <text x="565" y="210" font-size="6" fill="#888" text-anchor="middle" font-style="italic">Acoustic Panels on Walls &amp; Ceiling</text>
+    <!-- Conference Room (6-8 person, expanded) -->
+    <g transform="translate(600, 139)">
+      <rect x="0" y="0" width="65" height="70" fill="#87CEEB" opacity="0.06" stroke="#888" stroke-width="1.5" rx="2"/>
+      <line x1="0" y1="0" x2="0" y2="70" stroke="#87CEEB" stroke-width="2" opacity="0.5"/>
+      <text x="32" y="18" font-size="6" fill="#888" text-anchor="middle">CONFERENCE</text>
+      <text x="32" y="30" font-size="6" fill="#888" text-anchor="middle">ROOM</text>
+      <text x="32" y="42" font-size="5" fill="#888" text-anchor="middle">6-8 Person Glass</text>
+      <text x="32" y="54" font-size="5" fill="#D4A574" text-anchor="middle">AV Display</text>
+      <!-- Table -->
+      <rect x="12" y="58" width="40" height="8" fill="#E8E8E8" stroke="#888" stroke-width="0.5" rx="1"/>
+    </g>
+    <text x="565" y="206" font-size="5" fill="#87CEEB" text-anchor="middle" font-style="italic">ETHERNET + DUAL MONITOR + USB-C AT EACH DESK</text>
+    <text x="565" y="216" font-size="5" fill="#888" text-anchor="middle" font-style="italic">Acoustic Panels  |  STC-45 Glass Wall  |  Enterprise Wi-Fi</text>
 
     <!-- ====== RESTROOMS (400 SF) ====== -->
     <!-- Zone: x=690, y=0, w=220, h=85 → 220*85/49 = 382 SF -->
@@ -215,14 +233,23 @@
     <text x="800" y="50" class="sf-label" font-size="8">400 SF</text>
     <text x="800" y="63" class="zone-sublabel" font-size="6">ADA COMPLIANT</text>
 
-    <!-- ====== STAFF OFFICE / OPERATIONS (300 SF) ====== -->
-    <!-- Zone: x=690, y=85, w=220, h=70 → 220*70/49 = 314 SF -->
-    <text x="800" y="115" class="zone-label" font-size="10">STAFF OFFICE / OPERATIONS</text>
-    <text x="800" y="130" class="sf-label" font-size="8">300 SF</text>
-    <rect x="710" y="136" width="38" height="14" fill="#E8E8E8" stroke="#888" stroke-width="0.5" rx="1"/>
-    <text x="729" y="146" font-size="5" fill="#888" text-anchor="middle">GM DESK</text>
-    <rect x="760" y="136" width="45" height="14" fill="#E8D5B7" opacity="0.1" stroke="#888" stroke-width="0.5" rx="1"/>
-    <text x="782" y="146" font-size="5" fill="#888" text-anchor="middle">BREAK AREA</text>
+    <!-- ====== STAFF OFFICE (200 SF) ====== -->
+    <!-- Zone: x=690, y=85, w=110, h=70 → 110*70/49 = 157 SF -->
+    <text x="745" y="108" class="zone-label" font-size="9">STAFF OFFICE</text>
+    <text x="745" y="121" class="sf-label" font-size="7">200 SF</text>
+    <rect x="705" y="130" width="38" height="14" fill="#E8E8E8" stroke="#888" stroke-width="0.5" rx="1"/>
+    <text x="724" y="140" font-size="5" fill="#888" text-anchor="middle">GM DESK</text>
+    <rect x="748" y="130" width="38" height="14" fill="#E8E8E8" stroke="#888" stroke-width="0.5" rx="1"/>
+    <text x="767" y="140" font-size="5" fill="#888" text-anchor="middle">FILE CAB</text>
+    <!-- Interior wall divider -->
+    <line x1="800" y1="85" x2="800" y2="155" class="interior-wall"/>
+    <!-- ====== EVENT STORAGE (100 SF) — NEW ====== -->
+    <!-- Zone: x=800, y=85, w=110, h=70 -->
+    <rect x="802" y="87" width="106" height="66" fill="#DDD" opacity="0.06"/>
+    <text x="855" y="108" class="zone-label" font-size="9">EVENT</text>
+    <text x="855" y="121" class="zone-label" font-size="9">STORAGE</text>
+    <text x="855" y="134" class="sf-label" font-size="7">100 SF</text>
+    <text x="855" y="148" font-size="5" fill="#888" text-anchor="middle">Tables / AV / Signage</text>
 
     <!-- ====== MECHANICAL / UTILITY (200 SF) ====== -->
     <!-- Zone: x=690, y=155, w=128, h=65 → 128*65/49 = 170 SF -->
@@ -230,16 +257,16 @@
     <text x="754" y="193" class="sf-label" font-size="7">200 SF</text>
     <text x="754" y="206" font-size="5" fill="#888" text-anchor="middle">Kitchen exhaust / HVAC</text>
 
-    <!-- ====== SOCIAL LOUNGE (1,400 SF) ====== -->
-    <!-- Zone: x=0, y=220, w=350, h=190 → 350*190/49 = 1,357 SF -->
-    <text x="175" y="248" class="zone-label" font-size="15">SOCIAL LOUNGE</text>
-    <text x="175" y="266" class="sf-label" font-size="11">1,400 SF</text>
-    <text x="175" y="281" class="zone-sublabel">Event Space / Bar Lounge (Post-4PM)</text>
+    <!-- ====== SOCIAL LOUNGE (1,800 SF) — EXPANDED ====== -->
+    <!-- Zone: x=0, y=220, w=475, h=190 → 475*190/49 = 1,843 SF -->
+    <text x="237" y="248" class="zone-label" font-size="15">SOCIAL LOUNGE</text>
+    <text x="237" y="266" class="sf-label" font-size="11">1,800 SF</text>
+    <text x="237" y="281" class="zone-sublabel">Event Space / Bar Lounge (Post-4PM) / Yoga When Scheduled</text>
     <!-- Fireplace -->
     <g transform="translate(15, 295)">
-      <rect x="0" y="0" width="80" height="14" fill="#1A1A1A" opacity="0.15" stroke="#1A1A1A" stroke-width="1.5" rx="2"/>
-      <rect x="8" y="2" width="64" height="10" fill="#E8A040" opacity="0.15" rx="1"/>
-      <text x="40" y="10" font-size="5.5" fill="#D4A574" text-anchor="middle">LINEAR FIREPLACE</text>
+      <rect x="0" y="0" width="90" height="14" fill="#1A1A1A" opacity="0.15" stroke="#1A1A1A" stroke-width="1.5" rx="2"/>
+      <rect x="8" y="2" width="74" height="10" fill="#E8A040" opacity="0.15" rx="1"/>
+      <text x="45" y="10" font-size="5.5" fill="#D4A574" text-anchor="middle">LINEAR FIREPLACE</text>
     </g>
     <!-- Club Chairs -->
     <g transform="translate(25, 318)">
@@ -264,40 +291,63 @@
       <text x="32" y="17" font-size="6" fill="#888" text-anchor="middle">DIGITAL SCREENS</text>
       <text x="32" y="29" font-size="5" fill="#888" text-anchor="middle">League / Events</text>
     </g>
-    <!-- Event Space overlay -->
+    <!-- Expanded lounge furniture area -->
+    <g transform="translate(300, 295)">
+      <rect x="0" y="0" width="28" height="28" fill="#3E2418" opacity="0.15" stroke="#888" stroke-width="0.5" rx="5"/>
+      <rect x="40" y="0" width="28" height="28" fill="#3E2418" opacity="0.15" stroke="#888" stroke-width="0.5" rx="5"/>
+      <rect x="0" y="38" width="70" height="25" fill="#3E2418" opacity="0.12" stroke="#888" stroke-width="0.75" rx="4"/>
+      <text x="35" y="54" font-size="6" fill="#888" text-anchor="middle">SOFA</text>
+      <rect x="8" y="28" width="50" height="10" fill="#5A3E28" opacity="0.1" stroke="#888" stroke-width="0.5" rx="2"/>
+    </g>
+    <!-- Bar service window -->
+    <g transform="translate(385, 320)">
+      <rect x="0" y="0" width="70" height="14" fill="#3E2418" opacity="0.12" stroke="#D4A574" stroke-width="1" rx="2"/>
+      <text x="35" y="10" font-size="5" fill="#D4A574" text-anchor="middle">BAR SERVICE WINDOW</text>
+    </g>
+    <!-- Floor outlets note -->
+    <text x="410" y="350" font-size="5" fill="#87CEEB" text-anchor="middle" font-style="italic">FLOOR OUTLETS IN SEATING AREA</text>
+    <!-- Event Space overlay (larger) -->
     <g transform="translate(80, 360)">
-      <rect x="0" y="0" width="190" height="38" fill="none" stroke="#D4A574" stroke-width="1" stroke-dasharray="6,3" rx="4"/>
-      <text x="95" y="15" font-size="7" fill="#D4A574" text-anchor="middle" font-weight="500">FLEXIBLE EVENT SPACE</text>
-      <text x="95" y="28" font-size="5.5" fill="#D4A574" text-anchor="middle">Milestone Nights  |  Post-4PM Bar Lounge</text>
+      <rect x="0" y="0" width="370" height="38" fill="none" stroke="#D4A574" stroke-width="1" stroke-dasharray="6,3" rx="4"/>
+      <text x="185" y="15" font-size="7" fill="#D4A574" text-anchor="middle" font-weight="500">FLEXIBLE EVENT SPACE — FURNITURE ON CASTERS</text>
+      <text x="185" y="28" font-size="5.5" fill="#D4A574" text-anchor="middle">Milestone Nights  |  Post-4PM Bar Lounge  |  Yoga/Mobility Classes When Scheduled</text>
     </g>
 
-    <!-- ====== YOGA / MOBILITY STUDIO (900 SF) — RENAMED ====== -->
-    <!-- Zone: x=350, y=220, w=240, h=190 → 240*190/49 = 931 SF -->
-    <text x="470" y="255" class="zone-label" font-size="14">YOGA / MOBILITY</text>
-    <text x="470" y="273" class="zone-label" font-size="11">STUDIO</text>
-    <text x="470" y="291" class="sf-label" font-size="10">900 SF</text>
-    <text x="470" y="305" class="zone-sublabel">Yoga / Mobility / Stretch  |  Small Group (8-12)</text>
-    <text x="470" y="318" class="zone-sublabel" style="fill:#D4A574; font-size:7px">Light implements only — heavy work on Ground Floor</text>
-    <!-- Mirror wall -->
-    <line x1="355" y1="230" x2="355" y2="400" stroke="#87CEEB" stroke-width="2" opacity="0.6"/>
-    <text x="360" y="340" font-size="5" fill="#87CEEB" transform="rotate(-90,360,340)">MIRROR WALL</text>
-    <!-- Resistance Band Rack (replaces kettlebells) -->
-    <rect x="375" y="330" width="70" height="12" fill="#E8E8E8" stroke="#888" stroke-width="0.5" rx="2"/>
-    <text x="410" y="339" font-size="5" fill="#888" text-anchor="middle">BAND / YOGA PROP RACK</text>
-    <!-- TRX Anchors -->
-    <g transform="translate(380, 350)">
-      <circle cx="0" cy="0" r="3" fill="#888" opacity="0.2" stroke="#888" stroke-width="0.5"/>
-      <circle cx="18" cy="0" r="3" fill="#888" opacity="0.2" stroke="#888" stroke-width="0.5"/>
-      <circle cx="36" cy="0" r="3" fill="#888" opacity="0.2" stroke="#888" stroke-width="0.5"/>
-      <circle cx="54" cy="0" r="3" fill="#888" opacity="0.2" stroke="#888" stroke-width="0.5"/>
-      <circle cx="72" cy="0" r="3" fill="#888" opacity="0.2" stroke="#888" stroke-width="0.5"/>
-      <circle cx="90" cy="0" r="3" fill="#888" opacity="0.2" stroke="#888" stroke-width="0.5"/>
-      <text x="45" y="15" font-size="5" fill="#888" text-anchor="middle">TRX ANCHORS (6)</text>
-    </g>
-    <!-- Mat area -->
-    <rect x="375" y="375" width="195" height="28" fill="#D4A574" opacity="0.04" stroke="#AAA" stroke-width="0.5" rx="2"/>
-    <text x="472" y="393" font-size="6" fill="#888" text-anchor="middle">OPEN MAT AREA</text>
-    <text x="470" y="406" font-size="5" fill="#888" text-anchor="middle" font-style="italic">Cork Floor  |  Sound System  |  Full Mirrors</text>
+    <!-- ====== PRIVATE EVENT ROOM / BOARDROOM (400 SF) — NEW ====== -->
+    <!-- Zone: x=477, y=220, w=113, h=190 → 113*190/49 = 438 SF -->
+    <!-- Glass walls on north + west sides -->
+    <line x1="477" y1="222" x2="477" y2="408" stroke="#87CEEB" stroke-width="3" opacity="0.5"/>
+    <line x1="479" y1="220" x2="588" y2="220" stroke="#87CEEB" stroke-width="3" opacity="0.5"/>
+    <text x="533" y="252" class="zone-label" font-size="11">PRIVATE EVENT</text>
+    <text x="533" y="267" class="zone-label" font-size="10">ROOM</text>
+    <text x="533" y="282" class="sf-label" font-size="9">400 SF</text>
+    <text x="533" y="296" class="zone-sublabel" style="font-size:7px">Glass Walls  |  Privacy Curtains</text>
+    <text x="533" y="310" class="zone-sublabel" style="font-size:7px">AV Display  |  Sound System</text>
+    <!-- Conference Table -->
+    <rect x="493" y="320" width="80" height="35" fill="#5A3E28" opacity="0.12" stroke="#3E2418" stroke-width="1" rx="3"/>
+    <text x="533" y="338" font-size="6" fill="#3E2418" text-anchor="middle">CONFERENCE TABLE</text>
+    <text x="533" y="349" font-size="5" fill="#888" text-anchor="middle">Seats 12 / Stands 20</text>
+    <!-- Chairs around table -->
+    <circle cx="490" cy="330" r="3" fill="#888" opacity="0.2"/>
+    <circle cx="490" cy="345" r="3" fill="#888" opacity="0.2"/>
+    <circle cx="576" cy="330" r="3" fill="#888" opacity="0.2"/>
+    <circle cx="576" cy="345" r="3" fill="#888" opacity="0.2"/>
+    <circle cx="510" cy="316" r="3" fill="#888" opacity="0.2"/>
+    <circle cx="533" cy="316" r="3" fill="#888" opacity="0.2"/>
+    <circle cx="556" cy="316" r="3" fill="#888" opacity="0.2"/>
+    <circle cx="510" cy="359" r="3" fill="#888" opacity="0.2"/>
+    <circle cx="533" cy="359" r="3" fill="#888" opacity="0.2"/>
+    <circle cx="556" cy="359" r="3" fill="#888" opacity="0.2"/>
+    <!-- AV Display Wall -->
+    <rect x="483" y="370" width="100" height="8" fill="#1A1A1A" opacity="0.15" stroke="#888" stroke-width="1" rx="1"/>
+    <text x="533" y="376" font-size="5" fill="#888" text-anchor="middle">AV DISPLAY WALL (86")</text>
+    <!-- Acoustic door indicator -->
+    <rect x="475" y="290" width="4" height="22" fill="#D4A574" rx="1"/>
+    <text x="470" y="305" font-size="4" fill="#D4A574" text-anchor="end">ACOUSTIC</text>
+    <text x="470" y="312" font-size="4" fill="#D4A574" text-anchor="end">DOOR</text>
+    <!-- Usage labels -->
+    <text x="533" y="396" font-size="5.5" fill="#D4A574" text-anchor="middle" font-weight="500">Corporate Events  |  Brand Launches</text>
+    <text x="533" y="406" font-size="5.5" fill="#D4A574" text-anchor="middle" font-weight="500">Private Dinners  |  Board Meetings</text>
 
     <!-- ====== WELLNESS PROFESSIONAL SUITES (1,200 SF) ====== -->
     <!-- Zone: x=590, y=220, w=320, h=190 → 320*190/49 = 1,241 SF -->
@@ -324,12 +374,13 @@
       <text x="50" y="30" font-size="5" fill="#D4A574" text-anchor="middle">Sports Chiropractic</text>
       <rect x="22" y="34" width="50" height="9" fill="#E8D5B7" opacity="0.15" stroke="#888" stroke-width="0.5" rx="3"/>
     </g>
-    <!-- Treatment Room 3 -->
+    <!-- Body Composition Lab (was Treatment Room 3) -->
     <g transform="translate(830, 330)">
       <rect x="0" y="0" width="68" height="48" fill="#A89888" opacity="0.08" stroke="#888" stroke-width="1" rx="2"/>
-      <text x="34" y="18" font-size="6" fill="#888" text-anchor="middle">TREATMENT</text>
-      <text x="34" y="28" font-size="6" fill="#888" text-anchor="middle">RM 3</text>
-      <text x="34" y="40" font-size="5" fill="#D4A574" text-anchor="middle">Nutrition</text>
+      <text x="34" y="14" font-size="6" fill="#888" text-anchor="middle">BODY COMP</text>
+      <text x="34" y="24" font-size="6" fill="#888" text-anchor="middle">LAB</text>
+      <text x="34" y="35" font-size="5" fill="#D4A574" text-anchor="middle">InBody 970</text>
+      <text x="34" y="44" font-size="4.5" fill="#888" text-anchor="middle">Results Display</text>
     </g>
     <!-- Shared Storage -->
     <g transform="translate(610, 384)">
@@ -339,21 +390,33 @@
 
     <!-- ====== GALLERY OVERLOOK ====== -->
     <!-- x=350, y=410, w=560, h=45 → 560*45/49 = 514 SF -->
-    <text x="630" y="432" font-size="9" fill="#888" text-anchor="middle" font-weight="600">OPEN TO BELOW — GALLERY OVERLOOK  (~500 SF)</text>
-    <text x="630" y="446" font-size="6" fill="#888" text-anchor="middle">Double-height view to Training Floor  |  Gallery railing with seating  |  14+ ft ceilings below</text>
+    <text x="630" y="428" font-size="9" fill="#888" text-anchor="middle" font-weight="600">OPEN TO BELOW — GALLERY OVERLOOK  (~500 SF)</text>
+    <text x="630" y="441" font-size="6" fill="#888" text-anchor="middle">Double-height view to Training Floor  |  Gallery railing with seating  |  14+ ft ceilings below</text>
+    <text x="630" y="452" font-size="5" fill="#CC3333" text-anchor="middle" font-weight="600">42" ENGINEERED GUARDRAIL — IBC COMPLIANT  |  200 LB/FT LATERAL LOAD</text>
 
     <!-- ====== CIRCULATION ARROWS ====== -->
     <line x1="390" y1="85" x2="300" y2="140" stroke="#D4A574" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-    <line x1="175" y1="218" x2="175" y2="230" stroke="#D4A574" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+    <line x1="237" y1="218" x2="237" y2="230" stroke="#D4A574" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
     <line x1="400" y1="150" x2="450" y2="120" stroke="#D4A574" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-    <line x1="470" y1="218" x2="470" y2="230" stroke="#D4A574" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+    <line x1="460" y1="300" x2="485" y2="300" stroke="#D4A574" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
     <line x1="580" y1="300" x2="600" y2="300" stroke="#D4A574" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+    <!-- Lounge to terrace -->
+    <line x1="175" y1="408" x2="175" y2="460" stroke="#D4A574" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
 
     <!-- ====== DOORS ====== -->
-    <rect x="352" y="250" width="4" height="22" fill="#D4A574" rx="1"/>
     <rect x="588" y="280" width="4" height="22" fill="#D4A574" rx="1"/>
     <rect x="720" y="220" width="22" height="4" fill="#D4A574" rx="1"/>
     <rect x="720" y="85" width="22" height="4" fill="#D4A574" rx="1"/>
+
+    <!-- ====== ACCESS CONTROL ====== -->
+    <g transform="translate(395, 140)">
+      <rect x="0" y="0" width="36" height="12" fill="#87CEEB" opacity="0.15" stroke="#87CEEB" stroke-width="1" rx="2"/>
+      <text x="18" y="9" font-size="5" fill="#5BA3C0" text-anchor="middle" font-weight="600">KEY CARD</text>
+    </g>
+    <g transform="translate(438, 210)">
+      <rect x="0" y="0" width="36" height="8" fill="#87CEEB" opacity="0.15" stroke="#87CEEB" stroke-width="0.75" rx="1"/>
+      <text x="18" y="6" font-size="4" fill="#5BA3C0" text-anchor="middle">KEY CARD</text>
+    </g>
 
     <!-- ====== EMERGENCY EXITS ====== -->
     <g transform="translate(-8, 310)">
@@ -364,6 +427,40 @@
       <rect x="0" y="0" width="12" height="28" fill="#CC3333" opacity="0.3" stroke="#CC3333" stroke-width="1.5" rx="1"/>
       <text x="6" y="17" font-size="5" fill="#CC3333" text-anchor="middle" font-weight="bold">EXIT</text>
     </g>
+
+    <!-- ====== OUTDOOR TERRACE (~500 SF) — NEW ====== -->
+    <!-- x=0, y=457, w=348, h=78 → extends beyond building south wall -->
+    <!-- NanaWall bi-fold glass doors on lounge south wall -->
+    <line x1="30" y1="455" x2="250" y2="455" stroke="#87CEEB" stroke-width="4" opacity="0.6"/>
+    <text x="140" y="465" font-size="5" fill="#5BA3C0" text-anchor="middle">NANAWALL BI-FOLD GLASS DOORS (22')</text>
+    <!-- Terrace outline (dashed, like outdoor on 1st floor) -->
+    <rect x="0" y="458" width="348" height="78" fill="#A8D8A0" opacity="0.04" stroke="#1A1A1A" stroke-width="2" stroke-dasharray="8,4" rx="3"/>
+    <text x="174" y="480" class="zone-label" font-size="13">OUTDOOR TERRACE</text>
+    <text x="174" y="496" class="sf-label" font-size="10">~500 SF</text>
+    <!-- Outdoor furniture -->
+    <g transform="translate(20, 500)">
+      <rect x="0" y="0" width="50" height="18" fill="#3E2418" opacity="0.08" stroke="#888" stroke-width="0.5" rx="3"/>
+      <text x="25" y="12" font-size="5" fill="#888" text-anchor="middle">SOFA</text>
+      <rect x="60" y="0" width="50" height="18" fill="#3E2418" opacity="0.08" stroke="#888" stroke-width="0.5" rx="3"/>
+      <text x="85" y="12" font-size="5" fill="#888" text-anchor="middle">SOFA</text>
+    </g>
+    <g transform="translate(145, 500)">
+      <rect x="0" y="0" width="22" height="22" fill="#3E2418" opacity="0.08" stroke="#888" stroke-width="0.5" rx="4"/>
+      <rect x="30" y="0" width="22" height="22" fill="#3E2418" opacity="0.08" stroke="#888" stroke-width="0.5" rx="4"/>
+      <rect x="60" y="0" width="22" height="22" fill="#3E2418" opacity="0.08" stroke="#888" stroke-width="0.5" rx="4"/>
+      <rect x="90" y="0" width="22" height="22" fill="#3E2418" opacity="0.08" stroke="#888" stroke-width="0.5" rx="4"/>
+    </g>
+    <text x="210" y="530" font-size="5" fill="#888" text-anchor="middle">LOUNGE CHAIRS (4)</text>
+    <!-- String lights -->
+    <line x1="10" y1="472" x2="338" y2="472" stroke="#E8A040" stroke-width="0.5" stroke-dasharray="3,6" opacity="0.6"/>
+    <text x="310" y="471" font-size="4" fill="#E8A040" text-anchor="end">STRING LIGHTS</text>
+    <!-- Glass railing -->
+    <line x1="0" y1="536" x2="348" y2="536" stroke="#87CEEB" stroke-width="2" opacity="0.4"/>
+    <line x1="0" y1="458" x2="0" y2="536" stroke="#87CEEB" stroke-width="2" opacity="0.4"/>
+    <line x1="348" y1="458" x2="348" y2="536" stroke="#87CEEB" stroke-width="2" opacity="0.4"/>
+    <text x="174" y="544" font-size="5" fill="#87CEEB" text-anchor="middle">GLASS RAILING — 42" IBC COMPLIANT</text>
+    <!-- Views label -->
+    <text x="174" y="555" font-size="6" fill="#D4A574" text-anchor="middle" font-weight="500">VIEWS TO LIBERTY PARK DISTRICT  |  EVENING LIGHTING</text>
 
     <!-- ====== DIMENSION LINES ====== -->
     <line x1="0" y1="-35" x2="910" y2="-35" class="dim-line" marker-end="url(#arrowhead-dark)"/>
@@ -386,66 +483,82 @@
 
     <line x1="0" y1="25" x2="25" y2="25" stroke="#1A1A1A" stroke-width="3"/>
     <text x="32" y="28" class="legend-text">Exterior Wall</text>
-    <line x1="0" y1="45" x2="25" y2="45" stroke="#1A1A1A" stroke-width="2"/>
-    <text x="32" y="48" class="legend-text">Interior Wall</text>
-    <line x1="0" y1="65" x2="25" y2="65" stroke="#87CEEB" stroke-width="3" opacity="0.6"/>
-    <text x="32" y="68" class="legend-text">Glass Wall / Window</text>
-    <rect x="0" y="78" width="25" height="6" fill="#D4A574" rx="1"/>
-    <text x="32" y="85" class="legend-text">Door Opening</text>
-    <rect x="0" y="95" width="15" height="10" fill="#CC3333" opacity="0.3" stroke="#CC3333" stroke-width="1"/>
-    <text x="32" y="104" class="legend-text">Emergency Exit</text>
-    <rect x="0" y="115" width="25" height="10" fill="#3E2418" opacity="0.1" stroke="#3E2418" stroke-width="1"/>
-    <text x="32" y="124" class="legend-text">Cafe / Bar Zone</text>
-    <rect x="0" y="135" width="25" height="10" fill="#E8D5B7" opacity="0.15" stroke="#E8D5B7" stroke-width="1"/>
-    <text x="32" y="144" class="legend-text">Social / Lounge</text>
-    <rect x="0" y="155" width="25" height="10" fill="#87CEEB" opacity="0.1" stroke="#87CEEB" stroke-width="1"/>
-    <text x="32" y="164" class="legend-text">Coworking / Work</text>
-    <rect x="0" y="175" width="25" height="10" fill="#A89888" opacity="0.15" stroke="#A89888" stroke-width="1"/>
-    <text x="32" y="184" class="legend-text">Wellness / Spa</text>
-    <rect x="0" y="195" width="25" height="10" fill="#D4A574" opacity="0.08" stroke="#D4A574" stroke-width="1"/>
-    <text x="32" y="204" class="legend-text">Yoga / Mobility Studio</text>
-    <rect x="0" y="215" width="25" height="10" fill="#AAA" opacity="0.1" stroke="#AAA" stroke-width="1"/>
-    <text x="32" y="224" class="legend-text">Mechanical / Utility</text>
-    <line x1="0" y1="238" x2="25" y2="238" stroke="#D4A574" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
-    <text x="32" y="241" class="legend-text">Member Circulation</text>
+    <line x1="0" y1="42" x2="25" y2="42" stroke="#1A1A1A" stroke-width="2"/>
+    <text x="32" y="45" class="legend-text">Interior Wall</text>
+    <line x1="0" y1="59" x2="25" y2="59" stroke="#1A1A1A" stroke-width="3" stroke-dasharray="2,1"/>
+    <text x="32" y="62" class="legend-text">STC-50 Sound Wall</text>
+    <line x1="0" y1="76" x2="25" y2="76" stroke="#87CEEB" stroke-width="3" opacity="0.6"/>
+    <text x="32" y="79" class="legend-text">Glass Wall / Window</text>
+    <rect x="0" y="87" width="25" height="6" fill="#D4A574" rx="1"/>
+    <text x="32" y="94" class="legend-text">Door Opening</text>
+    <rect x="0" y="102" width="15" height="10" fill="#CC3333" opacity="0.3" stroke="#CC3333" stroke-width="1"/>
+    <text x="32" y="111" class="legend-text">Emergency Exit</text>
+    <rect x="0" y="120" width="25" height="8" fill="#87CEEB" opacity="0.15" stroke="#87CEEB" stroke-width="1"/>
+    <text x="32" y="128" class="legend-text">Key Card Access</text>
+    <rect x="0" y="138" width="25" height="10" fill="#3E2418" opacity="0.1" stroke="#3E2418" stroke-width="1"/>
+    <text x="32" y="147" class="legend-text">Cafe / Bar Zone</text>
+    <rect x="0" y="155" width="25" height="10" fill="#E8D5B7" opacity="0.15" stroke="#E8D5B7" stroke-width="1"/>
+    <text x="32" y="164" class="legend-text">Social / Lounge</text>
+    <rect x="0" y="172" width="25" height="10" fill="#C4A882" opacity="0.12" stroke="#C4A882" stroke-width="1"/>
+    <text x="32" y="181" class="legend-text">Private Event Room</text>
+    <rect x="0" y="189" width="25" height="10" fill="#87CEEB" opacity="0.1" stroke="#87CEEB" stroke-width="1"/>
+    <text x="32" y="198" class="legend-text">Coworking / Work</text>
+    <rect x="0" y="206" width="25" height="10" fill="#A89888" opacity="0.15" stroke="#A89888" stroke-width="1"/>
+    <text x="32" y="215" class="legend-text">Wellness / Body Comp</text>
+    <rect x="0" y="223" width="25" height="10" fill="#A8D8A0" opacity="0.08" stroke="#A8D8A0" stroke-width="1"/>
+    <text x="32" y="232" class="legend-text">Outdoor Terrace</text>
+    <rect x="0" y="240" width="25" height="10" fill="#AAA" opacity="0.1" stroke="#AAA" stroke-width="1"/>
+    <text x="32" y="249" class="legend-text">Mechanical / Storage</text>
+    <line x1="0" y1="263" x2="25" y2="263" stroke="#D4A574" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+    <text x="32" y="266" class="legend-text">Member Circulation</text>
 
     <!-- Zone Summary -->
-    <text x="0" y="270" font-size="9" fill="#1A1A1A" font-weight="600">ZONE SUMMARY</text>
-    <text x="0" y="285" class="legend-text">Cafe &amp; Bar ............... 1,600 SF</text>
-    <text x="0" y="298" class="legend-text">Social Lounge ........... 1,400 SF</text>
-    <text x="0" y="311" class="legend-text">Coworking ................ 1,200 SF</text>
-    <text x="0" y="324" class="legend-text">Wellness Suites ........ 1,200 SF</text>
-    <text x="0" y="337" class="legend-text">Yoga / Mobility ............ 900 SF</text>
-    <text x="0" y="350" class="legend-text">Restrooms .................. 400 SF</text>
-    <text x="0" y="363" class="legend-text">Staff Office ................. 300 SF</text>
-    <text x="0" y="376" class="legend-text">Mechanical / Utility ..... 200 SF</text>
-    <line x1="0" y1="383" x2="180" y2="383" stroke="#D4A574" stroke-width="0.5"/>
-    <text x="0" y="396" class="legend-text" font-weight="600">PROGRAMMED ........ 7,200 SF</text>
-    <text x="0" y="410" class="legend-text">Gallery Overlook ......... ~500 SF</text>
-    <text x="0" y="423" class="legend-text">Circulation ................... ~800 SF</text>
-    <line x1="0" y1="430" x2="180" y2="430" stroke="#D4A574" stroke-width="1"/>
-    <text x="0" y="443" class="legend-text" font-weight="600">FOOTPRINT ............ ~8,500 SF</text>
+    <text x="0" y="292" font-size="9" fill="#1A1A1A" font-weight="600">ZONE SUMMARY</text>
+    <text x="0" y="306" class="legend-text">Cafe &amp; Bar ............... 1,600 SF</text>
+    <text x="0" y="319" class="legend-text">Social Lounge ........... 1,800 SF</text>
+    <text x="0" y="332" class="legend-text">Private Event Room ...... 400 SF</text>
+    <text x="0" y="345" class="legend-text">Coworking ................ 1,200 SF</text>
+    <text x="0" y="358" class="legend-text">Wellness Suites ........ 1,200 SF</text>
+    <text x="0" y="371" class="legend-text">Restrooms .................. 400 SF</text>
+    <text x="0" y="384" class="legend-text">Staff Office ................. 200 SF</text>
+    <text x="0" y="397" class="legend-text">Event Storage .............. 100 SF</text>
+    <text x="0" y="410" class="legend-text">Mechanical / Utility ..... 200 SF</text>
+    <line x1="0" y1="417" x2="190" y2="417" stroke="#D4A574" stroke-width="0.5"/>
+    <text x="0" y="430" class="legend-text" font-weight="600">INDOOR PROGRAMMED .. 7,100 SF</text>
+    <text x="0" y="443" class="legend-text">Gallery Overlook ......... ~500 SF</text>
+    <text x="0" y="456" class="legend-text">Circulation ................... ~900 SF</text>
+    <line x1="0" y1="463" x2="190" y2="463" stroke="#D4A574" stroke-width="1"/>
+    <text x="0" y="476" class="legend-text" font-weight="600">INDOOR FOOTPRINT .. ~8,500 SF</text>
+    <text x="0" y="489" class="legend-text">Outdoor Terrace .......... ~500 SF</text>
+    <line x1="0" y1="496" x2="190" y2="496" stroke="#D4A574" stroke-width="1.5"/>
+    <text x="0" y="509" class="legend-text" font-weight="700" style="font-size:10px; fill:#D4A574">GRAND TOTAL ......... ~9,000 SF</text>
 
     <!-- Floor Flow -->
-    <text x="0" y="475" font-size="9" fill="#1A1A1A" font-weight="600">SECOND FLOOR FLOW</text>
-    <text x="0" y="490" class="legend-text" fill="#D4A574">1. Arrive via stair/elevator</text>
-    <text x="0" y="503" class="legend-text" fill="#D4A574">   (adjacent to reception, no gym crossing)</text>
-    <text x="0" y="518" class="legend-text" fill="#D4A574">2. Cafe → Order / Eat / Coffee</text>
-    <text x="0" y="533" class="legend-text" fill="#D4A574">3. Cowork → Remote Work</text>
-    <text x="0" y="548" class="legend-text" fill="#D4A574">4. Lounge → Socialize / Events</text>
-    <text x="0" y="563" class="legend-text" fill="#D4A574">5. Wellness → Treatment</text>
-    <text x="0" y="578" class="legend-text" fill="#D4A574">6. Studio → Yoga / Mobility (8-12 ppl)</text>
-    <text x="0" y="593" class="legend-text" fill="#D4A574">7. Gallery → Overlook training floor</text>
+    <text x="0" y="535" font-size="9" fill="#1A1A1A" font-weight="600">SECOND FLOOR FLOW</text>
+    <text x="0" y="549" class="legend-text" fill="#D4A574">1. Arrive via stair/elevator (key card)</text>
+    <text x="0" y="561" class="legend-text" fill="#D4A574">   (adjacent to reception, no gym crossing)</text>
+    <text x="0" y="575" class="legend-text" fill="#D4A574">2. Cafe → Order / Eat / Smoothies / Bar</text>
+    <text x="0" y="589" class="legend-text" fill="#D4A574">3. Cowork → Remote Work (6 desks + conf)</text>
+    <text x="0" y="603" class="legend-text" fill="#D4A574">4. Lounge → Socialize / Yoga / Events</text>
+    <text x="0" y="617" class="legend-text" fill="#D4A574">5. Event Room → Corporate / Private</text>
+    <text x="0" y="631" class="legend-text" fill="#D4A574">6. Wellness → Treatment / Body Comp</text>
+    <text x="0" y="645" class="legend-text" fill="#D4A574">7. Terrace → Outdoor Lounge / Views</text>
+    <text x="0" y="659" class="legend-text" fill="#D4A574">8. Gallery → Overlook training floor</text>
 
     <!-- Notes -->
-    <text x="0" y="625" font-size="9" fill="#1A1A1A" font-weight="600">KEY DESIGN NOTES</text>
-    <text x="0" y="640" class="legend-text">• 2nd floor above front portion only</text>
-    <text x="0" y="653" class="legend-text">• Training floor below has 14+ ft ceilings</text>
-    <text x="0" y="666" class="legend-text">• Dedicated mechanical for kitchen exhaust</text>
-    <text x="0" y="679" class="legend-text">• Dumbwaiter for food/supply delivery</text>
-    <text x="0" y="692" class="legend-text">• Kettlebells moved to Ground Floor</text>
-    <text x="0" y="705" class="legend-text">• Studio: yoga/mobility/stretch only</text>
-    <text x="0" y="718" class="legend-text">• Cafe serves supplement smoothies</text>
+    <text x="0" y="685" font-size="9" fill="#1A1A1A" font-weight="600">REV 06 DESIGN NOTES</text>
+    <text x="0" y="699" class="legend-text">• Yoga studio removed — classes in lounge</text>
+    <text x="0" y="712" class="legend-text">• Lounge expanded 1,400→1,800 SF</text>
+    <text x="0" y="725" class="legend-text">• Private event room added (400 SF)</text>
+    <text x="0" y="738" class="legend-text">• Outdoor terrace with NanaWall doors</text>
+    <text x="0" y="751" class="legend-text">• Body Comp Lab replaces Nutrition room</text>
+    <text x="0" y="764" class="legend-text">• Conference room expanded (6-8 person)</text>
+    <text x="0" y="777" class="legend-text">• Event storage carved from staff office</text>
+    <text x="0" y="790" class="legend-text">• STC-50 walls between social zones</text>
+    <text x="0" y="803" class="legend-text">• Key card access at stair + coworking</text>
+    <text x="0" y="816" class="legend-text">• Power/USB at all seating positions</text>
+    <text x="0" y="829" class="legend-text">• IBC guardrails on gallery overlook</text>
+    <text x="0" y="842" class="legend-text">• 42" glass railing on terrace</text>
   </g>
 
   <!-- North Arrow -->
@@ -469,7 +582,7 @@
 
   <!-- Footer -->
   <line x1="50" y1="960" x2="1350" y2="960" stroke="#D4A574" stroke-width="0.5"/>
-  <text x="50" y="978" font-size="8" fill="#999" font-family="Inter, sans-serif">THE EREMOS  |  Second Floor Plan  |  Liberty Park District, Memphis, TN  |  PRELIMINARY - NOT FOR CONSTRUCTION</text>
-  <text x="1350" y="978" font-size="8" fill="#999" font-family="Inter, sans-serif" text-anchor="end">Drawing 02B  |  Rev 05  |  February 2026</text>
+  <text x="50" y="978" font-size="8" fill="#999" font-family="Inter, sans-serif">THE EREMOS  |  Second Floor Plan  |  Liberty Park District, Memphis, TN  |  PRELIMINARY — NOT FOR CONSTRUCTION</text>
+  <text x="1350" y="978" font-size="8" fill="#999" font-family="Inter, sans-serif" text-anchor="end">Drawing 02B  |  Rev 06  |  February 2026</text>
 
 </svg>

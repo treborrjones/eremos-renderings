@@ -45,7 +45,7 @@
   <!-- Title Block -->
   <text x="55" y="42" class="title">THE EREMOS</text>
   <text x="55" y="62" class="subtitle">FIRST FLOOR PLAN  |  Ground Level  |  15,800 SF Indoor + 2,500 SF Outdoor  |  A+ Configuration</text>
-  <text x="55" y="78" class="subtitle" style="fill:#AAA">Liberty Park District, Memphis, TN  |  Drawing 02A  |  Rev 05  |  February 2026</text>
+  <text x="55" y="78" class="subtitle" style="fill:#AAA">Liberty Park District, Memphis, TN  |  Drawing 02A  |  Rev 06  |  February 2026</text>
   <line x1="55" y1="88" x2="1445" y2="88" stroke="#D4A574" stroke-width="1.5"/>
 
   <!-- Scale and North Arrow -->
@@ -269,6 +269,7 @@
     <text x="379" y="153" class="zone-name" style="font-size:10px">/ MOBILITY</text>
     <text x="379" y="166" class="zone-sf">350 SF</text>
     <text x="379" y="178" class="zone-detail">Foam rollers  |  Bands  |  Mats</text>
+    <text x="379" y="188" class="zone-detail" style="fill:#D4A574; font-size:5.5px">Open-access — no scheduled classes</text>
     <rect x="335" y="190" width="88" height="45" fill="#A8D8A0" opacity="0.06" stroke="#AAA" stroke-width="0.5" rx="2"/>
     <text x="379" y="218" class="equip-label">MAT AREA</text>
     <rect x="335" y="240" width="40" height="14" class="equip" rx="2"/>
@@ -769,6 +770,6 @@
   <!-- ====== FOOTER ====== -->
   <line x1="55" y1="1060" x2="1445" y2="1060" stroke="#D4A574" stroke-width="0.5"/>
   <text x="55" y="1078" font-size="8" fill="#AAA" font-family="Inter, sans-serif">THE EREMOS  |  First Floor Plan  |  Liberty Park District, Memphis, TN  |  PRELIMINARY — NOT FOR CONSTRUCTION</text>
-  <text x="1445" y="1078" font-size="8" fill="#AAA" font-family="Inter, sans-serif" text-anchor="end">Drawing 02A  |  Rev 05  |  February 2026</text>
+  <text x="1445" y="1078" font-size="8" fill="#AAA" font-family="Inter, sans-serif" text-anchor="end">Drawing 02A  |  Rev 06  |  February 2026</text>
 
 </svg>
