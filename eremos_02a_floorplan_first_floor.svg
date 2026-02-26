@@ -383,25 +383,58 @@
     <!-- VersaClimber -->
     <rect x="740" y="400" width="14" height="14" class="equip" rx="1"/>
     <text x="747" y="428" class="equip-label">VC</text>
+    <!-- Plate-loaded accessories below cardio machines -->
+    <rect x="575" y="445" width="38" height="24" class="equip-dark" rx="2"/>
+    <text x="594" y="461" class="equip-label" style="font-size:5px" fill="white">SEAL ROW</text>
+    <rect x="620" y="445" width="38" height="24" class="equip-dark" rx="2"/>
+    <text x="639" y="461" class="equip-label" style="font-size:5px" fill="white">GLUTE DRV</text>
+    <rect x="665" y="445" width="38" height="24" class="equip-dark" rx="2"/>
+    <text x="684" y="461" class="equip-label" style="font-size:5px" fill="white">LEG CURL</text>
+    <text x="639" y="482" class="equip-label">3 PLATE-LOADED (HAMMER STRENGTH)</text>
+    <!-- Plate trees for cardio-adjacent machines -->
+    <rect x="710" y="448" width="8" height="18" class="equip" rx="1"/>
+    <rect x="564" y="448" width="8" height="18" class="equip" rx="1"/>
     <!-- Water station -->
-    <circle cx="760" cy="480" r="6" class="water"/>
-    <text x="760" y="496" class="equip-label" style="fill:#5BA3C0">H2O</text>
+    <circle cx="760" cy="500" r="6" class="water"/>
+    <text x="760" y="516" class="equip-label" style="fill:#5BA3C0">H2O</text>
 
-    <!-- ====== ZONE: OPEN TRAINING / OVERFLOW ====== -->
+    <!-- ====== ZONE: PLATE-LOADED SATELLITE (near Cardio) ====== -->
     <!-- x=784, y=285, w=194, h=245 -->
-    <text x="880" y="345" class="zone-detail" style="font-size:8px; fill:#BBB">OPEN TRAINING</text>
-    <text x="880" y="358" class="zone-detail" style="font-size:7px">Overflow  |  Stretching  |  Accessory Work</text>
-    <!-- Plate tree bank -->
-    <rect x="800" y="375" width="8" height="35" class="equip" rx="1"/>
-    <rect x="814" y="375" width="8" height="35" class="equip" rx="1"/>
-    <rect x="828" y="375" width="8" height="35" class="equip" rx="1"/>
-    <rect x="842" y="375" width="8" height="35" class="equip" rx="1"/>
-    <rect x="856" y="375" width="8" height="35" class="equip" rx="1"/>
-    <text x="830" y="425" class="equip-label">PLATE TREE BANK</text>
-    <circle cx="930" cy="400" r="6" class="water"/>
-    <text x="930" y="416" class="equip-label" style="fill:#5BA3C0">H2O</text>
-    <rect x="890" y="375" width="8" height="28" class="equip" rx="1"/>
-    <rect x="904" y="375" width="8" height="28" class="equip" rx="1"/>
+    <text x="880" y="310" class="zone-name" style="font-size:11px">PLATE-LOADED</text>
+    <text x="880" y="323" class="zone-name" style="font-size:9px">SATELLITE</text>
+    <text x="880" y="337" class="zone-detail">Adjacent to Cardio  |  Plate storage</text>
+    <!-- Row 1: Upper body pressing / pulling -->
+    <rect x="800" y="352" width="38" height="24" class="equip-dark" rx="2"/>
+    <text x="819" y="368" class="equip-label" style="font-size:5px" fill="white">CHST PRSS</text>
+    <rect x="845" y="352" width="38" height="24" class="equip-dark" rx="2"/>
+    <text x="864" y="368" class="equip-label" style="font-size:5px" fill="white">SHLD PRSS</text>
+    <rect x="890" y="352" width="38" height="24" class="equip-dark" rx="2"/>
+    <text x="909" y="368" class="equip-label" style="font-size:5px" fill="white">T-BAR ROW</text>
+    <text x="864" y="388" class="equip-label">ARSENAL / PRIME (PLATE-LOADED)</text>
+    <!-- Row 2: Lower body / posterior chain -->
+    <rect x="800" y="398" width="38" height="24" class="equip-dark" rx="2"/>
+    <text x="819" y="414" class="equip-label" style="font-size:5px" fill="white">REV HYPER</text>
+    <rect x="845" y="398" width="38" height="24" class="equip-dark" rx="2"/>
+    <text x="864" y="414" class="equip-label" style="font-size:5px" fill="white">CALF RAISE</text>
+    <rect x="890" y="398" width="38" height="24" class="equip-dark" rx="2"/>
+    <text x="909" y="414" class="equip-label" style="font-size:5px" fill="white">ISO ROW</text>
+    <!-- Row 3: Additional machines -->
+    <rect x="800" y="436" width="38" height="24" class="equip-dark" rx="2"/>
+    <text x="819" y="452" class="equip-label" style="font-size:5px" fill="white">DIP/CHIN</text>
+    <rect x="845" y="436" width="38" height="24" class="equip-dark" rx="2"/>
+    <text x="864" y="452" class="equip-label" style="font-size:5px" fill="white">LAT PULL</text>
+    <rect x="890" y="436" width="38" height="24" class="equip-dark" rx="2"/>
+    <text x="909" y="452" class="equip-label" style="font-size:5px" fill="white">LOW ROW</text>
+    <!-- Plate trees at satellite -->
+    <rect x="935" y="355" width="8" height="30" class="equip" rx="1"/>
+    <rect x="935" y="400" width="8" height="30" class="equip" rx="1"/>
+    <rect x="935" y="440" width="8" height="25" class="equip" rx="1"/>
+    <rect x="788" y="400" width="8" height="25" class="equip" rx="1"/>
+    <text x="788" y="435" class="equip-label" style="font-size:5px">PLATES</text>
+    <!-- Water station -->
+    <circle cx="950" cy="490" r="6" class="water"/>
+    <text x="950" y="506" class="equip-label" style="fill:#5BA3C0">H2O</text>
+    <text x="880" y="480" class="zone-detail" style="font-size:6px">9 plate-loaded stations  |  3 plate trees</text>
 
     <!-- ====== ZONE: INDOOR TURF / SPRINT LANE (700 SF) ====== -->
     <!-- x=978, y=0, w=70, h=750 → 70*750/49 = 1,071 SF (includes lane + padding) -->
