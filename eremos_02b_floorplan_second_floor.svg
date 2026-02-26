@@ -32,7 +32,7 @@
   <!-- Title Block -->
   <text x="50" y="45" class="title">THE EREMOS</text>
   <text x="50" y="65" class="subtitle">SECOND FLOOR PLAN  |  Upper Level  |  7,200 SF Programmed  |  ~8,500 SF Footprint</text>
-  <text x="50" y="82" class="subtitle" style="fill:#999">Liberty Park District, Memphis, TN  |  Scale: 1/16" = 1'-0" (approximate)  |  Rev 04  |  February 2026</text>
+  <text x="50" y="82" class="subtitle" style="fill:#999">Liberty Park District, Memphis, TN  |  Scale: 1/16" = 1'-0" (approximate)  |  Rev 05  |  February 2026</text>
   <line x1="50" y1="92" x2="1350" y2="92" stroke="#D4A574" stroke-width="1.5"/>
 
   <!-- ====== BUILDING ====== -->
@@ -127,9 +127,10 @@
     <text x="90" y="124" font-size="8" fill="#888" text-anchor="middle">KITCHEN</text>
     <rect x="70" y="78" width="45" height="7" fill="#D4A574" opacity="0.3" rx="1"/>
     <text x="92" y="84" font-size="5" fill="#D4A574" text-anchor="middle">PASS-THROUGH</text>
-    <!-- Coffee Bar -->
+    <!-- Coffee + Smoothie Bar -->
     <rect x="170" y="82" width="60" height="22" fill="#3E2418" opacity="0.12" stroke="#888" stroke-width="0.75" rx="2"/>
-    <text x="200" y="96" font-size="6" fill="#888" text-anchor="middle">COFFEE BAR</text>
+    <text x="200" y="93" font-size="5.5" fill="#888" text-anchor="middle">COFFEE BAR +</text>
+    <text x="200" y="101" font-size="5" fill="#D4A574" text-anchor="middle">SUPPLEMENT SMOOTHIES</text>
     <!-- Back Bar -->
     <rect x="170" y="110" width="140" height="40" fill="#3E2418" opacity="0.08" stroke="#888" stroke-width="1" rx="2"/>
     <text x="240" y="130" font-size="7" fill="#888" text-anchor="middle">BACK BAR</text>
@@ -270,20 +271,21 @@
       <text x="95" y="28" font-size="5.5" fill="#D4A574" text-anchor="middle">Milestone Nights  |  Post-4PM Bar Lounge</text>
     </g>
 
-    <!-- ====== GROUP FITNESS / FLEX SPACE (900 SF) ====== -->
+    <!-- ====== YOGA / MOBILITY STUDIO (900 SF) — RENAMED ====== -->
     <!-- Zone: x=350, y=220, w=240, h=190 → 240*190/49 = 931 SF -->
-    <text x="470" y="258" class="zone-label" font-size="14">GROUP FITNESS</text>
-    <text x="470" y="276" class="zone-label" font-size="11">/ FLEX SPACE</text>
-    <text x="470" y="294" class="sf-label" font-size="10">900 SF</text>
-    <text x="470" y="308" class="zone-sublabel">Yoga / Mobility  |  Small Group (8-12)</text>
+    <text x="470" y="255" class="zone-label" font-size="14">YOGA / MOBILITY</text>
+    <text x="470" y="273" class="zone-label" font-size="11">STUDIO</text>
+    <text x="470" y="291" class="sf-label" font-size="10">900 SF</text>
+    <text x="470" y="305" class="zone-sublabel">Yoga / Mobility / Stretch  |  Small Group (8-12)</text>
+    <text x="470" y="318" class="zone-sublabel" style="fill:#D4A574; font-size:7px">Light implements only — heavy work on Ground Floor</text>
     <!-- Mirror wall -->
     <line x1="355" y1="230" x2="355" y2="400" stroke="#87CEEB" stroke-width="2" opacity="0.6"/>
     <text x="360" y="340" font-size="5" fill="#87CEEB" transform="rotate(-90,360,340)">MIRROR WALL</text>
-    <!-- Kettlebell Rack -->
-    <rect x="375" y="320" width="70" height="12" fill="#E8E8E8" stroke="#888" stroke-width="0.5" rx="2"/>
-    <text x="410" y="329" font-size="5" fill="#888" text-anchor="middle">KETTLEBELL RACK</text>
+    <!-- Resistance Band Rack (replaces kettlebells) -->
+    <rect x="375" y="330" width="70" height="12" fill="#E8E8E8" stroke="#888" stroke-width="0.5" rx="2"/>
+    <text x="410" y="339" font-size="5" fill="#888" text-anchor="middle">BAND / YOGA PROP RACK</text>
     <!-- TRX Anchors -->
-    <g transform="translate(380, 345)">
+    <g transform="translate(380, 350)">
       <circle cx="0" cy="0" r="3" fill="#888" opacity="0.2" stroke="#888" stroke-width="0.5"/>
       <circle cx="18" cy="0" r="3" fill="#888" opacity="0.2" stroke="#888" stroke-width="0.5"/>
       <circle cx="36" cy="0" r="3" fill="#888" opacity="0.2" stroke="#888" stroke-width="0.5"/>
@@ -293,9 +295,9 @@
       <text x="45" y="15" font-size="5" fill="#888" text-anchor="middle">TRX ANCHORS (6)</text>
     </g>
     <!-- Mat area -->
-    <rect x="375" y="370" width="195" height="30" fill="#D4A574" opacity="0.04" stroke="#AAA" stroke-width="0.5" rx="2"/>
-    <text x="472" y="389" font-size="6" fill="#888" text-anchor="middle">OPEN MAT AREA</text>
-    <text x="470" y="405" font-size="5" fill="#888" text-anchor="middle" font-style="italic">Rubber Floor  |  Sound System  |  Mirrors</text>
+    <rect x="375" y="375" width="195" height="28" fill="#D4A574" opacity="0.04" stroke="#AAA" stroke-width="0.5" rx="2"/>
+    <text x="472" y="393" font-size="6" fill="#888" text-anchor="middle">OPEN MAT AREA</text>
+    <text x="470" y="406" font-size="5" fill="#888" text-anchor="middle" font-style="italic">Cork Floor  |  Sound System  |  Full Mirrors</text>
 
     <!-- ====== WELLNESS PROFESSIONAL SUITES (1,200 SF) ====== -->
     <!-- Zone: x=590, y=220, w=320, h=190 → 320*190/49 = 1,241 SF -->
@@ -401,7 +403,7 @@
     <rect x="0" y="175" width="25" height="10" fill="#A89888" opacity="0.15" stroke="#A89888" stroke-width="1"/>
     <text x="32" y="184" class="legend-text">Wellness / Spa</text>
     <rect x="0" y="195" width="25" height="10" fill="#D4A574" opacity="0.08" stroke="#D4A574" stroke-width="1"/>
-    <text x="32" y="204" class="legend-text">Group Fitness / Flex</text>
+    <text x="32" y="204" class="legend-text">Yoga / Mobility Studio</text>
     <rect x="0" y="215" width="25" height="10" fill="#AAA" opacity="0.1" stroke="#AAA" stroke-width="1"/>
     <text x="32" y="224" class="legend-text">Mechanical / Utility</text>
     <line x1="0" y1="238" x2="25" y2="238" stroke="#D4A574" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
@@ -413,7 +415,7 @@
     <text x="0" y="298" class="legend-text">Social Lounge ........... 1,400 SF</text>
     <text x="0" y="311" class="legend-text">Coworking ................ 1,200 SF</text>
     <text x="0" y="324" class="legend-text">Wellness Suites ........ 1,200 SF</text>
-    <text x="0" y="337" class="legend-text">Group Fitness/Flex ...... 900 SF</text>
+    <text x="0" y="337" class="legend-text">Yoga / Mobility ............ 900 SF</text>
     <text x="0" y="350" class="legend-text">Restrooms .................. 400 SF</text>
     <text x="0" y="363" class="legend-text">Staff Office ................. 300 SF</text>
     <text x="0" y="376" class="legend-text">Mechanical / Utility ..... 200 SF</text>
@@ -432,7 +434,7 @@
     <text x="0" y="533" class="legend-text" fill="#D4A574">3. Cowork → Remote Work</text>
     <text x="0" y="548" class="legend-text" fill="#D4A574">4. Lounge → Socialize / Events</text>
     <text x="0" y="563" class="legend-text" fill="#D4A574">5. Wellness → Treatment</text>
-    <text x="0" y="578" class="legend-text" fill="#D4A574">6. Flex → Class / Train (8-12 ppl)</text>
+    <text x="0" y="578" class="legend-text" fill="#D4A574">6. Studio → Yoga / Mobility (8-12 ppl)</text>
     <text x="0" y="593" class="legend-text" fill="#D4A574">7. Gallery → Overlook training floor</text>
 
     <!-- Notes -->
@@ -441,9 +443,9 @@
     <text x="0" y="653" class="legend-text">• Training floor below has 14+ ft ceilings</text>
     <text x="0" y="666" class="legend-text">• Dedicated mechanical for kitchen exhaust</text>
     <text x="0" y="679" class="legend-text">• Dumbwaiter for food/supply delivery</text>
-    <text x="0" y="692" class="legend-text">• Footprint matches programmed space</text>
-    <text x="0" y="705" class="legend-text">• Lounge reduced to 1,400 SF (was 1,800)</text>
-    <text x="0" y="718" class="legend-text">• Group Fitness increased to 900 SF</text>
+    <text x="0" y="692" class="legend-text">• Kettlebells moved to Ground Floor</text>
+    <text x="0" y="705" class="legend-text">• Studio: yoga/mobility/stretch only</text>
+    <text x="0" y="718" class="legend-text">• Cafe serves supplement smoothies</text>
   </g>
 
   <!-- North Arrow -->
@@ -468,6 +470,6 @@
   <!-- Footer -->
   <line x1="50" y1="960" x2="1350" y2="960" stroke="#D4A574" stroke-width="0.5"/>
   <text x="50" y="978" font-size="8" fill="#999" font-family="Inter, sans-serif">THE EREMOS  |  Second Floor Plan  |  Liberty Park District, Memphis, TN  |  PRELIMINARY - NOT FOR CONSTRUCTION</text>
-  <text x="1350" y="978" font-size="8" fill="#999" font-family="Inter, sans-serif" text-anchor="end">Drawing 02B  |  Rev 04  |  February 2026</text>
+  <text x="1350" y="978" font-size="8" fill="#999" font-family="Inter, sans-serif" text-anchor="end">Drawing 02B  |  Rev 05  |  February 2026</text>
 
 </svg>
